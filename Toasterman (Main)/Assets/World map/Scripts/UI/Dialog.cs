@@ -94,7 +94,7 @@ public class Dialog : MonoBehaviour
 
         BoxAnim.Play("In");
         yield return new WaitForSeconds(seconds);
-        TxtAnim.Play("In");
+        TxtAnim.Play("TextBox");
     }
 
     public void NextSentence()
