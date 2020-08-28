@@ -8,6 +8,10 @@ public class Dialog : MonoBehaviour
 
     public TextMeshProUGUI textDisplay;
 
+    public GameObject ContinueButton;
+    public GameObject GotoButton;
+    public GameObject SkipButton;
+
     public Animator ToastAnim;
     public Animator OtherAnim;
     public Animator BoxAnim;
@@ -31,8 +35,15 @@ public class Dialog : MonoBehaviour
 
     void Update()
     {
+        if (index >= indexDone)
+        {
+            textDisplay.text = " ";
+            ContinueButton.SetActive(false);
+            SkipButton.SetActive(false);
+            GotoButton.SetActive(true);
 
-        if (LeftIn == index)
+        }
+        else if (LeftIn == index)
         {
 
             ToastAnim.Play("In");
@@ -60,23 +71,21 @@ public class Dialog : MonoBehaviour
             RightOut = -1;
 
         }
-        else if (index == 0)
+        else if (Started == true)
         {
 
-        }
-
-        if (Started == true)
-        {
-
-            NextSentence();
+            StartCoroutine(Type());
             Started = false;
 
         }
-
+        
     }
 
     IEnumerator Type()
     {
+
+        ContinueButton.SetActive(false);
+        SkipButton.SetActive(false);
 
         foreach (char letter in sentences[index].ToCharArray())
         {
@@ -86,6 +95,8 @@ public class Dialog : MonoBehaviour
             
         }
 
+        ContinueButton.SetActive(true);
+        SkipButton.SetActive(true);
 
     }
 
@@ -95,6 +106,7 @@ public class Dialog : MonoBehaviour
         BoxAnim.Play("In");
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
+        Started = true;
     }
 
     public void NextSentence()
@@ -113,6 +125,9 @@ public class Dialog : MonoBehaviour
         else
         {
 
+            ContinueButton.SetActive(true);
+            SkipButton.SetActive(true);
+
             textDisplay.text = "";
         }
     }
@@ -122,7 +137,8 @@ public class Dialog : MonoBehaviour
 
         index = indexDone + 1;
         textDisplay.text = " ";
-
+        SkipButton.SetActive(false);
+        GotoButton.SetActive(true);
     }
 
 }
