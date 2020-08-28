@@ -2667,7 +2667,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: i
-      value: 39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -5777,7 +5777,17 @@ PrefabInstance:
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
       propertyPath: BulletLevel
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354949, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354949, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
@@ -7621,7 +7631,7 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: indexDone
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7677,6 +7687,46 @@ PrefabInstance:
         type: 3}
       propertyPath: EmotionToast.Array.data[12].x
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: TxtAnim
+      value: 
+      objectReference: {fileID: 6248229747020012621}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: BoxAnim
+      value: 
+      objectReference: {fileID: 6248229747020012622}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: OtherAnim
+      value: 
+      objectReference: {fileID: 6248229747020012623}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: ToastAnim
+      value: 
+      objectReference: {fileID: 6248229747020012624}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: SkipButton
+      value: 
+      objectReference: {fileID: 6248229747020012625}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: ContinueButton
+      value: 
+      objectReference: {fileID: 6248229747020012627}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: GotoButton
+      value: 
+      objectReference: {fileID: 6248229747020012626}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: Started
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196143, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7747,6 +7797,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+--- !u!95 &6248229747020012621 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 988104833, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6248229747020012622 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6248229747733947962, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6248229747020012623 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 23306961, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6248229747020012624 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1677454039, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6248229747020012625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 744357742, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6248229747020012626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1676549269565968208, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6248229747020012627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1676549270090072169, guid: ef2ca865af77ff2449478951e01d91fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248229747020012620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6364170313366191305
 Transform:
   m_ObjectHideFlags: 0
