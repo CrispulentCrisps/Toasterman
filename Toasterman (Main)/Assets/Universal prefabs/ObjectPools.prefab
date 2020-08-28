@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5416080080228524158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5416080080228524152}
+  - component: {fileID: 5416080080228524153}
+  m_Layer: 0
+  m_Name: ObjectPools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &5416080080228524152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416080080228524158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5416080080228524153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5416080080228524158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b608344af20f040b62a6144c225fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: WeakyFli
+    prefab: {fileID: 9126082682317069464, guid: 0ecc43fc0275a3c4cb5d28435a72fbb5,
+      type: 3}
+    size: 10
+  - tag: Homie
+    prefab: {fileID: 3856419735099327764, guid: ae51d340591728f45956a8c0a66725d4,
+      type: 3}
+    size: 100
+  - tag: Boom
+    prefab: {fileID: 2597242545742524645, guid: 262d1c0df70ca4449a09cd12bc910952,
+      type: 3}
+    size: 100
+  - tag: Bullet
+    prefab: {fileID: 5253340319278179847, guid: d8f90273ddd2ca74dab3125189747368,
+      type: 3}
+    size: 200
+  - tag: Boomerang
+    prefab: {fileID: 7599684584609106393, guid: 5cc6f6ab1f951b543b740cab40ff7988,
+      type: 3}
+    size: 100
+  - tag: EnemyBullet
+    prefab: {fileID: 9102476307835863058, guid: d7ad408d2eba78741822ef4faabb0a37,
+      type: 3}
+    size: 100
+  - tag: Lizarmos
+    prefab: {fileID: 4337332632304231875, guid: 96ca014cc350cd64da7f73474dd35641,
+      type: 3}
+    size: 1
+  - tag: TailShot
+    prefab: {fileID: 6343191883479841145, guid: 24e278455d7b4d14b9198478188bc33a,
+      type: 3}
+    size: 200
+  - tag: Missle
+    prefab: {fileID: 2086596857601216958, guid: b5846c3f85153924f90330019c3d10d9,
+      type: 3}
+    size: 50
+  - tag: Smoke
+    prefab: {fileID: 812783457298150030, guid: 03cdcf3a904949e41922546f07aaf8e0, type: 3}
+    size: 10
+  - tag: BigExplosion
+    prefab: {fileID: 3866907682031127683, guid: 3efeee008ff3ab443b58490b7a29694d,
+      type: 3}
+    size: 50
+  - tag: LightSmoke
+    prefab: {fileID: 632564398361437340, guid: 8a46c420dcdcfbd4eb7205c310cc15ce, type: 3}
+    size: 10
+  - tag: BulletHit
+    prefab: {fileID: 5374327081189132847, guid: 1a00e09d0b2fe9a4bb304cbace2612d6,
+      type: 3}
+    size: 200
+  - tag: CoreDeath
+    prefab: {fileID: 9193812475595127974, guid: 6443912f2108d474085273a33ca2c5da,
+      type: 3}
+    size: 1
+  - tag: CoreShardBoom
+    prefab: {fileID: 474884816660626027, guid: c1bf8a877cd62514f8eaa721e6d4b513, type: 3}
+    size: 50
+  - tag: Shooter
+    prefab: {fileID: 4728287638042413882, guid: e1788abef2348104492658c4766e461b,
+      type: 3}
+    size: 50
+  - tag: Train
+    prefab: {fileID: 7293710316131409959, guid: 559331c127a2dd64dad7a312de9693c3,
+      type: 3}
+    size: 1
+  - tag: EnemyBulletUp
+    prefab: {fileID: 1780695175930727011, guid: 94f08ad8ada44f94aa94c8d61ef32256,
+      type: 3}
+    size: 150
+  - tag: MissleShooter
+    prefab: {fileID: 6060261859861975990, guid: 226c2f0f3f46fdb44b23a53d7bfa5249,
+      type: 3}
+    size: 100
+  - tag: Jabber
+    prefab: {fileID: 4186798775975792347, guid: 46c471a0cf159064faee8e369d5af6cd,
+      type: 3}
+    size: 100
+  - tag: Circling
+    prefab: {fileID: 5594447288684452199, guid: 8507823284f118847987079f40ef3aef,
+      type: 3}
+    size: 100
+  - tag: SlowEnemyBullet
+    prefab: {fileID: 3742736005372934215, guid: 4d4607755c2297b4982f54b50f5db788,
+      type: 3}
+    size: 100
+  - tag: HelperHat
+    prefab: {fileID: 2400078044389690458, guid: c6f46c6d967ac8441b94f261d1699d9c,
+      type: 3}
+    size: 1
+  - tag: BulletAdd
+    prefab: {fileID: 8104820381169924513, guid: f27d212fea5700c4c9b9735dccd1f2e3,
+      type: 3}
+    size: 1
