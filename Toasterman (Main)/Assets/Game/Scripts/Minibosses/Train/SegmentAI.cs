@@ -7,6 +7,8 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public Transform tf;
 
+    public BoxCollider2D boxcol;
+
     public Animator anim;
 
     private bool StartedSegment = false;
@@ -17,6 +19,9 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public bool Alive = true;
     private bool Gravity;
+
+    private int SizeState = 0;
+    private int SizeRate = 0;
 
     private float RotationAmount;
 
@@ -34,6 +39,10 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
         StartedSegment = false;
 
+        tf.localScale = new Vector3(1, 1, 0);
+
+        boxcol.enabled = true;
+
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -44,9 +53,13 @@ public class SegmentAI : MonoBehaviour, IPooledObject
             Alive = false;
 
             YSpeed = Random.Range(10f, 20f);
-            MovementSpeed = Random.Range(-20f, -40f);
+            MovementSpeed = Random.Range(-1f, -10f);
             RotationAmount = Random.Range(-180f,0f);
+            boxcol.enabled = false;
             Gravity = true;
+
+            SizeState = Random.Range(-1,1);
+            SizeRate = Random.Range(1, 2);
 
         }
 
@@ -80,7 +93,7 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
             tf.Rotate(0,0,RotationAmount);
 
-            if (tf.position.y <= -10f)
+            if (tf.position.y <= -10f + tf.localScale.x)
             {
 
                 gameObject.SetActive(false);
@@ -88,6 +101,20 @@ public class SegmentAI : MonoBehaviour, IPooledObject
             }
 
         }
+
+        if (SizeState == -1)
+        {
+
+            tf.localScale -= new Vector3(SizeRate, SizeRate, 0) * Time.deltaTime;
+
+        }
+        else if (SizeState == 1)
+        {
+
+            tf.localScale += new Vector3(SizeRate, SizeRate, 0) * Time.deltaTime;
+
+        }
+
 
         tf.position += new Vector3(MovementSpeed, YSpeed, 0) * Time.deltaTime;
     }

@@ -21,7 +21,7 @@ public class RoccAI : MonoBehaviour
 
             tf.position += new Vector3(MovementSpeed, 0, 0) * Time.deltaTime;
 
-            if (tf.position.x <= -50f)
+            if (tf.position.x <= -150f)
             {
 
                 trainAI.Ended = true;

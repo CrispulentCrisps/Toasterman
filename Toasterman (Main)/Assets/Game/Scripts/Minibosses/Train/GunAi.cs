@@ -36,7 +36,7 @@ public class GunAi : MonoBehaviour
 
             Charge += Recharge * Time.deltaTime;
 
-            if (transform.position.x <= -13f || transform.position.x >= 12f)
+            if (transform.position.x <= -12f || transform.position.x >= 12f)
             {
 
                 Charge = 99f;
