@@ -9,6 +9,8 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public BoxCollider2D boxcol;
 
+    public SpriteRenderer[] sprites;
+
     public Animator anim;
 
     private bool StartedSegment = false;
@@ -21,7 +23,7 @@ public class SegmentAI : MonoBehaviour, IPooledObject
     private bool Gravity;
 
     private int SizeState = 0;
-    private int SizeRate = 0;
+    private float SizeRate = 0;
 
     private float RotationAmount;
 
@@ -59,7 +61,7 @@ public class SegmentAI : MonoBehaviour, IPooledObject
             Gravity = true;
 
             SizeState = Random.Range(-1,1);
-            SizeRate = Random.Range(1, 2);
+            SizeRate = Random.Range(0.5f, 2);
 
         }
 
@@ -86,12 +88,12 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
             }
 
-        }else if (Gravity == true)
+        } else if (Gravity == true)
         {
 
             YSpeed -= 9.81f * Time.deltaTime;
 
-            tf.Rotate(0,0,RotationAmount);
+            tf.Rotate(0, 0, RotationAmount);
 
             if (tf.position.y <= -10f + tf.localScale.x)
             {
@@ -115,6 +117,30 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
         }
 
+        if (tf.localScale.x >= 2f)
+        {
+
+            for (int i = 0; i < sprites.Length; i++)
+            {
+
+                sprites[i].sortingLayerName = "FORE3";
+
+            }
+
+        }
+        else if (tf.localScale.x <= 0.25f)
+        {
+
+            for (int i = 0; i < sprites.Length; i++)
+            {
+
+                sprites[i].sortingLayerName = "BACK1";
+
+            }
+
+        }
+    
+    
 
         tf.position += new Vector3(MovementSpeed, YSpeed, 0) * Time.deltaTime;
     }

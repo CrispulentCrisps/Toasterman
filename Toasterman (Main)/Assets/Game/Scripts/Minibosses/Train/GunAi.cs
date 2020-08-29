@@ -10,7 +10,6 @@ public class GunAi : MonoBehaviour
     public float Full;
     public float Recharge = 0.5f;
     public float Charge = 40f;
-
     public bool Shooting = true;
 
     ObjectPools objectPooler;
