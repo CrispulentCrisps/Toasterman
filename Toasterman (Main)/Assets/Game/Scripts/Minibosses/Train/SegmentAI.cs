@@ -9,8 +9,6 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public BoxCollider2D boxcol;
 
-    public SpriteRenderer[] sprites;
-
     public Animator anim;
 
     private bool StartedSegment = false;
@@ -21,9 +19,6 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public bool Alive = true;
     private bool Gravity;
-
-    private int SizeState = 0;
-    private float SizeRate = 0;
 
     private float RotationAmount;
 
@@ -41,8 +36,6 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
         StartedSegment = false;
 
-        tf.localScale = new Vector3(1, 1, 0);
-
         boxcol.enabled = true;
 
     }
@@ -56,12 +49,9 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
             YSpeed = Random.Range(10f, 20f);
             MovementSpeed = Random.Range(-1f, -10f);
-            RotationAmount = Random.Range(-180f,0f);
+            RotationAmount = Random.Range(-135f,135f);
             boxcol.enabled = false;
             Gravity = true;
-
-            SizeState = Random.Range(-1,1);
-            SizeRate = Random.Range(0.5f, 2);
 
         }
 
@@ -88,7 +78,8 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
             }
 
-        } else if (Gravity == true)
+        }
+        else if (Gravity == true)
         {
 
             YSpeed -= 9.81f * Time.deltaTime;
@@ -103,44 +94,6 @@ public class SegmentAI : MonoBehaviour, IPooledObject
             }
 
         }
-
-        if (SizeState == -1)
-        {
-
-            tf.localScale -= new Vector3(SizeRate, SizeRate, 0) * Time.deltaTime;
-
-        }
-        else if (SizeState == 1)
-        {
-
-            tf.localScale += new Vector3(SizeRate, SizeRate, 0) * Time.deltaTime;
-
-        }
-
-        if (tf.localScale.x >= 2f)
-        {
-
-            for (int i = 0; i < sprites.Length; i++)
-            {
-
-                sprites[i].sortingLayerName = "FORE3";
-
-            }
-
-        }
-        else if (tf.localScale.x <= 0.25f)
-        {
-
-            for (int i = 0; i < sprites.Length; i++)
-            {
-
-                sprites[i].sortingLayerName = "BACK1";
-
-            }
-
-        }
-    
-    
 
         tf.position += new Vector3(MovementSpeed, YSpeed, 0) * Time.deltaTime;
     }
