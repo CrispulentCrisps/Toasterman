@@ -107,13 +107,13 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             if (tf.position.y > Target.position.y)
             {
 
-                YSpeed -= 5;
+                YSpeed = 5;
 
             }
             else if (tf.position.y < Target.position.y)
             {
 
-                YSpeed -= -5;
+                YSpeed = -5;
 
             }
 
@@ -125,9 +125,9 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         }else if (Health <= 0f && State == -1)
         {
 
-            XSpeed += XVel;
+            XSpeed = XVel;
             XVel -= 1f;
-            Speed.x += XSpeed;
+            Speed.x -= XSpeed * Time.deltaTime;
             YSpeed = 0;
 
             if (tf.position.x <= -15 && Killed == false)
@@ -196,6 +196,12 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         {
             Speed.x = 0;
             YVel += Time.deltaTime;
+            if (SinAmp <= 8f)
+            {
+
+                SinAmp += Time.deltaTime;
+
+            }
             tf.position = new Vector3(tf.position.x,SinAmp * Mathf.Sin(YVel * SineFreq), tf.position.z);
     
         }
