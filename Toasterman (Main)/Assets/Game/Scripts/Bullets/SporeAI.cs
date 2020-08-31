@@ -12,6 +12,8 @@ public class SporeAI : MonoBehaviour, IPooledObject
 
     public PlayerMovement playermovement;
 
+    public CameraShake camerashake;
+
     private GameObject Target;
 
     public bool Attached;
@@ -37,6 +39,8 @@ public class SporeAI : MonoBehaviour, IPooledObject
         Target = GameObject.FindGameObjectWithTag("Player");
 
         playermovement = Target.GetComponent<PlayerMovement>();
+
+        camerashake = Camera.main.GetComponent<CameraShake>();
 
         speedy = Random.Range(3f,10f);
         LifeTime = Random.Range(20f, 40f);
@@ -81,14 +85,14 @@ public class SporeAI : MonoBehaviour, IPooledObject
             Attached = false;
             
             playermovement.Inverse = 0;
-
+            camerashake.SetAbberation(0f);
         }
         else if (Attached == true)
         {
 
             playermovement.Inverse = 1;
             ShotOff = true;
-
+            camerashake.SetAbberation(1f);
         }
 
         if (ShotOff == true)

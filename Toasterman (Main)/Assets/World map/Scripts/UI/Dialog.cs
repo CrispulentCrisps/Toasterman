@@ -71,7 +71,7 @@ public class Dialog : MonoBehaviour
             RightOut = -1;
 
         }
-        else if (Started == true)
+        if (Started == true)
         {
 
             StartCoroutine(Type());

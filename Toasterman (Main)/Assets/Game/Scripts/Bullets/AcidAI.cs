@@ -18,11 +18,13 @@ public class AcidAI : MonoBehaviour, IPooledObject
     {
 
         Target = GameObject.FindGameObjectWithTag("Player");
+        Shooting shooting = Target.GetComponent<Shooting>();
+
 
         tf.position = Target.transform.position;
 
         speedx = Random.Range(11f, 14f);
-        speedy = Random.Range(-7.5f, 7.5f);
+        speedy = Random.Range(shooting.BulletLevel * -.9f, shooting.BulletLevel * .9f);
 
     }
 

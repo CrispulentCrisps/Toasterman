@@ -40,7 +40,7 @@ public class Shooting : MonoBehaviour
        if (BulletType == 1)
         {
 
-            Increment *= 1.25f;
+            Increment = 4f;
 
         }
 
@@ -60,13 +60,32 @@ public class Shooting : MonoBehaviour
             Auto = false;
 
         }
-        else if (Input.GetKeyDown(KeyCode.X))// shooting input
+        
+        if (Input.GetKeyUp(KeyCode.C))
         {
 
-            Auto = true;
+            BulletType++;
+
+        }
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+
+            BulletType--;
 
         }
 
+        if (BulletType < 0)
+        {
+
+            BulletType = ProjectileNames.Length;
+
+        }
+        else if (BulletType > ProjectileNames.Length - 1)
+        {
+
+            BulletType = 0;
+
+        }
 
         if (Auto == true && FireRate >= ReloadTime)
         {

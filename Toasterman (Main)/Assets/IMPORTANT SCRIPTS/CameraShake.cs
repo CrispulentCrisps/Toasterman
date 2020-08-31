@@ -28,6 +28,18 @@ public class CameraShake : MonoBehaviour
 
     }
 
+    public void SetAbberation(float strength)
+    {
+
+        UnityEngine.Rendering.VolumeProfile profile = GameObject.Find("Global Volume").GetComponent<UnityEngine.Rendering.Volume>().profile;
+        UnityEngine.Rendering.Universal.ChromaticAberration myChromaticAberration;
+        profile.TryGet(out myChromaticAberration);
+
+        myChromaticAberration.intensity.Override(strength);
+
+
+    }
+
     public IEnumerator Shake(float Duration, float Magnitude)
     {
 
