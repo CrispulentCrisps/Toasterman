@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 { 
     public Transform tf;
 
     ObjectPools objectPooler;
+
+    public TextMeshProUGUI textDisplay;
 
     private float FireRate = 0f;
     public float ReloadTime = 10f;
@@ -65,13 +68,13 @@ public class Shooting : MonoBehaviour
         {
 
             BulletType++;
-
+            
         }
         if (Input.GetKeyUp(KeyCode.X))
         {
 
             BulletType--;
-
+            
         }
 
         if (BulletType < 0)
@@ -86,6 +89,8 @@ public class Shooting : MonoBehaviour
             BulletType = 0;
 
         }
+
+        textDisplay.text = "Weapon:" + ProjectileNames[BulletType];
 
         if (Auto == true && FireRate >= ReloadTime)
         {

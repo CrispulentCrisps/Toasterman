@@ -24,7 +24,7 @@ public class AcidAI : MonoBehaviour, IPooledObject
         tf.position = Target.transform.position;
 
         speedx = Random.Range(11f, 14f);
-        speedy = Random.Range(shooting.BulletLevel * -.9f, shooting.BulletLevel * .9f);
+        speedy = Random.Range(shooting.BulletLevel * -2f, shooting.BulletLevel * 2f);
 
     }
 
@@ -39,6 +39,7 @@ public class AcidAI : MonoBehaviour, IPooledObject
     {
 
         speedx *= 0.925f;
+        speedy *= 0.925f;
 
         Movement = new Vector2(speedx, speedy);
 
