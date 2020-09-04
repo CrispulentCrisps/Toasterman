@@ -21,32 +21,37 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     private float timer;
     public float MaxTime;
 
+    public bool IsEnemy;
+
+    public string TargetTag;
+
     private void Start()
     {
 
         objectPooler = ObjectPools.Instance;
-        tf.Rotate(0,0,StartRot);
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 
     public void OnObjectSpawn()
     {
 
-        tf.Rotate(0, 0, StartRot);
         StartRot = 90;
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
-
+        tf.Rotate(0, 0, StartRot);
+        if (Target != null)
+        {
+            Target = GameObject.FindGameObjectWithTag(TargetTag).transform;
+        }
+        timer = 0;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Bullet"))
+        if (coll.gameObject.CompareTag("Bullet") && IsEnemy == true)
         {
 
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
 
-        }else if (coll.gameObject.CompareTag("Player"))
+        }else if (coll.gameObject.CompareTag(TargetTag))
         {
 
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
@@ -64,26 +69,24 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (timer >= 1f)
+        if (Target != null)
         {
 
+            Vector2 Direction = (Vector2)Target.position - rb.position;
 
+            Direction.Normalize();
+
+            float RotateAmount = Vector3.Cross(Direction, transform.up).z;
+
+            rb.angularVelocity = -RotateAmount * Rotspeed;
 
         }
-        Vector2 Direction = (Vector2)Target.position - rb.position;
-
-        Direction.Normalize();
-
-        float RotateAmount = Vector3.Cross(Direction, transform.up).z;
-
         if (Rotspeed <= RotMaxSpeed)
         {
 
             Rotspeed += RotVel;
 
         }
-
-        rb.angularVelocity = -RotateAmount * Rotspeed;
 
         rb.velocity = transform.up * speed;
 

@@ -32,20 +32,13 @@ public class Shooting : MonoBehaviour
 
         objectPooler = ObjectPools.Instance;
 
-        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer" };
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       if (BulletType == 1)
-        {
-
-            Increment = 2f;
-
-        }
 
         FireRate += Increment * Time.deltaTime;
 
@@ -105,9 +98,11 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
+
         switch (BulletType)
         {
             case 0:
+                Increment = 3f;
                 for (int i = 0; i < BulletLevel; i++)// spread shot
                 {
                     //Spread
@@ -118,9 +113,15 @@ public class Shooting : MonoBehaviour
                 }
                 break;
             case 1:
-                    objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                Increment = 2f;
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
             case 2:
+                Increment = 1.5f;
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                break;
+            case 3:
+                Increment = 1f;
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
         }
