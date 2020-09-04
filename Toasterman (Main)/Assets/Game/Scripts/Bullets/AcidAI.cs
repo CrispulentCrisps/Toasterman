@@ -38,8 +38,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        speedx *= 0.925f;
-        speedy *= 0.925f;
+        speedx *= 0.900f;
+        speedy *= 0.900f;
 
         Movement = new Vector2(speedx, speedy);
 
@@ -54,7 +54,16 @@ public class AcidAI : MonoBehaviour, IPooledObject
         }
 
     }
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("NotSoGoodThing"))
+        {
 
+            gameObject.SetActive(false);
+
+        }
+
+    }
     void FixedUpdate()
     {
 

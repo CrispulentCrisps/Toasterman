@@ -47,10 +47,9 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        if (tf.position.x <= -12)
+        if (tf.position.x <= -15)
         {
 
-            tf.position = new Vector2(-999, -999);
             gameObject.SetActive(false);
 
         }

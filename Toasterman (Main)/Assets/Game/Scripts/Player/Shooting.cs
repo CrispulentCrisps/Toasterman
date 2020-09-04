@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
 
         objectPooler = ObjectPools.Instance;
 
-        ProjectileNames = new string[] { "Bullet", "Acid" };
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer" };
 
     }
 
@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
        if (BulletType == 1)
         {
 
-            Increment = 4f;
+            Increment = 2f;
 
         }
 
@@ -80,7 +80,7 @@ public class Shooting : MonoBehaviour
         if (BulletType < 0)
         {
 
-            BulletType = ProjectileNames.Length;
+            BulletType = ProjectileNames.Length - 1;
 
         }
         else if (BulletType > ProjectileNames.Length - 1)
@@ -119,6 +119,9 @@ public class Shooting : MonoBehaviour
                 break;
             case 1:
                     objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                break;
+            case 2:
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
         }
         FireRate = 0;// reset firerate

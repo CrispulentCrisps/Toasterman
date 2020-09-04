@@ -9,18 +9,21 @@ public class BouncyAI : MonoBehaviour, IPooledObject
 
     private GameObject Target;
 
+    private Shooting shooting;
+
     private Vector2 Movement;
 
-    private float speedx = 0;
-    private float speedy = 0;
+    private float speed = 0;
     
     public int BounceAmount;
 
+    public float RotMinMax;
+
     public void OnObjectSpawn()
     {
-
-        speedx = 5;
-        speedy = 0;
+        Target = GameObject.FindGameObjectWithTag("Player");
+        shooting = Target.GetComponent<Shooting>();
+        speed = 17.5f;
 
     }
 
@@ -34,9 +37,17 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-     
-        
 
+        BounceAmount = shooting.BulletLevel + 2;
+
+        Movement = new Vector2(speed, 0);
+
+        if (BounceAmount <= 0 || tf.position.x >= 20 || tf.position.x <= -20 || tf.position.y >= 20 || tf.position.y <= -20)
+        {
+
+            gameObject.SetActive(false);
+
+        }
     }
 
     void FixedUpdate()
@@ -46,5 +57,16 @@ public class BouncyAI : MonoBehaviour, IPooledObject
 
     }
 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("NotSoGoodThing"))
+        {
+
+            tf.Rotate(0, 0, Random.Range(-RotMinMax, RotMinMax) - 180);
+            BounceAmount--;
+
+        }
+
+    }
 
 }
