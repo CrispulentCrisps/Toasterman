@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,12 +36,16 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
 
-        StartRot = 90;
         tf.Rotate(0, 0, StartRot);
-        if (Target != null)
+        try
         {
             Target = GameObject.FindGameObjectWithTag(TargetTag).transform;
         }
+        catch (NullReferenceException e) when (e != null)
+        {
+            Target = tf;
+        }
+
         timer = 0;
     }
 
@@ -55,7 +60,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         {
 
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().ChangePitch("Explosion", Random.Range(.1f, .75f));
+            FindObjectOfType<AudioManager>().ChangePitch("Explosion", UnityEngine.Random.Range(.1f, .75f));
             FindObjectOfType<AudioManager>().Play("Explosion");
             gameObject.SetActive(false);
             timer = 0;
@@ -69,7 +74,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Target != null)
+        if (Target)
         {
 
             Vector2 Direction = (Vector2)Target.position - rb.position;
@@ -96,7 +101,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         {
 
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().ChangePitch("Explosion", Random.Range(.1f, 1f));
+            FindObjectOfType<AudioManager>().ChangePitch("Explosion", UnityEngine.Random.Range(.1f, 1f));
             FindObjectOfType<AudioManager>().Play("Explosion");
             gameObject.SetActive(false);
             timer = 0;

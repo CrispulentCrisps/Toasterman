@@ -230,6 +230,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2087822495011194829, guid: e2a1eb2d4ffa16b4995720b9060d388d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.size
@@ -1061,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.size
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -1306,18 +1311,50 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[15].tag
-      value: Bouncer
+      value: Power
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[15].prefab
       value: 
-      objectReference: {fileID: 5023814643816664886, guid: 4af69a99c036ec54f923c84f7f5ea17b,
+      objectReference: {fileID: 5537482951707944084, guid: 7d1378c8c91a49649810136876127738,
         type: 3}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[15].size
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[16].tag
+      value: Bouncer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[16].prefab
+      value: 
+      objectReference: {fileID: 5023814643816664886, guid: 4af69a99c036ec54f923c84f7f5ea17b,
+        type: 3}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[16].size
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[17].tag
+      value: BigExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[17].prefab
+      value: 
+      objectReference: {fileID: 3866907682031127683, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[17].size
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524158, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -1386,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
       propertyPath: Projectiles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
@@ -1409,6 +1446,12 @@ PrefabInstance:
       propertyPath: BulletType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: Projectiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 5537482951707944084, guid: 7d1378c8c91a49649810136876127738,
+        type: 3}
     - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1627,7 +1670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1247714134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,7 +1862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1534969454
 SpriteRenderer:
   m_ObjectHideFlags: 0
