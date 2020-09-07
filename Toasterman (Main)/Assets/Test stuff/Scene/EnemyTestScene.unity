@@ -238,22 +238,22 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].EnemyName
-      value: PurityCircle
+      value: HelperHat
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].WaveType
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].EnemySpeed
-      value: 2.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -268,17 +268,17 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].Time
-      value: 0.10000000149011612
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].Spacing
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].Amount
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -313,12 +313,12 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[1].Time
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[1].Spacing
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -328,7 +328,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].RotateSpeed
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -368,12 +368,12 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[2].Time
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[2].Spacing
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[0].Radius
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -433,12 +433,12 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[3].Time
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[3].Spacing
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -483,12 +483,12 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[4].Time
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[4].Spacing
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -1427,6 +1427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
+      propertyPath: BulletLevel.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
       propertyPath: textDisplay
       value: 
       objectReference: {fileID: 885752419}
@@ -1444,7 +1449,7 @@ PrefabInstance:
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
       propertyPath: BulletType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4437360254698354948, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
@@ -1670,7 +1675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1247714134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1534969454
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     {
 
         tf.Rotate(0, 0, StartRot);
-        try
+        try//If there is not target on screen
         {
             Target = GameObject.FindGameObjectWithTag(TargetTag).transform;
         }
@@ -107,6 +107,24 @@ public class MissleHoming : MonoBehaviour, IPooledObject
             timer = 0;
             Rotspeed = 0;
             Health = 10f;
+
+        }
+
+    }
+
+    void Update()
+    {
+
+        if (timer > 0.1f % 0.1f)
+        {
+            try
+            {
+                Target = GameObject.FindGameObjectWithTag(TargetTag).transform;
+            }
+            catch (NullReferenceException e) when (e != null)// If there is not target on screen
+            {
+                Target = tf;
+            }
 
         }
 

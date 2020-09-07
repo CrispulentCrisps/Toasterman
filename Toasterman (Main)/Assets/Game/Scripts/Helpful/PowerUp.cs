@@ -32,8 +32,8 @@ public class PowerUp : MonoBehaviour, IPooledObject
         Target = GameObject.Find("Ship");//gets the game object
         shooting = Target.GetComponent<Shooting>();// gets the Shooting Script
 
-        YVel = Random.Range(6f,15f);
-        XVel = Random.Range(-1f, -5f);
+        YVel = Random.Range(6f,12f);
+        XVel = Random.Range(5f, -5f);
 
     }
 
@@ -42,20 +42,7 @@ public class PowerUp : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Player"))
         {
 
-            if (shooting.BulletType != PowerData)
-            {
-
-                shooting.BulletType = PowerData;
-                shooting.BulletLevel = 1;
-
-            }
-            else
-            {
-
-                shooting.BulletLevel++;
-
-            }
-
+            shooting.BulletLevel[PowerData]++;
             gameObject.SetActive(false);
 
         }

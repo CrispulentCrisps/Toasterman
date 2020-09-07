@@ -16,13 +16,11 @@ public class Shooting : MonoBehaviour
     private bool Auto = false;
 
     public int BulletType;
-    public int BulletLevel = 1;
+    public int[] BulletLevel;
 
     private float BulletSpreadMult;
 
     public Quaternion BulletRot;
-
-    public GameObject[] Projectiles;
 
     private string[] ProjectileNames;
 
@@ -41,8 +39,6 @@ public class Shooting : MonoBehaviour
     {
 
         FireRate += Increment * Time.deltaTime;
-
- 
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))// shooting input
         {
@@ -63,7 +59,7 @@ public class Shooting : MonoBehaviour
             BulletType++;
             
         }
-        if (Input.GetKeyUp(KeyCode.X))
+        else if (Input.GetKeyUp(KeyCode.X))
         {
 
             BulletType--;
@@ -103,11 +99,11 @@ public class Shooting : MonoBehaviour
         {
             case 0:
                 Increment = 3f;
-                for (int i = 0; i < BulletLevel; i++)// spread shot
+                for (int i = 0; i < ProjectileNames.Length; i++)// spread shot
                 {
                     //Spread
-                    BulletSpreadMult = BulletLevel * 1.5f;
-                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel + ((i - BulletLevel / 2) * BulletSpreadMult)) % 360));
+                    BulletSpreadMult = BulletLevel[BulletType] * 1.5f;
+                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + ((i - (BulletLevel[BulletType] + 1) * 0.5f) * BulletSpreadMult)) % 360));
                     objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, BulletRot);
 
                 }
@@ -121,7 +117,7 @@ public class Shooting : MonoBehaviour
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
             case 3:
-                Increment = 1f;
+                Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
         }

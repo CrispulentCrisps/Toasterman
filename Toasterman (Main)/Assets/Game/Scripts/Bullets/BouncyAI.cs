@@ -38,7 +38,7 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        BounceAmount = shooting.BulletLevel + 2;
+        BounceAmount = (shooting.BulletLevel[2]) + 2;
 
         Movement = new Vector2(speed, 0);
 

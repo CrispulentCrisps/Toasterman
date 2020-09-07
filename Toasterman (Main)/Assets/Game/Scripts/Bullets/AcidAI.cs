@@ -17,14 +17,12 @@ public class AcidAI : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
 
+
         Target = GameObject.FindGameObjectWithTag("Player");
-        Shooting shooting = Target.GetComponent<Shooting>();
-
-
         tf.position = Target.transform.position;
 
         speedx = Random.Range(11f, 14f);
-        speedy = Random.Range(shooting.BulletLevel * -2f, shooting.BulletLevel * 2f);
+        speedy = Random.Range(-5f,5f);
 
     }
 
@@ -38,8 +36,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        speedx *= 0.900f;
-        speedy *= 0.900f;
+        speedx *= 0.925f;
+        speedy *= 0.925f;
 
         Movement = new Vector2(speedx, speedy);
 
@@ -48,7 +46,6 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
             speedx = 0f;
             speedy = 0f;
-            tf.position = Target.transform.position;
             gameObject.SetActive(false);
 
         }
