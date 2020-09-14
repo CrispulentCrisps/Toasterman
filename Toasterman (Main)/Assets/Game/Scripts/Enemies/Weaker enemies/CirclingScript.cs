@@ -66,8 +66,6 @@ public class CirclingScript : MonoBehaviour, IPooledObject
             gameObject.SetActive(false);
 
         }
-
-
     }
 
     // Update is called once per frame

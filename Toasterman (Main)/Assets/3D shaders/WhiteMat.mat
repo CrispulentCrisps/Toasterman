@@ -7,9 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PurityMat
-  m_Shader: {fileID: -6465566751694194690, guid: 4547bde57be764140bd91a3037f48fca,
-    type: 3}
+  m_Name: WhiteMat
+  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -37,17 +36,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_A8C67EDC: 0
     - _EnableExternalAlpha: 0
-    - _Intensity: 10
-    - _Lower: 0
-    - _Upper: 0.25
     m_Colors:
-    - Vector2_AF369AE8: {r: 1, g: 1, b: 0, a: 0}
-    - Vector2_BB81BD51: {r: 1, g: 1, b: 0, a: 0}
-    - _Clamp: {r: 0.5, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0.1, g: 0.1, b: 0.1, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
