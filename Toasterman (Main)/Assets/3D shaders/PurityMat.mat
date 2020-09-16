@@ -40,7 +40,7 @@ Material:
     - Vector1_6002D857: 0.25
     - Vector1_A8C67EDC: 0
     - _EnableExternalAlpha: 0
-    - _Intensity: 1
+    - _Intensity: 0.1
     - _Lower: 0
     - _Upper: 1
     m_Colors:
@@ -49,6 +49,6 @@ Material:
     - _Clamp: {r: 0.5, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 1, g: 1, b: 0, a: 0}
+    - _Offset: {r: 10, g: 10, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

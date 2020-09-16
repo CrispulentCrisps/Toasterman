@@ -6,8 +6,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public Transform[] BodyParts;
 
-    public Vector3[] BodyPartSpeeds;
-
     private int State;
     public int SineOffset;
     public float Health;
@@ -50,10 +48,11 @@ public class AncientAI : MonoBehaviour, IPooledObject
             for (int i = 0; i < 2; i++)//Hands
             {
                 BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset)* 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
-
+                BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
                 if (i == 1)
                 {
                     BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
+                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
                 }
             }
         }
@@ -63,15 +62,9 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-        if (IntroDone == true)
-        {
-            for (int i = 0; i < BodyParts.Length; i++)
-            {
 
-                BodyParts[i].Translate(BodyPartSpeeds[i] * Time.deltaTime);
 
-            }
-        }
+
     }
 
 
