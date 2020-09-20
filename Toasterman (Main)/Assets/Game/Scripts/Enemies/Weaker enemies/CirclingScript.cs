@@ -36,7 +36,7 @@ public class CirclingScript : MonoBehaviour, IPooledObject
         Ship = GameObject.Find("Ship");//gets the game object
         Target = Ship.GetComponent<Transform>();// gets the Transform 
 
-        // https://answers.unity.com/questions/1068513/place-8-objects-around-a-target-gameobject.html
+        //https://answers.unity.com/questions/1068513/place-8-objects-around-a-target-gameobject.html thank you ^-^
         angle = enemyscript.RotSpace * Mathf.PI * 2f / enemyscript.Waves[I].Amount;
 
         RotateSpeed = enemyscript.Waves[I].RotateSpeed;

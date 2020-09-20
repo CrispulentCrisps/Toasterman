@@ -60,14 +60,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     }
 
-    void FixedUpdate()
-    {
-
-
-
-    }
-
-
     public void IntroComplete()
     {
 
@@ -80,7 +72,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         for (int i = 0; i < BulletAmount; i++)
         {
             angle = i * Mathf.PI * 2f / BulletAmount;//Converts angle to radians
-
+            objectPooler.SpawnFromPool(BulletName);
         }
         
     }
