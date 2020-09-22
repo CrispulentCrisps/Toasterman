@@ -8,11 +8,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     private int State;
     public int SineOffset;
+
     public float Health;
     private float SineTime;
     private float SineFreq;
     private float SineAmp;
     private float angle;
+    private float TSpace;
 
     public bool IntroDone = false;
 
@@ -34,6 +36,23 @@ public class AncientAI : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
+
+        TSpace += Time.deltaTime;
+
+        if (TSpace >= 3f)
+        {
+
+            State = Random.Range(0, 1);
+
+        }
+
+        if (State == 1)
+        {
+
+
+
+        }
+
         if (IntroDone == true)
         {
             SineTime += Time.deltaTime;
@@ -67,12 +86,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     }
 
-    public void ShootCircle(int BulletAmount, string BulletName)
+    public void ShootCircle(int BulletAmount, string BulletName, Transform tf)
     {
         for (int i = 0; i < BulletAmount; i++)
         {
             angle = i * Mathf.PI * 2f / BulletAmount;//Converts angle to radians
-            objectPooler.SpawnFromPool(BulletName);
+            objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0,0, angle));
         }
         
     }
