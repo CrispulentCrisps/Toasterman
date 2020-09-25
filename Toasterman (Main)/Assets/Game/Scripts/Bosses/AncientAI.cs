@@ -18,7 +18,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float SineFreq;
     private float SineAmp;
     private float angle;
-    private float TSpace;
+    public float TSpace;
     private float TimingSpaceRock;
     
     private bool Shooting;
@@ -28,14 +28,14 @@ public class AncientAI : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
-        SineFreq = 3f;
+        SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
     }
 
     public void OnObjectSpawn()
     {
-        SineFreq = 3f;
+        SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
     }
@@ -85,7 +85,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         if (Shooting == true)
         {
 
-            if (j > 5)
+            if (j >= 2)
             {
 
                 Shooting = false;
@@ -94,7 +94,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             TimingSpaceRock += Time.deltaTime;
             
-            if (TimingSpaceRock > 0.0125f)
+            if (TimingSpaceRock > 0.5f)
             {
 
                 for (int i = 0; i < BulletAmount; i++)
@@ -114,10 +114,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public void ShootCircle(int BulletAmount, string BulletName, Transform tf)
     {
-
+        angle = 0f;
         for (int i = 0; i < BulletAmount; i++)
         {
-            angle = i * (Mathf.PI * 2f) * BulletAmount;//Converts angle to radians
+
+            float AngleStep = 360f / BulletAmount;
+            angle += AngleStep;
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
         
