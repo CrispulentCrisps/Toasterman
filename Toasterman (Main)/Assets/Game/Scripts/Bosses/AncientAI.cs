@@ -18,7 +18,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float SineFreq;
     private float SineAmp;
     private float angle;
-    public float TSpace;
+    private float TSpace;
     private float TimingSpaceRock;
     
     private bool Shooting;
@@ -50,7 +50,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
             if (TSpace >= 1f)
             {
 
-                State = Random.Range(0, 1);
+                State = Random.Range(0, 2);
                 TSpace = 0;
             }
 
@@ -58,6 +58,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
             {
                 case 1:
                     Anim.SetTrigger("Rock");
+                    State = 0;
                     break;
             }
 
@@ -85,7 +86,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         if (Shooting == true)
         {
 
-            if (j >= 2)
+            if (j >= 4 )
             {
 
                 Shooting = false;

@@ -54,8 +54,13 @@ public class ShieldMakerCore : MonoBehaviour
     {
 
         objectPooler.SpawnFromPool("CoreDeath", new Vector3(0f, -2f, 0f), Quaternion.Euler(-90f, 0f,0f));
-        StartCoroutine(camerashake.AbberationChange(1f, 0.05f));
+        StartCoroutine(camerashake.AbberationChange(1f, 0.075f));
         FindObjectOfType<AudioManager>().Play("BigShatter");
+    }
+
+    public void Fanfare()
+    {
+        FindObjectOfType<AudioManager>().Play("Victory2");
     }
 
     public void BoomUp()

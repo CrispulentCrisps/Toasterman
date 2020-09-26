@@ -99,11 +99,11 @@ public class Shooting : MonoBehaviour
         {
             case 0:
                 Increment = 3f;
-                for (int i = 0; i < ProjectileNames.Length; i++)// spread shot
+                for (int i = 0; i < BulletLevel[BulletType] + 1; i++)// spread shot
                 {
                     //Spread
-                    BulletSpreadMult = BulletLevel[BulletType] * 1.5f;
-                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + ((i - (BulletLevel[BulletType] + 1) * 0.5f) * BulletSpreadMult)) % 360));
+                    BulletSpreadMult = BulletLevel[BulletType] + 1;
+                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult) % 360));
                     objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, BulletRot);
 
                 }
