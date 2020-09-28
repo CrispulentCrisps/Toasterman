@@ -21,7 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_90020FDF:
-        m_Texture: {fileID: 2800000, guid: e9cd324fb6bed9f4aa154894621a85e0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 337722e6f7759c64d9de2cd4a6b0f978, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_90020FDF_MainTex:
+        m_Texture: {fileID: 2800000, guid: b3aec9d2dd91a0f4c8e9b4fd7b8a3c9c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlphaTex:
@@ -41,9 +45,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_E69E227D: 1
+    - Vector1_E69E227D: 0.25
     - _EnableExternalAlpha: 0
     m_Colors:
+    - Vector2_81F42337: {r: 0.005, g: 0, b: 0, a: 0}
     - Vector2_992F9722: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

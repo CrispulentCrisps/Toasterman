@@ -86,7 +86,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         if (Shooting == true)
         {
 
-            if (j >= 4 )
+            if (j >= 3)
             {
 
                 Shooting = false;
@@ -95,13 +95,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             TimingSpaceRock += Time.deltaTime;
             
-            if (TimingSpaceRock > 0.5f)
+            if (TimingSpaceRock > 0.05f)
             {
 
                 for (int i = 0; i < BulletAmount; i++)
                 {
 
-                    ShootCircle(BulletAmount, "Rock", BodyParts[i % 2]);
+                    ShootCircle(BulletAmount, "Rock", BodyParts[i % 2], j * 45f);
 
                 }
 
@@ -113,9 +113,9 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     }
 
-    public void ShootCircle(int BulletAmount, string BulletName, Transform tf)
+    public void ShootCircle(int BulletAmount, string BulletName, Transform tf, float Offset)
     {
-        angle = 0f;
+        angle = Offset;
         for (int i = 0; i < BulletAmount; i++)
         {
 
