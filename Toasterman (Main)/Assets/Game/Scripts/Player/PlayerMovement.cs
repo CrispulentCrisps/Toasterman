@@ -157,8 +157,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     public void Die()
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
+        FindObjectOfType<AudioManager>().Play("BigExplosion");
         Alive = false;
         Anim.SetTrigger("Killed");
+        StartCoroutine(camerashake.Shake(1f, 1f));
         tf.position = new Vector3(0, 0, 0);
     }
 

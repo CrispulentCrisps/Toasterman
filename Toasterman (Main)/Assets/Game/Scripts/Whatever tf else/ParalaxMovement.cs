@@ -10,6 +10,8 @@ public class ParalaxMovement : MonoBehaviour
 
     public Vector3[] FrontPos;
 
+    public int BackThresh;
+
     public float paraspeed;
     public float paraspeedGoal;
     public float paraspeedIncrement;
@@ -51,16 +53,16 @@ public class ParalaxMovement : MonoBehaviour
         for (int i = 0; i < Layer.Length; i++)
         {
 
-            if (Layer[i].transform.position.x <= -30)
+            if (Layer[i].transform.position.x <= -BackThresh)
             {
-                FrontPos[i] += new Vector3(60, 0, 0);
+                FrontPos[i] += new Vector3(BackThresh * 2, 0, 0);
                 Layer[i].transform.position = FrontPos[0];
 
             }
 
-            else if (Layer[i].transform.position.x >= 30)
+            else if (Layer[i].transform.position.x >= BackThresh)
             {
-                FrontPos[i] -= new Vector3(60, 0, 0);
+                FrontPos[i] -= new Vector3(BackThresh * 2, 0, 0);
                 Layer[i].transform.position = FrontPos[0];
 
             }

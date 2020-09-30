@@ -91,6 +91,7 @@ public class Dialog : MonoBehaviour
         {
 
             textDisplay.text += letter;
+            FindObjectOfType<AudioManager>().Play("Text1");
             yield return new WaitForSeconds(TypingSpeed);
             
         }
