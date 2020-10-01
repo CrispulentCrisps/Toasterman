@@ -1379,6 +1379,11 @@ PrefabInstance:
       propertyPath: ConditionMet
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: FadeInMusic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 450264641973510897, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
       propertyPath: m_Name
@@ -2265,7 +2270,7 @@ PrefabInstance:
     - target: {fileID: 5161582236508061748, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6248229747733947961, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}

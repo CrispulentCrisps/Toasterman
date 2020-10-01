@@ -6964,7 +6964,7 @@ MonoBehaviour:
   - {x: 36, y: 0, z: 0}
   BackThresh: 36
   paraspeed: 0
-  paraspeedGoal: 0.5
+  paraspeedGoal: 1
   paraspeedIncrement: 0.25
   ParaDampen: 0
 --- !u!4 &1681479096
@@ -7288,6 +7288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MusicName
       value: Title theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: FadeInMusic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 450264641973510897, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}

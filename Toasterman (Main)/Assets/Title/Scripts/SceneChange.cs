@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour
 
     public Animator transition;
     public bool ConditionMet = false;
-
+    public bool FadeInMusic;
     public float Time;
 
     public string MusicName;
@@ -24,9 +24,16 @@ public class SceneChange : MonoBehaviour
 
         if (MusicName != "")
         {
-
             FindObjectOfType<AudioManager>().Play(MusicName);
-
+            FindObjectOfType<AudioManager>().SetVolume(MusicName, 0f);
+            if (FadeInMusic == true)
+            {
+                StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio(MusicName, -0.5f));
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().SetVolume(MusicName, 1f);
+            }
         }
 
     }

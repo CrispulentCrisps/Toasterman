@@ -83,6 +83,19 @@ public class AncientAI : MonoBehaviour, IPooledObject
             }
         }
 
+        switch (Health)
+        {
+            default:
+                BulletAmount = 8;
+                break;
+            case 500:
+                BulletAmount = 12;
+                break;
+            case 250:
+                BulletAmount = 16;
+                break;
+        }
+
         if (Shooting == true)
         {
 
@@ -95,19 +108,16 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             TimingSpaceRock += Time.deltaTime;
             
-            if (TimingSpaceRock > 0.05f)
+            if (TimingSpaceRock > 0.1f)
             {
-
+                BulletAmount -= j * 2;
                 for (int i = 0; i < BulletAmount; i++)
                 {
 
-                    ShootCircle(BulletAmount, "Rock", BodyParts[i % 2], j * 45f);
-
+                    ShootCircle(BulletAmount, "Rock", BodyParts[i % 2], j * (360 * 1.681f));
+                    TimingSpaceRock = 0;
                 }
-
-                TimingSpaceRock = 0;
                 j++;
-
             }
         }
 

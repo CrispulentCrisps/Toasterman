@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             HealthAnim.SetTrigger("HealthDown");
             StartCoroutine(camerashake.Shake(0.1f, 0.1f));
             StartCoroutine(camerashake.AbberationChange(1f, 1f));
+            Anim.SetTrigger("Hurt");
             timer = 5f;
         }
 
