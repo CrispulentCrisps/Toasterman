@@ -4,10 +4,13 @@ public class LaserAI : MonoBehaviour, IPooledObject
 {
     ObjectPools objectPooler;
 
-    public Transform tf;
+    public Animator anim;
 
-    public AnimationCurve RotateSpeed;
-    private float FinalSpeed;
+    public Transform tf;
+    public float Lifetime;
+    private float Lifeline;
+
+    public float RotateSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +19,29 @@ public class LaserAI : MonoBehaviour, IPooledObject
     }
   
     public void OnObjectSpawn()
-    { 
-    
+    {
+        RotateSpeed = 0;
     }
     // Update is called once per frame
     void Update()
     {
-        FinalSpeed = RotateSpeed.Evaluate(Time.time);
+        RotateSpeed += 50 * Time.deltaTime;
+        Lifeline += Time.deltaTime;
+        if (Lifeline >= Lifetime)
+        {
+            anim.SetTrigger("Exit");
+        }
     }
 
     void FixedUpdate()
     {
-        tf.RotateAroundLocal(Vector3.forward, FinalSpeed);
+        tf.RotateAround(new Vector3(0,0,0),Vector3.forward, RotateSpeed * Time.deltaTime);
+    }
+
+    public void SetDead()
+    {
+
+        gameObject.SetActive(false);
+
     }
 }

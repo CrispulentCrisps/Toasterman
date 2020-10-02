@@ -1851,7 +1851,7 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.size
-      value: 28
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -1920,17 +1920,49 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[27].tag
-      value: PlayerBlast
+      value: SmallRock
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[27].prefab
       value: 
-      objectReference: {fileID: 6250758087027782955, guid: 27f16fb4b61f5c444add1a5ce81ed2d9,
+      objectReference: {fileID: 4841803375250594127, guid: 9b88ccd1ec185294c80f9241d4173c2c,
         type: 3}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[27].size
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[28].tag
+      value: PlayerBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[28].prefab
+      value: 
+      objectReference: {fileID: 6250758087027782955, guid: 27f16fb4b61f5c444add1a5ce81ed2d9,
+        type: 3}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[28].size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[29].tag
+      value: Lazer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[29].prefab
+      value: 
+      objectReference: {fileID: 9112177511572694073, guid: 4fc6c24bdae8bd940b079b5b873b67d3,
+        type: 3}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[29].size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524158, guid: baa9d01b936971d4896629d0aec910c1,
@@ -2436,7 +2468,7 @@ PrefabInstance:
     - target: {fileID: 1948899969498110733, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5317292
+      value: 2.531729
       objectReference: {fileID: 0}
     - target: {fileID: 2212117984519508868, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
@@ -2786,7 +2818,7 @@ PrefabInstance:
     - target: {fileID: 5872556749657665970, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
       propertyPath: State
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5872556749657665970, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
@@ -2798,6 +2830,17 @@ PrefabInstance:
       propertyPath: BulletAmount
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5872556749657665970, guid: 31747061062ff7943a95d8e93773503d,
+        type: 3}
+      propertyPath: Health
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872556749657665970, guid: 31747061062ff7943a95d8e93773503d,
+        type: 3}
+      propertyPath: LaserAnim
+      value: 
+      objectReference: {fileID: 9112177511572694211, guid: 4fc6c24bdae8bd940b079b5b873b67d3,
+        type: 3}
     - target: {fileID: 6163134276038043801, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -3246,7 +3289,7 @@ PrefabInstance:
     - target: {fileID: 7236102831470036678, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5317292
+      value: 2.531729
       objectReference: {fileID: 0}
     - target: {fileID: 7483591769028232164, guid: 31747061062ff7943a95d8e93773503d,
         type: 3}

@@ -8,6 +8,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public Transform[] BodyParts;
 
+    private string BulletName;
+
     public int State;
     public int SineOffset;
     public int BulletAmount;
@@ -22,7 +24,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float TimingSpaceRock;
     
     private bool Shooting;
-
     public bool IntroDone = false;
 
     void Start()
@@ -50,14 +51,21 @@ public class AncientAI : MonoBehaviour, IPooledObject
             if (TSpace >= 1f)
             {
 
-                State = Random.Range(0, 2);
+                State = Random.Range(0, 3);
                 TSpace = 0;
             }
 
             switch (State)
             {
+                default:
+                    break;
                 case 1:
                     Anim.SetTrigger("Rock");
+                    State = 0;
+                    BulletName = "Rock";
+                    break;
+                case 2:
+                    Anim.SetTrigger("Laser");
                     State = 0;
                     break;
             }
@@ -107,14 +115,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
             }
 
             TimingSpaceRock += Time.deltaTime;
-            
+
             if (TimingSpaceRock > 0.1f)
             {
                 BulletAmount -= j * 2;
-                for (int i = 0; i < BulletAmount; i++)
+                for (int i = 0; i < 2; i++)
                 {
-
-                    ShootCircle(BulletAmount, "Rock", BodyParts[i % 2], j * (360 * 1.681f));
+                    ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j * (360 * 1.681f));
                     TimingSpaceRock = 0;
                 }
                 j++;
@@ -123,17 +130,25 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     }
 
+    //Functions
+
     public void ShootCircle(int BulletAmount, string BulletName, Transform tf, float Offset)
     {
         angle = Offset;
         for (int i = 0; i < BulletAmount; i++)
         {
-
             float AngleStep = 360f / BulletAmount;
             angle += AngleStep;
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
         
+    }
+
+    public void StartLazer()
+    {
+        
+        objectPooler.SpawnFromPool("Lazer", BodyParts[4].position, Quaternion.identity);
+
     }
 
     public void Shoot()
