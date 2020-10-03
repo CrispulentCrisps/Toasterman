@@ -142,7 +142,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
                     TimingSpaceRock += Time.deltaTime;
 
-                    if (TimingSpaceRock > 0.05f)
+                    if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
                         ShootCircle(BulletAmount, BulletName, BodyParts[4], j * 1.681f);
