@@ -21,6 +21,8 @@ public class LaserAI : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         RotateSpeed = 0;
+        anim.SetTrigger("Enter");
+        Lifeline = 0;
     }
     // Update is called once per frame
     void Update()
