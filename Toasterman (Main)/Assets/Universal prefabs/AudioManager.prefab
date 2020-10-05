@@ -65,7 +65,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BigShatter
     clip: {fileID: 8300000, guid: f1273eebd129f3044be7fe41e986409e, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -161,6 +161,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Shroomed
     clip: {fileID: 8300000, guid: 1bcec4f7e238672459adf040e6779dce, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Siren
+    clip: {fileID: 8300000, guid: 16ac35aed2ba35143b4468ab4b483f8d, type: 3}
     volume: 1
     pitch: 1
     loop: 0

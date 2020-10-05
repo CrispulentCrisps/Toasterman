@@ -13,6 +13,7 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
 
     public TMP_Dropdown ResolutionDropdown;
+    public Slider AntiAliasingSlider;
 
     void Start()
     {
@@ -48,35 +49,23 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetResolution(int ResolutionIndex)
     {
-
         Resolution resolution = resolutions[ResolutionIndex];
-
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-
-
-
     }
 
     public void SetVolume(float Volume)
     {
-
         audioMixer.SetFloat("Volume", Volume);
-
     }
 
     public void SetQuality(int Qualityindex)
     {
-
         QualitySettings.SetQualityLevel(Qualityindex);
-
     }
 
     public void SetFullScreen(bool IsFullScreen)
     {
-
-
         Screen.fullScreen = IsFullScreen;
-
     }
 
 }

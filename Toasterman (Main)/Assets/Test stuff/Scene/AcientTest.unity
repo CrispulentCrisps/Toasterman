@@ -348,6 +348,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8382819785414337617, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8382819785414337618, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -478,6 +483,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerName: BACK2
   order: 99
+--- !u!1 &1321498424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6755094799831116940, guid: 31747061062ff7943a95d8e93773503d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6755094800592966914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1321498426
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321498424}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.220446e-14, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.12500003
 --- !u!95 &1364924872 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6755094799271317251, guid: 31747061062ff7943a95d8e93773503d,

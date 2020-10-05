@@ -93,6 +93,7 @@ public class AudioManager : MonoBehaviour
         if (s.source.volume <= 0f)
         {
             s.source.Stop();
+            yield return null;
         }
 
     }

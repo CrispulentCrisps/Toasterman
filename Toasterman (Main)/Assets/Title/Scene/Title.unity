@@ -5047,9 +5047,9 @@ RectTransform:
   m_Father: {fileID: 1863826642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -75}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -200, y: 150}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109336040
@@ -6073,7 +6073,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7410,7 +7410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1863826642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7509,6 +7509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: c8e66e01b54089d45938ca9a2e6148e9, type: 2}
   ResolutionDropdown: {fileID: 536371382}
+  AntiAliasingSlider: {fileID: 0}
 --- !u!1 &1868552976
 GameObject:
   m_ObjectHideFlags: 0
@@ -8109,7 +8110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2005331731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8626,11 +8627,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8382819785414337617, guid: 1665a52b72744f34fab3ef100e3a6b98,
-        type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2106875144, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
+      propertyPath: SoundTestAcces
+      value: 
+      objectReference: {fileID: 2012359717}
     - target: {fileID: 8382819785414337618, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8686,26 +8686,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
-        type: 3}
-      propertyPath: orthographic size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
-        type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
-        type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8382819785414337629, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: m_Name
@@ -8719,25 +8699,6 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 2106875141}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2106875143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8382819785414337629, guid: 1665a52b72744f34fab3ef100e3a6b98,
-    type: 3}
-  m_PrefabInstance: {fileID: 2106875141}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2106875144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106875143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c2cada3d490ce4eb35d1d06f2cf687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoundTestAcces: {fileID: 2012359717}
 --- !u!1 &145180775489373645
 GameObject:
   m_ObjectHideFlags: 0

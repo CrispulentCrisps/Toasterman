@@ -42,12 +42,15 @@ public class ShieldMakerCore : MonoBehaviour
 
     }
 
+    public void Siren()
+    {
+        FindObjectOfType<AudioManager>().Play("Siren");
+    }
+
     public void StartBGEnd()
     {
-
         BGAnim.SetTrigger("AnimDone");
         LIGHTAnim.SetTrigger("Normal");
-
     }
 
     public void Shatter()

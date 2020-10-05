@@ -14,6 +14,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     private float speedx = 0;
     private float speedy = 0;
 
+    private int LifeTimeHits = 3;
+
     public void OnObjectSpawn()
     {
 
@@ -36,8 +38,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        speedx *= 0.925f;
-        speedy *= 0.925f;
+        speedx *= 0.95f;
+        speedy *= 0.95f;
 
         Movement = new Vector2(speedx, speedy);
 
@@ -51,21 +53,20 @@ public class AcidAI : MonoBehaviour, IPooledObject
         }
 
     }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("NotSoGoodThing"))
         {
-
-            gameObject.SetActive(false);
-
+            LifeTimeHits--;
+            if (LifeTimeHits <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
-
     }
     void FixedUpdate()
     {
-
         tf.Translate(Movement * Time.deltaTime);
-
     }
-
 }

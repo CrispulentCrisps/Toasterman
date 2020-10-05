@@ -16,7 +16,7 @@ public class DialogueTranstion : MonoBehaviour
     {
 
         StartCoroutine(dialog.BoxIn(1f));
-
+        dialog.index = 1;
     }
 
 }

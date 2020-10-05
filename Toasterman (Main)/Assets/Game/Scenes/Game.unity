@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134c23804ce56254f8ac55312717b203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: 20
+  start: 21
   camerashake: {fileID: 1966101576}
   Boom: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d, type: 3}
   CoreAnim: {fileID: 401883940}
@@ -2640,7 +2640,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: i
-      value: 0
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -2723,16 +2723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
-        type: 3}
-      propertyPath: sounds.Array.data[3].volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
-        type: 3}
-      propertyPath: sounds.Array.data[16].volume
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7064026301311966473, guid: 71c93eb09edce364eae4b5d36c4f129f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7534,7 +7524,7 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7559,22 +7549,22 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[0]
-      value: Andruss:Toast! You got the shield down!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[1]
-      value: Toast:And it nearly got me killed.
+      value: Andruss:Toast! You got the shield down!
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[2]
-      value: Andruss:Wait what?
+      value: Toast:And it nearly got me killed.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[3]
-      value: Toast:There a bunch of things trying to attack me for whatever reason.
+      value: Andruss:Wait what?
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7584,102 +7574,101 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[5]
-      value: Toast:Arrows, triangles and some weird white stuff.
+      value: Toast:There a bunch of things trying to attack me for whatever reason.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[6]
-      value: Andruss:White stuff???
+      value: Andruss:Such as?
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[7]
-      value: Toast:Yes. It was white, flying, glowing bright and it seemed alive.
+      value: Toast:Arrows, triangles and some weird white matter.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[8]
+      value: Andruss:White matter???
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[9]
+      value: Toast:Yes. It was white, flying, glowing bright and it seemed alive.
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[10]
       value: Andruss:Must be a new species or something. Mabye some matter? I dunno
         though.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[9]
-      value: Toast:Either way it had some sort of conscience and saw me as an active
-        threat.
-      objectReference: {fileID: 0}
-    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
-        type: 3}
-      propertyPath: sentences.Array.data[10]
+      propertyPath: sentences.Array.data[11]
       value: Andruss:Hmm. There was some of it going out the shield but where ever
         it went I couldn't track it.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[11]
+      propertyPath: sentences.Array.data[12]
       value: Toast:Certainly an odd sight. Also, if I may ask a question, why did
         the boss use a repurposed toaster to do this kinda job?
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[12]
+      propertyPath: sentences.Array.data[13]
       value: Andruss:As far to my knowledge, you are seen as expendable.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[13]
+      propertyPath: sentences.Array.data[14]
       value: Toast:Doesn't that just show my worth.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[14]
+      propertyPath: sentences.Array.data[15]
       value: Andruss:Eh,I would disagree
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[15]
+      propertyPath: sentences.Array.data[16]
       value: Toast:I thought you said before that you found talking to me odd?
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[16]
+      propertyPath: sentences.Array.data[17]
       value: Andruss:I'm getting somewhat used to it.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[17]
+      propertyPath: sentences.Array.data[18]
       value: Toast:Well... progress is progress.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[18]
+      propertyPath: sentences.Array.data[19]
       value: Andruss:Can't really be anything else though.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[19]
+      propertyPath: sentences.Array.data[20]
       value: Andruss:*Beep Beep!* Oh! Must've lost track of time. The boss wants
         you back at base. See ya there.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[20]
+      propertyPath: sentences.Array.data[21]
       value: Toast:See ya.
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
-      propertyPath: sentences.Array.data[21]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
-        type: 3}
       propertyPath: RightOut
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: LeftOut
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7689,12 +7678,12 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: LeftIn
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: indexDone
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7790,6 +7779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Started
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[22]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196143, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -9368,7 +9362,7 @@ PrefabInstance:
     - target: {fileID: 8382819785414337617, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: m_Antialiasing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8382819785414337617, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
@@ -9510,7 +9504,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2106875144, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
 --- !u!1 &8415746865044214359
 GameObject:
