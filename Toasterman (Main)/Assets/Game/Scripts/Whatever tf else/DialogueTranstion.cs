@@ -14,7 +14,7 @@ public class DialogueTranstion : MonoBehaviour
 
     public void StartDialogue()
     {
-
+        FindObjectOfType<AudioManager>().Stop("Level 1");
         StartCoroutine(dialog.BoxIn(1f));
         dialog.index = 1;
     }

@@ -10,7 +10,7 @@ public class GunAi : MonoBehaviour
     private float MaxShootTime = 5f;
     public float Full;
     public float Recharge = 0.5f;
-    public float Charge = 40f;
+    public float Charge = 0f;
     private float width;
 
     public bool Shooting = true;
@@ -39,8 +39,8 @@ public class GunAi : MonoBehaviour
 
             Charge += Recharge * Time.deltaTime;
 
-            if (transform.position.x <= Target.position.x + 1.5f && transform.position.x >= Target.position.x - 1.5f  && transform.position.x <= -width + 1.5 || 
-                transform.position.x <= Target.position.x + 1.5f && transform.position.x >= Target.position.x - 1.5f && transform.position.x >=  width + 1.5)
+            if  (transform.position.x >= -width && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f || 
+                 transform.position.x >=  width - 1.5f && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f)
             {
 
                 Charge = 99f;
@@ -48,7 +48,7 @@ public class GunAi : MonoBehaviour
             }
 
 
-            if (Charge >= Full)
+            if (Charge >= Full && transform.position.x >= -width && transform.position.x <= width)
             {
 
                 GunAnim.Play("BarrelShoot");

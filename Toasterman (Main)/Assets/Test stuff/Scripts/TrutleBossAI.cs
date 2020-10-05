@@ -289,11 +289,9 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public IEnumerator WaitThenDeactivate(float Time)
     {
-        FindObjectOfType<AudioManager>().SetVolume("Level 1", 0f);
+        FindObjectOfType<AudioManager>().Stop("Level 1");
         yield return new WaitForSeconds(Time);
-
         gameObject.SetActive(false);
-
     }
 
     public void ShootMissle()

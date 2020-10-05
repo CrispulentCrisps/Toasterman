@@ -1900,7 +1900,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: Waves.Array.data[20].Time
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -6920,7 +6920,7 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.data[14].size
-      value: 150
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -7344,6 +7344,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 744357742, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 744357745, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -7668,7 +7672,7 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: LeftOut
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7683,7 +7687,7 @@ PrefabInstance:
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: indexDone
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -7790,6 +7794,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogmanager
       objectReference: {fileID: 0}
+    - target: {fileID: 1676549269565968208, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_fontAsset
@@ -7799,17 +7808,33 @@ PrefabInstance:
     - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: Go to solar view.
       objectReference: {fileID: 0}
     - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+        type: 2}
+    - target: {fileID: 1676549269565968210, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 28.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676549269565968213, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1676549270090072169, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}

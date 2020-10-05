@@ -51,6 +51,7 @@ public class ShieldMakerCore : MonoBehaviour
     {
         BGAnim.SetTrigger("AnimDone");
         LIGHTAnim.SetTrigger("Normal");
+        FindObjectOfType<AudioManager>().Stop("Level 1");
     }
 
     public void Shatter()
