@@ -10,6 +10,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public Transform[] BodyParts;
 
+    public CapsuleCollider2D[] Colliders;
+
     private string BulletName;
 
     public int State;
@@ -43,9 +45,20 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineAmp = 1f;
         j = 0;
     }
-    // Update is called once per frame
-    void Update()
+
+    void OnTriggerEnter2D(Collider2D coll)
     {
+        for (int i = 0; i < Colliders.Length; i++)
+        {
+            if (coll.gameObject.CompareTag("Bullet"))
+            {
+                Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
+            }
+        }
+    }
+            // Update is called once per frame
+    void Update()
+    { 
         if (IntroDone == true)
         {
 
@@ -54,7 +67,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
             if (TSpace >= 3f && Shooting == false)
             {
 
-                State = Random.Range(0, 4);
+                State = Random.Range(0, 5);
                 TSpace = 0;
             }
 
@@ -72,6 +85,10 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     break;
                 case 3:
                     Anim.SetTrigger("Hell");
+                    State = 0;
+                    break;
+                case 4:
+                    Anim.SetTrigger("Spore");
                     State = 0;
                     break;
             }
@@ -103,10 +120,10 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 BulletAmount = 8;
                 break;
             case 500:
-                BulletAmount = 10;
+                BulletAmount = 12;
                 break;
             case 250:
-                BulletAmount = 12;
+                BulletAmount = 14;
                 break;
         }
 
@@ -132,7 +149,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
                         for (int i = 0; i < 2; i++)
                         {
                             BulletName = "Rock";
-                            ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j * (360 * 1.681f));
+                            FindObjectOfType<AudioManager>().Play("Missle");
+                            ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j * 7.5f);
                             TimingSpaceRock = 0;
                         }
                         j++;
@@ -145,7 +163,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
-                        ShootCircle(BulletAmount, BulletName, BodyParts[4], j * 1.681f);
+                        ShootCircle(BulletAmount, BulletName, BodyParts[4], j * (360 * 1.681f));
                         TimingSpaceRock = 0;
                         j++;
                     }
@@ -168,6 +186,15 @@ public class AncientAI : MonoBehaviour, IPooledObject
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
         
+    }
+
+    public void ShootSpore(int Amount)
+    {
+        for (int i = 0; i < Amount; i++)
+        {
+            objectPooler.SpawnFromPool("SporeBomb", BodyParts[4].position, Quaternion.identity);
+            StartCoroutine(camerashake.Shake(1f, 0.05f));
+        }
     }
 
     public void StartLazer()

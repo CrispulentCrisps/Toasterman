@@ -7,6 +7,8 @@ public class PauseMenuScript : MonoBehaviour
     public SceneChange scenechange;
 
     public GameObject PauseMenuUI;
+
+    public Animator PauseMenuAnim;
     
     public static bool GameIsPaused = false;
 

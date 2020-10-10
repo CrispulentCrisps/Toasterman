@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
     public Transform tf;
 
-    public int Inverse;
+    public bool Inverse;
 
     private float Health = 100f;
     private float TargetHealth = 100f;
@@ -140,17 +140,12 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     }
 
     void FixedUpdate()
-    {
-
-        tf.Translate(Movement * Time.deltaTime);
-
-        if (Inverse != 0)
+    { 
+        if (Inverse == true)
         {
-
-            Movement *= -Inverse;
-
+            Movement *= -1;
         }
-
+        tf.Translate(Movement * Time.deltaTime);
     }
     //-------------------------------------------------|=========|-------------------------------------------------------\\
     //-------------------------------------------------|Functions|-------------------------------------------------------\\

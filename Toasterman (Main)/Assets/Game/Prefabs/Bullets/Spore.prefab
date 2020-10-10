@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6233489749950606518}
   m_Layer: 0
   m_Name: Spore
-  m_TagString: NotSoGoodThing
+  m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   speedx: 0
   speedy: 0
   playermovement: {fileID: 0}
+  camerashake: {fileID: 0}
   Attached: 0
 --- !u!58 &436977207662162299
 CircleCollider2D:

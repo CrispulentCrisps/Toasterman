@@ -39,7 +39,7 @@ public class GunAi : MonoBehaviour
 
             Charge += Recharge * Time.deltaTime;
 
-            if  (transform.position.x >= -width && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f || 
+            if  (transform.position.x >= -width + 1.5f && transform.position.x >= Target.position.x + 1f && transform.position.x <= Target.position.x - 1f || 
                  transform.position.x >=  width - 1.5f && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f)
             {
 

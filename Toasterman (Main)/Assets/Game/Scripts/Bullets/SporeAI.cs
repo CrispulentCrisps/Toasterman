@@ -53,7 +53,7 @@ public class SporeAI : MonoBehaviour, IPooledObject
         {
 
             Attached = true;
-            LifeTime = Random.Range(20f, 40f);
+            LifeTime = Random.Range(2.5f, 5f);
 
         }
 
@@ -67,7 +67,8 @@ public class SporeAI : MonoBehaviour, IPooledObject
         if (LifeTime <= 0f)
         {
 
-            playermovement.Inverse = 0;
+            playermovement.Inverse = false;
+            Attached = false;
             gameObject.SetActive(false);
 
 
@@ -79,27 +80,26 @@ public class SporeAI : MonoBehaviour, IPooledObject
 
         }
 
-        if (playermovement.Dashin == true)
+        if (playermovement.Dashin == true && Attached == true)
         {
 
             Attached = false;
-            
-            playermovement.Inverse = 0;
+            playermovement.Inverse = false;
             camerashake.SetAbberation(0f);
+            ShotOff = true;
         }
         else if (Attached == true)
         {
-
-            playermovement.Inverse = 1;
-            ShotOff = true;
+            ShotOff = false;
+            playermovement.Inverse = true;
             camerashake.SetAbberation(1f);
         }
 
         if (ShotOff == true)
         {
 
-            Movement = playermovement.Movement * -1f;
-
+            speedx = playermovement.Movement.x * -1f;
+            speedy = playermovement.Movement.y * -1f;
             ShotOff = false;
 
         }

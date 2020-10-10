@@ -17,6 +17,8 @@ public class Shooting : MonoBehaviour
 
     public int BulletType;
     public int[] BulletLevel;
+    public int MaxProjec;
+    public int MaxBulletLevel;
 
     private float BulletSpreadMult;
 
@@ -30,7 +32,7 @@ public class Shooting : MonoBehaviour
 
         objectPooler = ObjectPools.Instance;
 
-        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Cannot be greater than 7-8 characters
 
     }
 
@@ -68,15 +70,18 @@ public class Shooting : MonoBehaviour
 
         if (BulletType < 0)
         {
-
             BulletType = ProjectileNames.Length - 1;
-
         }
-        else if (BulletType > ProjectileNames.Length - 1)
+        else if (BulletType > ProjectileNames.Length - 1 || BulletType > MaxProjec - 1)
         {
-
             BulletType = 0;
-
+        }
+        for (int i = 0; i < ProjectileNames.Length; i++)
+        {
+            if (BulletLevel[i] > MaxBulletLevel)
+            {
+                BulletLevel[i] = MaxBulletLevel;
+            }
         }
 
         textDisplay.text = "Weapon:" + ProjectileNames[BulletType];
@@ -87,8 +92,6 @@ public class Shooting : MonoBehaviour
             Shoot();
 
         }
-
-        
     }
 
 
@@ -119,6 +122,7 @@ public class Shooting : MonoBehaviour
             case 3:
                 Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("Missle");
                 break;
         }
         FireRate = 0;// reset firerate
