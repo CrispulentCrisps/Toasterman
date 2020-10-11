@@ -43,7 +43,7 @@ public class SporeAI : MonoBehaviour, IPooledObject
         camerashake = Camera.main.GetComponent<CameraShake>();
 
         speedy = Random.Range(3f,10f);
-        LifeTime = Random.Range(20f, 40f);
+        LifeTime = Random.Range(3f, 5f);
 
     }
 
@@ -91,6 +91,7 @@ public class SporeAI : MonoBehaviour, IPooledObject
         else if (Attached == true)
         {
             ShotOff = false;
+            LifeTime = Random.Range(2.5f, 5f);
             playermovement.Inverse = true;
             camerashake.SetAbberation(1f);
         }
@@ -98,8 +99,8 @@ public class SporeAI : MonoBehaviour, IPooledObject
         if (ShotOff == true)
         {
 
-            speedx = playermovement.Movement.x * -1f;
-            speedy = playermovement.Movement.y * -1f;
+            speedx = playermovement.Movement.x * -1f + Random.Range(-10f, 10f);
+            speedy = playermovement.Movement.y * -1f + Random.Range(-10f, 10f);
             ShotOff = false;
 
         }
