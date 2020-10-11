@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿//Source https://www.youtube.com/watch?v=TYNF5PifSmA
+
+using UnityEngine;
 
 public class CameraSizeKeeper : MonoBehaviour
 {
 
     public bool MaintainWidth = true;
+    [Range(-1,1)]
+    public int adaptPos;
 
     public float DefaultWidth;
     public float DefaultHeight;
@@ -26,13 +30,13 @@ public class CameraSizeKeeper : MonoBehaviour
 
             Camera.main.orthographicSize = DefaultWidth / Camera.main.aspect;
 
-            Camera.main.transform.position = new Vector3(CameraPos.x,-1 * (DefaultHeight - Camera.main.orthographicSize),CameraPos.z);
+            Camera.main.transform.position = new Vector3(CameraPos.x,adaptPos*(DefaultHeight - Camera.main.orthographicSize),CameraPos.z);
 
         }
         else
         {
 
-
+            Camera.main.transform.position = new Vector3(adaptPos * (DefaultWidth - Camera.main.orthographicSize) * Camera.main.aspect, CameraPos.y, CameraPos.z);
 
         }
 

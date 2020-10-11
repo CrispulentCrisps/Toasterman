@@ -10,4 +10,9 @@ public class Links : MonoBehaviour
     {
         Application.OpenURL("https://discord.gg/ZymUwN4");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

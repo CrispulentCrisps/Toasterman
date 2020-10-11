@@ -120,10 +120,10 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 BulletAmount = 8;
                 break;
             case 500:
-                BulletAmount = 12;
+                BulletAmount = 10;
                 break;
             case 250:
-                BulletAmount = 14;
+                BulletAmount = 12;
                 break;
         }
 
@@ -150,7 +150,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                         {
                             BulletName = "Rock";
                             FindObjectOfType<AudioManager>().Play("Missle");
-                            ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j * 7.5f);
+                            ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j);
                             TimingSpaceRock = 0;
                         }
                         j++;
@@ -163,7 +163,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
-                        ShootCircle(BulletAmount, BulletName, BodyParts[4], j * (360 * 1.681f));
+                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.25f) + (j * 0.125f));
                         TimingSpaceRock = 0;
                         j++;
                     }
@@ -200,7 +200,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public void StartLazer()
     { 
         objectPooler.SpawnFromPool("Lazer", BodyParts[4].position, Quaternion.identity);
-        StartCoroutine(camerashake.Shake(5f, 0.025f));
+        StartCoroutine(camerashake.Shake(5f, 0.015f));
     }
 
     public void Shoot()

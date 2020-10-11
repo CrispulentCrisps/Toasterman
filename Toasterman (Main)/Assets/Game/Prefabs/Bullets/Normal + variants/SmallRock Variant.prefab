@@ -47,6 +47,12 @@ PrefabInstance:
       propertyPath: WavyIncAmp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3190368063576648646, guid: 738d4797efd0e584eaf405f2bc62c0bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1bdea3904b86ad4396aa280b0a032b6,
+        type: 3}
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -105,12 +111,22 @@ PrefabInstance:
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236796377934066984, guid: 738d4797efd0e584eaf405f2bc62c0bb,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236796377934066984, guid: 738d4797efd0e584eaf405f2bc62c0bb,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738d4797efd0e584eaf405f2bc62c0bb, type: 3}

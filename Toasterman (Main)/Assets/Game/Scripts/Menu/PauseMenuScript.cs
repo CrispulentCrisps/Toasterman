@@ -7,8 +7,6 @@ public class PauseMenuScript : MonoBehaviour
     public SceneChange scenechange;
 
     public GameObject PauseMenuUI;
-
-    public Animator PauseMenuAnim;
     
     public static bool GameIsPaused = false;
 
@@ -44,6 +42,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void LoadMenu()
     {
+        scenechange.SceneNumber = 2;
         scenechange.ChangeScene();
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -51,6 +50,9 @@ public class PauseMenuScript : MonoBehaviour
     
     public void QuitGame()
     {
-        Application.Quit();
+        scenechange.SceneNumber = 1;
+        scenechange.ChangeScene();
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 }
