@@ -176,12 +176,18 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         Alive = true;
     }
 
+    public void DashTrail()
+    {
+        objectPooler.SpawnFromPool("DashTrail", tf.position, Quaternion.identity);
+    }
+
     public void Dash()
     {
         DashSlider.value = 0f;
         DashLength = DashLengthRet;
         DashTimer = DashLength;
         Velocity = DashSpeed;
+        Anim.SetTrigger("Dash");
         Dashin = true;
     }
 

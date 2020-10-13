@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7064026301311966487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7064026301311966473}
+  - component: {fileID: 7064026301311966472}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &7064026301311966473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064026301311966487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7064026301311966472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064026301311966487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01c96191ec834e438ac491db8ec91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24300002, guid: c8e66e01b54089d45938ca9a2e6148e9, type: 2}
+  sounds:
+  - name: WorldMapTheme
+    clip: {fileID: 8300000, guid: 10d3f58faac23a646891f59fd24444ac, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Text1
+    clip: {fileID: 8300000, guid: fed1c74dd1e9cca4e9957102d47ea380, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossTheme
+    clip: {fileID: 8300000, guid: 730b6a4397c744c42809501cda560f91, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BigShatter
+    clip: {fileID: 8300000, guid: f1273eebd129f3044be7fe41e986409e, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossDeath
+    clip: {fileID: 8300000, guid: a58533799ab25f74391b181193a37f7c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurityIdle
+    clip: {fileID: 8300000, guid: 68e7cc0b1afabb84fb265eee14d4b6aa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MetalHit
+    clip: {fileID: 8300000, guid: 3147ff0f8070093479504bc23184dc30, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Roar
+    clip: {fileID: 8300000, guid: d3581b4900b641d449eaee4eb681a4a3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Missle
+    clip: {fileID: 8300000, guid: 828544698b7561f459df7a94323a10ee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Tail
+    clip: {fileID: 8300000, guid: 868c608bffd0cc9468ad80d4c30c259b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BigExplosion
+    clip: {fileID: 8300000, guid: c8a2cc451017b1e4dbc6061e7eae8093, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 325ac08c1b844c845b8a93eb096585c4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shatter
+    clip: {fileID: 8300000, guid: ec4128fc01d0ba841ad264e6323d0189, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Victory2
+    clip: {fileID: 8300000, guid: 64b3f50b46a44b64b8545930406981b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Place holder
+    clip: {fileID: 8300000, guid: 7500268dc75aa6340aad3978a8a428b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Here he is!
+    clip: {fileID: 8300000, guid: 513667bad520c3849bf39ab489651d18, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Level 1
+    clip: {fileID: 8300000, guid: 58fb6115f2e5eb94bb9803ec3b6a2fb3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Title theme
+    clip: {fileID: 8300000, guid: 0af1d89e09032ee41b80dc87ebb6f71d, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: How shroomy are you?
+    clip: {fileID: 8300000, guid: 384b493a88828ed49b8f1fb534ccb481, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Shroomed
+    clip: {fileID: 8300000, guid: 1bcec4f7e238672459adf040e6779dce, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Siren
+    clip: {fileID: 8300000, guid: 16ac35aed2ba35143b4468ab4b483f8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Beta
+    clip: {fileID: 8300000, guid: 3723a32229d57e048b3cf52f4dbefbf2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Purity hit
+    clip: {fileID: 8300000, guid: d0c108de618c41540a4eace1862ea7a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

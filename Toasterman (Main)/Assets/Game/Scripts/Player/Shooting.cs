@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
 
         objectPooler = ObjectPools.Instance;
 
-        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Cannot be greater than 7-8 characters
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
 
     }
 
@@ -72,10 +72,12 @@ public class Shooting : MonoBehaviour
         {
             BulletType = ProjectileNames.Length - 1;
         }
-        else if (BulletType > ProjectileNames.Length - 1 || BulletType > MaxProjec - 1)
+        
+        if (BulletType > ProjectileNames.Length - 1 || BulletType > MaxProjec - 1)
         {
             BulletType = 0;
         }
+        
         for (int i = 0; i < ProjectileNames.Length; i++)
         {
             if (BulletLevel[i] > MaxBulletLevel)

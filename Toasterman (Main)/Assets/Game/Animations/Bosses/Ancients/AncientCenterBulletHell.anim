@@ -822,6 +822,15 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 10
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
         time: 11
         value: {x: 45, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
@@ -1142,6 +1151,40 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Purity/North-East/Bone.055/Bone.056/Bone.057/Bone.058
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: -90}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 10
+        value: {x: 0, y: 0, z: -180}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 11
+        value: {x: 0, y: 0, z: -90}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Purity/West
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -4014,7 +4057,21 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 727696806
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 1113915642
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 781173747
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -4113,13 +4170,6 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 80143662
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 727696806
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -14917,6 +14967,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 10
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 11
         value: 45
         inSlope: 0
@@ -14945,6 +15004,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 10
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 11
         value: 0
         inSlope: 0
@@ -14965,6 +15033,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
         value: 0
         inSlope: 0
         outSlope: 0
@@ -15982,6 +16059,117 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
     path: Purity/North-East/Bone.055/Bone.056/Bone.057/Bone.058
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 11
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Purity/West
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 11
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Purity/West
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
+        value: -180
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 11
+        value: -90
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Purity/West
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -15992,7 +16180,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/South-West/Bone.079
+    path: Purity/South-East/Bone.092/Bone.093/Bone.094
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16002,7 +16190,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/South-West/Bone.079
+    path: Purity/South-East/Bone.092/Bone.093/Bone.094
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16012,7 +16200,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/South-West/Bone.079
+    path: Purity/South-East/Bone.092/Bone.093/Bone.094
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Purity/West
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Purity/West
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Purity/West
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16082,7 +16300,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Head/EyeLeft
+    path: Purity/West/Bone.019
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16092,7 +16310,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Head/EyeLeft
+    path: Purity/West/Bone.019
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16102,67 +16320,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Head/EyeLeft
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Purity/West/Bone.019/Bone.020
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Purity/West/Bone.019/Bone.020
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Purity/West/Bone.019/Bone.020
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Purity/East/Bone.043
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Purity/East/Bone.043
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Purity/East/Bone.043
+    path: Purity/West/Bone.019
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16202,7 +16360,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/East/Bone.043/Bone.044
+    path: Head/EyeLeft
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16212,7 +16370,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/East/Bone.043/Bone.044
+    path: Head/EyeLeft
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16222,7 +16380,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/East/Bone.043/Bone.044
+    path: Head/EyeLeft
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16232,7 +16390,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002/Bone.003
+    path: Purity/East/Bone.043
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16242,7 +16400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002/Bone.003
+    path: Purity/East/Bone.043
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16252,7 +16410,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002/Bone.003
+    path: Purity/East/Bone.043
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16262,7 +16420,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/South-East/Bone.092/Bone.093/Bone.094
+    path: Purity/North/Bone.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16272,7 +16430,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/South-East/Bone.092/Bone.093/Bone.094
+    path: Purity/North/Bone.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16282,7 +16440,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/South-East/Bone.092/Bone.093/Bone.094
+    path: Purity/North/Bone.002
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16292,7 +16450,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
+    path: Purity/South-East/Bone.092/Bone.093
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16302,7 +16460,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
+    path: Purity/South-East/Bone.092/Bone.093
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16312,7 +16470,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
+    path: Purity/South-East/Bone.092/Bone.093
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16322,7 +16480,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16332,7 +16490,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16342,7 +16500,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Purity/North/Bone.002/Bone.003/Bone.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Purity/North/Bone.002/Bone.003/Bone.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Purity/North/Bone.002/Bone.003/Bone.004
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Purity/North-East/Bone.055/Bone.056
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Purity/North-East/Bone.055/Bone.056
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Purity/North-East/Bone.055/Bone.056
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16412,7 +16630,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North-West/Bone.066
+    path: Purity/North-West/Bone.066/Bone.067/Bone.068
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16422,7 +16640,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North-West/Bone.066
+    path: Purity/North-West/Bone.066/Bone.067/Bone.068
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16432,7 +16650,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North-West/Bone.066
+    path: Purity/North-West/Bone.066/Bone.067/Bone.068
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16442,7 +16660,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/South/Bone.031
+    path: Purity/North-West/Bone.066
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16452,7 +16670,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/South/Bone.031
+    path: Purity/North-West/Bone.066
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16462,7 +16680,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/South/Bone.031
+    path: Purity/North-West/Bone.066
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16502,7 +16720,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North-West/Bone.066/Bone.067/Bone.068
+    path: Purity/South/Bone.031
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16512,7 +16730,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North-West/Bone.066/Bone.067/Bone.068
+    path: Purity/South/Bone.031
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16522,7 +16740,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North-West/Bone.066/Bone.067/Bone.068
+    path: Purity/South/Bone.031
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16592,7 +16810,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/South-East/Bone.092/Bone.093
+    path: Purity/South-West/Bone.079
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16602,7 +16820,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/South-East/Bone.092/Bone.093
+    path: Purity/South-West/Bone.079
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16612,7 +16830,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/South-East/Bone.092/Bone.093
+    path: Purity/South-West/Bone.079
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16652,7 +16870,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/West/Bone.019
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16662,7 +16880,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/West/Bone.019
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16672,7 +16890,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/West/Bone.019
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16682,7 +16900,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
+    path: Purity/North-East/Bone.055
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16692,7 +16910,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
+    path: Purity/North-East/Bone.055
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16702,7 +16920,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2
+    path: Purity/North-East/Bone.055
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16712,7 +16930,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North-East/Bone.055/Bone.056
+    path: Purity/East/Bone.043/Bone.044
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16722,7 +16940,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North-East/Bone.055/Bone.056
+    path: Purity/East/Bone.043/Bone.044
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16732,7 +16950,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North-East/Bone.055/Bone.056
+    path: Purity/East/Bone.043/Bone.044
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16772,7 +16990,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002
+    path: Purity/North/Bone.002/Bone.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16782,7 +17000,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002
+    path: Purity/North/Bone.002/Bone.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16792,7 +17010,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002
+    path: Purity/North/Bone.002/Bone.003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16802,7 +17020,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North/Bone.002/Bone.003/Bone.004
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16812,7 +17030,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North/Bone.002/Bone.003/Bone.004
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16822,7 +17040,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North/Bone.002/Bone.003/Bone.004
+    path: Purity/North/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006 2/Bone.007 2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16832,7 +17050,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Purity/North-East/Bone.055
+    path: Purity/West/Bone.019/Bone.020
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16842,7 +17060,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Purity/North-East/Bone.055
+    path: Purity/West/Bone.019/Bone.020
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -16852,7 +17070,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Purity/North-East/Bone.055
+    path: Purity/West/Bone.019/Bone.020
     classID: 4
     script: {fileID: 0}
   - curve:

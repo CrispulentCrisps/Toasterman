@@ -1344,8 +1344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 150, y: 25}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 175, y: 50}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140420914
 MonoBehaviour:
@@ -1619,26 +1619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
-        type: 3}
-      propertyPath: MusicName
-      value: WorldMapTheme
-      objectReference: {fileID: 0}
-    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
-        type: 3}
-      propertyPath: SceneNumber
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
-        type: 3}
-      propertyPath: ConditionMet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450264641973510896, guid: e32e1f2b617222644b375f877396c3e8,
-        type: 3}
-      propertyPath: FadeInMusic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 450264641973510897, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
       propertyPath: m_Name
@@ -1698,6 +1678,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295877709711300401, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1497204122}
+    - target: {fileID: 6295877709711300401, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 32766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e32e1f2b617222644b375f877396c3e8, type: 3}
@@ -2559,7 +2549,7 @@ PrefabInstance:
     - target: {fileID: 6248229747733947961, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99.999756
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}

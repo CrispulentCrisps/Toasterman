@@ -10,14 +10,14 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public Transform[] BodyParts;
 
-    public CapsuleCollider2D[] Colliders;
-
     private string BulletName;
 
     public int State;
     public int SineOffset;
     public int BulletAmount;
     public int ShootingType;
+    private int MaxState;
+    private int MinState;
     private int j;//For recursion in shooting rocks
 
     public float Health;
@@ -48,12 +48,9 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        for (int i = 0; i < Colliders.Length; i++)
+        if (coll.gameObject.CompareTag("Bullet") && HandScript.HandsGone == 2)
         {
-            if (coll.gameObject.CompareTag("Bullet"))
-            {
-                Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
-            }
+            Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
         }
     }
             // Update is called once per frame
@@ -67,7 +64,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
             if (TSpace >= 3f && Shooting == false)
             {
 
-                State = Random.Range(0, 5);
+                State = Random.Range(MinState, MaxState);
                 TSpace = 0;
             }
 
@@ -80,11 +77,11 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     State = 0;
                     break;
                 case 2:
-                    Anim.SetTrigger("Laser");
+                    Anim.SetTrigger("Hell");
                     State = 0;
                     break;
                 case 3:
-                    Anim.SetTrigger("Hell");
+                    Anim.SetTrigger("Laser");
                     State = 0;
                     break;
                 case 4:
@@ -118,12 +115,21 @@ public class AncientAI : MonoBehaviour, IPooledObject
         {
             default:
                 BulletAmount = 8;
+                MaxState = 3;
+                MinState = 0;
+                break;
+            case 750:
+                BulletAmount = 10;
+                MaxState = 4;
                 break;
             case 500:
-                BulletAmount = 10;
-                break;
-            case 250:
                 BulletAmount = 12;
+                MaxState = 5;
+                break;
+            case 333:
+                BulletAmount = 14;
+                MaxState = 5;
+                MinState = 1;
                 break;
         }
 
@@ -163,7 +169,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
-                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.25f) + (j * 0.125f));
+                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.25f) + (BulletAmount * 0.5f + j));
                         TimingSpaceRock = 0;
                         j++;
                     }
