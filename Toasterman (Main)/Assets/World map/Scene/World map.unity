@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b257e6b9592a8a459d166b2d1f0025c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetsDone: 0100
+  PlanetsDone: 0000
 --- !u!4 &1044273911
 Transform:
   m_ObjectHideFlags: 0
@@ -2286,7 +2286,7 @@ PrefabInstance:
     - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_characterSpacing
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
@@ -2368,6 +2368,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1497204122}
+    - target: {fileID: 936199373234001794, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199373234001794, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199373234001853, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 936199374365196140, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2550,6 +2565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405173356910482317, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}

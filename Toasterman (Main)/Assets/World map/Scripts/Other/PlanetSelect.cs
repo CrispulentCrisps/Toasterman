@@ -63,6 +63,15 @@ public class PlanetSelect : MonoBehaviour
             }
 
         }
+        else
+        {
+            for (int i = 0; i < Locks.Length; i++)
+            {
+
+                Locks[i].SetActive(true);
+
+            }
+        }
 
         if (Completed == true)
         {
@@ -75,6 +84,15 @@ public class PlanetSelect : MonoBehaviour
 
             }
 
+        }
+        else
+        {
+            for (int i = 0; i < Locks.Length; i++)
+            {
+
+                Ailments[i].SetActive(true);
+
+            }
         }
 
     }

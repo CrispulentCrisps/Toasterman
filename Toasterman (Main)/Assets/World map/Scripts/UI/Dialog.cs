@@ -135,8 +135,9 @@ public class Dialog : MonoBehaviour
 
     public void SkipText()
     {
-
         index = indexDone + 1;
+        ToastAnim.Play("Out");
+        OtherAnim.Play("Out");
         textDisplay.text = " ";
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);

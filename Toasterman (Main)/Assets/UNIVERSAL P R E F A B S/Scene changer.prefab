@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2114557963
 Transform:
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 42530e26d3b7ebf40bfee3770b165ba4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
   ConditionMet: 1
   FadeInMusic: 1
   Time: 2
-  MusicName: WorldMapTheme
-  SceneNumber: 3
+  MusicName: 
+  SceneNumber: 1
 --- !u!225 &760301287
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 6295877710265403961, guid: 9d603d4a422f1404cb03dfca7ea56905,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 32767
+      value: 32766
       objectReference: {fileID: 0}
     - target: {fileID: 6295877710265403962, guid: 9d603d4a422f1404cb03dfca7ea56905,
         type: 3}

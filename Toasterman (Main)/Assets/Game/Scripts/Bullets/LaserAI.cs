@@ -23,6 +23,7 @@ public class LaserAI : MonoBehaviour, IPooledObject
         RotateSpeed = 0;
         anim.SetTrigger("Enter");
         Lifeline = 0;
+        FindObjectOfType<AudioManager>().Play("Laser fire");
     }
     // Update is called once per frame
     void Update()

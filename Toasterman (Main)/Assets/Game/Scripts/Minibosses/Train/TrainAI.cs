@@ -50,7 +50,7 @@ public class TrainAI : MonoBehaviour, IPooledObject
         if (Life <= 0f && roccai.Ending == false)
         {
 
-            RoccTf.position = new Vector3(18f,-2,0);
+            RoccTf.position = new Vector3(22f,-2,0);
 
             gunai.Shooting = false;
 

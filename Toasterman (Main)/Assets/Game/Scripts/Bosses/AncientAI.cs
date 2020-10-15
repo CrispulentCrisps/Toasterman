@@ -5,6 +5,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     ObjectPools objectPooler;
 
     public Animator Anim;
+    public Animator EyeAnim;
 
     public CameraShake camerashake;
 
@@ -51,11 +52,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet") && HandScript.HandsGone == 2)
         {
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
+            EyeAnim.SetTrigger("AngryToWorry");
         }
     }
-            // Update is called once per frame
+
     void Update()
-    { 
+    {
+
         if (IntroDone == true)
         {
 
@@ -63,7 +66,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             if (TSpace >= 3f && Shooting == false)
             {
-
                 State = Random.Range(MinState, MaxState);
                 TSpace = 0;
             }
@@ -98,37 +100,44 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 SineAmp += 2.5f * Time.deltaTime;
 
             }
-
-            for (int i = 0; i < 2; i++)//Hands
+            if (HandScript.HandsGone != 2)
             {
-                BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset)* 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
-                BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
-                if (i == 1)
+                for (int i = 0; i < 2; i++)//Hands
                 {
-                    BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
-                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
+                    BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
+                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
+                    if (i == 1)
+                    {
+                        BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
+                        BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
+                    }
                 }
             }
+            if (HandScript.HandsGone == 1)
+            {
+                EyeAnim.SetTrigger("ToAngry");
+            }
+            else if (HandScript.HandsGone == 2)
+            {
+                EyeAnim.SetTrigger("AngryToWorry");
+            }
+
         }
 
-        switch (Health)
+        switch (HandScript.HandsGone)
         {
             default:
                 BulletAmount = 8;
-                MaxState = 3;
+                MaxState = 4;
                 MinState = 0;
                 break;
-            case 750:
+            case 1:
                 BulletAmount = 10;
-                MaxState = 4;
+                MaxState = 5;
                 break;
-            case 500:
+            case 2:
                 BulletAmount = 12;
-                MaxState = 5;
-                break;
-            case 333:
-                BulletAmount = 14;
-                MaxState = 5;
+                MaxState = 6;
                 MinState = 1;
                 break;
         }
@@ -140,7 +149,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 default:
                     break;
                 case 0:
-                    if (j >= 3)
+                    if (j >= 6)
                     {
 
                         Shooting = false;
@@ -151,14 +160,11 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
                     if (TimingSpaceRock > 0.1f)
                     {
-                        BulletAmount -= j * 2;
-                        for (int i = 0; i < 2; i++)
-                        {
-                            BulletName = "Rock";
-                            FindObjectOfType<AudioManager>().Play("Missle");
-                            ShootCircle(BulletAmount, BulletName, BodyParts[i % 2], j);
-                            TimingSpaceRock = 0;
-                        }
+                        BulletAmount -= j;
+                        BulletName = "Rock";
+                        FindObjectOfType<AudioManager>().Play("Missle");
+                        ShootCircle(BulletAmount, BulletName, BodyParts[j % 2], j + (HandScript.HandsGone * 29f));
+                        TimingSpaceRock = 0;
                         j++;
                     }
                     break;
@@ -169,7 +175,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
-                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.25f) + (BulletAmount * 0.5f + j));
+                        FindObjectOfType<AudioManager>().Play("Tail");
+                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.125f) + (BulletAmount * 0.125f + j));
                         TimingSpaceRock = 0;
                         j++;
                     }

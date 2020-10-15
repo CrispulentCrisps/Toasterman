@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
             }
 
-            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f)
+            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f && Invincible == false)
             {
                 Dash();
 
