@@ -19,8 +19,9 @@ public class Boundaries : MonoBehaviour
     void LateUpdate()
     {
         Vector3 viewPos = transform.position;
+        screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + (objectHeight * 4f), screenBounds.y - (objectHeight * 4f));
+        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
         transform.position = viewPos;
     }
 }

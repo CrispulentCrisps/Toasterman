@@ -71,7 +71,7 @@ public class ShieldMakerCore : MonoBehaviour
     {
         objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)XPos,1f, 0), Quaternion.identity);
         objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)-XPos, 1f, 0), Quaternion.identity);
-        XPos += 0.15;
+        XPos += 0.1;
 
         FindObjectOfType<AudioManager>().ChangePitch("Shatter", Random.Range(.5f, 2f));
         FindObjectOfType<AudioManager>().Play("Shatter");

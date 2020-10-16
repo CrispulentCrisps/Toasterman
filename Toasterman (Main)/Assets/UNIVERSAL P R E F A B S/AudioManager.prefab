@@ -131,7 +131,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Place holder
     clip: {fileID: 8300000, guid: 7500268dc75aa6340aad3978a8a428b0, type: 3}
-    volume: 1
+    volume: 0.9
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -185,6 +185,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Laser fire
     clip: {fileID: 8300000, guid: d687a3bc144654840a33df1d2626f390, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thud
+    clip: {fileID: 8300000, guid: beb0df461ed6f384ab1a0412e603c6dc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Get power
+    clip: {fileID: 8300000, guid: a7340c0df8f0b0146ae70ce91df0bac2, type: 3}
     volume: 1
     pitch: 1
     loop: 0

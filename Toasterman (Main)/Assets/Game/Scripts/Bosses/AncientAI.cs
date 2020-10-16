@@ -203,6 +203,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public void ShootSpore(int Amount)
     {
+        FindObjectOfType<AudioManager>().Play("Thud");
         for (int i = 0; i < Amount; i++)
         {
             objectPooler.SpawnFromPool("SporeBomb", BodyParts[4].position, Quaternion.identity);

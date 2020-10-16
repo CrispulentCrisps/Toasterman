@@ -2,7 +2,6 @@
 
 public class PlanetSelect : MonoBehaviour
 {
-
     public int PlanetNum;
     public int IndexStart;
     public int IndexEnd;
@@ -47,51 +46,36 @@ public class PlanetSelect : MonoBehaviour
         }
         else if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
         {
-
             Locked = false;
-            
         }
 
         if (Locks.Length != 0 && Locked == false)
-        {
-
+        { 
             for (int i = 0; i < Locks.Length; i++)
             {
-
                 Locks[i].SetActive(false);
-
             }
-
         }
         else
         {
             for (int i = 0; i < Locks.Length; i++)
             {
-
                 Locks[i].SetActive(true);
-
             }
         }
 
         if (Completed == true)
         {
-
-
             for (int i = 0; i < Ailments.Length; i++)
             {
-
                 Ailments[i].SetActive(false);
-
             }
-
         }
         else
         {
-            for (int i = 0; i < Locks.Length; i++)
+            for (int i = 0; i < Ailments.Length; i++)
             {
-
                 Ailments[i].SetActive(true);
-
             }
         }
 
@@ -99,10 +83,8 @@ public class PlanetSelect : MonoBehaviour
 
     void OnMouseOver()
     {
-
         if (Input.GetMouseButtonDown(0) && Selected == false && Locked == false)
         {
-
             dialog.index = IndexStart;
             dialog.indexDone = IndexEnd;
             dialog.LeftIn = LeftIn;
@@ -112,22 +94,16 @@ public class PlanetSelect : MonoBehaviour
             scenechange.SceneNumber = LevelIndex;
             dialog.StartCoroutine(dialog.BoxIn(1f));
             Selected = true;
-
         }
         else if (Selected == false && Locked == false)
         {
-
             tf.localScale = new Vector3(Scale.x, Scale.y, Scale.z);
-
         }
-
     }
 
     void OnMouseExit()
     {
-
         tf.localScale = new Vector3(1f, 1f, 1f); 
-
     }
 
 }

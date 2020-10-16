@@ -13,7 +13,6 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
 
     public TMP_Dropdown ResolutionDropdown;
-    public Slider AntiAliasingSlider;
 
     void Start()
     {
@@ -55,7 +54,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float Volume)
     {
-        audioMixer.SetFloat("Volume", Volume);
+        audioMixer.SetFloat("Volume", Mathf.Log10(Volume) * 20);
     }
 
     public void SetQuality(int Qualityindex)
