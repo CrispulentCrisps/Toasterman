@@ -9,8 +9,6 @@ public class BouncyAI : MonoBehaviour, IPooledObject
 
     private GameObject Target;
 
-    private Shooting shooting;
-
     private Vector2 Movement;
 
     private float speed = 0;
@@ -22,7 +20,6 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         Target = GameObject.FindGameObjectWithTag("Player");
-        shooting = Target.GetComponent<Shooting>();
         speed = 17.5f;
 
     }
@@ -38,7 +35,7 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     void Update()
     {
 
-        BounceAmount = (shooting.BulletLevel[2]) + 2;
+        BounceAmount = (Shooting.BulletLevel[2]) + 2;
 
         Movement = new Vector2(speed, 0);
 

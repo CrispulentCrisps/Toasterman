@@ -10,6 +10,8 @@ public class LaserAI : MonoBehaviour, IPooledObject
     public float Lifetime;
     private float Lifeline;
 
+    private float CurrentSpeed;
+    private float RotVel;
     public float RotateSpeed;
 
     // Start is called before the first frame update
@@ -20,7 +22,8 @@ public class LaserAI : MonoBehaviour, IPooledObject
   
     public void OnObjectSpawn()
     {
-        RotateSpeed = 0;
+        RotVel = 0;
+        CurrentSpeed = 0;
         anim.SetTrigger("Enter");
         Lifeline = 0;
         FindObjectOfType<AudioManager>().Play("Laser fire");
@@ -28,7 +31,8 @@ public class LaserAI : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-        RotateSpeed += 50 * Time.deltaTime;
+        RotVel += RotateSpeed * Time.deltaTime;
+        CurrentSpeed += RotVel * Time.deltaTime;
         Lifeline += Time.deltaTime;
         if (Lifeline >= Lifetime)
         {
@@ -38,7 +42,7 @@ public class LaserAI : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-        tf.RotateAround(new Vector3(0,0,0),Vector3.forward, RotateSpeed * Time.deltaTime);
+        tf.RotateAround(new Vector3(0,0,0),Vector3.forward, CurrentSpeed * Time.deltaTime);
     }
 
     public void SetDead()

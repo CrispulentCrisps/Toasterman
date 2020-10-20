@@ -9,6 +9,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public CameraShake camerashake;
 
+    public GameObject[] Hands;
+
     public Transform[] BodyParts;
 
     private string BulletName;
@@ -30,6 +32,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float TimingSpaceRock;
     
     private bool Shooting;
+    private bool[] HandBroke;
     public bool IntroDone = false;
 
     void Start()
@@ -38,6 +41,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
+        HandBroke = new bool[] { Hands[0].GetComponent<HandScript>().DoneHands, Hands[1].GetComponent<HandScript>().DoneHands };
     }
 
     public void OnObjectSpawn()
@@ -45,6 +49,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
+
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -68,6 +73,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
             {
                 State = Random.Range(MinState, MaxState);
                 TSpace = 0;
+            }
+
+            if (Health <= 0f)
+            {
+                State = 0;
+                Anim.SetTrigger("Die");
             }
 
             switch (State)
@@ -104,9 +115,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
             {
                 for (int i = 0; i < 2; i++)//Hands
                 {
-                    BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
-                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
-                    if (i == 1)
+                    if (i == 0 && HandBroke[0] == false)
+                    {
+                        BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
+                        BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
+                    }
+                    else if (i == 1 && HandBroke[1] == false)
                     {
                         BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
                         BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
@@ -126,18 +140,18 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
         switch (HandScript.HandsGone)
         {
-            default:
+            case 0:
                 BulletAmount = 8;
-                MaxState = 4;
+                MaxState = 3;
                 MinState = 0;
                 break;
             case 1:
                 BulletAmount = 10;
-                MaxState = 5;
+                MaxState = 4;
                 break;
             case 2:
                 BulletAmount = 12;
-                MaxState = 6;
+                MaxState = 5;
                 MinState = 1;
                 break;
         }

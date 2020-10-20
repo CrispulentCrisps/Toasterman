@@ -67,7 +67,7 @@ public class Dialog : MonoBehaviour
         else if (RightOut == index)
         {
 
-            ToastAnim.Play("Out");
+            OtherAnim.Play("Out");
             RightOut = -1;
 
         }

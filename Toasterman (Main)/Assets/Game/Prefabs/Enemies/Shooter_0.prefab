@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -358543269
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: -4866215267170806279, guid: ef375c2624a6825429fcfbfda12df986,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,14 +123,11 @@ MonoBehaviour:
   rb: {fileID: 4728287638042413878}
   tf: {fileID: 4728287638042413879}
   Ship: {fileID: 0}
-  Explosion: {fileID: 2597242545742524645, guid: 262d1c0df70ca4449a09cd12bc910952,
-    type: 3}
-  WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 4728287638042413881}
-  Health: 5
-  BulletName: 
-  RegularAngle: 120
+  Health: 7
+  BulletName: EnemyBullet
+  RegularAngle: 135
   RegularAmount: 3
   Charge: 1
   Full: 0.5

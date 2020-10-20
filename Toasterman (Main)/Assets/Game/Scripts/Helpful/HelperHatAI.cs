@@ -20,7 +20,11 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
     {
 
         objectPooler = ObjectPools.Instance;
-
+        Yvel = 15.5f;
+        Xvel = 9f;
+        tf.position = new Vector3(-13f, -10f, 0f);
+        Thrown = false;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     public void OnObjectSpawn()

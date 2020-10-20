@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
     public Transform tf;
 
-    public bool Inverse;
-
     private float Health = 100f;
     private float TargetHealth = 100f;
     public float RegenRate;
@@ -17,6 +15,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
     private float timer; // Wait before the regen starts
     private float Timer2;// Smoke timer
+    private float TrailTimer;// Dash trail timer
 
     private float DashTimer;
     public float DashTimerSpeed;
@@ -28,7 +27,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     public bool Dashin = false;
     private bool Invincible = false;
     private bool Alive = true;
-
+    public bool Inverse;
+    
     ObjectPools objectPooler;
 
     public CameraShake camerashake;
@@ -49,18 +49,18 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         timer = 0f;
         Timer2 = 0.5f;
         DashTimer = 0f;
+        TrailTimer = 0;
         objectPooler = ObjectPools.Instance;
         DashAnim = DashSlider.GetComponent<Animator>();
     }
 
     public void OnObjectSpawn()
     {
-
         Movement = new Vector3(0, 0, 0);
         timer = 0f;
         Timer2 = 0.5f;
         DashTimer = 0f;
-
+        TrailTimer = 0;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -74,6 +74,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             StartCoroutine(camerashake.AbberationChange(1f, 1f));
             Anim.SetTrigger("Hurt");
             timer = 5f;
+            for (int i = 0; i < Shooting.BulletType; i++)
+            {
+                Shooting.BulletLevel[i] -= 1;
+            }
         }
 
     }
@@ -92,14 +96,22 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
 
-            if (HealthSlider.value <= 0)
+            if (Invincible)
             {
-
-                Die();
-
+                TrailTimer += Time.deltaTime;
+                if (TrailTimer >= 0.0125f)
+                {
+                    DashTrail();
+                    TrailTimer = 0f;
+                }
             }
 
-            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f && Invincible == false)
+            if (HealthSlider.value <= 0)
+            {
+                Die();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f)
             {
                 Dash();
 

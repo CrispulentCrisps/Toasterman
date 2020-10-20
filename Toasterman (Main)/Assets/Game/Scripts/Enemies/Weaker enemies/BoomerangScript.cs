@@ -10,9 +10,6 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
     public Transform tf;
 
     public GameObject Ship;
-    public GameObject MySelf;
-    public GameObject Explosion;
-    public GameObject Bullet;
     public GameObject WaveMaker;
 
     public EnemyScript enemyscript;
@@ -24,7 +21,6 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
     private bool Happy = true;
 
     private float YDistance;
-
     public float Health;
 
     ObjectPools objectPooler;
@@ -61,79 +57,43 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-
             Health = 0f;
-
         }
-
         if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
-
             if (Health <= 0f)
             {
-
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
-
             }
-
         }
-
     }
 
     public void Turn()
     {
-
         Anim.SetTrigger("Behind");
-
-        YDistance = (tf.position.y - Ship.transform.position.y + Random.Range(0.5f,-0.5f));
-
-        if (tf.position.y > Ship.transform.position.y)
-        {
-
-            speed = new Vector2(speed.x, speed.y + YDistance);
-
-        }
-        else
-        {
-
-            speed = new Vector2(speed.x, speed.y + YDistance);
-
-        }
-
+        YDistance = (tf.position.y - Ship.transform.position.y + Random.Range(0.5f, -0.5f));
+        speed = new Vector2(speed.x, speed.y + YDistance);
         Happy = false;
-
     }
 
     void Update()
     {
-
         RotSpeed -= 1f;
-
         //Turn around and hit player
         if (tf.position.x <= Ship.transform.position.x && Happy == true)
         {
-
             Turn();
-
         }
-
-
-        if (tf.position.x <= -15 || tf.position.x >= 15 && Happy == false)
+        if (tf.position.x <= -15 && Happy == false)
         {
-
             gameObject.SetActive(false);
-
         }
-
-
         if (Happy == false)
         {
             speed.x -= 0.5f;
-
         }
-
     }
 
 }

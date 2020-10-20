@@ -15,8 +15,8 @@ public class Shooting : MonoBehaviour
 
     private bool Auto = false;
 
-    public int BulletType;
-    public int[] BulletLevel;
+    public static int BulletType;
+    public static int[] BulletLevel;
     public int MaxProjec;
     public int MaxBulletLevel;
 
@@ -33,6 +33,7 @@ public class Shooting : MonoBehaviour
         objectPooler = ObjectPools.Instance;
 
         ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
+        BulletLevel = new int[] {0,0,0,0};
 
     }
 
@@ -103,9 +104,9 @@ public class Shooting : MonoBehaviour
         switch (BulletType)
         {
             case 0:
-                Increment = 3f;
                 for (int i = 0; i < BulletLevel[BulletType] + 1; i++)// spread shot
                 {
+                    Increment = 3f;
                     //Spread
                     BulletSpreadMult = BulletLevel[BulletType] + 1;
                     BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult) % 360));
@@ -114,11 +115,11 @@ public class Shooting : MonoBehaviour
                 }
                 break;
             case 1:
-                Increment = 2f;
+                Increment = 1.5f;
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
             case 2:
-                Increment = 1.5f;
+                Increment = 1.25f;
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
                 break;
             case 3:

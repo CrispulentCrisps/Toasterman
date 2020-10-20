@@ -19,12 +19,12 @@ public class HandScript : MonoBehaviour
     public string SoundName;
     public string[] CollisionNames;
 
-    private bool DoneHands = false;
+    public bool DoneHands = false;
     private bool ToEye = false;
 
     void Start()
     {
-        Health = ancientai.Health * 1.33f;
+        Health = ancientai.Health * 0.5f;
         Length = CollisionNames.Length;
     }
 

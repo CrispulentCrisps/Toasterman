@@ -21,56 +21,40 @@ public class PowerUp : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     public void OnObjectSpawn()
     {
-
         Target = GameObject.Find("Ship");//gets the game object
-        shooting = Target.GetComponent<Shooting>();// gets the Shooting Script
-
         YVel = Random.Range(6f,12f);
         XVel = Random.Range(5f, -5f);
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-
-            shooting.BulletLevel[PowerData]++;
+            FindObjectOfType<AudioManager>().Play("Get power");
+            Shooting.BulletLevel[PowerData]++;
             gameObject.SetActive(false);
-
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Movement = new Vector2(XVel, YVel);
-
         YVel -= 9.81f * Time.deltaTime;
-
         if (tf.position.y <= -10f)
         {
-
             gameObject.SetActive(false);
-
         }
-
     }
 
     void FixedUpdate()
     {
-
         tf.Translate(Movement * Time.deltaTime);
-
     }
 
 }

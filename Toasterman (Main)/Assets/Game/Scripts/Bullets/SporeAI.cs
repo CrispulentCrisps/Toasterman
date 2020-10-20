@@ -25,9 +25,7 @@ public class SporeAI : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     // Start is called before the first frame update
@@ -51,10 +49,9 @@ public class SporeAI : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("Player") && playermovement.Dashin == false)
         {
-
+            FindObjectOfType<AudioManager>().Play("Shroomed");
             Attached = true;
             LifeTime = Random.Range(2.5f, 5f);
-
         }
 
     }

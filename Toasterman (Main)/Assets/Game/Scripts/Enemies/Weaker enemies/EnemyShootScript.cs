@@ -11,8 +11,6 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public Transform tf;
 
     public GameObject Ship;
-    public GameObject Explosion;
-    public GameObject WaveMaker;
 
     public EnemyScript enemyscript;
 
@@ -43,17 +41,11 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
-        WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
-        enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
+        enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
-
         objectPooler = ObjectPools.Instance;
-
         Ship = GameObject.Find("Ship");
-
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
-
     }
 
     void Start()
