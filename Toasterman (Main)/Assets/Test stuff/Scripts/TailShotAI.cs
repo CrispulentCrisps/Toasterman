@@ -63,7 +63,7 @@ public class TailShotAI : MonoBehaviour, IPooledObject
 
         if (Health <= 0f)
         {
-
+            FindObjectOfType<AudioManager>().Play("TailShotHit");
             gameObject.SetActive(false);
 
         }

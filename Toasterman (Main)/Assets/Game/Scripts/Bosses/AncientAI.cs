@@ -46,9 +46,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        gameObject.transform.Rotate(0f, -90f, 0f);
+        camerashake = Camera.main.GetComponent<CameraShake>();
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
+        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("How shroomy are you?", 1f));
 
     }
 
@@ -229,6 +232,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
     { 
         objectPooler.SpawnFromPool("Lazer", BodyParts[4].position, Quaternion.identity);
         StartCoroutine(camerashake.Shake(5f, 0.015f));
+    }
+
+    public void StartMusic()
+    {
+        FindObjectOfType<AudioManager>().SetVolume("Corrupt deity", 1f);
+        FindObjectOfType<AudioManager>().Play("Corrupt deity");
     }
 
     public void Shoot()

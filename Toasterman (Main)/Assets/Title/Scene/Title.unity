@@ -3074,8 +3074,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661535670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalPosition: {x: 45, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1681479096}
   m_RootOrder: 1
@@ -3317,6 +3317,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680836820}
   m_CullTransparentMesh: 0
+--- !u!1 &735703084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382819785414337629, guid: 1665a52b72744f34fab3ef100e3a6b98,
+    type: 3}
+  m_PrefabInstance: {fileID: 2106875141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &735703092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735703084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c2cada3d490ce4eb35d1d06f2cf687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundTestAcces: {fileID: 2012359717}
 --- !u!1 &740797965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,7 +6205,7 @@ Transform:
   m_GameObject: {fileID: 1476725289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1681479096}
   m_RootOrder: 0
@@ -6569,7 +6588,7 @@ MonoBehaviour:
   FrontPos:
   - {x: 0, y: 0, z: 0}
   - {x: 36, y: 0, z: 0}
-  BackThresh: 36
+  BackThresh: 45
   paraspeed: 0
   paraspeedGoal: 1
   paraspeedIncrement: 0.25

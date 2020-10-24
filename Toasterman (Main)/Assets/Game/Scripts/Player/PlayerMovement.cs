@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             timer = 5f;
             for (int i = 0; i < Shooting.BulletType; i++)
             {
-                Shooting.BulletLevel[i] -= 1;
+                Shooting.BulletLevel[i]--;
             }
         }
 

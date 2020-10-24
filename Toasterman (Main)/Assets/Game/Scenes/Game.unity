@@ -631,7 +631,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 2
+  serializedVersion: 3
   m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
@@ -653,7 +653,7 @@ LightingSettings:
   m_MixedBakeMode: 2
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
   m_RealtimeResolution: 2
@@ -670,7 +670,7 @@ LightingSettings:
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
-  m_PVRRussianRouletteStartBounce: 2
+  m_PVRMinBounces: 1
   m_PVREnvironmentMIS: 1
   m_PVRFilteringMode: 1
   m_PVRDenoiserTypeDirect: 1
@@ -2603,7 +2603,7 @@ PrefabInstance:
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
       propertyPath: i
-      value: 0
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 2087822495011194830, guid: e2a1eb2d4ffa16b4995720b9060d388d,
         type: 3}
@@ -2694,6 +2694,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.data[27].name
+      value: TailShotHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.data[27].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e072b39cdf7aeb469f23c72eef23fb5, type: 3}
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.data[27].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.data[27].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064026301311966472, guid: 71c93eb09edce364eae4b5d36c4f129f,
+        type: 3}
+      propertyPath: sounds.Array.data[27].loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7064026301311966473, guid: 71c93eb09edce364eae4b5d36c4f129f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5731,6 +5761,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354949, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354949, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4437360254698354950, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}

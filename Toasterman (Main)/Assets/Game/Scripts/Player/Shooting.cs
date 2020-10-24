@@ -17,7 +17,9 @@ public class Shooting : MonoBehaviour
 
     public static int BulletType;
     public static int[] BulletLevel;
+    [Range(0,5)]
     public int MaxProjec;
+    [Range(0,5)]
     public int MaxBulletLevel;
 
     private float BulletSpreadMult;
@@ -100,17 +102,17 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
-
+        FindObjectOfType<AudioManager>().Play("Missle");
         switch (BulletType)
         {
             case 0:
+                Increment = 3f;
                 for (int i = 0; i < BulletLevel[BulletType] + 1; i++)// spread shot
                 {
-                    Increment = 3f;
                     //Spread
                     BulletSpreadMult = BulletLevel[BulletType] + 1;
                     BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult) % 360));
-                    objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, BulletRot);
+                    objectPooler.SpawnFromPool(ProjectileNames[0], tf.position, BulletRot);
 
                 }
                 break;
@@ -125,7 +127,6 @@ public class Shooting : MonoBehaviour
             case 3:
                 Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
-                FindObjectOfType<AudioManager>().Play("Missle");
                 break;
         }
         FireRate = 0;// reset firerate
