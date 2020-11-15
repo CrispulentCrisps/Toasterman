@@ -102,7 +102,7 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
-        FindObjectOfType<AudioManager>().Play("Missle");
+        FindObjectOfType<AudioManager>().Play("Shoot regular");
         switch (BulletType)
         {
             case 0:

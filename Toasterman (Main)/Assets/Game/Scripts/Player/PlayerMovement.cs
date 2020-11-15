@@ -200,6 +200,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         DashTimer = DashLength;
         Velocity = DashSpeed;
         Anim.SetTrigger("Dash");
+        FindObjectOfType<AudioManager>().Play("Dash");
         Dashin = true;
     }
 

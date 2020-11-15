@@ -6,6 +6,8 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 {
     public Animator anim;
 
+    public string SoundName;
+
     ObjectPools objectPooler;
 
     private float Time = 0f;
@@ -33,7 +35,7 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
+        FindObjectOfType<AudioManager>().Play(SoundName);
         anim.SetTrigger("Boom");
         Time = 0;
     }

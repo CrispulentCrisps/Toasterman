@@ -4,10 +4,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
 {
     ObjectPools objectPooler;
 
+    public GameObject BG;
+
     public Animator Anim;
     public Animator EyeAnim;
 
     public CameraShake camerashake;
+    public ParalaxStuff paralaxstuff;
 
     public GameObject[] Hands;
 
@@ -48,6 +51,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
     {
         gameObject.transform.Rotate(0f, -90f, 0f);
         camerashake = Camera.main.GetComponent<CameraShake>();
+        BG = GameObject.Find("BG stuff");
+        paralaxstuff = BG.GetComponent<ParalaxStuff>();
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
@@ -114,21 +119,20 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 SineAmp += 2.5f * Time.deltaTime;
 
             }
-            if (HandScript.HandsGone != 2)
+
+            for (int i = 0; i < 2; i++)//Hands
             {
-                for (int i = 0; i < 2; i++)//Hands
+                if (i == 0 && HandBroke[0] == false)
                 {
-                    if (i == 0 && HandBroke[0] == false)
-                    {
-                        BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
-                        BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
-                    }
-                    else if (i == 1 && HandBroke[1] == false)
-                    {
-                        BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
-                        BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
-                    }
+                    BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
+                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
                 }
+                else if (i == 1 && HandBroke[1] == false)
+                {
+                    BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
+                    BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);
+                }
+
             }
             if (HandScript.HandsGone == 1)
             {
@@ -218,6 +222,18 @@ public class AncientAI : MonoBehaviour, IPooledObject
         
     }
 
+    public void DeathSoundPlay()
+    {
+        FindObjectOfType<AudioManager>().Play("Boss die 2");
+        StartCoroutine(camerashake.Shake(4f, 0.1f));
+    }
+
+    public void FadeBossTheme()
+    {
+        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("Corrupt deity",0.33f));
+        paralaxstuff.paraspeedGoal = 0f;
+    }
+
     public void ShootSpore(int Amount)
     {
         FindObjectOfType<AudioManager>().Play("Thud");
@@ -238,6 +254,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     {
         FindObjectOfType<AudioManager>().SetVolume("Corrupt deity", 1f);
         FindObjectOfType<AudioManager>().Play("Corrupt deity");
+        paralaxstuff.paraspeedGoal = 100f;
     }
 
     public void Shoot()

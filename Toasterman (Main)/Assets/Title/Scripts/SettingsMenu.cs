@@ -29,16 +29,15 @@ public class SettingsMenu : MonoBehaviour
         {
 
             string option = resolutions[i].width + "X" + resolutions[i].height;
-
-            options.Add(option);
+            if (resolutions[i].width == 1920 || resolutions[i].width == 1680 || resolutions[i].width == 1600 || resolutions[i].width == 1440 || resolutions[i].width == 1366 || resolutions[i].width == 1280)
+            {
+                options.Add(option);
+            }
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
-
                 CurrentResolutionIndex = i;
-
             }
-
         }
 
         ResolutionDropdown.AddOptions(options);

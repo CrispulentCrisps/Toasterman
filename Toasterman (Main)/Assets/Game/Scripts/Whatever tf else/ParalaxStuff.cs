@@ -15,15 +15,12 @@ public class ParalaxStuff : MonoBehaviour
     public float paraspeedIncrement;
     public float ParaDampen;
 
-
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < FrontPos.Length; i++)
         {
-
             FrontPos[i] = Layer[i].transform.position; // set positions
-
         }
 
     }
@@ -31,49 +28,38 @@ public class ParalaxStuff : MonoBehaviour
     // Updates every frame
     void Update()
     {
-
         if (paraspeed < paraspeedGoal)
         {
-
             paraspeed += paraspeedIncrement;
 
         }else if (paraspeed > paraspeedGoal)
         {
-
             paraspeed -= paraspeedIncrement;
-
         }
-
     }
 
     // Update is called once per few frames
     void FixedUpdate()
     {
-
         for (int i = 0; i < Layer.Length; i++)
         {
-
             if (Layer[i].transform.position.x <= -30)
             {
                 FrontPos[i] += new Vector3(60, 0, 0);
                 Layer[i].transform.position = FrontPos[0];
-
             }
-
             else if (Layer[i].transform.position.x >= 30)
             {
                 FrontPos[i] -= new Vector3(60, 0, 0);
                 Layer[i].transform.position = FrontPos[0];
-
             }
-
         }
-
         for (int i = 0; i < Layer.Length; i++)
         {
-
             switch (i)
             {
+                default: FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
+                    break;
                 case 0: FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
                     break;
                 case 1:
@@ -98,10 +84,7 @@ public class ParalaxStuff : MonoBehaviour
                     FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
                     break;
             }
-
             Layer[i].transform.position = FrontPos[i];
-
         }
-
     }
 }

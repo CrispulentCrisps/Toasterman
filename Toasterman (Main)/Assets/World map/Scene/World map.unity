@@ -266,6 +266,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1410629560004337101, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 353f3244040588b4b9cc1587ea9c067b,
+        type: 3}
+    - target: {fileID: 1410629560004337101, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410629560004337101, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410629560004337101, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410629560004337101, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2465699763709620439, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: DefaultHeight
@@ -331,6 +357,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.08627451
+      objectReference: {fileID: 0}
     - target: {fileID: 8382819785414337629, guid: 1665a52b72744f34fab3ef100e3a6b98,
         type: 3}
       propertyPath: m_Name
@@ -338,6 +384,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
+--- !u!4 &234293185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8382819785414337618, guid: 1665a52b72744f34fab3ef100e3a6b98,
+    type: 3}
+  m_PrefabInstance: {fileID: 234293184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &284125540 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1676549269565968211, guid: ef2ca865af77ff2449478951e01d91fd,
@@ -1209,7 +1261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095047281
 GameObject:
@@ -1286,13 +1338,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095047281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1.714, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1600607124}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 234293185}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140420912
 GameObject:
@@ -1445,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1570,6 +1623,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1470884196
 Canvas:
   m_ObjectHideFlags: 0
@@ -2090,6 +2144,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1924588448
 Canvas:
   m_ObjectHideFlags: 0
@@ -2353,6 +2408,26 @@ PrefabInstance:
       propertyPath: m_fontSizeMax
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199372602109521, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_verticalMapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 936199373234001794, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_Camera
@@ -2570,6 +2645,71 @@ PrefabInstance:
       propertyPath: sentences.Array.data[40]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[9]
+      value: Toast:_Seriously...~
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[0]
+      value: ???:Uhhhh, Toast, {you there?}
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[10]
+      value: Andruss:Either way uhhh...
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[2]
+      value: Andruss:[Eh] uh, Good, you're here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[4]
+      value: Andruss:[Uhh], right! There is a weird shield thing around this rock
+        planet and I need you to investigate it and shut it down.
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[8]
+      value: Andruss:{HeHah!}
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[5]
+      value: Toast:I, my dear friend, would be {Happy} to do such a task. {However},
+        there is the problem of a [lack of transportation] for me to do such a task.
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[14]
+      value: Toast:[I may be a repurposed toaster but for Staratreems sake! Just
+        pretend like I'm human]
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[16]
+      value: Toast:[I may be a hunk of metal but equally you are just a bag of flesh!]
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[17]
+      value: Andruss:{HEY!} Hey, hey, let's just de-escalate the situation. Either
+        way the boss wants you to just go to the planet  othrwise he will scrap you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[18]
+      value: Toast:Bloody cheap {tightwad}.
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[21]
+      value: Andruss:{*Ring, Ring!*} Oh! Got to go for another call now, just get
+        to the planet ok?
+      objectReference: {fileID: 0}
     - target: {fileID: 936199374365196143, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_Name
@@ -2642,6 +2782,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161582236508061748, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161582236508061748, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 6248229747733947961, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}

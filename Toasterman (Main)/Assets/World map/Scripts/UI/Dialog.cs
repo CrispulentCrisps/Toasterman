@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Dialog : MonoBehaviour
 {
-
     public TextMeshProUGUI textDisplay;
 
     public GameObject ContinueButton;
@@ -89,16 +89,39 @@ public class Dialog : MonoBehaviour
 
         foreach (char letter in sentences[index].ToCharArray())
         {
-
-            textDisplay.text += letter;
-            FindObjectOfType<AudioManager>().Play("Text1");
-            yield return new WaitForSeconds(TypingSpeed);
-            
+            if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
+            {
+                textDisplay.text += "<i>";
+            }
+            else if (letter == '}')
+            {
+                textDisplay.text += "</i>";
+            }
+            else if (letter == '[')
+            {
+                textDisplay.text += "<b>";
+            }
+            else if (letter == ']')
+            {
+                textDisplay.text += "</b>";
+            }
+            else if (letter == '_')
+            {
+                textDisplay.text += "<u>";
+            }
+            else if (letter == '~')
+            {
+                textDisplay.text += "</u>";
+            }
+            else
+            {
+                textDisplay.text += letter;
+                FindObjectOfType<AudioManager>().Play("Text1");
+                yield return new WaitForSeconds(TypingSpeed);
+            }
         }
-
         ContinueButton.SetActive(true);
         SkipButton.SetActive(true);
-
     }
 
     public IEnumerator BoxIn(float seconds)
