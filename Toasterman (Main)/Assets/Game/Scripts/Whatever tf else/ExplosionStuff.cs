@@ -21,14 +21,10 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 
     void Update()
     {
-
         Time += 0.1f;
-
         if (Time >= 2.5f)
         {
-
             gameObject.SetActive(false);
-
         }
 
     }

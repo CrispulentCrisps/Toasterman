@@ -35,7 +35,7 @@ public class PowerUp : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<AudioManager>().Play("Get power");
+            AudioManager.instance.Play("Get power");
             Shooting.BulletLevel[PowerData]++;
             gameObject.SetActive(false);
         }

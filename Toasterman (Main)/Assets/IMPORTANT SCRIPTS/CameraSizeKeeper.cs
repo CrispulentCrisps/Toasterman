@@ -7,7 +7,7 @@ public class CameraSizeKeeper : MonoBehaviour
 
     public bool MaintainWidth = true;
     [Range(-1,1)]
-    public int adaptPos;
+    public float adaptPos;
 
     public float DefaultWidth;
     public float DefaultHeight;
@@ -16,15 +16,12 @@ public class CameraSizeKeeper : MonoBehaviour
 
     void Start()
     {
-
         DefaultWidth = Camera.main.orthographicSize * Camera.main.aspect;
         DefaultHeight = Camera.main.orthographicSize;
-
     }
 
     void Update()
     {
-
         if (MaintainWidth)
         {
 

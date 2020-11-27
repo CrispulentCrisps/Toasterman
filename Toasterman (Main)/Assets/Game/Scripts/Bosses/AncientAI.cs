@@ -8,9 +8,11 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public Animator Anim;
     public Animator EyeAnim;
+    public Animator ShroomAnim;
 
     public CameraShake camerashake;
     public ParalaxStuff paralaxstuff;
+    public HandScript[] handscripts;
 
     public GameObject[] Hands;
 
@@ -35,7 +37,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float TimingSpaceRock;
     
     private bool Shooting;
-    private bool[] HandBroke;
     public bool IntroDone = false;
 
     void Start()
@@ -44,7 +45,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
-        HandBroke = new bool[] { Hands[0].GetComponent<HandScript>().DoneHands, Hands[1].GetComponent<HandScript>().DoneHands };
+        handscripts[0] = Hands[0].GetComponent<HandScript>();
+        handscripts[1] = Hands[1].GetComponent<HandScript>();
     }
 
     public void OnObjectSpawn()
@@ -56,8 +58,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineFreq = 2f;
         SineAmp = 1f;
         j = 0;
+        ShroomAnim = GameObject.Find("BigMushroom").GetComponent<Animator>();
         StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("How shroomy are you?", 1f));
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -122,12 +124,13 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             for (int i = 0; i < 2; i++)//Hands
             {
-                if (i == 0 && HandBroke[0] == false)
+                if (i == 0 && handscripts[0].DoneHands == false)
                 {
                     BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq - SineOffset) * 1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq - SineOffset) * 0.75f, 0f);
                     BodyParts[i].Rotate(0, 0, BodyParts[i].position.y);
                 }
-                else if (i == 1 && HandBroke[1] == false)
+                
+                if (i == 1 && handscripts[1].DoneHands == false)
                 {
                     BodyParts[i].position = new Vector3(SineAmp * Mathf.Sin(SineTime * SineFreq + SineOffset) * -1.5f, SineAmp * Mathf.Cos(SineTime * SineFreq + SineOffset) * -.75f, 0f);
                     BodyParts[i].Rotate(0, 0, BodyParts[i].position.y * -1f);

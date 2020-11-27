@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     private bool Invincible = false;
     private bool Alive = true;
     public bool Inverse;
-    
+
     ObjectPools objectPooler;
 
     public CameraShake camerashake;
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         TrailTimer = 0;
         objectPooler = ObjectPools.Instance;
         DashAnim = DashSlider.GetComponent<Animator>();
+        //Blast = true;
     }
 
     public void OnObjectSpawn()
@@ -74,10 +75,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             StartCoroutine(camerashake.AbberationChange(1f, 1f));
             Anim.SetTrigger("Hurt");
             timer = 5f;
-            for (int i = 0; i < Shooting.BulletType; i++)
-            {
-                Shooting.BulletLevel[i]--;
-            }
+            AudioManager.instance.Play("Hurt");
+            AudioManager.instance.ChangePitch("Hurt",Random.Range(0.9f,1.1f));
         }
 
     }
@@ -170,6 +169,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(1f, 1f));
         tf.position = new Vector3(0, 0, 0);
+        for (int i = 0; i < Shooting.BulletType; i++)
+        {
+            Shooting.BulletLevel[i]--;
+        }
     }
 
     public void invincible()

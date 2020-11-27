@@ -23,9 +23,7 @@ public class ParalaxMovement : MonoBehaviour
     {
         for (int i = 0; i < FrontPos.Length; i++)
         {
-
             FrontPos[i] = Layer[i].transform.position; // set positions
-
         }
 
     }
@@ -56,14 +54,14 @@ public class ParalaxMovement : MonoBehaviour
             if (Layer[i].transform.position.x <= -BackThresh)
             {
                 FrontPos[i] += new Vector3(BackThresh * 2, 0, 0);
-                Layer[i].transform.position = FrontPos[0];
+                Layer[i].transform.position = FrontPos[i];
 
             }
 
             else if (Layer[i].transform.position.x >= BackThresh)
             {
                 FrontPos[i] -= new Vector3(BackThresh * 2, 0, 0);
-                Layer[i].transform.position = FrontPos[0];
+                Layer[i].transform.position = FrontPos[i];
 
             }
 
@@ -74,38 +72,39 @@ public class ParalaxMovement : MonoBehaviour
     // Update is called once per few frames
     void FixedUpdate()
     {
-
         for (int i = 0; i < Layer.Length; i++)
         {
-
-            if (i == 0 || i == 1)
+            switch (i)
             {
-
-                FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
-
+                default:
+                    FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
+                    break;
+                case 0:
+                    FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
+                    break;
+                case 1:
+                    FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
+                    break;
+                case 2:
+                    FrontPos[i] -= new Vector3(paraspeed / ParaDampen * Time.deltaTime, 0, 0);
+                    break;
+                case 3:
+                    FrontPos[i] -= new Vector3(paraspeed / ParaDampen * Time.deltaTime, 0, 0);
+                    break;
+                case 4:
+                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
+                    break;
+                case 5:
+                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
+                    break;
+                case 6:
+                    FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 3) * Time.deltaTime, 0, 0);
+                    break;
+                case 7:
+                    FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 3) * Time.deltaTime, 0, 0);
+                    break;
             }
-            else if (i == 2 || i == 3)
-            {
-
-                FrontPos[i] -= new Vector3(paraspeed / ParaDampen * Time.deltaTime, 0, 0);
-
-            }
-            else if (i == 4 || i == 5)
-            {
-
-                FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
-
-            }
-            else if (i == 6 || i == 7)
-            {
-
-                FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
-
-            }
-
             Layer[i].transform.position = FrontPos[i];
-
         }
-
     }
 }

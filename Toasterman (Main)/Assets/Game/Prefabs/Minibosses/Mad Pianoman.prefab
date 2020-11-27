@@ -5416,7 +5416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7307931161305091663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7307931162333744640}
@@ -6137,12 +6137,12 @@ ParticleSystem:
     randomPositionAmount: 0
     radius:
       value: 2
-      mode: 0
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 70
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -6372,22 +6372,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: -3.6362584
-          outSlope: -3.6362584
+          value: 0
+          inSlope: 5.6697197
+          outSlope: 5.6697197
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.07120743
+          outWeight: 0.07914925
         - serializedVersion: 3
           time: 0.5084934
           value: 0.49167266
-          inSlope: -2.260641
-          outSlope: -2.260641
+          inSlope: 0.71080804
+          outSlope: 0.71080804
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.09295108
+          outWeight: 0.20633227
         - serializedVersion: 3
           time: 1
           value: 0
@@ -10781,7 +10781,7 @@ MonoBehaviour:
   Speed: 5
   SAmp: 5
   SFreq: 5
-  Health: 300
+  Health: 150
   Alive: 1
   Intro: 1
 --- !u!50 &1543655489

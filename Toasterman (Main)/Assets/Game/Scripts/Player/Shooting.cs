@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using TMPro;
 
 public class Shooting : MonoBehaviour
@@ -22,6 +24,8 @@ public class Shooting : MonoBehaviour
     [Range(0,5)]
     public int MaxBulletLevel;
 
+    private int RecursionCounter;
+
     private float BulletSpreadMult;
 
     public Quaternion BulletRot;
@@ -35,7 +39,7 @@ public class Shooting : MonoBehaviour
         objectPooler = ObjectPools.Instance;
 
         ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
-        BulletLevel = new int[] {0,0,0,0};
+        BulletLevel = new int[] {0,0,0,0,0};
 
     }
 
@@ -44,6 +48,13 @@ public class Shooting : MonoBehaviour
     {
 
         FireRate += Increment * Time.deltaTime;
+
+        if (BulletLevel[4] >= 1)
+        {
+            StartCoroutine(BreadzookaBlast(2.25f, 12, 0.05f));
+            AudioManager.instance.Play("BreadzookaBlastTheme");
+            BulletLevel[4] = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))// shooting input
         {
@@ -131,6 +142,39 @@ public class Shooting : MonoBehaviour
         }
         FireRate = 0;// reset firerate
 
+    }
+
+    public void ShootCircle(int BulletAmount, string BulletName, Transform tf, float Offset)
+    {
+        float angle = Offset;
+        for (int i = 0; i < BulletAmount; i++)
+        {
+            float AngleStep = 360f / BulletAmount;
+            angle += AngleStep;
+            objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
+        }
+
+    }
+
+    //IEnumerators
+
+    public IEnumerator BreadzookaBlast(float Length, int Bulletmount, float SpaceBetween)
+    {
+        float TimeElapsed = 0;
+        float TimeElapsedTwo = 0;
+        while (TimeElapsed < Length)
+        {
+            TimeElapsed += Time.deltaTime;
+            TimeElapsedTwo += Time.deltaTime;
+
+            if (TimeElapsedTwo >= SpaceBetween)
+            {
+                ShootCircle(Bulletmount, "BreadZookaBullet", tf, (1.681f * RecursionCounter) * (360f / Bulletmount));
+                TimeElapsedTwo = 0f;
+                RecursionCounter++;
+            }
+            yield return new WaitForSeconds(SpaceBetween);
+        }
     }
 
 }

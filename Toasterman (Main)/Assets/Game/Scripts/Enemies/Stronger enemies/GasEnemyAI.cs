@@ -17,11 +17,16 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
     private float XVel;
     private float YVel;
     private float WaitPeriod;
+
+    public float Health;
+
     float height;
     float width;
+
     [Range(1f,25f)]
     public float MaxVel;
 
+    [Range(1, 10)]
     public int BulletAmount;
 
     public bool Shooting = false;
@@ -33,10 +38,11 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         SpritePos[0] = Ship.GetComponent<Transform>();// gets the Transform 
         height = 2f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
-        SpritePos[2].position = new Vector3(0f, height + 3f, 0f);
-        YVel = MaxVel * 20f;
-        XVel = MaxVel * 5f;
+        SpritePos[2].position = new Vector3(0f, height + 3f, width + 3f);
+        YVel = MaxVel * 1.5f;
+        XVel = MaxVel * 1.5f;
         WaitPeriod = 0f;
+        objectPooler = ObjectPools.Instance;
     }
 
     public void OnObjectSpawn()
@@ -45,14 +51,19 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         SpritePos[0] = Ship.GetComponent<Transform>();// gets the Transform 
         height = 2f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
-        SpritePos[2].position = new Vector3(0f, height + 3f,0f);
-        YVel = MaxVel * 20f;
-        XVel = MaxVel * 5f;
+        SpritePos[2].position = new Vector3(0f, height + 3f, width + 3f);
+        YVel = MaxVel * 1.5f;
+        XVel = MaxVel * 1.5f;
         WaitPeriod = 0f;
     }
+    void OnTriggerEnter2D(Collider2D coll)
+    { 
+    
 
-    // Update is called once per frame
-    void Update()
+    
+    }
+        // Update is called once per frame
+        void Update()
     {
         WaitPeriod += Time.deltaTime;
 
@@ -60,9 +71,8 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         {
             WaitPeriod = 0f;
             CurrentVel.x = 0f;
-            IsLeft = !IsLeft;
         }
-        else if (WaitPeriod % 1f >= 1f)
+        if (WaitPeriod >= 2f)
         {
             Anim.SetTrigger("Shoot");
         }
@@ -75,12 +85,11 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         {
             CurrentVel.y += YVel * Time.deltaTime;
         }
-
-        if (IsLeft == true)
+        if (SpritePos[2].position.x > SpritePos[0].position.x)
         {
             CurrentVel.x -= XVel * Time.deltaTime;
         }
-        else if (IsLeft == false)
+        else if (SpritePos[2].position.x < SpritePos[0].position.x)
         {
             CurrentVel.x += XVel * Time.deltaTime;
         }
@@ -100,22 +109,28 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
             }
         }
 
-        if (YVel >= MaxVel)
+        if (CurrentVel.y >= MaxVel)
         {
-            YVel = MaxVel;
+            CurrentVel.y = MaxVel;
         }
-        else if (YVel <= -MaxVel)
+        else if (CurrentVel.y <= -MaxVel)
         {
-            YVel = -MaxVel;
+            CurrentVel.y = -MaxVel;
         }
-        
-        if (XVel >= MaxVel)
+
+        if (CurrentVel.x >= MaxVel)
         {
-            XVel = MaxVel;
+            CurrentVel.x = MaxVel;
         }
-        else if (XVel <= -MaxVel)
+        else if (CurrentVel.x <= -MaxVel)
         {
-            XVel = -MaxVel;
+            CurrentVel.x = -MaxVel;
+        }
+
+        if (Shooting)
+        {
+            ShootBullet(BulletAmount, "Spore shot");
+            Shooting = false;
         }
     }
 
@@ -126,15 +141,19 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
 
     public void ShootBullet(int BulletAmount, string BulletName)
     {
-        float RegularAngle = 0;
-        float Step = (-RegularAngle / 2) + 135;
-        Quaternion BulletRot = Quaternion.Euler(0, 0, 0); ;
+        float ArcSize = (360f / (float)BulletAmount) * 0.25f;
+        float StartAngle = 0f + ArcSize;
         for (int i = 0; i < BulletAmount; i++)
         {
-            Step -= RegularAngle / BulletAmount;
-            BulletRot = Quaternion.Euler(0, 0, Step % 360);
+            StartAngle -= (ArcSize / BulletAmount) * 2f;
+            Vector3 difference = SpritePos[1].position - SpritePos[0].position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            Quaternion BulletRot = Quaternion.Euler(0.0f, 0.0f, rotationZ - StartAngle);
             objectPooler.SpawnFromPool(BulletName, SpritePos[1].position, BulletRot);
         }
-
+    }
+    public void Shoot()
+    {
+        Shooting = true;
     }
 }

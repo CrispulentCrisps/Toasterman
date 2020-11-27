@@ -21,6 +21,7 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
     public float Health;
 
     private float ST;//Sine time
+    private float ST2;//Sine time 2 electric boogaloo
     private float SHT;//Shoot time
     private float YVel;
     private float MaxHealth;
@@ -33,7 +34,8 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     void Start()
     {
-        ST = 5f;
+        ST = (Speed * 0.25f) + 10f;
+        ST2 = 2.5f;
         SHT = 0f;
         YVel = 0f;
         objectPooler = ObjectPools.Instance;
@@ -49,7 +51,8 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        ST = 5f;
+        ST = (Speed * 0.25f) + 10f;
+        ST2 = 2.5f;
         SHT = 0f;
         YVel = 0f;
         Alive = true;
@@ -69,8 +72,9 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
         if (!Intro)
         {
             ST += Time.deltaTime;
+            ST2 += Time.deltaTime;
             SHT += Time.deltaTime;
-            SAmp = Mathf.PingPong(ST * Speed * 0.25f, 20f) - 10f;
+            SAmp = Mathf.PingPong(ST * (Speed * 0.25f), 20f) - 10f;
             if (SHT >= Max)
             {
                 for (int i = 0; i < 2; i++)
@@ -99,8 +103,9 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
         else if (Intro)
         {
             enemyscript.start = false;
-            tfs[5].position = new Vector3 (Mathf.PingPong(ST * Speed, 25f) - 12.5f, 5 * Mathf.Cos(ST * 0.25f), 0f);
+            tfs[5].position = new Vector3 (Mathf.PingPong(ST2 * Speed, 25f) - 12.5f, 5 * Mathf.Cos(ST * 0.25f), 0f);
             tfs[2].position = Vector3.SmoothDamp(tfs[2].position, tfs[5].position, ref Velocity, 1f);
+
             if (tfs[2].position.x <= tfs[5].position.x + 0.05f && tfs[2].position.x >= tfs[5].position.x - 0.05f)
             {
                 Intro = false;
@@ -116,10 +121,9 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
             FindObjectOfType<AudioManager>().Play("WoodBreak");
             FindObjectOfType<AudioManager>().ChangePitch("WoodBreak",Random.Range(0.9f,1.1f));
         }
-
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (Alive && !Intro)
         {
@@ -130,14 +134,20 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
             }
             else
             {
-                tfs[3].position = new Vector3(0f + 1.5f * SAmp * Mathf.Sin(ST * SFreq), 0f + 2.5f * SAmp * Mathf.Cos(ST * SFreq), tfs[3].position.z);
-                tfs[4].position = new Vector3(0f + 1.5f * SAmp * Mathf.Sin(ST * SFreq) * -1f, 0f + 2.5f * SAmp * Mathf.Cos(ST * SFreq) * -1f, tfs[4].position.z);
+                tfs[3].position = new Vector3(0f + 2.5f * SAmp * Mathf.Sin(ST * SFreq), SAmp * Mathf.Cos(ST * SFreq), tfs[3].position.z);
+                tfs[4].position = new Vector3(0f + 2.5f * SAmp * Mathf.Sin(ST * SFreq) * -1f, SAmp * Mathf.Cos(ST * SFreq) * -1f, tfs[4].position.z);
             }
             for (int i = 0; i < 2; i++)
             {
                 tfs[i].position = Vector3.SmoothDamp(tfs[i].position, tfs[i + 3].position, ref Velocity, TimeToDest);
             }
-            tfs[5].position = new Vector3(Mathf.PingPong(ST * Speed, 25f) - 12.5f, 5 * Mathf.Cos(ST * 0.25f), 0f);
+
+            for (int i = 0; i < 5; i++)
+            {
+                //tfs[i+6].position = Vector3.Lerp(tfs[i+6].position, tfs[i+7].position, 0.5f);//Moving arm pieces
+            }
+
+            tfs[5].position = new Vector3(Mathf.PingPong(ST2 * Speed, 25f) - 12.5f, 5 * Mathf.Cos(ST * 0.25f), 0f);
             tfs[2].position = Vector3.SmoothDamp(tfs[2].position, tfs[5].position, ref Velocity, TimeToDest);
             enemyscript.start = false;
         }

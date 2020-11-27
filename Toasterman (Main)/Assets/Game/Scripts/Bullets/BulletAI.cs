@@ -9,18 +9,14 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     public float speedx = 11;
     public float speedy = 0;
+    public float RotSPeed;
     private float BulletRot;
-    private float SineT;
-    public float Amp;
-    public float Freq;
-    public float AmpInc;
 
     private int Length;
 
-    public bool Wavy;
-    public bool WavyIncAmp;
     public bool Specifics;
     public bool Killable;
+    public bool Turn;
 
     public string[] CollisionNames;
 
@@ -28,9 +24,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     // Start is called before the first frame update
@@ -70,28 +64,20 @@ public class BulletAI : MonoBehaviour, IPooledObject
     void Update()
     {
         Movement = new Vector2(speedx, speedy);
-
-        if (Wavy == true)
-        {
-            SineT += Time.deltaTime;
-            speedy = Amp * Mathf.Sin(SineT * Freq);
-            if (WavyIncAmp == true)
-            {
-                Amp += AmpInc * Time.deltaTime;
-            }
-        }
-
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         tf.Translate(Movement * Time.deltaTime);
+        
+        if (Turn)
+        {
+            tf.Rotate(0f, 0f, RotSPeed);
+        }
 
         if (tf.position.x >= 18f || tf.position.x <= -18f || tf.position.y >= 10f || tf.position.y <= -10f)
         {
-
             gameObject.SetActive(false);
-
         }
     }
 

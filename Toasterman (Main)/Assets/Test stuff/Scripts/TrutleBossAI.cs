@@ -179,10 +179,8 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         //intro stuff
         if (tf.position.x > 7 && Intro == true)
         {
-
             XSpeed = 7.5f;
             Speed.x = XSpeed;
-
         }
         else if(tf.position.x <= 7 && Intro == true)
         {
@@ -198,12 +196,9 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             YVel += Time.deltaTime;
             if (SinAmp <= 8f)
             {
-
                 SinAmp += Time.deltaTime;
-
             }
-            tf.position = new Vector3(tf.position.x,SinAmp * Mathf.Sin(YVel * SineFreq), tf.position.z);
-    
+            tf.position = new Vector3(SinAmp * Mathf.Sin(YVel * SineFreq) / (Health * 0.1f) + 7f, SinAmp * Mathf.Sin(YVel * SineFreq), tf.position.z);
         }
     }
 
@@ -212,9 +207,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
    public void Roar()
     {
-
-        FindObjectOfType<AudioManager>().Play("Roar");
-
+        AudioManager.instance.Play("Roar");
     }
 
 
@@ -222,11 +215,11 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     public IEnumerator StartStuff()
     {
         started = false;
-        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("Level 1", 1f));
+        StartCoroutine(AudioManager.instance.FadeAudio("Level 1", 1f));
 
         yield return new WaitForSeconds(1f);
 
-        FindObjectOfType<AudioManager>().Play("Here he is!");
+        AudioManager.instance.Play("Here he is!");
         anim.SetTrigger("Intro");
         Intro = true;
     }
@@ -238,8 +231,8 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         if (tf.position.x >= -15)
         {
 
-            FindObjectOfType<AudioManager>().ChangePitch("Explosion", Random.Range(.1f, .75f));
-            FindObjectOfType<AudioManager>().Play("Explosion");
+            AudioManager.instance.ChangePitch("Explosion", Random.Range(.1f, .75f));
+            AudioManager.instance.Play("Explosion");
 
         }
 

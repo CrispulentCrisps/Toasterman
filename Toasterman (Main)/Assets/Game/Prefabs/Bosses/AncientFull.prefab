@@ -9491,8 +9491,12 @@ MonoBehaviour:
   BG: {fileID: 0}
   Anim: {fileID: 6755094799271317251}
   EyeAnim: {fileID: 6755094799831116946}
+  ShroomAnim: {fileID: 0}
   camerashake: {fileID: 0}
   paralaxstuff: {fileID: 0}
+  handscripts:
+  - {fileID: 1394627449074387458}
+  - {fileID: 5473852405163281539}
   Hands:
   - {fileID: 5684770510525177086}
   - {fileID: 1606075518048950655}
@@ -9821,7 +9825,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450380055
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 99
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &474270338
 MonoBehaviour:
@@ -9836,7 +9840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: BACK2
-  order: 1
+  order: 99
 --- !u!1 &6166564941509046349
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,7 +10265,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450380055
   m_SortingLayer: 2
-  m_SortingOrder: 99
+  m_SortingOrder: 100
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &133099712
 MonoBehaviour:
@@ -10276,7 +10280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: BACK2
-  order: 99
+  order: 100
 --- !u!1 &6755094799059203316
 GameObject:
   m_ObjectHideFlags: 0
@@ -11885,7 +11889,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450380055
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 99
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -11940,7 +11944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: BACK2
-  order: 1
+  order: 99
 --- !u!1 &6755094800210746370
 GameObject:
   m_ObjectHideFlags: 0
@@ -12607,7 +12611,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450380055
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 99
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -12662,7 +12666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: BACK2
-  order: 1
+  order: 99
 --- !u!1 &6755094800723679150
 GameObject:
   m_ObjectHideFlags: 0
@@ -14720,7 +14724,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450380055
   m_SortingLayer: 2
-  m_SortingOrder: 99
+  m_SortingOrder: 100
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &231689726
 MonoBehaviour:
@@ -14735,7 +14739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: BACK2
-  order: 99
+  order: 100
 --- !u!1 &8579539519556300851
 GameObject:
   m_ObjectHideFlags: 0

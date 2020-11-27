@@ -10,7 +10,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -52,6 +52,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SporeShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: Wavy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: WavyIncAmp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: Amp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: Freq
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: AmpInc
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}

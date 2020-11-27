@@ -29,7 +29,6 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
         Yvel = 15.5f;
         Xvel = 9f;
         tf.position = new Vector3(-13f, -10f, 0f);
@@ -39,34 +38,23 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
-
         Movement = new Vector2(Xvel, Yvel);
-
         Yvel -= 9.81f * Time.deltaTime;
-
         if (Thrown == false && tf.position.y > 0f)
         {
-
             anim.SetTrigger("PowerShoot");
-
             Thrown = true;
-
         }
-
     }
 
     void FixedUpdate()
     {
-
         tf.Translate(Movement * Time.deltaTime);
-
     }
 
     public void SpawnPower()
     {
-
         objectPooler.SpawnFromPool("BulletAdd", PowrSpawnPoint.position, Quaternion.identity);
-
     }
 
 }
