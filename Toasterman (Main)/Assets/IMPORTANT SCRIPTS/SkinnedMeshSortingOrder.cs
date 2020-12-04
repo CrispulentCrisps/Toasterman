@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshFilter))]
 public class SkinnedMeshSortingOrder : MonoBehaviour
 {
 
@@ -9,6 +10,7 @@ public class SkinnedMeshSortingOrder : MonoBehaviour
     public int order;
 
     private SkinnedMeshRenderer rend;
+
     void Awake()
     {
         rend = GetComponent<SkinnedMeshRenderer>();

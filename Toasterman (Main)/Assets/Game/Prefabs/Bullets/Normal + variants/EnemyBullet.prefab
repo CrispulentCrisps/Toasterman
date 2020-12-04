@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6fd2991e7599d6a418d2667cef28c46f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -358543269
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13c563710d14e324b983a1053fbee7f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40fdc075d21b29d4b8f7ba0bd2d42ae6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,10 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 9102476307835863062}
-  speedx: -11
-  speedy: 0
+  AccX: 0
+  AccY: 0
+  AccMinX: 0
+  AccMinY: 0
+  speedxMem: 11
+  speedyMem: 0
   Specifics: 1
   Killable: 0
+  ChangeAcc: 0
   CollisionNames:
   - GoodThing
   - Player
@@ -123,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

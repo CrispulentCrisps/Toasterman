@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -21,44 +19,35 @@ public class EnemyScript : MonoBehaviour
     public float RotSpace;
 
     private string Name;
-    
+
 
     public bool start = false;
     private bool DoneUp = false;
-   
+
     public Transform tf;
 
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
-
     }
 
     void Update()
     {
         if (start == true)
         {
-
             Count += 1 * Time.deltaTime;
-
         }
 
         if (Count >= Waves[i].Time) // checks if enough time has past
         {
-
             Name = Waves[i].EnemyName;
             EnemyAmount = Waves[i].Amount;
-
             WaveStart();
-
         }
-
     }
-
 
     public void WaveStart()
     {
-
         switch (Waves[i].WaveType)
         {
             case 1:
@@ -109,21 +98,16 @@ public class EnemyScript : MonoBehaviour
             case 4:
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
-
-                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x, tf.position.y + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
+                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Waves[i].Radius + Waves[i].Radius * Mathf.Sin(RotSpace * (2 * Mathf.PI) / Waves[i].Amount), tf.position.y + Waves[i].Radius * Mathf.Cos(RotSpace * (2 * Mathf.PI) / Waves[i].Amount) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
                     RotSpace++;
                 }
                 break;
         }
-
         i++; // goes to the next wave
         Count = 0; // resets the counter
         TriPos = 0;
         Space = 0;
         RotSpace = 0;
-
     }
-
-
 }

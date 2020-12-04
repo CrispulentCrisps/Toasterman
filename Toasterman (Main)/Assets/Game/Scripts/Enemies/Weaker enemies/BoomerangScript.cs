@@ -30,18 +30,13 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
         WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
         enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
-
         objectPooler = ObjectPools.Instance;
-
         Ship = GameObject.Find("Ship");
-
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
-
-
+        RotSpeed = 45f;
     }
 
 
@@ -80,7 +75,6 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        RotSpeed -= 1f;
         //Turn around and hit player
         if (tf.position.x <= Ship.transform.position.x && Happy == true)
         {
@@ -92,7 +86,8 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
         }
         if (Happy == false)
         {
-            speed.x -= 0.5f;
+            RotSpeed -= 360f * Time.deltaTime;
+            speed.x -= 0.35f;
         }
     }
 

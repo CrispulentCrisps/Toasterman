@@ -57,13 +57,18 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         WaitPeriod = 0f;
     }
     void OnTriggerEnter2D(Collider2D coll)
-    { 
-    
-
-    
+    {
+        if (coll.gameObject.CompareTag("Bullet"))
+        {
+            Health -= coll.GetComponent<DamageScript>().Damage;
+            if (Health <= 0)
+            {
+                Anim.SetTrigger("Die");
+            }
+        }
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
         WaitPeriod += Time.deltaTime;
 
@@ -141,8 +146,8 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
 
     public void ShootBullet(int BulletAmount, string BulletName)
     {
-        float ArcSize = (360f / (float)BulletAmount) * 0.25f;
-        float StartAngle = 0f + ArcSize;
+        float ArcSize = (360f / (float)BulletAmount) * 0.5f;
+        float StartAngle = ArcSize * 1.25f;
         for (int i = 0; i < BulletAmount; i++)
         {
             StartAngle -= (ArcSize / BulletAmount) * 2f;
@@ -152,6 +157,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
             objectPooler.SpawnFromPool(BulletName, SpritePos[1].position, BulletRot);
         }
     }
+
     public void Shoot()
     {
         Shooting = true;

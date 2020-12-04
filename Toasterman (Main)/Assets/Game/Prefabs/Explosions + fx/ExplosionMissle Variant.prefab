@@ -19,6 +19,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
         type: 3}
+      propertyPath: UVModule.sprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: 0
       objectReference: {fileID: 0}
@@ -125,8 +130,59 @@ PrefabInstance:
     - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
         type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: ShapeModule.type
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 5986030973748356752, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: -5600206312213581617, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 3815954189206336483, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: -3690502768834906923, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[4].sprite
+      value: 
+      objectReference: {fileID: -49130668184793455, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
+    - target: {fileID: 8191002298986088019, guid: 3efeee008ff3ab443b58490b7a29694d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[5].sprite
+      value: 
+      objectReference: {fileID: -2330519403281856691, guid: 8a02c9666b94a8f41a69235ad53ed7bb,
+        type: 3}
     - target: {fileID: 8264053018903950785, guid: 3efeee008ff3ab443b58490b7a29694d,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -835,6 +835,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a1eb2d4ffa16b4995720b9060d388d, type: 3}
+--- !u!1 &272578167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2796756772638960668, guid: c93be5c5b393e5d4ea56f259d0c8bf0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2796756774067646019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &272578168
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272578167}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &284139243
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +898,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 0eb643199d971014c972718c391502f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1574,6 +1601,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5489541621872588456, guid: f94af23cd38351e498ad22a6a579dce9,
         type: 3}
       propertyPath: m_IsActive
@@ -1711,6 +1748,26 @@ PrefabInstance:
     - target: {fileID: 4536001722069613204, guid: 4b7a5e8a8f6e6d1438e1b0df6a97a448,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536001722430770444, guid: 4b7a5e8a8f6e6d1438e1b0df6a97a448,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536001722430770444, guid: 4b7a5e8a8f6e6d1438e1b0df6a97a448,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536001722535360153, guid: 4b7a5e8a8f6e6d1438e1b0df6a97a448,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536001722535360153, guid: 4b7a5e8a8f6e6d1438e1b0df6a97a448,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1907,6 +1964,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c93eb09edce364eae4b5d36c4f129f, type: 3}
+--- !u!1 &1532074267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2796756773580878732, guid: c93be5c5b393e5d4ea56f259d0c8bf0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2796756774067646019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1532074268
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532074267}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1534969453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,7 +7035,7 @@ MonoBehaviour:
   - {fileID: 1723610080}
   - {fileID: 1934685281}
   Anim: {fileID: 1761715901}
-  Health: 0
+  Health: 50
   MaxVel: 25
   BulletAmount: 5
   Shooting: 0

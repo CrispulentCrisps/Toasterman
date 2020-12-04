@@ -27,28 +27,22 @@ public class PlanetSelect : MonoBehaviour
     public GameObject[] Locks;
     public GameObject PlanetBefore;
 
-    private bool Selected = false;
+    public static bool Selected = false;
     public bool Locked;
     public bool Completed;
 
     void Start()
     {
-
         dialog = GameObject.Find("Dialogmanager").GetComponent<Dialog>();
-
         planetTally = GameObject.Find("PlanetCompletionCounter").GetComponent<PlanetTally>();
-
         if (planetTally.PlanetsDone[0] == true)
         {
-
             Completed = true;
-
         }
         else if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
         {
             Locked = false;
         }
-
         if (Locks.Length != 0 && Locked == false)
         { 
             for (int i = 0; i < Locks.Length; i++)
@@ -63,7 +57,6 @@ public class PlanetSelect : MonoBehaviour
                 Locks[i].SetActive(true);
             }
         }
-
         if (Completed == true)
         {
             for (int i = 0; i < Ailments.Length; i++)
@@ -78,7 +71,6 @@ public class PlanetSelect : MonoBehaviour
                 Ailments[i].SetActive(true);
             }
         }
-
     }
 
     void OnMouseOver()

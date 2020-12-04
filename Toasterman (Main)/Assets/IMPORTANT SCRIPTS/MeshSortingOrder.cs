@@ -9,6 +9,7 @@ public class MeshSortingOrder : MonoBehaviour
     public int order;
 
     private MeshRenderer rend;
+
     void Awake()
     {
         rend = GetComponent<MeshRenderer>();

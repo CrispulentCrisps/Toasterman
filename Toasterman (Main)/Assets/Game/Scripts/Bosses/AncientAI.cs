@@ -187,7 +187,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                         BulletAmount -= j;
                         BulletName = "Rock";
                         FindObjectOfType<AudioManager>().Play("Missle");
-                        ShootCircle(BulletAmount, BulletName, BodyParts[j % 2], j + (HandScript.HandsGone * 29f));
+                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[j % 2], j + (HandScript.HandsGone * 29f));
                         TimingSpaceRock = 0;
                         j++;
                     }
@@ -200,7 +200,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     {
                         BulletName = "SmallRock";
                         FindObjectOfType<AudioManager>().Play("Tail");
-                        ShootCircle(BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.125f) + (BulletAmount * 0.125f + j));
+                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.125f) + (BulletAmount * 0.125f + j));
                         TimingSpaceRock = 0;
                         j++;
                     }
@@ -212,18 +212,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
     }
 
     //Functions
-
-    public void ShootCircle(int BulletAmount, string BulletName, Transform tf, float Offset)
-    {
-        angle = Offset;
-        for (int i = 0; i < BulletAmount; i++)
-        {
-            float AngleStep = 360f / BulletAmount;
-            angle += AngleStep;
-            objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
-        }
-        
-    }
 
     public void DeathSoundPlay()
     {

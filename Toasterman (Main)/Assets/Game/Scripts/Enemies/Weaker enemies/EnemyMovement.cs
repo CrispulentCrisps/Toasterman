@@ -61,18 +61,12 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
-
             if (Health <= 0)
             {
-
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
-
             }
-
-
         }
-
     }
 
     void FixedUpdate()

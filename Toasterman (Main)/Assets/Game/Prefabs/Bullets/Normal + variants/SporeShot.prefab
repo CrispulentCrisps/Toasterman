@@ -78,6 +78,31 @@ PrefabInstance:
       propertyPath: AmpInc
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: Turn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: RotSPeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: RotAmp
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: speedy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: speedx
+      value: -7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,7 +172,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c8fe742d64918eb47ba82b0cfff1e767,
+      objectReference: {fileID: 21300000, guid: 216a41d5f72582348ac136621ab6a3e7,
         type: 3}
     m_RemovedComponents:
     - {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37, type: 3}

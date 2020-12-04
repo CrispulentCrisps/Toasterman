@@ -5,10 +5,13 @@ using UnityEngine;
 public class DEBUG : MonoBehaviour
 {
     private string[] Debug;
+    private string[] ChangeGraphCode;
 
     private bool Cheats = false;
+    public static bool ChangeGraphics = false;
 
     private int index;
+    private int index2;
 
     public GameObject SoundTestAcces;
 
@@ -18,7 +21,9 @@ public class DEBUG : MonoBehaviour
     {
         // Code is "baracuda", user needs to input this in the right order
         Debug = new string[] { "b", "a", "r", "a", "c", "u", "d", "a" };
+        ChangeGraphCode = new string[] { "f", "u", "c", "k", "w", "a", "d"};
         index = 0;
+        index2 = 0;
     }
 
     void Update()
@@ -38,6 +43,21 @@ public class DEBUG : MonoBehaviour
                 index = 0;
             }
         }
+        
+        if (Input.anyKeyDown && ChangeGraphics == false)
+        {
+            // Check if the next key in the code is pressed
+            if (Input.GetKeyDown(ChangeGraphCode[index]))
+            {
+                // Add 1 to index to check the next key in the code
+                index2++;
+            }
+            // Wrong key entered, we reset code typing
+            else
+            {
+                index2 = 0;
+            }
+        }
 
         // If index reaches the length of the cheatCode string, 
         // the entire code was correctly entered
@@ -46,16 +66,21 @@ public class DEBUG : MonoBehaviour
             // Cheat code successfully inputted! Unlock crazy cheat code stuff
             if (Cheats == false)
             {
-                FindObjectOfType<AudioManager>().Stop("Title theme");
                 FindObjectOfType<AudioManager>().Play("Victory2");
-
                 SoundTestAcces.SetActive(true);
-
                 Cheats = true;
-
+                FindObjectOfType<AudioManager>().Stop("Title theme");
             }
-
-
+        }
+        
+        if (index2 == ChangeGraphCode.Length)
+        {
+            // Cheat code successfully inputted! Unlock crazy cheat code stuff
+            if (ChangeGraphics == false)
+            {
+                FindObjectOfType<AudioManager>().Play("BreadzookaBlastTheme");
+                ChangeGraphics = true;
+            }
         }
     }
 }

@@ -408,6 +408,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437360254698354951, guid: f94af23cd38351e498ad22a6a579dce9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f94af23cd38351e498ad22a6a579dce9, type: 3}
 --- !u!1001 &665576779
@@ -1284,6 +1294,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1431404560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8382819785414337629, guid: 1665a52b72744f34fab3ef100e3a6b98,
+    type: 3}
+  m_PrefabInstance: {fileID: 281937898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1431404567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431404560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c2cada3d490ce4eb35d1d06f2cf687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundTestAcces: {fileID: 0}
 --- !u!20 &1554306334 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8382819785414337619, guid: 1665a52b72744f34fab3ef100e3a6b98,
@@ -1296,7 +1325,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 281937898}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1431404560}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf7ecc483a995a244a3fb184fa247da7, type: 3}
@@ -3690,7 +3719,7 @@ PrefabInstance:
     - target: {fileID: 7378341972497568909, guid: d2f25c32bddda5a44b4a7421445cb782,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2f25c32bddda5a44b4a7421445cb782, type: 3}

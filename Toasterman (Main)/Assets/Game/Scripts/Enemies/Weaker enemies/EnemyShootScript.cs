@@ -37,8 +37,6 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     private float FireRate;
 
-    public bool Stopped = false;
-
     public void OnObjectSpawn()
     {
         enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
@@ -50,23 +48,12 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     public void ShootBullet()
     {
-        Angle = (-RegularAngle / 2) + 135;
-        for (int i = 0; i < RegularAmount; i++)
-        {
-
-            Angle -= RegularAngle / RegularAmount;
-            BulletRot = Quaternion.Euler(0, 0, Angle % 360);
-            objectPooler.SpawnFromPool(BulletName, tf.position, BulletRot);
-
-        }
-
+        BulletPatternsModule.ShootArc(135f, 3, BulletName, tf, 135f * 0.675f);
     }
 
     void Update()
@@ -74,14 +61,11 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
         if (tf.position.x <= -16)
         {
-
             gameObject.SetActive(false);
 
         }else if (tf.position.x <= 14f)
         {
-
             FireRate += Charge * Time.deltaTime;
-
         }
 
         if (FireRate >= Full)
@@ -92,7 +76,6 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     }
 
-
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Bullet"))
@@ -101,42 +84,15 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
             if (Health <= 0f)
             {
-
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
-
             }
-
         }
-
     }
-
-    public void Stop()
-    {
-
-        Stopped = true;
-
-    }
-
-    public void Starting()
-    {
-
-        Stopped = false;
-
-    }
-
 
     void FixedUpdate()
     {
-
         //change position
-
-        if (Stopped == false)
-        {
-
-            rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
-
-        }
-
+        rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
     }
 }
