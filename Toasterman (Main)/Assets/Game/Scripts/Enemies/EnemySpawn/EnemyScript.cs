@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     private float SinePos;
     private float WallSpace;
     private float EnemyAmount;
-    public float RotSpace;
+    public float RotSpace; //Seperates enemies in a circle
 
     private string Name;
 

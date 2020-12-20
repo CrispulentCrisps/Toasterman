@@ -4346,7 +4346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6dfdee23378d549b4327c90d5a65e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicName: TitleTheme
+  MusicName: Title theme
 --- !u!95 &794255840
 Animator:
   serializedVersion: 3
@@ -10550,7 +10550,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 695146053, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1665a52b72744f34fab3ef100e3a6b98, type: 3}
 --- !u!20 &2106875142 stripped
 Camera:

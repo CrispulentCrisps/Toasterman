@@ -169,7 +169,7 @@ public class Shooting : MonoBehaviour
 
             if (TimeElapsedTwo >= SpaceBetween)
             {
-                ShootCircle(Bulletmount, "BreadZookaBullet", tf, (1.681f * RecursionCounter) * (360f / Bulletmount));
+                ShootCircle(Bulletmount, "BreadZookaBullet", tf, (1.681f /*using 1.681 as it is aprox golden ratio*/ * RecursionCounter) * (360f / Bulletmount));
                 TimeElapsedTwo = 0f;
                 RecursionCounter++;
             }

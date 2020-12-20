@@ -79,10 +79,6 @@ public class PlanetSelect : MonoBehaviour
         {
             dialog.index = IndexStart;
             dialog.indexDone = IndexEnd;
-            dialog.LeftIn = LeftIn;
-            dialog.RightIn = RightIn;
-            dialog.LeftOut = LeftOut;
-            dialog.RightOut = RightOut;
             scenechange.SceneNumber = LevelIndex;
             dialog.StartCoroutine(dialog.BoxIn(1f));
             Selected = true;

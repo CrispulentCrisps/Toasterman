@@ -17,21 +17,13 @@ public class Dialog : MonoBehaviour
     public Animator BoxAnim;
     public Animator TxtAnim;
 
-    public string[] sentences;
-    public int[] ToastEmotion;
+    public SentencesRec[] sentences;
     public float TypingSpeed;
 
     public int index = -1;
     public int indexDone;
 
-    public int LeftIn;
-    public int RightIn;
-    public int LeftOut;
-    public int RightOut;
-
     public bool Started;
-
-    private bool OtherIn;
 
     void Update()
     {
@@ -41,53 +33,37 @@ public class Dialog : MonoBehaviour
             ContinueButton.SetActive(false);
             SkipButton.SetActive(false);
             GotoButton.SetActive(true);
-
         }
-        else if (LeftIn == index)
+        else if (sentences[index].ToastIn)
         {
-
             ToastAnim.Play("In");
-            LeftIn = -1;
-
         }
-        else if (LeftOut == index)
+        else if (!sentences[index].ToastIn)
         {
-
             ToastAnim.Play("Out");
-            LeftOut = -1;
-
         }
-        else if (RightIn == index)
+        else if (sentences[index].AndrussIn)
         {
-
             OtherAnim.Play("In");
-            RightIn = -1;
-
         }
-        else if (RightOut == index)
+        else if (!sentences[index].AndrussIn)
         {
-
             OtherAnim.Play("Out");
-            RightOut = -1;
-
-        }
-        if (Started == true)
-        {
-
-            StartCoroutine(Type());
-            Started = false;
-
         }
         
+        if (Started == true)
+        {
+            StartCoroutine(Type());
+            Started = false;
+        }
     }
 
     IEnumerator Type()
     {
-
         ContinueButton.SetActive(false);
         SkipButton.SetActive(false);
 
-        foreach (char letter in sentences[index].ToCharArray())
+        foreach (char letter in sentences[index].Words.ToCharArray())
         {
             if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
             {
@@ -116,7 +92,7 @@ public class Dialog : MonoBehaviour
             else
             {
                 textDisplay.text += letter;
-                FindObjectOfType<AudioManager>().Play("Text1");
+                AudioManager.instance.Play("Text1");
                 yield return new WaitForSeconds(TypingSpeed);
             }
         }
@@ -126,7 +102,6 @@ public class Dialog : MonoBehaviour
 
     public IEnumerator BoxIn(float seconds)
     {
-
         BoxAnim.Play("In");
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
@@ -135,23 +110,16 @@ public class Dialog : MonoBehaviour
 
     public void NextSentence()
     {
-
         if (index < sentences.Length - 1)
         {
-
             index++;
-
             textDisplay.text = "";
-
             StartCoroutine(Type());
-
         }
         else
         {
-
             ContinueButton.SetActive(true);
             SkipButton.SetActive(true);
-
             textDisplay.text = "";
         }
     }
@@ -165,5 +133,4 @@ public class Dialog : MonoBehaviour
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);
     }
-
 }

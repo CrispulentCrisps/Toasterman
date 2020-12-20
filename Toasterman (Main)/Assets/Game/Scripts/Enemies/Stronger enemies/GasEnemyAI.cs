@@ -10,21 +10,22 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
 
     public Animator Anim;
 
+    public Color HurtColour;
+
     private Vector2 CurrentVel;
 
-    private float[] StrandHealth;
+    public string BulletName;
 
     private float XVel;
     private float YVel;
     private float WaitPeriod;
+    [Range(1f, 25f)]
+    public float MaxVel;
 
     public float Health;
 
     float height;
     float width;
-
-    [Range(1f,25f)]
-    public float MaxVel;
 
     [Range(1, 10)]
     public int BulletAmount;
@@ -38,7 +39,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         SpritePos[0] = Ship.GetComponent<Transform>();// gets the Transform 
         height = 2f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
-        SpritePos[2].position = new Vector3(0f, height + 3f, width + 3f);
+        SpritePos[2].position = new Vector3(0f, height + 3f, width + 6f);
         YVel = MaxVel * 1.5f;
         XVel = MaxVel * 1.5f;
         WaitPeriod = 0f;
@@ -61,17 +62,28 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
+
+            for (int i = 0; i < SRends.Length; i++)
+            {
+                SRends[i].color = HurtColour;
+            }
+
             if (Health <= 0)
             {
                 Anim.SetTrigger("Die");
             }
         }
     }
+
     // Update is called once per frame
     void Update()
     {
         WaitPeriod += Time.deltaTime;
-
+        for (int i = 0; i < SRends.Length; i++)
+        {
+            SRends[i].color += new Color(1f, 1f, 1f) * Time.deltaTime * 5f;
+        }
+        //Shooting and periodic stopping
         if (WaitPeriod >= 7.5f)
         {
             WaitPeriod = 0f;
@@ -81,7 +93,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         {
             Anim.SetTrigger("Shoot");
         }
-
+        //Movement
         if (SpritePos[2].position.y > SpritePos[0].position.y)
         {
             CurrentVel.y -= YVel * Time.deltaTime;
@@ -98,7 +110,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         {
             CurrentVel.x += XVel * Time.deltaTime;
         }
-
+        //Flips sprites if left of player
         if (SpritePos[2].position.x > SpritePos[0].position.x)
         {
             for (int i = 0; i < SRends.Length; i++)
@@ -113,7 +125,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
                 SRends[i].flipX = true;
             }
         }
-
+        //Limits x and y speeds
         if (CurrentVel.y >= MaxVel)
         {
             CurrentVel.y = MaxVel;
@@ -134,7 +146,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
 
         if (Shooting)
         {
-            ShootBullet(BulletAmount, "Spore shot");
+            ShootBullet(BulletAmount, BulletName);
             Shooting = false;
         }
     }
@@ -146,20 +158,15 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
 
     public void ShootBullet(int BulletAmount, string BulletName)
     {
-        float ArcSize = (360f / (float)BulletAmount) * 0.5f;
-        float StartAngle = ArcSize * 1.25f;
-        for (int i = 0; i < BulletAmount; i++)
-        {
-            StartAngle -= (ArcSize / BulletAmount) * 2f;
-            Vector3 difference = SpritePos[1].position - SpritePos[0].position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            Quaternion BulletRot = Quaternion.Euler(0.0f, 0.0f, rotationZ - StartAngle);
-            objectPooler.SpawnFromPool(BulletName, SpritePos[1].position, BulletRot);
-        }
+        Vector3 difference = SpritePos[1].position - SpritePos[0].position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+        BulletPatternsModule.ShootArc(45f,BulletAmount,BulletName,SpritePos[1],rotationZ + 135f + (75f/BulletAmount));
     }
 
     public void Shoot()
     {
         Shooting = true;
     }
+
 }

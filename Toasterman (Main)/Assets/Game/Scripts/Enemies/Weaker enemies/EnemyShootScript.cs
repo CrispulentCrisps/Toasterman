@@ -29,13 +29,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     ObjectPools objectPooler;
 
-
     private int I; // Wave number
     public int Charge;
 
     public float Full;
-
     private float FireRate;
+
+    public bool Move;
 
     public void OnObjectSpawn()
     {
@@ -53,7 +53,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public void ShootBullet()
     {
-        BulletPatternsModule.ShootArc(135f, 3, BulletName, tf, 135f * 0.675f);
+        BulletPatternsModule.ShootArc(RegularAngle, RegularAmount, BulletName, tf, 135f * 0.675f);
     }
 
     void Update()
@@ -88,6 +88,11 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    void ChangeMove()
+    {
+        Move = !Move;
     }
 
     void FixedUpdate()

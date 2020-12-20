@@ -198,19 +198,14 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             {
                 SinAmp += Time.deltaTime;
             }
-            tf.position = new Vector3(SinAmp * Mathf.Sin(YVel * SineFreq) / (Health * 0.1f) + 7f, SinAmp * Mathf.Sin(YVel * SineFreq), tf.position.z);
+            tf.position = new Vector3(7f, SinAmp * Mathf.Sin(YVel * SineFreq), tf.position.z);
         }
     }
-
-
-
 
    public void Roar()
     {
         AudioManager.instance.Play("Roar");
     }
-
-
 
     public IEnumerator StartStuff()
     {
@@ -230,27 +225,20 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         objectPooler.SpawnFromPool("BigExplosion", new Vector3(BoomPoint.position.x + Random.Range(-3.5f,3.5f), BoomPoint.position.y + Random.Range(-3.5f, 3.5f),0), Quaternion.identity);
         if (tf.position.x >= -15)
         {
-
             AudioManager.instance.ChangePitch("Explosion", Random.Range(.1f, .75f));
             AudioManager.instance.Play("Explosion");
-
         }
-
-
     }
 
     public void ShootRegular()
     {
-        I = (-RegularAngle / 2) + 135;
+        I += (-RegularAngle / 2);
         for (int i = 0; i < RegularAmount; i++)
         {
-
             I -= RegularAngle / RegularAmount;
             BulletRot = Quaternion.Euler(0, 0, I % 360);
             objectPooler.SpawnFromPool("EnemyBullet", MissleShotSpot.position, BulletRot);
-
         }
-
     }
 
     public void DieStart()

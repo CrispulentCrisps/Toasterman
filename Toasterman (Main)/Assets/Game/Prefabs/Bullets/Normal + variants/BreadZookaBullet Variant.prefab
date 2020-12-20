@@ -29,7 +29,7 @@ PrefabInstance:
     - target: {fileID: -6538525856561546590, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
       propertyPath: Damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5253340319278179840, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
@@ -54,7 +54,17 @@ PrefabInstance:
     - target: {fileID: 5253340319278179840, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
       propertyPath: speedxMem
-      value: 1
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253340319278179840, guid: d8f90273ddd2ca74dab3125189747368,
+        type: 3}
+      propertyPath: AccMinY
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253340319278179840, guid: d8f90273ddd2ca74dab3125189747368,
+        type: 3}
+      propertyPath: AccMinX
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 5253340319278179841, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
@@ -75,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 5253340319278179843, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5253340319278179843, guid: d8f90273ddd2ca74dab3125189747368,
         type: 3}
@@ -142,7 +152,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreadZookaBullet Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1156142191773525725, guid: d8f90273ddd2ca74dab3125189747368, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8f90273ddd2ca74dab3125189747368, type: 3}
 --- !u!1 &9151546099528512684 stripped
 GameObject:

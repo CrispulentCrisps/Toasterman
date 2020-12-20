@@ -9,6 +9,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     private float speedx;
     private float speedy;
+    [Header("Increment speed (note that increments take away bullet speed)")]
     public float AccX;
     public float AccY;
     public float AccMinX;

@@ -13,6 +13,9 @@ public class PowerUp : MonoBehaviour, IPooledObject
     private float YVel;
     private float XVel;
 
+    public float Speed;
+    public float FallSpeedMult;
+
     public int PowerData; 
     // check if the power type is the same
     // if the powers are different then you should set the bullet type to that power at level 1 of 4
@@ -27,8 +30,8 @@ public class PowerUp : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         Target = GameObject.Find("Ship");//gets the game object
-        YVel = Random.Range(6f,12f);
-        XVel = Random.Range(5f, -5f);
+        YVel = Random.Range(Speed, Speed * 2f);
+        XVel = Random.Range(Speed, -Speed);
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -45,7 +48,7 @@ public class PowerUp : MonoBehaviour, IPooledObject
     void Update()
     {
         Movement = new Vector2(XVel, YVel);
-        YVel -= 9.81f * Time.deltaTime;
+        YVel -= FallSpeedMult * 9.81f * Time.deltaTime;
         if (tf.position.y <= -10f)
         {
             gameObject.SetActive(false);
