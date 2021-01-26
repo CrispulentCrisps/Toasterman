@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("NotSoGoodThing") && Dashin == false && coll.gameObject.GetComponent<DamageScript>().Damage > 0f && Invincible == false)
         {
-
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
             HealthAnim.SetTrigger("HealthDown");
             StartCoroutine(camerashake.Shake(0.1f, 0.1f));
@@ -86,12 +85,21 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     {
 
         HealthSlider.value = Health / 100f;//health slider
-        
+        //Checks movement debuffs
+        if (Inverse)
+        {
+            Movement.x = Input.GetAxis("Horizontal") * -Velocity;
+            Movement.y = Input.GetAxis("Vertical") * -Velocity;
+        }
+        else
+        {
+            Movement.x = Input.GetAxis("Horizontal") * Velocity;
+            Movement.y = Input.GetAxis("Vertical") * Velocity;
+        }
+
         if (Alive == true)
         {
             DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
-            Movement.x = Input.GetAxis("Horizontal") * Velocity;
-            Movement.y = Input.GetAxis("Vertical") * Velocity;
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
 
@@ -109,11 +117,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             {
                 Die();
             }
-
+            //Dashing
             if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f)
             {
                 Dash();
-
             }
             else if (DashLength > 0)
             {
@@ -124,7 +131,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
                 Velocity = Normalspeed;
                 Dashin = false;
             }
-
+            //Smoke
             if (Health <= TargetHealth / 3)
             {
                 SmokeHeavy();
@@ -152,14 +159,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     { 
-        if (Inverse == true)
-        {
-            Movement *= -1;
-        }
         tf.Translate(Movement * Time.deltaTime);
     }
     //-------------------------------------------------|=========|-------------------------------------------------------\\
-    //-------------------------------------------------|Functions|-------------------------------------------------------\\
+    //-------------------------------------------------|==functions= |-------------------------------------------------------\\
     //-------------------------------------------------|=========|-------------------------------------------------------\\
     public void Die()
     {

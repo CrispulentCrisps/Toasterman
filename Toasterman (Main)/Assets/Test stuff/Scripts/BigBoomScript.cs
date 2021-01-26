@@ -13,37 +13,24 @@ public class BigBoomScript : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
         timer = 0;
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (played == false)
         {
-
             gameObject.GetComponent<ParticleSystem>().enableEmission = true;
             played = true;
-
         }else if (gameObject.activeSelf == true)
         {
-
-
             timer += Incement * Time.deltaTime;
-
             if (timer >= Max)
             {
-
                 gameObject.SetActive(false);
                 timer = 0;
-
             }
-
         }
-
     }
 }

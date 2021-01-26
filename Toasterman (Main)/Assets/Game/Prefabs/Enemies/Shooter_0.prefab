@@ -128,10 +128,11 @@ MonoBehaviour:
   Health: 7
   BulletName: EnemyBullet
   RegularAngle: 135
+  AngleOffset: 90
   RegularAmount: 3
   Charge: 1
   Full: 0.5
-  Stopped: 0
+  Move: 0
 --- !u!70 &4728287638042413877
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

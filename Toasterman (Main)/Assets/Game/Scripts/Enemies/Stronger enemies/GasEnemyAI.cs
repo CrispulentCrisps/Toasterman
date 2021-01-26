@@ -31,7 +31,8 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
     public int BulletAmount;
 
     public bool Shooting = false;
-    public bool IsLeft = true;
+    public bool Roared = false;
+    public bool Alive = true;
 
     void Start()
     {
@@ -67,50 +68,78 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
             {
                 SRends[i].color = HurtColour;
             }
-
-            if (Health <= 0)
-            {
-                Anim.SetTrigger("Die");
-            }
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {            
         WaitPeriod += Time.deltaTime;
         for (int i = 0; i < SRends.Length; i++)
         {
             SRends[i].color += new Color(1f, 1f, 1f) * Time.deltaTime * 5f;
         }
-        //Shooting and periodic stopping
-        if (WaitPeriod >= 7.5f)
+        if (Health <= 0)
         {
-            WaitPeriod = 0f;
-            CurrentVel.x = 0f;
+            if (SpritePos[2].position.y > 50f)
+            {
+                CurrentVel.y -= YVel * Time.deltaTime;
+            }
+            else if (SpritePos[2].position.y < 50f)
+            {
+                CurrentVel.y += YVel * Time.deltaTime;
+            }
+            if (SpritePos[2].position.x > 50f)
+            {
+                CurrentVel.x -= XVel * Time.deltaTime;
+            }
+            else if (SpritePos[2].position.x < 50f)
+            {
+                CurrentVel.x += XVel * Time.deltaTime;
+            }
+            if (SpritePos[2].position.x >= 30f)
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (!Roared)
+            {
+                AudioManager.instance.Play("RoarAway");
+                Roared = true;
+            }
         }
-        if (WaitPeriod >= 2f)
+        else if (Health > 0f)
         {
-            Anim.SetTrigger("Shoot");
+            //Movement
+            if (SpritePos[2].position.y > SpritePos[0].position.y)
+            {
+                CurrentVel.y -= YVel * Time.deltaTime;
+            }
+            else if (SpritePos[2].position.y < SpritePos[0].position.y)
+            {
+                CurrentVel.y += YVel * Time.deltaTime;
+            }
+            if (SpritePos[2].position.x > SpritePos[0].position.x)
+            {
+                CurrentVel.x -= XVel * Time.deltaTime;
+            }
+            else if (SpritePos[2].position.x < SpritePos[0].position.x)
+            {
+                CurrentVel.x += XVel * Time.deltaTime;
+            }
+
+            //Shooting and periodic stopping
+            if (WaitPeriod >= 7.5f)
+            {
+                WaitPeriod = 0f;
+                CurrentVel.x = 0f;
+            }
+            if (WaitPeriod >= 2f)
+            {
+                Anim.SetTrigger("Shoot");
+            }
         }
-        //Movement
-        if (SpritePos[2].position.y > SpritePos[0].position.y)
-        {
-            CurrentVel.y -= YVel * Time.deltaTime;
-        }
-        else if (SpritePos[2].position.y < SpritePos[0].position.y)
-        {
-            CurrentVel.y += YVel * Time.deltaTime;
-        }
-        if (SpritePos[2].position.x > SpritePos[0].position.x)
-        {
-            CurrentVel.x -= XVel * Time.deltaTime;
-        }
-        else if (SpritePos[2].position.x < SpritePos[0].position.x)
-        {
-            CurrentVel.x += XVel * Time.deltaTime;
-        }
-        //Flips sprites if left of player
+        //Flips sprites depending on which side the enemy is of player
         if (SpritePos[2].position.x > SpritePos[0].position.x)
         {
             for (int i = 0; i < SRends.Length; i++)
@@ -160,8 +189,7 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
     {
         Vector3 difference = SpritePos[1].position - SpritePos[0].position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-
-        BulletPatternsModule.ShootArc(45f,BulletAmount,BulletName,SpritePos[1],rotationZ + 135f + (75f/BulletAmount));
+        BulletPatternsModule.ShootArc(45f,BulletAmount,BulletName,SpritePos[1],rotationZ + 135f + (135f/BulletAmount));
     }
 
     public void Shoot()

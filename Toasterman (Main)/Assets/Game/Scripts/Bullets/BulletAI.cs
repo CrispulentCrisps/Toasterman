@@ -9,11 +9,17 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     private float speedx;
     private float speedy;
-    [Header("Increment speed (note that increments take away bullet speed)")]
+    [Header("subtractive speed")]
+    public bool ChangeAcc;
     public float AccX;
     public float AccY;
     public float AccMinX;
     public float AccMinY;
+    [Header("sine wave movement")]
+    public bool SineMove;
+    public float SineAmp;
+    public float SineFreq;
+
     public float speedxMem;
     public float speedyMem;
     private float BulletRot;
@@ -23,7 +29,6 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     public bool Specifics;
     public bool Killable;
-    public bool ChangeAcc;
 
     public string[] CollisionNames;
 
@@ -39,7 +44,6 @@ public class BulletAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     public void OnObjectSpawn()
     {
-        Debug.Log("speedxMem:" + speedxMem + " speedyMem:" + speedyMem);
         Movement = new Vector2(speedx, speedy);
         if (DEBUG.ChangeGraphics == true)
         {
@@ -48,6 +52,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
         }
         speedx = speedxMem;
         speedy = speedyMem;
+        ST = 0f;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -72,6 +77,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
     void Update()
     {
         Movement = new Vector2(speedx, speedy);
+        
         if (ChangeAcc)
         {
             speedx -= AccX * Time.deltaTime;
@@ -81,6 +87,17 @@ public class BulletAI : MonoBehaviour, IPooledObject
                 objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
+        }
+
+        if (SineMove)
+        {
+            ST += Time.deltaTime;
+            speedy = SineAmp * Mathf.Sin(ST * SineFreq);
+        }
+
+        if (tf.position.x > 25f || tf.position.x < -25f || tf.position.y > 15f || tf.position.x < -15f)
+        {
+            gameObject.SetActive(false);
         }
     }
     // Update is called once per frame

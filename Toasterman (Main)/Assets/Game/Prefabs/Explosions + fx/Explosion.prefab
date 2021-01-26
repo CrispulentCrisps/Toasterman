@@ -255,6 +255,16 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6895638650806354673, guid: 03cdcf3a904949e41922546f07aaf8e0,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895638650806354673, guid: 03cdcf3a904949e41922546f07aaf8e0,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cdcf3a904949e41922546f07aaf8e0, type: 3}
 --- !u!4 &8517769873470648459 stripped

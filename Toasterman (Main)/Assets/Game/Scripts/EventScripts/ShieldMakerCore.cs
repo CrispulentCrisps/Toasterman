@@ -70,6 +70,8 @@ public class ShieldMakerCore : MonoBehaviour
     {
         objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)XPos,1f, 0), Quaternion.identity);
         objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)-XPos, 1f, 0), Quaternion.identity);
-        XPos += 0.1;
+        objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)XPos * 0.5f, 1f, 0), Quaternion.identity);
+        objectPooler.SpawnFromPool("CoreShardBoom", new Vector3((float)-XPos * 0.5f, 1f, 0), Quaternion.identity);
+        XPos += 0.75;
     }
 }

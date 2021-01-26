@@ -14,7 +14,7 @@ public class BulletPatternsModule : MonoBehaviour
     public static void ShootArc(float ArcSize, int BulletAmount, string BulletName, Transform tf, float Offset)//All arcs are in angles, not radians
     {
         float angle = 0;
-        angle = Offset;
+        angle = Offset;//Offset is to the left
         for (int i = 0; i < BulletAmount; i++)
         {
             float AngleStep = ArcSize / BulletAmount;
@@ -26,7 +26,7 @@ public class BulletPatternsModule : MonoBehaviour
     public static IEnumerator ShootArcEnum(float ArcSize, int BulletAmount, string BulletName, Transform tf, float Offset, float LengthOfTime, float WaitPeriod)//All arcs are in angles, not radians
     {
         float angle = 0;
-        angle = Offset;
+        angle = Offset;//Offset is to the left
         for (int i = 0; i < BulletAmount; i++)
         {
             float AngleStep = ArcSize / BulletAmount;

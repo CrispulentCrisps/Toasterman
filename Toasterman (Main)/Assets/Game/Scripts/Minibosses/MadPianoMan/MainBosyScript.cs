@@ -74,7 +74,10 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
             ST += Time.deltaTime;
             ST2 += Time.deltaTime;
             SHT += Time.deltaTime;
-            SAmp = Mathf.PingPong(ST * (Speed * 0.25f), 20f) - 10f;
+            if (Health > MaxHealth * 0.5f)
+            {
+                SAmp = Mathf.PingPong(ST * (Speed * 0.25f), 20f) - 10f;
+            }
             if (SHT >= Max)
             {
                 for (int i = 0; i < 2; i++)
@@ -136,6 +139,14 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
             {
                 tfs[3].position = new Vector3(0f + 2.5f * SAmp * Mathf.Sin(ST * SFreq), SAmp * Mathf.Cos(ST * SFreq), tfs[3].position.z);
                 tfs[4].position = new Vector3(0f + 2.5f * SAmp * Mathf.Sin(ST * SFreq) * -1f, SAmp * Mathf.Cos(ST * SFreq) * -1f, tfs[4].position.z);
+                if (SAmp < 15f)
+                {
+                    SAmp += Time.deltaTime * 5f;
+                }
+                else
+                {
+                    SAmp -= Time.deltaTime * 5f;
+                }
             }
             for (int i = 0; i < 2; i++)
             {
@@ -175,7 +186,5 @@ public class MainBosyScript : MonoBehaviour, IPooledObject
             angle += AngleStep;
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
-
     }
-
 }

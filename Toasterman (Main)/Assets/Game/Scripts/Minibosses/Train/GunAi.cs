@@ -42,32 +42,21 @@ public class GunAi : MonoBehaviour
             if  (transform.position.x >= -width + 1.5f && transform.position.x >= Target.position.x + 1f && transform.position.x <= Target.position.x - 1f || 
                  transform.position.x >=  width - 1.5f && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f)
             {
-
                 Charge = 99f;
-
             }
-
 
             if (Charge >= Full && transform.position.x >= -width && transform.position.x <= width)
             {
-
                 GunAnim.Play("BarrelShoot");
-
                 Full = Random.Range(MinShootTime, MaxShootTime);
-
                 Charge = 0f;
-
             }
-
         }
-
     }
 
     public void ShootLaser()
     {
-
         objectPooler.SpawnFromPool("EnemyBulletUp", new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-
     }
 
 }

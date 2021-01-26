@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: WavyIncAmp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3190368063576648644, guid: 738d4797efd0e584eaf405f2bc62c0bb,
+        type: 3}
+      propertyPath: speedxMem
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3190368063576648646, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_Sprite
@@ -57,7 +62,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6fd2991e7599d6a418d2667cef28c46f, type: 2}
+      objectReference: {fileID: 2100000, guid: 5a00929fd95be8c4f8118bb35a473d32, type: 2}
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3190368063576648647, guid: 738d4797efd0e584eaf405f2bc62c0bb,
         type: 3}

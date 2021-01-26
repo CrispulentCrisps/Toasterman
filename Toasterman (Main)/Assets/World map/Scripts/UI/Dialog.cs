@@ -106,6 +106,7 @@ public class Dialog : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
         Started = true;
+        index = 0;  
     }
 
     public void NextSentence()

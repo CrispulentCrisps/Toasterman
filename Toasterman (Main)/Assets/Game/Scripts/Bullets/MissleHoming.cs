@@ -20,6 +20,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     public float RotMaxSpeed;
     public float StartRot;
     private float timer;
+    private float timer2;
     public float MaxTime;
 
     public bool IsEnemy;
@@ -47,21 +48,19 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         }
 
         timer = 0;
+        timer2 = 0;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Bullet") && IsEnemy == true)
         {
-
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
-
         }else if (coll.gameObject.CompareTag(TargetTag))
         {
-
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().ChangePitch("Explosion", UnityEngine.Random.Range(.1f, .75f));
-            FindObjectOfType<AudioManager>().Play("Explosion");
+            AudioManager.instance.ChangePitch("Explosion", UnityEngine.Random.Range(.1f, .75f));
+            AudioManager.instance.Play("Explosion");
             gameObject.SetActive(false);
             timer = 0;
             Rotspeed = 0;
@@ -95,11 +94,11 @@ public class MissleHoming : MonoBehaviour, IPooledObject
 
         rb.velocity = transform.up * speed;
 
-        timer += 1 * Time.deltaTime;
+        timer += Time.deltaTime;
+        timer2 += Time.deltaTime;
 
         if (timer >= MaxTime || Health <= 0f)
         {
-
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
             FindObjectOfType<AudioManager>().ChangePitch("Explosion", UnityEngine.Random.Range(.1f, 1f));
             FindObjectOfType<AudioManager>().Play("Explosion");
@@ -107,26 +106,6 @@ public class MissleHoming : MonoBehaviour, IPooledObject
             timer = 0;
             Rotspeed = 0;
             Health = 10f;
-
         }
-
-    }
-
-    void Update()
-    {
-
-        if (timer > 0.1f % 0.1f)
-        {
-            try
-            {
-                Target = GameObject.FindGameObjectWithTag(TargetTag).transform;
-            }
-            catch (NullReferenceException e) when (e != null)// If there is not target on screen
-            {
-                Target = tf;
-            }
-
-        }
-
     }
 }

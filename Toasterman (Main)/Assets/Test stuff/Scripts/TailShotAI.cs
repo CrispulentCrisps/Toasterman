@@ -27,6 +27,10 @@ public class TailShotAI : MonoBehaviour, IPooledObject
         {
             Speed = new Vector2(Random.Range(-5f, -10f), Random.Range(-4f, 4f));
         }
+        else
+        {
+            Speed = new Vector2(Random.Range(-4f, 4f), Random.Range(-5f, -10f));
+        }
         Health = 1f;
     }
 

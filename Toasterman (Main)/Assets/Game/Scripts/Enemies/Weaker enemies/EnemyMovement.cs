@@ -39,21 +39,15 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     void Update()
     {
-
         if (tf.position.x <= -15)
         {
-
             gameObject.SetActive(false);
-
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -71,9 +65,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-
         //change position
         rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
-
     }
 }

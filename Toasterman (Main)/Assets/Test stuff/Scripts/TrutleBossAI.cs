@@ -232,68 +232,51 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void ShootRegular()
     {
-        I += (-RegularAngle / 2);
-        for (int i = 0; i < RegularAmount; i++)
-        {
-            I -= RegularAngle / RegularAmount;
-            BulletRot = Quaternion.Euler(0, 0, I % 360);
-            objectPooler.SpawnFromPool("EnemyBullet", MissleShotSpot.position, BulletRot);
-        }
+        BulletPatternsModule.ShootArc(135f,3,"EnemyBullet",MissleShotSpot,90f);
     }
 
     public void DieStart()
     {
-
         State = -1;
         XVel = 30f;
-
     }
 
     public void DieShake()
     {
-
         StartCoroutine(camerashake.Shake(5f, 1));
-
-        FindObjectOfType<AudioManager>().Play("BossDeath");
-
-        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("Here he is!", 0.25f));
-
+        AudioManager.instance.Play("BossDeath");
+        StartCoroutine(AudioManager.instance.FadeAudio("Here he is!", 0.25f));
         paralaxStuff.paraspeedGoal = 0f;
-
         CoreAnim.SetTrigger("Broken");
-
         StartCoroutine(WaitThenDeactivate(6));
-
-
     }
 
 
     public IEnumerator WaitThenDeactivate(float Time)
     {
-        FindObjectOfType<AudioManager>().Stop("Level 1");
+        AudioManager.instance.Stop("Level 1");
         yield return new WaitForSeconds(Time);
         gameObject.SetActive(false);
     }
 
     public void ShootMissle()
-    {
-        
+    {  
         objectPooler.SpawnFromPool("Missle", MissleShotSpot.position, Quaternion.identity);
-        FindObjectOfType<AudioManager>().Play("Missle");
+        AudioManager.instance.Play("Missle");
     }
 
     public void ShootTail()
     {
-
-        objectPooler.SpawnFromPool("TailShot", MissleShotSpot.position, Quaternion.identity);
-        FindObjectOfType<AudioManager>().ChangePitch("Tail", Random.Range(1f, .75f));
-        FindObjectOfType<AudioManager>().Play("Tail");
+        for (int i = 0; i < 3; i++)
+        {
+            objectPooler.SpawnFromPool("TailShot", MissleShotSpot.position, Quaternion.identity);
+            AudioManager.instance.ChangePitch("Tail", Random.Range(1f, .75f));
+            AudioManager.instance.Play("Tail");
+        }
     }
 
     public void IntroDone()
     {
-
         Intro = false;
-
     }
 }

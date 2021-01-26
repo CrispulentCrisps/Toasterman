@@ -23,6 +23,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     private Quaternion BulletRot;
 
     public float RegularAngle;
+    public float AngleOffset;
     public int RegularAmount;
 
     private float Angle;
@@ -53,7 +54,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public void ShootBullet()
     {
-        BulletPatternsModule.ShootArc(RegularAngle, RegularAmount, BulletName, tf, 135f * 0.675f);
+        BulletPatternsModule.ShootArc(RegularAngle, RegularAmount, BulletName, tf, AngleOffset);
     }
 
     void Update()
@@ -98,6 +99,10 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     void FixedUpdate()
     {
         //change position
-        rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
+        if (Move)
+        {
+            rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
+        }
+        
     }
 }

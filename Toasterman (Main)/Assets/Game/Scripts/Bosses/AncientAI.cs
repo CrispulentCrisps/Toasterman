@@ -11,6 +11,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public Animator ShroomAnim;
 
     public CameraShake camerashake;
+    public BigMushroom bigmushroom;
     public ParalaxStuff paralaxstuff;
     public HandScript[] handscripts;
 
@@ -59,7 +60,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
         SineAmp = 1f;
         j = 0;
         ShroomAnim = GameObject.Find("BigMushroom").GetComponent<Animator>();
-        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("How shroomy are you?", 1f));
+        bigmushroom = GameObject.Find("BigMushroom").GetComponent<BigMushroom>();
+        StartCoroutine(AudioManager.instance.FadeAudio("How shroomy are you?", 1f));
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -175,7 +177,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 case 0:
                     if (j >= 6)
                     {
-
                         Shooting = false;
                         j = 0;
                     }
@@ -269,6 +270,16 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public void IntroComplete()
     {
         IntroDone = true;
+    }
+
+    public void ChangeToNormal()
+    {
+        bigmushroom.SwapBGToBGNormal();
+    }
+
+    public void KillShroom()
+    {
+        ShroomAnim.SetTrigger("Die");
     }
 
 }

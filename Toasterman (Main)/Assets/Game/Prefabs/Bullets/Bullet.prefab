@@ -115,15 +115,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 5253340319278179843}
+  ChangeAcc: 0
   AccX: 0
   AccY: 0
   AccMinX: 999
   AccMinY: 999
+  SineMove: 0
+  SineAmp: 15
+  SineFreq: 15
   speedxMem: 21
   speedyMem: 0
   Specifics: 1
   Killable: 1
-  ChangeAcc: 0
   CollisionNames:
   - NotSoGoodThing
 --- !u!114 &-6538525856561546590

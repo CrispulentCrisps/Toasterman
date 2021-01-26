@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        while (s.source.volume > 0f || s.source.volume < 1f)
+        while (s.source.volume >= 0f || s.source.volume <= 1f)
         {
 
             s.source.volume -= Increment * Time.deltaTime;

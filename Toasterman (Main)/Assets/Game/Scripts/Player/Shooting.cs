@@ -11,17 +11,17 @@ public class Shooting : MonoBehaviour
 
     public TextMeshProUGUI textDisplay;
 
-    private float FireRate = 0f;
+    public float FireRate = 0f;
     public float ReloadTime = 10f;
     public float Increment;
 
-    private bool Auto = false;
+    public bool Auto = false;
 
     public static int BulletType;
     public static int[] BulletLevel;
     [Range(0,5)]
     public int MaxProjec;
-    [Range(0,5)]
+    [Range(0,20)]
     public int MaxBulletLevel;
 
     private int RecursionCounter;
@@ -35,11 +35,10 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
-
         objectPooler = ObjectPools.Instance;
 
         ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
-        BulletLevel = new int[] {0,0,0,0,0};
+        BulletLevel = new int[] {0,0,0,0,0,0};
 
     }
 
@@ -54,6 +53,14 @@ public class Shooting : MonoBehaviour
             StartCoroutine(BreadzookaBlast(2.25f, 12, 0.05f));
             AudioManager.instance.Play("BreadzookaBlastTheme");
             BulletLevel[4] = 0;
+        }
+        else if (BulletLevel[5] >= 1)
+        {
+            BulletLevel[5] = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                objectPooler.SpawnFromPool("ShooterHelper", tf.position, Quaternion.identity);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))// shooting input
@@ -104,16 +111,14 @@ public class Shooting : MonoBehaviour
 
         if (Auto == true && FireRate >= ReloadTime)
         {
-
-            Shoot();
-
+            Shoot(tf);
         }
     }
 
 
-    public void Shoot()
+    public void Shoot(Transform ShootPos)
     {
-        FindObjectOfType<AudioManager>().Play("Shoot regular");
+        AudioManager.instance.Play("Shoot regular");
         switch (BulletType)
         {
             case 0:
@@ -123,25 +128,24 @@ public class Shooting : MonoBehaviour
                     //Spread
                     BulletSpreadMult = BulletLevel[BulletType] + 1;
                     BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult) % 360));
-                    objectPooler.SpawnFromPool(ProjectileNames[0], tf.position, BulletRot);
-
+                    objectPooler.SpawnFromPool(ProjectileNames[0], ShootPos.position, BulletRot);
                 }
                 break;
             case 1:
                 Increment = 1.5f;
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                BulletPatternsModule.ShootArc(BulletLevel[BulletType] * 90, BulletLevel[BulletType], ProjectileNames[BulletType],tf,-90f);
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 2:
                 Increment = 1.25f;
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 3:
                 Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
         }
         FireRate = 0;// reset firerate
-
     }
 
     public void ShootCircle(int BulletAmount, string BulletName, Transform tf, float Offset)
@@ -169,7 +173,7 @@ public class Shooting : MonoBehaviour
 
             if (TimeElapsedTwo >= SpaceBetween)
             {
-                ShootCircle(Bulletmount, "BreadZookaBullet", tf, (1.681f /*using 1.681 as it is aprox golden ratio*/ * RecursionCounter) * (360f / Bulletmount));
+                ShootCircle(Bulletmount, "BreadZookaBullet", tf, (1.681f /*using 1.681 as it is aproximatly the golden ratio*/ * RecursionCounter) * (360f / Bulletmount));
                 TimeElapsedTwo = 0f;
                 RecursionCounter++;
             }

@@ -103,17 +103,16 @@ MonoBehaviour:
   rb: {fileID: 627832231}
   tf: {fileID: 6060261859861975984}
   Ship: {fileID: 0}
-  Explosion: {fileID: 0}
-  WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 627832229}
   Health: 15
   BulletName: Missle
-  RegularAngle: 330
+  RegularAngle: 225
+  AngleOffset: 0
   RegularAmount: 2
   Charge: 1
-  Full: 1.5
-  Stopped: 0
+  Full: 2
+  Move: 1
 --- !u!50 &627832231
 Rigidbody2D:
   serializedVersion: 4

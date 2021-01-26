@@ -7,11 +7,13 @@ public class BigMushroom : MonoBehaviour
     public CameraShake camerashake;
 
     public Color SwitchColour;
+    public Color NormalColour;
 
     public Animator anim;
 
     public SpriteRenderer[] SRends;
     public Sprite[] InfectedSprites;
+    public Sprite[] NormalSprites;
 
     public int WaveToAppear;
 
@@ -34,6 +36,11 @@ public class BigMushroom : MonoBehaviour
         AudioManager.instance.ChangePitch("Thud2", Random.Range(0.9f,1.1f));
     }
 
+    public void PlayFanfare()
+    {
+        AudioManager.instance.Play("Victory2");
+    }
+
     public void SwapBGToInfected()
     {
         for (int i = 0; i < InfectedSprites.Length; i++)
@@ -41,5 +48,13 @@ public class BigMushroom : MonoBehaviour
             SRends[i].sprite = InfectedSprites[i];
         }
         SRends[8].color = SwitchColour;
+    }
+    public void SwapBGToBGNormal()
+    {
+        for (int i = 0; i < NormalSprites.Length; i++)
+        {
+            SRends[i].sprite = NormalSprites[i];
+        }
+        SRends[8].color = NormalColour;
     }
 }

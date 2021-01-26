@@ -17,6 +17,7 @@ public class CirclingScript : MonoBehaviour, IPooledObject
     ObjectPools objectPooler;
 
     private int I; // Wave number
+    public int BulletAmount;
 
     public float angle;
     public float Radius;
@@ -74,20 +75,18 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
         angle += RotateSpeed * Time.deltaTime;
 
+        Timer += Time.deltaTime;
+
         var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * Radius;
         tf.position = (Vector2)Target.position + offset;
-
-        Timer += Time.deltaTime;
 
         if (Timer >= 2f)
         {
             Vector3 difference = Target.position - tf.position;
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            Quaternion BulletRot = Quaternion.Euler(0.0f, 0.0f, rotationZ - 180);
-            objectPooler.SpawnFromPool(BulletName, tf.position, BulletRot);
+            BulletPatternsModule.ShootArc(angle, BulletAmount, BulletName, tf, rotationZ - 7.5f);
             Timer = 0f;
 
         }
     }
-
 }

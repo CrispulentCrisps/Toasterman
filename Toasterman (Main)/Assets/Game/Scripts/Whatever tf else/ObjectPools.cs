@@ -62,10 +62,8 @@ public class ObjectPools : MonoBehaviour
 
         if (!poolDictionary.ContainsKey(tag))
         {
-
-            Debug.LogWarning("Bruh, poll with tag:" + tag + " doesn't exist bro");
+            Debug.LogWarning("Object with tag:" + tag + " is not found");
             return null;
-
         }
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
@@ -81,6 +79,10 @@ public class ObjectPools : MonoBehaviour
 
             pooledObj.OnObjectSpawn();
 
+        }
+        else
+        {
+            Debug.LogWarning("Error, Object not found");
         }
 
 

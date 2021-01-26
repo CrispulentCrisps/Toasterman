@@ -122,15 +122,11 @@ MonoBehaviour:
   rb: {fileID: 7599684584609106392}
   tf: {fileID: 7599684584609106396}
   Ship: {fileID: 0}
-  MySelf: {fileID: 7599684584609106393}
-  Explosion: {fileID: 2597242545742524645, guid: 262d1c0df70ca4449a09cd12bc910952,
-    type: 3}
-  Bullet: {fileID: 5253340319278179847, guid: d8f90273ddd2ca74dab3125189747368, type: 3}
   WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
   Anim: {fileID: 7599684584609106394}
   speed: {x: 0, y: 0}
-  Health: 5
+  Health: 3
   RotSpeed: 360
 --- !u!50 &7599684584609106392
 Rigidbody2D:
@@ -168,7 +164,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!114 &3034014324367687203
 MonoBehaviour:
   m_ObjectHideFlags: 0
