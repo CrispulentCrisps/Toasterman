@@ -42,6 +42,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void LoadMenu()
     {
+        Resume();
         scenechange.SceneNumber = 2;
         scenechange.ChangeScene();
         Time.timeScale = 1f;
@@ -50,6 +51,7 @@ public class PauseMenuScript : MonoBehaviour
     
     public void QuitGame()
     {
+        Resume();
         scenechange.SceneNumber = 1;
         scenechange.ChangeScene();
         Time.timeScale = 1f;

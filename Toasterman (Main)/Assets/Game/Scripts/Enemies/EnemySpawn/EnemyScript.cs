@@ -103,6 +103,14 @@ public class EnemyScript : MonoBehaviour
                     RotSpace++;
                 }
                 break;
+            case 5:
+                for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
+                {
+                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, tf.position.y * Waves[i].Radius * Mathf.Sin((tf.position.x - 16f) / Waves[i].Amount * Waves[i].RotateSpeed) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);//Radius is amplitude, rot speed is Frequency
+                    Space += Waves[i].Spacing; // spaces the enemies out
+                    RotSpace++;
+                }
+                break;
         }
         i++; // goes to the next wave
         Count = 0; // resets the counter

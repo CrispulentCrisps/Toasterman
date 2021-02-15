@@ -13,8 +13,6 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public Rigidbody rb;
 
-    public GameObject missleHoming;
-
     ObjectPools objectPooler;
 
     public CameraShake camerashake;
@@ -69,11 +67,9 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         camerashake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
 
         CoreAnim = GameObject.FindGameObjectWithTag("Core").GetComponent<Animator>();
-
     }
     public void OnObjectSpawn()
     {
-
         tf.position = new Vector3(20, 0, -1);
         YSpeed = 0f;
         Timer = 0;
@@ -103,18 +99,13 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         if (Health <= 0f && State != -1)
         {
             Timer = -1;
-
             if (tf.position.y > Target.position.y)
             {
-
                 YSpeed = 5;
-
             }
             else if (tf.position.y < Target.position.y)
             {
-
                 YSpeed = -5;
-
             }
 
             if (tf.position.y > -1f || tf.position.y > 1f)
@@ -146,22 +137,25 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
                 State = Random.Range(0, 4);
 
             }
-
-            switch (State) //Attacks
+            if (Health > 0f)
             {
-                case 1: anim.SetTrigger("Missle");
-                    break;
-                case 2:
-                    anim.SetTrigger("Tail");
-                    break;
-                case 3:
-                    anim.SetTrigger("BigHurt");
-                    break;
-                default:
-                    anim.SetTrigger("Idle");
-                    break;
-            }
+                switch (State) //Attacks
+                {
+                    case 1:
+                        anim.SetTrigger("Missle");
+                        break;
+                    case 2:
+                        anim.SetTrigger("Tail");
+                        break;
+                    case 3:
+                        anim.SetTrigger("BigHurt");
+                        break;
+                    default:
+                        anim.SetTrigger("Idle");
+                        break;
+                }
                 Timer = 0;
+            }
         }
 
         if (Health <= 250f && Health > 0)
@@ -232,7 +226,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void ShootRegular()
     {
-        BulletPatternsModule.ShootArc(135f,3,"EnemyBullet",MissleShotSpot,90f);
+        BulletPatternsModule.ShootArc(RegularAngle,RegularAmount,"EnemyBullet",MissleShotSpot,90f);
     }
 
     public void DieStart()

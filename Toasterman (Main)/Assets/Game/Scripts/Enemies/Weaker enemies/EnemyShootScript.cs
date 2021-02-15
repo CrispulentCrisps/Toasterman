@@ -6,9 +6,12 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 {
     public Vector2 speed;
 
-    public Rigidbody2D rb;
+    public SpriteRenderer sr;
 
+    public Rigidbody2D rb;
     public Transform tf;
+
+    public Color hurtColour;
 
     public GameObject Ship;
 
@@ -24,6 +27,8 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public float RegularAngle;
     public float AngleOffset;
+    [Header("this is amount of bullets shot at a time")]
+    [Range(1, 25)]
     public int RegularAmount;
 
     private float Angle;
@@ -34,9 +39,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public int Charge;
 
     public float Full;
+    [Header("this is Revolutions per second")]
+    [Range(-5f,5f)]
+    public float GunRotateAmount;
     private float FireRate;
 
     public bool Move;
+    public bool RotateGun;
 
     public void OnObjectSpawn()
     {
@@ -45,6 +54,10 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
+        if (hurtColour == new Color(0f,0f,0f,0f))
+        {
+            hurtColour = new Color(255f,0f,0f,255f);
+        }
     }
 
     void Start()
@@ -59,12 +72,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     void Update()
     {
+        sr.color += new Color(25f, 25f, 25f, 255f);
 
         if (tf.position.x <= -16)
         {
             gameObject.SetActive(false);
 
-        }else if (tf.position.x <= 14f)
+        }else if (tf.position.x <= 16f)
         {
             FireRate += Charge * Time.deltaTime;
         }
@@ -75,6 +89,14 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             FireRate = 0;
         }
 
+        if (RotateGun)
+        {
+            AngleOffset += Mathf.Round((GunRotateAmount * 360f) * Time.deltaTime);
+            if (AngleOffset > 360f)
+            {
+                AngleOffset -= 360f;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -82,7 +104,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
-
+            sr.color = hurtColour;
             if (Health <= 0f)
             {
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);

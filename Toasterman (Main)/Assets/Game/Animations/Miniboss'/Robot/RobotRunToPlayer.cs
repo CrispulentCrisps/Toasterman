@@ -23,7 +23,7 @@ public class RobotRunToPlayer : StateMachineBehaviour
     private float LaserTimer;
     private float DestroyTimer;
 
-    public static float Health = 100f;
+    public static float Health = 250f;
     public int State;
 
     private int RecursionInt;
@@ -67,35 +67,22 @@ public class RobotRunToPlayer : StateMachineBehaviour
                 Movement.y = 2f;
             }
 
-            if (State <= 0)
+            if (tf != null && tf.position.x <= Target.position.x)
             {
-                if (tf != null && tf.position.x <= Target.position.x)
-                {
-                    Speed += 5f * Time.deltaTime;
-                }
-                else if (tf != null && tf.position.x >= Target.position.x)
-                {
-                    Speed -= 5f * Time.deltaTime;
-                }
+                Speed += 6f * Time.deltaTime;
             }
-            else if (State != 0)
+            else if (tf != null && tf.position.x >= Target.position.x)
             {
-                if (tf != null && tf.position.x <= -10f)
-                {
-                    Speed += 5f * Time.deltaTime;
-                }
-                else if (tf != null && tf.position.x >= -10f)
-                {
-                    Speed -= 5f * Time.deltaTime;
-                }
+                Speed -= 6f * Time.deltaTime;
             }
-            if (Speed <= -7.5f)
+
+            if (Speed <= -12f)
             {
-                Speed = -7.5f;
+                Speed = -12f;
             }
-            else if (Speed >= 7.5f)
+            else if (Speed >= 12f)
             {
-                Speed = 7.5f;
+                Speed = 12f;
             }
 
             if (TimeCount >= TimeThresh)
@@ -143,6 +130,7 @@ public class RobotRunToPlayer : StateMachineBehaviour
         }
         else
         {
+            animator.SetTrigger("Die");
             DestroyTimer += Time.deltaTime;
             TimeCount += Time.deltaTime;
             //Move to center
@@ -170,7 +158,7 @@ public class RobotRunToPlayer : StateMachineBehaviour
                 {
                     AudioManager.instance.ChangePitch("Explosion", UnityEngine.Random.Range(.1f, .75f));
                     AudioManager.instance.Play("Explosion");
-                    objectPooler.SpawnFromPool("BigExplosion", new Vector3(Destructibles[i].position.x + Random.Range(-2f, 2f), Destructibles[i].position.y + Random.Range(0f, 4f), 0f), Quaternion.identity);
+                    objectPooler.SpawnFromPool("BigExplosion", new Vector3(Destructibles[i].position.x + Random.Range(-2f, 2f), Destructibles[i].position.y + Random.Range(0f, 2f), 0f), Quaternion.identity);
                 }
                 TimeCount = 0f;
             }
@@ -188,8 +176,9 @@ public class RobotRunToPlayer : StateMachineBehaviour
             {
                 for (int i = 0; i < Destructibles.Length; i++)
                 {
-                    DestructiblesMovement[i] = new Vector2(Random.Range(5f, 15f), Random.Range(5f, 15f));
+                    DestructiblesMovement[i] = new Vector2(Random.Range(5f, 12.5f), Random.Range(5f, 15f));
                 }
+                objectPooler.SpawnFromPool("FlashBang", Destructibles[4].position, Quaternion.identity);
                 Destroyed = true;
                 DestroyTimer = -9999f;
             }

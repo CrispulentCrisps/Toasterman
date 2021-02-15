@@ -24,6 +24,15 @@ public class DEBUG : MonoBehaviour
         ChangeGraphCode = new string[] { "t", "o", "a", "s", "t", "t", "i", "m", "e"};
         index = 0;
         index2 = 0;
+        try
+        {
+            SoundTestAcces = GameObject.Find("SoundTest");
+        }
+        catch (System.Exception)
+        {
+            SoundTestAcces = null;
+            throw;
+        }
     }
 
     void Update()
@@ -64,7 +73,7 @@ public class DEBUG : MonoBehaviour
         if (index == Debug.Length)
         {
             // Cheat code successfully inputted! Unlock crazy cheat code stuff
-            if (!Cheats)
+            if (!Cheats && SoundTestAcces != null)
             {
                 FindObjectOfType<AudioManager>().Play("Victory2");
                 SoundTestAcces.SetActive(true);

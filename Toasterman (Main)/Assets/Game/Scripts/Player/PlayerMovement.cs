@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour, IPooledObject
 {
-
     public Transform tf;
+
+    public BoxCollider2D bounds;
 
     private float Health = 100f;
     private float TargetHealth = 100f;
@@ -83,7 +84,6 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-
         HealthSlider.value = Health / 100f;//health slider
         //Checks movement debuffs
         if (Inverse)
@@ -102,8 +102,11 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
-
-            if (Invincible)
+            if (Alive && !Invincible)//This makes sure thatplayer takes damage in hitbox
+            {
+                bounds.enabled = !bounds.enabled;
+            }
+            else if (Invincible)
             {
                 TrailTimer += Time.deltaTime;
                 if (TrailTimer >= 0.0125f)

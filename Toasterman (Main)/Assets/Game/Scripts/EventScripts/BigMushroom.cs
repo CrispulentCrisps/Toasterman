@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BigMushroom : MonoBehaviour
 {
+    ObjectPools objectPooler;
+
     public EnemyScript enemyScript;
 
     public CameraShake camerashake;
@@ -17,6 +19,11 @@ public class BigMushroom : MonoBehaviour
 
     public int WaveToAppear;
 
+    private void Start()
+    {
+        objectPooler = ObjectPools.Instance;
+    }
+       
     void Update()
     {
         if (enemyScript.i == WaveToAppear)
@@ -34,6 +41,7 @@ public class BigMushroom : MonoBehaviour
     {
         AudioManager.instance.Play("Thud2");
         AudioManager.instance.ChangePitch("Thud2", Random.Range(0.9f,1.1f));
+        objectPooler.SpawnFromPool("SmokeBig", new Vector3(0f,-6f,0f), Quaternion.identity);
     }
 
     public void PlayFanfare()

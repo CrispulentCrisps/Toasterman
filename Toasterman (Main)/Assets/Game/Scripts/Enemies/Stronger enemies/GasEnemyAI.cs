@@ -53,9 +53,9 @@ public class GasEnemyAI : MonoBehaviour, IPooledObject
         SpritePos[0] = Ship.GetComponent<Transform>();// gets the Transform 
         height = 2f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
-        SpritePos[2].position = new Vector3(0f, height + 3f, width + 3f);
-        YVel = MaxVel * 1.5f;
-        XVel = MaxVel * 1.5f;
+        SpritePos[2].position = new Vector3(Random.Range(-width * 0.5f, width * 0.5f), height + 3f, 0f);
+        YVel = MaxVel * (1.5f + Random.Range(1f,2f));
+        XVel = MaxVel * (1.5f + Random.Range(1f, 2f));
         WaitPeriod = 0f;
     }
     void OnTriggerEnter2D(Collider2D coll)

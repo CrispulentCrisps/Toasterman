@@ -22,10 +22,10 @@ public class EnemySet
 
     [Range(0.01f,3)]
     public float Increment;
-
+    [Header("Freq:WaveType 5")]
     [Range(-360, 360)]
     public float RotateSpeed;
-
+    [Header("Amp:WaveType 5")]
     [Range(0f, 10f)]
     public float Radius;
 

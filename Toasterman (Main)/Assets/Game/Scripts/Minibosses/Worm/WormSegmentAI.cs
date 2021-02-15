@@ -39,20 +39,14 @@ public class WormSegmentAI : MonoBehaviour
         if (coll.gameObject.CompareTag("Bullet"))
         {
             wormwholeai.Health -= coll.GetComponent<DamageScript>().Damage;
-
         }
-
     }
 
     void Update()
     {
         if (wormwholeai.Alive == false)
         {
-
-            
-
             tf.Rotate(new Vector3(0f, 0f, RotSpeed * Time.deltaTime));
-
         }
 
         if (wormwholeai.Health <= 0 && ShotOff == false)
@@ -66,7 +60,7 @@ public class WormSegmentAI : MonoBehaviour
         }
 
         tf.position += new Vector3(XVel,0f,0f) * Time.deltaTime;
-
+        XVel *= 0.99f;
     }
 
 }
