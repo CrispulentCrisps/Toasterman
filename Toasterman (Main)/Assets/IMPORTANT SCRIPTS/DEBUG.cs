@@ -24,15 +24,6 @@ public class DEBUG : MonoBehaviour
         ChangeGraphCode = new string[] { "t", "o", "a", "s", "t", "t", "i", "m", "e"};
         index = 0;
         index2 = 0;
-        try
-        {
-            SoundTestAcces = GameObject.Find("SoundTest");
-        }
-        catch (System.Exception)
-        {
-            SoundTestAcces = null;
-            throw;
-        }
     }
 
     void Update()

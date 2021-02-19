@@ -15,6 +15,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -30,6 +35,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -41,16 +51,6 @@ PrefabInstance:
     - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216947, guid: b5846c3f85153924f90330019c3d10d9,
@@ -70,8 +70,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
-      propertyPath: TargetTag
-      value: NotSoGoodThing
+      propertyPath: speed
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
+        type: 3}
+      propertyPath: RotVel
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
@@ -85,18 +90,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
-      propertyPath: speed
-      value: 17
+      propertyPath: TargetTag
+      value: NotSoGoodThing
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}
       propertyPath: RotMaxSpeed
       value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 2086596857601216948, guid: b5846c3f85153924f90330019c3d10d9,
-        type: 3}
-      propertyPath: RotVel
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2086596857601216958, guid: b5846c3f85153924f90330019c3d10d9,
         type: 3}

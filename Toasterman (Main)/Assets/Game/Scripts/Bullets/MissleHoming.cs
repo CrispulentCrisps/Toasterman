@@ -9,6 +9,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     public Transform Target;
     public Transform tf;
     public Rigidbody2D rb;
+    public SpriteRenderer sr;
 
     ObjectPools objectPooler;
 
@@ -20,23 +21,25 @@ public class MissleHoming : MonoBehaviour, IPooledObject
     public float RotMaxSpeed;
     public float StartRot;
     private float timer;
-    private float timer2;
     public float MaxTime;
 
     public bool IsEnemy;
+    public bool Targeting;
 
     public string TargetTag;
 
     private void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     public void OnObjectSpawn()
     {
+        if (sr == null)
+        {
+            sr = gameObject.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
 
+        }
         tf.Rotate(0, 0, StartRot);
         try//If there is not target on screen
         {
@@ -48,7 +51,6 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         }
 
         timer = 0;
-        timer2 = 0;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -56,7 +58,8 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet") && IsEnemy == true)
         {
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
-        }else if (coll.gameObject.CompareTag(TargetTag))
+        }
+        else if (coll.gameObject.CompareTag(TargetTag))
         {
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
             AudioManager.instance.ChangePitch("Explosion", UnityEngine.Random.Range(.1f, .75f));
@@ -65,15 +68,13 @@ public class MissleHoming : MonoBehaviour, IPooledObject
             timer = 0;
             Rotspeed = 0;
             Health = 10f;
-
         }
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Target)
+        if (Target && Targeting)
         {
 
             Vector2 Direction = (Vector2)Target.position - rb.position;
@@ -85,23 +86,30 @@ public class MissleHoming : MonoBehaviour, IPooledObject
             rb.angularVelocity = -RotateAmount * Rotspeed;
 
         }
-        if (Rotspeed <= RotMaxSpeed)
+        if (Rotspeed <= RotMaxSpeed && Targeting)
         {
-
             Rotspeed += RotVel;
-
         }
 
         rb.velocity = transform.up * speed;
-
+        //Lifespan
         timer += Time.deltaTime;
-        timer2 += Time.deltaTime;
-
+        if (timer <= 1.5f || timer >= (MaxTime - 1.5f))
+        {
+            Targeting = false;
+        }
+        else
+        {
+            Targeting = true;
+        }
+        sr.color = new Color(256 * Mathf.Cos(timer * 5f), 
+            256 * Mathf.Cos(timer * 5f)
+            ,255f);
         if (timer >= MaxTime || Health <= 0f)
         {
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().ChangePitch("Explosion", UnityEngine.Random.Range(.1f, 1f));
-            FindObjectOfType<AudioManager>().Play("Explosion");
+            AudioManager.instance.ChangePitch("Explosion", UnityEngine.Random.Range(.1f, 1f));
+            AudioManager.instance.Play("Explosion");
             gameObject.SetActive(false);
             timer = 0;
             Rotspeed = 0;

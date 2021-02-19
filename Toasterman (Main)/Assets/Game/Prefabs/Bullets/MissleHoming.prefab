@@ -122,6 +122,7 @@ MonoBehaviour:
   Target: {fileID: 2086596857601216947}
   tf: {fileID: 2086596857601216947}
   rb: {fileID: 2086596857601216959}
+  sr: {fileID: 2086596857601216946}
   Health: 5
   speed: 7.5
   RotVel: 15
@@ -129,6 +130,7 @@ MonoBehaviour:
   StartRot: 90
   MaxTime: 5
   IsEnemy: 1
+  Targeting: 0
   TargetTag: Player
 --- !u!114 &-3351131163760359543
 MonoBehaviour:

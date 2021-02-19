@@ -20,6 +20,9 @@ public class CirclingScript : MonoBehaviour, IPooledObject
     public int BulletAmount;
 
     public float angle;
+    public float ShotTime;
+    public float ShotLength;
+    public float ShotInterval;
     public float Radius;
     public float RotateSpeed;
     private float Timer;
@@ -77,16 +80,16 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
         Timer += Time.deltaTime;
 
-        var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * Radius;
+        Vector2 offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * Radius;
         tf.position = (Vector2)Target.position + offset;
 
-        if (Timer >= 2f)
-        {
-            Vector3 difference = Target.position - tf.position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            BulletPatternsModule.ShootArc(angle, BulletAmount, BulletName, tf, rotationZ - 7.5f);
-            Timer = 0f;
+        Vector3 difference = Target.position - tf.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
+        if (Timer >= ShotTime)
+        {
+            StartCoroutine(BulletPatternsModule.ShootArcEnum(0f, BulletAmount, BulletName, tf, rotationZ, ShotLength, ShotInterval));//If arc size > 0 then the angle of the bullets breaks
+            Timer = 0f;
         }
     }
 }

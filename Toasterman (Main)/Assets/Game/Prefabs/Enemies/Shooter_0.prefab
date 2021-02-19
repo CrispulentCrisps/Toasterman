@@ -120,8 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
+  sr: {fileID: 0}
   rb: {fileID: 4728287638042413878}
   tf: {fileID: 4728287638042413879}
+  hurtColour: {r: 0, g: 0, b: 0, a: 0}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 4728287638042413881}
@@ -132,7 +134,9 @@ MonoBehaviour:
   RegularAmount: 3
   Charge: 1
   Full: 0.5
-  Move: 0
+  GunRotateAmount: 0
+  Move: 1
+  RotateGun: 0
 --- !u!70 &4728287638042413877
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +151,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.7, y: 0.3}
+  m_Size: {x: 0.65, y: 0.3}
   m_Direction: 1
 --- !u!50 &4728287638042413878
 Rigidbody2D:

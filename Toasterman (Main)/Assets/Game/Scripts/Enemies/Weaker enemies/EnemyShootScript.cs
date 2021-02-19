@@ -54,6 +54,10 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
+        if (sr == null)
+        {
+            sr = gameObject.GetComponent<SpriteRenderer>();
+        }
         if (hurtColour == new Color(0f,0f,0f,0f))
         {
             hurtColour = new Color(255f,0f,0f,255f);

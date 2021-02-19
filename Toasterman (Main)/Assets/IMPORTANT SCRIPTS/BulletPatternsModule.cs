@@ -17,9 +17,9 @@ public class BulletPatternsModule : MonoBehaviour
         angle = Offset;//Offset is to the left
         for (int i = 0; i < BulletAmount; i++)
         {
-            float AngleStep = ArcSize / BulletAmount;
+            float AngleStep = ArcSize / BulletAmount;//Gets the step size for arc
             angle += AngleStep;
-            objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
+            objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));//Shoots the bullet
         }
     }
 
