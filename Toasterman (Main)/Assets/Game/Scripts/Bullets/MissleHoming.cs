@@ -67,7 +67,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
             gameObject.SetActive(false);
             timer = 0;
             Rotspeed = 0;
-            Health = 10f;
+            Health = 5f;
         }
     }
 
@@ -102,9 +102,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         {
             Targeting = true;
         }
-        sr.color = new Color(256 * Mathf.Cos(timer * 5f), 
-            256 * Mathf.Cos(timer * 5f)
-            ,255f);
+        sr.color = new Color(255f, 255 * Mathf.Cos(timer * timer * 10f), 255 * Mathf.Cos(timer * timer * 10f), 255f);
         if (timer >= MaxTime || Health <= 0f)
         {
             objectPooler.SpawnFromPool("BigExplosion", tf.position, Quaternion.identity);

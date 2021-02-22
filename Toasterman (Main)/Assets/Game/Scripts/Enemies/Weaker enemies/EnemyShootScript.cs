@@ -39,13 +39,19 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public int Charge;
 
     public float Full;
+
+    public bool RotateGun;
     [Header("this is Revolutions per second")]
     [Range(-5f,5f)]
     public float GunRotateAmount;
     private float FireRate;
 
+    public bool ShootNearPlayer;
+    [Header("this is in 1 space in unity world")]
+    [Range(0.1f, 5f)]
+    public float DistanceToPlayer;
+
     public bool Move;
-    public bool RotateGun;
 
     public void OnObjectSpawn()
     {
@@ -76,7 +82,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        sr.color += new Color(25f, 25f, 25f, 255f);
+        sr.color += new Color(25f, 25f, 25f, 255f) * Time.deltaTime;
 
         if (tf.position.x <= -16)
         {
@@ -85,6 +91,11 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         }else if (tf.position.x <= 16f)
         {
             FireRate += Charge * Time.deltaTime;
+        }
+
+        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= -Ship.transform.position.x + DistanceToPlayer)
+        {
+            FireRate = Full;
         }
 
         if (FireRate >= Full)

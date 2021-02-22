@@ -188,7 +188,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         {
             Speed.x = 0;
             YVel += Time.deltaTime;
-            if (SinAmp <= 8f)
+            if (SinAmp <= 7f)
             {
                 SinAmp += Time.deltaTime;
             }
