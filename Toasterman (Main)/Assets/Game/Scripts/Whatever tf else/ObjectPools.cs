@@ -82,7 +82,7 @@ public class ObjectPools : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Error, Object not found");
+            Debug.LogWarning("Error, Object:" + objectToSpawn + " not found");
         }
 
 

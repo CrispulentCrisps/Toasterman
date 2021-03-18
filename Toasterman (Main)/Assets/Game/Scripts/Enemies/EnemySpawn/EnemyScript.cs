@@ -35,7 +35,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (start == true)
         {
-            Count += 1 * Time.deltaTime;
+            Count +=  Time.deltaTime;
         }
 
         if (Count >= Waves[i].Time) // checks if enough time has past

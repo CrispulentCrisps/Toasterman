@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
+  sr: {fileID: 6060261859861975991}
   rb: {fileID: 627832231}
   tf: {fileID: 6060261859861975984}
+  hurtColour: {r: 1, g: 0, b: 0, a: 0}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 627832229}
@@ -112,6 +114,11 @@ MonoBehaviour:
   RegularAmount: 2
   Charge: 1
   Full: 2
+  RotateGun: 0
+  GunRotateAmount: 0
+  ShootNearPlayer: 0
+  DistanceToPlayer: 0
+  MinTime: 1
   Move: 1
 --- !u!50 &627832231
 Rigidbody2D:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7477754606779617036}
   - component: {fileID: 7477754606779617035}
   - component: {fileID: 7477754606779617037}
+  - component: {fileID: 542271078595565416}
   m_Layer: 8
   m_Name: Scanlines 1
   m_TagString: Untagged
@@ -70,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1772706125
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 353f3244040588b4b9cc1587ea9c067b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9254902}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,3 +103,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &542271078595565416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477754606779617034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea5a29ec4ab68c458827a68c4196a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tf: {fileID: 7477754606779617036}
+  paraspeed: 1
+  paraspeedGoal: 1
+  paraspeedIncrement: 1
+  ParaDampen: 1
+  Bounds: 10
+  XorY: 0

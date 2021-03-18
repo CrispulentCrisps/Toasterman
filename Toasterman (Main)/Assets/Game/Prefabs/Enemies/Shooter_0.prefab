@@ -129,14 +129,16 @@ MonoBehaviour:
   anim: {fileID: 4728287638042413881}
   Health: 7
   BulletName: EnemyBullet
-  RegularAngle: 135
-  AngleOffset: 90
+  RegularAngle: 90
+  AngleOffset: 135
   RegularAmount: 3
   Charge: 1
   Full: 0.5
-  GunRotateAmount: 0
-  Move: 1
   RotateGun: 0
+  GunRotateAmount: 0
+  ShootNearPlayer: 0
+  DistanceToPlayer: 0
+  Move: 1
 --- !u!70 &4728287638042413877
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

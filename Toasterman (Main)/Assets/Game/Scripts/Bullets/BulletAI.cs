@@ -7,6 +7,8 @@ public class BulletAI : MonoBehaviour, IPooledObject
     
     private Vector2 Movement;
 
+    public string BulletParticle;
+
     private float speedx;
     private float speedy;
     [Header("subtractive speed")]
@@ -19,7 +21,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public bool SineMove;
     public float SineAmp;
     public float SineFreq;
-
+    [Header("Set up stuff")]
     public float speedxMem;
     public float speedyMem;
     private float BulletRot;
@@ -50,6 +52,10 @@ public class BulletAI : MonoBehaviour, IPooledObject
             SpriteRenderer rend = gameObject.GetComponent<SpriteRenderer>();
             rend.sprite = Resources.Load<Sprite>("Toast");
         }
+        if (BulletParticle == null)
+        {
+            BulletParticle = "BulletHit";
+        }
         speedx = speedxMem;
         speedy = speedyMem;
         ST = 0f;
@@ -62,13 +68,10 @@ public class BulletAI : MonoBehaviour, IPooledObject
             Length = CollisionNames.Length;
             for (int i = 0; i < Length; i++)
             {
-                if (coll.gameObject.CompareTag(CollisionNames[i]))
+                if (coll.gameObject.CompareTag(CollisionNames[i]) && Killable)
                 {
-                    if (Killable == true)
-                    {
-                        objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
-                        gameObject.SetActive(false);
-                    }
+                    objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
+                    gameObject.SetActive(false);
                 }
             }
         }
@@ -84,7 +87,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
             speedy -= AccY * Time.deltaTime;
             if (speedx <= -AccMinX || speedx >= AccMinX || speedy <= -AccMinY || speedy >= AccMinY)
             {
-                objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool(BulletParticle, tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
         }

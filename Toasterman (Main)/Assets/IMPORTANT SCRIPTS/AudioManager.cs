@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     }
 
     ///+==========================================================================================+
-    ///|                                       Functions                                          |
+    ///|                                                                                         Functions                                                                                                  |
     ///+==========================================================================================+
 
     public void Play(string name)
@@ -69,11 +69,8 @@ public class AudioManager : MonoBehaviour
 
         while (s.source.volume >= 0f || s.source.volume <= 1f)
         {
-
             s.source.volume -= Increment * Time.deltaTime;
-
             yield return null;
-
         }
         if (s.source.volume <= 0f)
         {

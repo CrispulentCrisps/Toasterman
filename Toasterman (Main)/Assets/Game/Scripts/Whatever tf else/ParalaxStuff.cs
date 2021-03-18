@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ParalaxStuff : MonoBehaviour
 {
-
     public GameObject[] Layer;
 
     public Vector3[] FrontPos;
@@ -78,10 +77,10 @@ public class ParalaxStuff : MonoBehaviour
                     FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
                     break;
                 case 6:
-                    FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
+                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 4) * Time.deltaTime, 0, 0);
                     break;
                 case 7:
-                    FrontPos[i] += new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
+                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 4) * Time.deltaTime, 0, 0);
                     break;
             }
             Layer[i].transform.position = FrontPos[i];

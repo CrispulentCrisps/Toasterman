@@ -50,6 +50,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     [Header("this is in 1 space in unity world")]
     [Range(0.1f, 5f)]
     public float DistanceToPlayer;
+    public float MinTime;//Minimum time to wat before shooting
 
     public bool Move;
 
@@ -82,7 +83,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        sr.color += new Color(25f, 25f, 25f, 255f) * Time.deltaTime;
+        sr.color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
 
         if (tf.position.x <= -16)
         {
@@ -93,9 +94,9 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             FireRate += Charge * Time.deltaTime;
         }
 
-        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= -Ship.transform.position.x + DistanceToPlayer)
+        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= Ship.transform.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the playr on the X axis
         {
-            FireRate = Full;
+            anim.Play("Fire");
         }
 
         if (FireRate >= Full)
