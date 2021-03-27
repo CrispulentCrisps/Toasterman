@@ -28,11 +28,11 @@ public class SceneChange : MonoBehaviour
             FindObjectOfType<AudioManager>().SetVolume(MusicName, 0f);
             if (FadeInMusic == true)
             {
-                StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio(MusicName, -0.5f));
+                StartCoroutine(AudioManager.instance.FadeAudio(MusicName, -0.5f));
             }
             else
             {
-                FindObjectOfType<AudioManager>().SetVolume(MusicName, 1f);
+                AudioManager.instance.SetVolume(MusicName, 1f);
             }
         }
 
@@ -51,23 +51,16 @@ public class SceneChange : MonoBehaviour
     {
         if (ConditionMet == true)
         {
-
             StartCoroutine(LoadLevel(SceneNumber));
-
         }
     }
 
     IEnumerator LoadLevel(int LevelIndex)
     {
-
         transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(Time);
-
         StopAllAudio();
-
         SceneManager.LoadScene(LevelIndex);
-
     }
 
 }

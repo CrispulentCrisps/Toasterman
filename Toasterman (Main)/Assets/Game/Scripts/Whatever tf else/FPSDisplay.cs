@@ -10,6 +10,10 @@ public class FPSDisplay : MonoBehaviour
     void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Show = !Show;
+        }
     }
 
     void OnGUI()

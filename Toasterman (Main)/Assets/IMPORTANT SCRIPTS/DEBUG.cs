@@ -21,7 +21,7 @@ public class DEBUG : MonoBehaviour
     {
         // Code is "baracuda", user needs to input this in the right order
         Debug = new string[] { "b", "a", "r", "a", "c", "u", "d", "a" };
-        ChangeGraphCode = new string[] { "t", "o", "a", "s", "t", "t", "i", "m", "e"};
+        ChangeGraphCode = new string[] { "a", "n", "d", "r", "e", "w" };
         index = 0;
         index2 = 0;
     }

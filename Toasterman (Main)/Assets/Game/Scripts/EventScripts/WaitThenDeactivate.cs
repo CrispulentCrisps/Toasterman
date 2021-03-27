@@ -8,9 +8,17 @@ public class WaitThenDeactivate : MonoBehaviour
     private float inc;
     public float Max;
 
+    ObjectPools objectPooler;
+
+    void OnObjectSpawn()
+    {
+        T = 0;
+    }
+
     void Start()
     {
         inc = Time.deltaTime;
+        T = 0;
     }
 
     // Update is called once per frame

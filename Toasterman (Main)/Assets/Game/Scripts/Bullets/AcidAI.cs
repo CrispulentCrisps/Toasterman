@@ -11,13 +11,17 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     private float speedx = 0;
     private float speedy = 0;
+    private float SpeedScaleDivX;
+    private float SpeedScaleDivY;
 
     private int LifeTimeHits = 3;
 
     public void OnObjectSpawn()
     {
         speedx = Random.Range(11f, 14f);
+        SpeedScaleDivX = speedx;
         speedy = Random.Range(-5f,5f);
+        SpeedScaleDivY = speedy;
         LifeTimeHits = 3;
     }
 
@@ -31,6 +35,7 @@ public class AcidAI : MonoBehaviour, IPooledObject
         speedx *= 0.95f;
         speedy *= 0.95f;
         Movement = new Vector2(speedx, speedy);
+        tf.localScale = new Vector3(speedx / SpeedScaleDivX, speedy / SpeedScaleDivY, 0f);
         if (speedx <= 0.9f)
         {
             speedx = 0f;

@@ -21,14 +21,11 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     {
         Target = GameObject.FindGameObjectWithTag("Player");
         speed = 17.5f;
-
     }
 
     private void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     // Update is called once per frame
@@ -41,9 +38,7 @@ public class BouncyAI : MonoBehaviour, IPooledObject
 
         if (BounceAmount <= 0 || tf.position.x >= 20 || tf.position.x <= -20 || tf.position.y >= 20 || tf.position.y <= -20)
         {
-
             gameObject.SetActive(false);
-
         }
     }
 
@@ -63,7 +58,5 @@ public class BouncyAI : MonoBehaviour, IPooledObject
             BounceAmount--;
 
         }
-
     }
-
 }

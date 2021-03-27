@@ -65,6 +65,29 @@ public class Dialog : MonoBehaviour
 
         foreach (char letter in sentences[index].Words.ToCharArray())
         {
+            switch (letter)
+            {
+                default:
+                    break;
+                case '{':
+                    textDisplay.text += "<i>";
+                    break;
+                case '}':
+                    textDisplay.text += "</i>";
+                    break;
+                case '[':
+                    textDisplay.text += "<b>";
+                    break;
+                case ']':
+                    textDisplay.text += "</b>";
+                    break;
+                case '_':
+                    textDisplay.text += "<b>";
+                    break;
+                case '~':
+                    textDisplay.text += "</b>";
+                    break;
+            }
             if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
             {
                 textDisplay.text += "<i>";
