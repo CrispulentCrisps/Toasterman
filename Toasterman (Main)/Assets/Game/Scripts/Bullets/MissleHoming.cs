@@ -94,7 +94,7 @@ public class MissleHoming : MonoBehaviour, IPooledObject
         rb.velocity = transform.up * speed;
         //Lifespan
         timer += Time.deltaTime;
-        if (timer <= 1.5f || timer >= (MaxTime - 1.5f))
+        if (timer <= 0.5f || timer >= (MaxTime - 0.5f))
         {
             Targeting = false;
         }

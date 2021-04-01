@@ -66,10 +66,11 @@ public class DEBUG : MonoBehaviour
             // Cheat code successfully inputted! Unlock crazy cheat code stuff
             if (!Cheats && SoundTestAcces != null)
             {
-                FindObjectOfType<AudioManager>().Play("Victory2");
+                AudioManager.instance.Play("Victory2");
                 SoundTestAcces.SetActive(true);
+                SoundTestAcces.GetComponent<Animator>().SetTrigger("Enter");
                 Cheats = true;
-                FindObjectOfType<AudioManager>().Stop("Title theme");
+                AudioManager.instance.Stop("Title theme");
             }
         }
         
@@ -78,7 +79,7 @@ public class DEBUG : MonoBehaviour
             // Cheat code successfully inputted! Unlock crazy cheat code stuff
             if (ChangeGraphics == false)
             {
-                FindObjectOfType<AudioManager>().Play("BreadzookaBlastTheme");
+                AudioManager.instance.Play("BreadzookaBlastTheme");
                 ChangeGraphics = true;
             }
         }

@@ -5,10 +5,6 @@ public class PlanetSelect : MonoBehaviour
     public int PlanetNum;
     public int IndexStart;
     public int IndexEnd;
-    public int LeftIn;
-    public int RightIn;
-    public int LeftOut;
-    public int RightOut;
     public int LevelIndex;
 
     public GameObject DialogManager;
@@ -27,6 +23,9 @@ public class PlanetSelect : MonoBehaviour
     public GameObject[] Locks;
     public GameObject PlanetBefore;
 
+    public float ResetSize;
+
+    public bool MouseOverPlanet = false; //Make private, public for debugging
     public static bool Selected = false;
     public bool Locked;
     public bool Completed;
@@ -73,8 +72,17 @@ public class PlanetSelect : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (MouseOverPlanet == false)
+        {
+            float Velocity = 0.0f;
+            tf.localScale = new Vector3(Mathf.SmoothDamp(tf.localScale.x, ResetSize, ref Velocity, 0.05f), Mathf.SmoothDamp(tf.localScale.y, ResetSize, ref Velocity, 0.05f), 0f);
+        }
+    }
     void OnMouseOver()
     {
+        MouseOverPlanet = true;
         if (Input.GetMouseButtonDown(0) && Selected == false && Locked == false)
         {
             dialog.index = IndexStart;
@@ -82,16 +90,19 @@ public class PlanetSelect : MonoBehaviour
             scenechange.SceneNumber = LevelIndex;
             dialog.StartCoroutine(dialog.BoxIn(1f));
             Selected = true;
+            MouseOverPlanet = false;
+            PlanetSelectMouseUI.Selected = true;
         }
-        else if (Selected == false && Locked == false)
+        else if (Selected == false && Locked == false && MouseOverPlanet == true)
         {
-            tf.localScale = new Vector3(Scale.x, Scale.y, Scale.z);
+            float Velocity = 0.0f;
+            tf.localScale = new Vector3(Mathf.SmoothDamp(tf.localScale.x,Scale.x, ref Velocity, 0.05f), Mathf.SmoothDamp(tf.localScale.y, Scale.y, ref Velocity, 0.05f));
         }
     }
 
     void OnMouseExit()
     {
-        tf.localScale = new Vector3(1f, 1f, 1f); 
+        MouseOverPlanet = false;
     }
 
 }

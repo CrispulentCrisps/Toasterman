@@ -38,22 +38,27 @@ public class BGMove : MonoBehaviour
         {
             tf.position -= new Vector3(0f, paraspeed / ParaDampen, 0f) * Time.deltaTime;
         }
-
-        if (tf.position.x < -Bounds)
+        if (XorY)
         {
-            tf.position += new Vector3(Bounds * 2f, 0f, 0f);
+            if (tf.position.x < -Bounds)
+            {
+                tf.position += new Vector3(Bounds * 2f, 0f, 0f);
+            }
+            else if (tf.position.x > Bounds)
+            {
+                tf.position -= new Vector3(Bounds * 2f, 0f, 0f);
+            }
         }
-        else if (tf.position.x > Bounds)
+        else
         {
-            tf.position -= new Vector3(Bounds * 2f, 0f, 0f);
-        }
-        else if (tf.position.y < -Bounds)
-        {
-            tf.position += new Vector3(0f, Bounds * 2f, 0f);
-        }
-        else if (tf.position.x > Bounds)
-        {
-            tf.position -= new Vector3(0f, Bounds * 2f, 0f);
+            if (tf.position.y < -Bounds)
+            {
+                tf.position += new Vector3(0f, Bounds * 2f, 0f);
+            }
+            else if (tf.position.y > Bounds)
+            {
+                tf.position -= new Vector3(0f, Bounds * 2f, 0f);
+            }
         }
     }
 }

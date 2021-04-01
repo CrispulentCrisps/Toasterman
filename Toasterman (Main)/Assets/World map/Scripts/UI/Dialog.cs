@@ -24,6 +24,9 @@ public class Dialog : MonoBehaviour
     public int indexDone;
 
     public bool Started;
+    private bool ToastEntered = false;
+    private bool OtherEntered = false;
+    private bool StartAnimating = false;
 
     void Update()
     {
@@ -34,27 +37,30 @@ public class Dialog : MonoBehaviour
             SkipButton.SetActive(false);
             GotoButton.SetActive(true);
         }
-        else if (sentences[index].ToastIn)
+        if (StartAnimating)
         {
-            ToastAnim.Play("In");
-        }
-        else if (!sentences[index].ToastIn)
-        {
-            ToastAnim.Play("Out");
-        }
-        else if (sentences[index].AndrussIn)
-        {
-            OtherAnim.Play("In");
-        }
-        else if (!sentences[index].AndrussIn)
-        {
-            OtherAnim.Play("Out");
-        }
-        
-        if (Started == true)
-        {
-            StartCoroutine(Type());
-            Started = false;
+            if (sentences[index].ToastIn && !ToastEntered)
+            {
+                ToastAnim.Play("In");
+            }
+            else if (!sentences[index].ToastIn && ToastEntered)
+            {
+                ToastAnim.Play("Out");
+            }
+            else if (sentences[index].AndrussIn && !OtherEntered)
+            {
+                OtherAnim.Play("In");
+            }
+            else if (!sentences[index].AndrussIn && OtherEntered)
+            {
+                OtherAnim.Play("Out");
+            }
+
+            if (Started == true)
+            {
+                StartCoroutine(Type());
+                Started = false;
+            }
         }
     }
 
@@ -65,29 +71,6 @@ public class Dialog : MonoBehaviour
 
         foreach (char letter in sentences[index].Words.ToCharArray())
         {
-            switch (letter)
-            {
-                default:
-                    break;
-                case '{':
-                    textDisplay.text += "<i>";
-                    break;
-                case '}':
-                    textDisplay.text += "</i>";
-                    break;
-                case '[':
-                    textDisplay.text += "<b>";
-                    break;
-                case ']':
-                    textDisplay.text += "</b>";
-                    break;
-                case '_':
-                    textDisplay.text += "<b>";
-                    break;
-                case '~':
-                    textDisplay.text += "</b>";
-                    break;
-            }
             if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
             {
                 textDisplay.text += "<i>";
@@ -129,7 +112,8 @@ public class Dialog : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
         Started = true;
-        index = 0;  
+        index = 0;
+        StartAnimating = true;
     }
 
     public void NextSentence()
@@ -151,8 +135,14 @@ public class Dialog : MonoBehaviour
     public void SkipText()
     {
         index = indexDone + 1;
-        ToastAnim.Play("Out");
-        OtherAnim.Play("Out");
+        if (ToastEntered)
+        {
+            ToastAnim.Play("Out");
+        }
+        if (OtherEntered)
+        {
+            OtherAnim.Play("Out");
+        }
         textDisplay.text = " ";
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);
