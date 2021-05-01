@@ -46,6 +46,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -101,10 +102,17 @@ MonoBehaviour:
   tf: {fileID: 2028298398534170292}
   rb: {fileID: 3177875504145609683}
   BulletName: SmallRock
+  InitSpeedX: -10
+  InitSpeedY: 0
   ArcSize: 360
   Offset: 22.5
   LevelToExplode: -3
   BulletAmount: 8
+  XorY: 0
+  RandSetOff: 0
+  MinSet: 0
+  MaxSet: 0
+  OffsetSet: 0
 --- !u!58 &794204453273981547
 CircleCollider2D:
   m_ObjectHideFlags: 0

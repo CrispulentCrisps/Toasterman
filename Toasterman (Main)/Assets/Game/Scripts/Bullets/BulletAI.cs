@@ -2,15 +2,14 @@
 
 public class BulletAI : MonoBehaviour, IPooledObject
 {
-
     public Transform tf;
     
     private Vector2 Movement;
 
     public string BulletParticle;
 
-    private float speedx;
-    private float speedy;
+    public float speedx;
+    public float speedy;
     [Header("subtractive speed")]
     public bool ChangeAcc;
     public float AccX;
@@ -31,6 +30,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     public bool Specifics;
     public bool Killable;
+    public bool SpeedChanged;
 
     public string[] CollisionNames;
 
@@ -46,25 +46,30 @@ public class BulletAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     public void OnObjectSpawn()
     {
-        Movement = new Vector2(speedx, speedy);
-        if (DEBUG.ChangeGraphics == true)
+        if (DEBUG.ChangeGraphics == true)//CHanges sprite to toast
         {
             SpriteRenderer rend = gameObject.GetComponent<SpriteRenderer>();
             rend.sprite = Resources.Load<Sprite>("Toast");
         }
+
         if (BulletParticle == null)
         {
             BulletParticle = "BulletHit";
         }
-        speedx = speedxMem;
-        speedy = speedyMem;
-        ST = 0f;
+
+        if (!SpeedChanged)
+        {
+            speedx = speedxMem;
+            speedy = speedyMem;
+        }
+        Movement = new Vector2(speedx, speedy);
+        ST = 0f;//Sine phase
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (Specifics == true)
-           {
+        {
             Length = CollisionNames.Length;
             for (int i = 0; i < Length; i++)
             {
@@ -108,5 +113,4 @@ public class BulletAI : MonoBehaviour, IPooledObject
     {
         tf.Translate(Movement * Time.deltaTime);
     }
-
 }

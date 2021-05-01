@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6932222877393058273}
   m_Layer: 0
   m_Name: BomberSheet_0
-  m_TagString: Untagged
+  m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1543121981
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7753554654467536050, guid: 3ec5b87b84147ba4b83696b1f1d3b67f,
     type: 3}
@@ -129,15 +130,19 @@ MonoBehaviour:
   anim: {fileID: 1677412444789545138}
   Health: 5
   BulletName: EnemyBullet
-  RegularAngle: 135
-  AngleOffset: 180
   RegularAmount: 3
   Charge: 1
   Full: 3
+  ShootType: 0
+  RegularAngle: 135
+  AngleOffset: 180
+  MinVel: 0
+  MaxVel: 0
   RotateGun: 0
   GunRotateAmount: 0
   ShootNearPlayer: 0
   DistanceToPlayer: 1
+  MinTime: 0
   Move: 1
 --- !u!50 &1677412444789545136
 Rigidbody2D:

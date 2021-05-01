@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4728287638042413882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -51.65048, y: 5.959531, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 0ce50db6b841df449aa0089547061f24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -358543269
   m_SortingLayer: 4
   m_SortingOrder: 99
-  m_Sprite: {fileID: -4866215267170806279, guid: ef375c2624a6825429fcfbfda12df986,
+  m_Sprite: {fileID: -4866215267170806279, guid: bfb424f6d46576249ae4251aadb486a8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 4728287638042413882}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f77107382416554e90e352b866a8fad, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53414656a58ba554bb866b4f32a8a32d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,10 +128,10 @@ MonoBehaviour:
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 4728287638042413881}
-  Health: 7
+  Health: 6
   BulletName: EnemyBullet
-  RegularAngle: 90
-  AngleOffset: 135
+  RegularAngle: 120
+  AngleOffset: 90
   RegularAmount: 3
   Charge: 1
   Full: 0.5
@@ -138,7 +139,8 @@ MonoBehaviour:
   GunRotateAmount: 0
   ShootNearPlayer: 0
   DistanceToPlayer: 0
-  Move: 1
+  MinTime: 0
+  Move: 0
 --- !u!70 &4728287638042413877
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.65, y: 0.3}
+  m_Size: {x: 0.7, y: 0.3}
   m_Direction: 1
 --- !u!50 &4728287638042413878
 Rigidbody2D:

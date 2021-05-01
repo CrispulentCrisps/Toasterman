@@ -32,22 +32,17 @@ public class Shooting : MonoBehaviour
 
     private string[] ProjectileNames;
 
-
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
-
         ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
         BulletLevel = new int[] {0,0,0,0,0,0};
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         FireRate += Increment * Time.deltaTime;
-
         if (BulletLevel[4] >= 1)
         {
             StartCoroutine(BreadzookaBlast(2.25f, 12, 0.05f));
@@ -63,30 +58,22 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))// shooting input
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Greater))// shooting input
         {
-
             Auto = true;
-
         }
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Greater))
         {
-
             Auto = false;
-
         }
         
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.Less))
         {
-
-            BulletType++;
-            
+            BulletType++;  
         }
-        else if (Input.GetKeyUp(KeyCode.X))
+        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.M))
         {
-
-            BulletType--;
-            
+            BulletType--;  
         }
 
         if (BulletType < 0)
@@ -157,7 +144,6 @@ public class Shooting : MonoBehaviour
             angle += AngleStep;
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
-
     }
 
     //IEnumerators

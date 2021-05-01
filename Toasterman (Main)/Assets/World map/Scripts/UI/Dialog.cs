@@ -24,8 +24,8 @@ public class Dialog : MonoBehaviour
     public int indexDone;
 
     public bool Started;
-    private bool ToastEntered = false;
-    private bool OtherEntered = false;
+    public bool ToastEntered = false;
+    public bool OtherEntered = false;
     private bool StartAnimating = false;
 
     void Update()
@@ -37,19 +37,23 @@ public class Dialog : MonoBehaviour
             SkipButton.SetActive(false);
             GotoButton.SetActive(true);
         }
+
         if (StartAnimating)
         {
             if (sentences[index].ToastIn && !ToastEntered)
             {
                 ToastAnim.Play("In");
+                ToastEntered = true;
             }
             else if (!sentences[index].ToastIn && ToastEntered)
             {
                 ToastAnim.Play("Out");
             }
-            else if (sentences[index].AndrussIn && !OtherEntered)
+            
+            if (sentences[index].AndrussIn && !OtherEntered)
             {
                 OtherAnim.Play("In");
+                OtherEntered = true;
             }
             else if (!sentences[index].AndrussIn && OtherEntered)
             {
@@ -134,7 +138,6 @@ public class Dialog : MonoBehaviour
 
     public void SkipText()
     {
-        index = indexDone + 1;
         if (ToastEntered)
         {
             ToastAnim.Play("Out");
@@ -143,6 +146,7 @@ public class Dialog : MonoBehaviour
         {
             OtherAnim.Play("Out");
         }
+        index = indexDone;
         textDisplay.text = " ";
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);

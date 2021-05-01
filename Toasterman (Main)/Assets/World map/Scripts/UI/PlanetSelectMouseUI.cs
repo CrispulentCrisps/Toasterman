@@ -22,6 +22,13 @@ public class PlanetSelectMouseUI : MonoBehaviour
     private bool Following = true;
     private bool OverPlanet = false;
 
+    void Start()
+    {
+        Selected = false;
+        Following = true;
+        OverPlanet = false;
+    }
+
     void Update()
     {
         tf.Rotate(new Vector3(0, 0, speed * SpeedMult));

@@ -32,6 +32,7 @@ public class PlanetSelect : MonoBehaviour
 
     void Start()
     {
+        Selected = false;
         dialog = GameObject.Find("Dialogmanager").GetComponent<Dialog>();
         planetTally = GameObject.Find("PlanetCompletionCounter").GetComponent<PlanetTally>();
         if (planetTally.PlanetsDone[0] == true)

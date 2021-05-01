@@ -52,8 +52,6 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     private float Timer;
     private float Timer2;
 
-
-
     void Start()
     {
 
@@ -84,9 +82,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     }
     public void FixedUpdate()
     {
-        
         rb.MovePosition(rb.position - Speed * Time.deltaTime);
-
     }
 
     void Update()
@@ -113,17 +109,15 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
                 anim.SetTrigger("Death");
             }
 
-        }else if (Health <= 0f && State == -1)
+        }
+        else if (Health <= 0f && State == -1)
         {
-
             XSpeed = XVel;
             XVel -= 1f;
             Speed.x -= XSpeed * Time.deltaTime;
             YSpeed = 0;
-
             if (tf.position.x <= -15 && Killed == false)
             {
-
                 DieShake();
                 Killed = true;
             }
@@ -133,9 +127,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         {
             if (Health > 0f)
             {
-
                 State = Random.Range(0, 4);
-
             }
             if (Health > 0f)
             {
@@ -163,7 +155,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
             paralaxStuff.paraspeedGoal = 100f;
             Timer2 += Time.deltaTime;
-            if (Timer2 >= 1.5f)
+            if (Timer2 >= 1f)
             {
                 Booming();
                 Timer2 = 0;

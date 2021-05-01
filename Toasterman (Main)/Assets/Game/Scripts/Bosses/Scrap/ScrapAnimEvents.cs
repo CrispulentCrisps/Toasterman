@@ -40,7 +40,7 @@ public class ScrapAnimEvents : MonoBehaviour
         }
         if (ExplodeTailGravity)
         {
-            TailMov.z -= 9.81f * 2 * Time.deltaTime;
+            TailMov.z -= 9.81f * 2 * Time.deltaTime;//the axis are a bit weird due to rotation
         }
     }
 

@@ -7,12 +7,13 @@ public class WaitThenDeactivate : MonoBehaviour
     private float T = 0f;
     private float inc;
     public float Max;
-
+    private bool Spawned = false;
     ObjectPools objectPooler;
 
     void OnObjectSpawn()
     {
         T = 0;
+        Spawned = true;
     }
 
     void Start()
@@ -24,14 +25,14 @@ public class WaitThenDeactivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        T += inc;
-        if (T >= Max)
+        if (Spawned)
+        {
+            T += inc;
+        }
+        if (T >= Max && Spawned == true)
         {
             gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            Spawned = false;
         }
     }
 }

@@ -31,7 +31,12 @@ PrefabInstance:
     - target: {fileID: 9102476307835863058, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_Name
-      value: PurityBullet
+      value: PurityBullet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: speedxMem
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
@@ -40,13 +45,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.1168995
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 2.7216644
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}

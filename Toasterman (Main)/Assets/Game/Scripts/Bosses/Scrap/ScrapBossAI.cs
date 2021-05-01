@@ -66,14 +66,13 @@ public class ScrapBossAI : StateMachineBehaviour
                 }
                 break;
             case 1:
-                if (T >= 1.45f)
+                if (T >= 1.95f)
                 {
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < GunAnim.Length; i++)
                     {
                         GunAnim[i].SetTrigger("Fire");
-                        objectPooler.SpawnFromPool("BombWavyDown", new Vector3(ShotPoints[i + 2].position.x + 2f, ShotPoints[i + 2].position.y, ShotPoints[i + 2].position.z) , Quaternion.identity);
                     }
-                    T = 0f;
+                    T = 0;
                 }
                 break;
         }

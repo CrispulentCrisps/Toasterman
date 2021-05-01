@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
-            if (Alive && !Invincible)//This makes sure thatplayer takes damage in hitbox
+            if (Alive && !Invincible)//This makes sure that player takes damage in hitbox
             {
                 bounds.enabled = !bounds.enabled;
             }
@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     public void Die()
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
-        FindObjectOfType<AudioManager>().Play("BigExplosion");
+        AudioManager.instance.Play("BigExplosion");
         Alive = false;
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(1f, 1f));
@@ -209,7 +209,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         DashTimer = DashLength;
         Velocity = DashSpeed;
         Anim.SetTrigger("Dash");
-        FindObjectOfType<AudioManager>().Play("Dash");
+        AudioManager.instance.Play("Dash");
         Dashin = true;
     }
 

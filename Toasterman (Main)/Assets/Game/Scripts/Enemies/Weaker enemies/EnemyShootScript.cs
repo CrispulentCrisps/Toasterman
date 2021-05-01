@@ -25,8 +25,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     private Quaternion BulletRot;
 
-    public float RegularAngle;
-    public float AngleOffset;
+
     [Header("this is amount of bullets shot at a time")]
     [Range(1, 25)]
     public int RegularAmount;
@@ -39,6 +38,17 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public int Charge;
 
     public float Full;
+
+    [Header("0 = arc, 1 = line")]
+    [Range(0,1)]
+    public int ShootType;
+    [Header("for arc: 0")]
+    public float RegularAngle;
+    public float AngleOffset;
+    [Header("for line: 1")]
+    public float BaseSpeed;
+    public float MinVel;
+    public float MaxVel;
 
     public bool RotateGun;
     [Header("this is Revolutions per second")]
@@ -60,7 +70,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         I = enemyscript.i;
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
-        speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
+        speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);//This determines movement speed
         if (sr == null)
         {
             sr = gameObject.GetComponent<SpriteRenderer>();
@@ -78,7 +88,17 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public void ShootBullet()
     {
-        BulletPatternsModule.ShootArc(RegularAngle, RegularAmount, BulletName, tf, AngleOffset);
+        switch (ShootType)
+        {
+            default:
+                break;
+            case 0:
+                BulletPatternsModule.ShootArc(RegularAngle, RegularAmount, BulletName, tf, AngleOffset);
+                break;
+            case 1:
+                BulletPatternsModule.ShootLine(BaseSpeed, MinVel, MaxVel, RegularAmount, BulletName, tf, AngleOffset);
+                break;
+        }
     }
 
     void Update()
