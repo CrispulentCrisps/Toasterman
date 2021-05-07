@@ -32,9 +32,12 @@ public class PlanetSelectMouseUI : MonoBehaviour
     void Update()
     {
         tf.Rotate(new Vector3(0, 0, speed * SpeedMult));
+
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         for (int i = 0; i < PlanetPos.Length; i++)
         {
+            //Distance formula
             float Length = (Mathf.Pow(PlanetPos[i].position.x - mousePosition.x, 2) + Mathf.Pow(PlanetPos[i].position.y - mousePosition.y, 2));
             if (Length < AttractLength)
             {

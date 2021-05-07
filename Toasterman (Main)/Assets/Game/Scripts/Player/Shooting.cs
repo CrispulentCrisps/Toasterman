@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         FireRate += Increment * Time.deltaTime;
-        if (BulletLevel[4] >= 1)
+        if (BulletLevel[4] >= 1)//BulletLevel[4] is for the 'fuck everything on screen' attack
         {
             StartCoroutine(BreadzookaBlast(2.25f, 12, 0.05f));
             AudioManager.instance.Play("BreadzookaBlastTheme");
@@ -58,20 +58,20 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Greater))// shooting input
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.B))// shooting input
         {
             Auto = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Greater))
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.B))
         {
             Auto = false;
         }
         
-        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.Less))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M))
         {
             BulletType++;  
         }
-        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.M))
+        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N))
         {
             BulletType--;  
         }

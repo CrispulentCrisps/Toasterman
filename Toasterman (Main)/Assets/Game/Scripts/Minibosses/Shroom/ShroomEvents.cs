@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShroomEvents : MonoBehaviour
+public class ShroomEvents : MonoBehaviour, IPooledObject
 {
     ObjectPools objectPooler;
+
+    public EnemyScript es;
 
     public Transform[] TF;
 
@@ -17,6 +19,12 @@ public class ShroomEvents : MonoBehaviour
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
+    }
+
+    public void OnObjectSpawn()
+    {
+        es = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();
+        es.start = false;
     }
 
     public void Update()
@@ -44,12 +52,16 @@ public class ShroomEvents : MonoBehaviour
     public void ShootCircle(int pos)
     {
         BulletPatternsModule.ShootArc(360f, 6, "PurityBullet", TF[pos], 0f);
+        AudioManager.instance.ChangePitch("Shoot1", Random.Range(0.75f, 1.25f));
+        AudioManager.instance.Play("Shoot1");
     }
 
     public void ShootCenter(float Offset)
     {
         StartCoroutine(BulletPatternsModule.ShootArcEnum(90f, 8, "PurityBullet", TF[0], Offset, 0.25f, 0.25f * 0.125f));
         StartCoroutine(BulletPatternsModule.ShootArcEnum(-90f, 8, "PurityBullet", TF[0], -Offset, 0.25f, 0.25f * 0.125f));
+        AudioManager.instance.ChangePitch("Shoot1", Random.Range(0.75f, 1.25f));
+        AudioManager.instance.Play("Shoot1");
     }
 
     public void CHangeMove()
@@ -64,6 +76,8 @@ public class ShroomEvents : MonoBehaviour
         Speed[2] = new Vector2(-7.5f,5f);
         Speed[3] = new Vector2(7.5f,5f);
         CapsShot = true;
+        es.start = true;
+        AudioManager.instance.Play("ShootCaps");
     }
 
     public void ChangeLayer(string LayerName)

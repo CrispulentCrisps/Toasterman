@@ -21,7 +21,7 @@ public class DEBUG : MonoBehaviour
     {
         // Code is "baracuda", user needs to input this in the right order
         Debug = new string[] { "b", "a", "r", "a", "c", "u", "d", "a" };
-        ChangeGraphCode = new string[] { "a", "n", "d", "r", "e", "w" };
+        ChangeGraphCode = new string[] { "m", "e", "m", "e", "t", "i", "c", "s" };
         index = 0;
         index2 = 0;
     }
@@ -47,7 +47,7 @@ public class DEBUG : MonoBehaviour
         if (Input.anyKeyDown && ChangeGraphics == false)
         {
             // Check if the next key in the code is pressed
-            if (Input.GetKeyDown(ChangeGraphCode[index]))
+            if (Input.GetKeyDown(ChangeGraphCode[index2]))
             {
                 // Add 1 to index to check the next key in the code
                 index2++;

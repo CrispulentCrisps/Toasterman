@@ -7,7 +7,7 @@ public class ShroomMiniAI : StateMachineBehaviour
     public Transform[] Movables; //0 = Main transform, 1-4 = shroom caps
 
     public float Speed;
-    public static float Health = 250f;
+    public static float Health = 400f;
     //Sine wave stuff
     public float Amp;
     public float Freq;
@@ -15,19 +15,26 @@ public class ShroomMiniAI : StateMachineBehaviour
     private float ST;
     private float T;//Time for attacking
     private float XPos = -20f;
-
     public static bool Move = true;
     private bool Left;
+    public static bool FindTrans = false;
 
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Movables[0] = GameObject.Find("ShroomMinibossMaster").GetComponent<Transform>();
+        Movables[0] = GameObject.Find("ShroomMinibossMaster(Clone)").GetComponent<Transform>();
+        Movables[0].position = new Vector3(-20f, 0f, 0f);
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (FindTrans)
+        {
+            Movables[0] = GameObject.Find("ShroomMinibossMaster").GetComponent<Transform>();
+            Movables[0].position = new Vector3(-20f, 0f, 0f);
+            FindTrans = false;
+        }
         if (Move && Health > 0f)
         {
             ST += Time.deltaTime * STMult;//Sine time

@@ -3,4 +3,5 @@
 public class PlanetTally : MonoBehaviour
 {
     public bool[] PlanetsDone;
+
 }

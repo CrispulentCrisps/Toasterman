@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7064026301311966487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01c96191ec834e438ac491db8ec91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24300002, guid: ba70a120f75de8145821bd43f1001e7b, type: 2}
+  audioMixer: {fileID: 24300002, guid: c8e66e01b54089d45938ca9a2e6148e9, type: 2}
   sounds:
   - name: WorldMapTheme
     clip: {fileID: 8300000, guid: 10d3f58faac23a646891f59fd24444ac, type: 3}
@@ -155,7 +155,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: How shroomy are you?
     clip: {fileID: 8300000, guid: 384b493a88828ed49b8f1fb534ccb481, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -281,6 +281,30 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: RoarAway
     clip: {fileID: 8300000, guid: 8a022d66c5f16b34f8ba5f4295908606, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Strike
+    clip: {fileID: 8300000, guid: 864302e372018b74196ea493d636d8a5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScrapBossTheme
+    clip: {fileID: 8300000, guid: 612ba66f465eb3c4b9ff9d2d1103259e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Shoot1
+    clip: {fileID: 8300000, guid: 3b30940fa8489ac4d899491c7e2f5556, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShootCaps
+    clip: {fileID: 8300000, guid: c9ccd34052280a541afffeb95c28ff55, type: 3}
     volume: 1
     pitch: 1
     loop: 0

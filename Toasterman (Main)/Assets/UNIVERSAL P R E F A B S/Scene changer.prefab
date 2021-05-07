@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 797885831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33, y: 1, z: 1}
+  m_LocalScale: {x: 0.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 1
@@ -59,9 +59,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -208,7 +208,7 @@ MonoBehaviour:
   ConditionMet: 1
   FadeInMusic: 1
   Time: 2
-  MusicName: How shroomy are you?
+  MusicName: 
   SceneNumber: 2
 --- !u!225 &760301287
 CanvasGroup:
@@ -249,7 +249,7 @@ RectTransform:
   m_GameObject: {fileID: 8876364163434525626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33, y: 1, z: 1}
+  m_LocalScale: {x: 0.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 2
@@ -281,9 +281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -324,7 +324,7 @@ RectTransform:
   m_GameObject: {fileID: 9100898938450789282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.336, y: 1, z: 1}
+  m_LocalScale: {x: 0.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 3
@@ -356,9 +356,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
