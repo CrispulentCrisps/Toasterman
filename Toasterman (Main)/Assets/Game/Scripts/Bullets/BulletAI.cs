@@ -39,8 +39,6 @@ public class BulletAI : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
-        speedxMem = speedx;
-        speedyMem = speedy;
     }
 
     // Start is called before the first frame update
@@ -112,5 +110,19 @@ public class BulletAI : MonoBehaviour, IPooledObject
     void FixedUpdate()
     {
         tf.Translate(Movement * Time.deltaTime);
+    }
+
+    public void SetSpeed(float XSpeed, float YSpeed)
+    {
+        if (SpeedChanged)
+        {
+            Vector2 TotalSpeed = new Vector2(XSpeed, YSpeed);
+            Movement = TotalSpeed;
+        }else
+        {
+            speedxMem = speedx;
+            speedyMem = speedy;
+            Movement = new Vector2(speedxMem, speedyMem);
+        }
     }
 }

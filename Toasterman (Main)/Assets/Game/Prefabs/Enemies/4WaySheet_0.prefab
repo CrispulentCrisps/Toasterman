@@ -47,6 +47,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,19 +105,31 @@ MonoBehaviour:
   sr: {fileID: 2146550922964691003}
   rb: {fileID: 2146550922964691005}
   tf: {fileID: 2146550922964691000}
+  Target: {fileID: 0}
+  hurtColour: {r: 0, g: 0, b: 0, a: 0}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 2146550922964691004}
-  Health: 10
-  BulletName: 
-  RegularAngle: 360
-  AngleOffset: 0
+  Health: 7
+  BulletName: EnemyBullet
+  RotationSpeed: 0
   RegularAmount: 4
   Charge: 1
-  Full: 1
-  GunRotateAmount: 0.125
-  Move: 0
+  Full: 2.25
+  ShootType: 0
+  RegularAngle: 45
+  AngleOffset: 0
+  BaseSpeed: 0
+  MinVel: 0
+  MaxVel: 0
+  ArcRepeat: 0
   RotateGun: 1
+  GunRotateAmount: 0
+  ShootNearPlayer: 0
+  DistanceToPlayer: 0
+  MinTime: 0
+  ShootAtPlayer: 1
+  Move: 1
 --- !u!50 &2146550922964691005
 Rigidbody2D:
   serializedVersion: 4

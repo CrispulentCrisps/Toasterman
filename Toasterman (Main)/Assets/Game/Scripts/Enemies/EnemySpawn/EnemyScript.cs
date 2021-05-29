@@ -53,10 +53,8 @@ public class EnemyScript : MonoBehaviour
             case 1:
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
-
                     objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, tf.position.y + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
-
                 }
                 break;
 
@@ -107,6 +105,15 @@ public class EnemyScript : MonoBehaviour
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
                     objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, tf.position.y * Waves[i].Radius * Mathf.Sin((tf.position.x - 16f) / Waves[i].Amount * Waves[i].RotateSpeed) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);//Radius is amplitude, rot speed is Frequency
+                    Space += Waves[i].Spacing; // spaces the enemies out
+                    RotSpace++;
+                }
+                break;
+            case 6://Unfinished
+                for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
+                {
+                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Mathf.Max(Mathf.Abs(Waves[i].Radius + Waves[i].Radius * Mathf.Sin(RotSpace * (2 * Mathf.PI) / Waves[i].Amount))), 
+                        tf.position.y + Mathf.Max(Mathf.Abs(Waves[i].Radius + Waves[i].Radius * Mathf.Cos(RotSpace * (2 * Mathf.PI) / Waves[i].Amount))), tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
                     RotSpace++;
                 }

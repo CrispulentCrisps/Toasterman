@@ -10,11 +10,10 @@ public class BulletPatternsModule : MonoBehaviour
     {
         objectPooler = ObjectPools.Instance;
     }
-
+    //Arcs
     public static void ShootArc(float ArcSize, int BulletAmount, string BulletName, Transform tf, float Offset)//All arcs are in angles, not radians
     {
-        float angle = 0;
-        angle = Offset;//Offset is to the left
+        float angle = Offset;//Offset is to the left
         float AngleStep = ArcSize / BulletAmount;//Gets the step size for arc
         for (int i = 0; i < BulletAmount; i++)
         {
@@ -22,10 +21,9 @@ public class BulletPatternsModule : MonoBehaviour
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));//Shoots the bullet
         }
     }
-    public static IEnumerator ShootArcEnum(float ArcSize, int BulletAmount, string BulletName, Transform tf, float Offset, float LengthOfTime, float WaitPeriod)//All arcs are in angles, not radians
+    public static IEnumerator ShootArcEnum(float ArcSize, int BulletAmount, string BulletName, Transform tf, float Offset, float WaitPeriod)//All arcs are in angles, not radians
     {
-        float angle = 0;
-        angle = Offset;//Offset is to the left
+        float angle = Offset;//Offset is to the left
         float AngleStep = ArcSize / BulletAmount;
         for (int i = 0; i < BulletAmount; i++)
         {
@@ -34,14 +32,37 @@ public class BulletPatternsModule : MonoBehaviour
             yield return new WaitForSeconds(WaitPeriod);
         }
     }
-
-    //Not quite done yet
+    //Lines
     public static void ShootLine(float BaseSpeed, float MinVel, float MaxVel, int BulletAmount, string BulletName, Transform tf, float angle)//All arcs are in angles, not radians
     {
-        float Difference = MaxVel - MinVel / BulletAmount;
+        float Difference = (MaxVel - MinVel + 1) / BulletAmount;
         for (int i = 0; i < BulletAmount; i++)
         {
             objectPooler.SpawnBulletFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle), new Vector2(BaseSpeed + Difference * i, 0f));//Shoots the bullet
+        }
+    }
+    public static IEnumerator ShootLineEnum(float BaseSpeed, float MinVel, float MaxVel, int BulletAmount, string BulletName, Transform tf, float angle, float WaitPeriod)//All arcs are in angles, not radians
+    {
+        float Difference = (MaxVel - MinVel + 1) / BulletAmount;
+        for (int i = 0; i < BulletAmount; i++)
+        {
+            objectPooler.SpawnBulletFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle), new Vector2(BaseSpeed + Difference * i, 0f));//Shoots the bullet
+            yield return new WaitForSeconds(WaitPeriod);
+        }
+    }
+    //Lines+arcs
+    public static void ShootArcLine(float BaseSpeed, float MinVel, float MaxVel, int BulletAmount, string BulletName, Transform tf, float Offset, float ArcSize, int ArcRepeat)//All arcs are in angles, not radians
+    {
+        float Difference = (MaxVel - MinVel + 1) / BulletAmount;
+        float angle = Offset;//Offset is to the left
+        float AngleStep = (ArcSize/ BulletAmount) - ((float)ArcRepeat * 0.75f);
+        for (int j = 0; j < ArcRepeat; j++)
+        {
+            angle += AngleStep;
+            for (int i = 0; i < BulletAmount; i++)
+            {
+                objectPooler.SpawnBulletFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle), new Vector2(BaseSpeed + Difference * i, 0f));//Shoots the bullet
+            }
         }
     }
 }

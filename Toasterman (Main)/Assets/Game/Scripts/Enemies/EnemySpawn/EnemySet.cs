@@ -14,13 +14,13 @@ public class EnemySet
     [Range(-6,6)]
     public float StartYpos;
 
-    [Range(0.1f, 30)]
+    [Range(0f, 30)]
     public float EnemySpeed;
 
-    [Range(0.1f, 5)]
+    [Range(0f, 5)]
     public float MinMax;
 
-    [Range(0.01f,3)]
+    [Range(0f,3)]
     public float Increment;
     [Header("Freq:WaveType 5")]
     [Range(-360, 360)]
@@ -29,7 +29,7 @@ public class EnemySet
     [Range(0f, 10f)]
     public float Radius;
 
-    [Range(0.1f, 99)]
+    [Range(0f, 99)]
     public double Time;
 
     [Range(0.01f,5)]

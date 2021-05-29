@@ -21,7 +21,6 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
     public float angle;
     public float ShotTime;
-    public float ShotLength;
     public float ShotInterval;
     public float Radius;
     public float RotateSpeed;
@@ -88,7 +87,7 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
         if (Timer >= ShotTime)
         {
-            StartCoroutine(BulletPatternsModule.ShootArcEnum(0f, BulletAmount, BulletName, tf, rotationZ, ShotLength, ShotInterval));//If arc size > 0 then the angle of the bullets breaks
+            StartCoroutine(BulletPatternsModule.ShootArcEnum(0f, BulletAmount, BulletName, tf, rotationZ, ShotInterval));//If arc size > 0 then the angle of the bullets breaks
             Timer = 0f;
         }
     }

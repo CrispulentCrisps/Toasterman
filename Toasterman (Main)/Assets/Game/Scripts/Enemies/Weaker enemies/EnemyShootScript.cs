@@ -10,6 +10,8 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public Rigidbody2D rb;
     public Transform tf;
+    [Header("Only use if ShootAtPlayer is used")]
+    public Transform Target;
 
     public Color hurtColour;
 
@@ -23,8 +25,9 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public string BulletName;
 
-    private Quaternion BulletRot;
+    public float RotationSpeed;
 
+    private Quaternion BulletRot;
 
     [Header("this is amount of bullets shot at a time")]
     [Range(1, 25)]
@@ -39,17 +42,21 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public float Full;
 
-    [Header("0 = arc, 1 = line")]
-    [Range(0,1)]
+    [Header("0 = arc, 1 = line, 2 = arc + line")]
+    [Range(0,2)]
     public int ShootType;
-    [Header("for arc: 0")]
+    [Header("for arc: [0, 2]")]
     public float RegularAngle;
     public float AngleOffset;
-    [Header("for line: 1")]
+    [Header("for line: [1, 2]")]
     public float BaseSpeed;
     public float MinVel;
     public float MaxVel;
+    [Header("For arc + line [2]")]
+    [Range(1, 10)]
+    public int ArcRepeat;
 
+    [Header("miscellaneous")]
     public bool RotateGun;
     [Header("this is Revolutions per second")]
     [Range(-5f,5f)]
@@ -60,7 +67,9 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     [Header("this is in 1 space in unity world")]
     [Range(0.1f, 5f)]
     public float DistanceToPlayer;
-    public float MinTime;//Minimum time to wat before shooting
+    public float MinTime;//Minimum time to wait before shooting
+
+    public bool ShootAtPlayer;
 
     public bool Move;
 
@@ -70,11 +79,14 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         I = enemyscript.i;
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
+        Target = Ship.GetComponent<Transform>();
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);//This determines movement speed
+
         if (sr == null)
         {
             sr = gameObject.GetComponent<SpriteRenderer>();
         }
+
         if (hurtColour == new Color(0f,0f,0f,0f))
         {
             hurtColour = new Color(255f,0f,0f,255f);
@@ -84,10 +96,17 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
+        Ship = GameObject.Find("Ship");
+        Target = Ship.GetComponent<Transform>();
     }
 
     public void ShootBullet()
     {
+        if (ShootAtPlayer)
+        {
+            Vector3 difference = Target.position - tf.position;
+            AngleOffset = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg - (0.5f * RegularAngle);
+        }
         switch (ShootType)
         {
             default:
@@ -98,13 +117,16 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             case 1:
                 BulletPatternsModule.ShootLine(BaseSpeed, MinVel, MaxVel, RegularAmount, BulletName, tf, AngleOffset);
                 break;
+            case 2:
+                BulletPatternsModule.ShootArcLine(BaseSpeed, MinVel, MaxVel, RegularAmount, BulletName, tf, AngleOffset, RegularAngle, ArcRepeat);
+                break;
         }
     }
 
     void Update()
     {
         sr.color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
-
+        tf.Rotate(0f, 0f, RotationSpeed * Time.deltaTime);
         if (tf.position.x <= -16)
         {
             gameObject.SetActive(false);
@@ -114,7 +136,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             FireRate += Charge * Time.deltaTime;
         }
 
-        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= Ship.transform.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the playr on the X axis
+        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= Ship.transform.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the player on the X axis
         {
             anim.Play("Fire");
         }
@@ -127,10 +149,14 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
         if (RotateGun)
         {
-            AngleOffset += Mathf.Round((GunRotateAmount * 360f) * Time.deltaTime);
+            AngleOffset += (GunRotateAmount * 360f) * Time.deltaTime;
             if (AngleOffset > 360f)
             {
                 AngleOffset -= 360f;
+            }
+            else if (AngleOffset < -360f)
+            {
+                AngleOffset += 360f;
             }
         }
     }
@@ -149,7 +175,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         }
     }
 
-    void ChangeMove()
+    void ChangeMove()//Used in animation
     {
         Move = !Move;
     }

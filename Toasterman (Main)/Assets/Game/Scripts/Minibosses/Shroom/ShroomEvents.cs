@@ -58,8 +58,8 @@ public class ShroomEvents : MonoBehaviour, IPooledObject
 
     public void ShootCenter(float Offset)
     {
-        StartCoroutine(BulletPatternsModule.ShootArcEnum(90f, 8, "PurityBullet", TF[0], Offset, 0.25f, 0.25f * 0.125f));
-        StartCoroutine(BulletPatternsModule.ShootArcEnum(-90f, 8, "PurityBullet", TF[0], -Offset, 0.25f, 0.25f * 0.125f));
+        StartCoroutine(BulletPatternsModule.ShootArcEnum(90f, 8, "PurityBullet", TF[0], Offset, 0.25f * 0.125f));
+        StartCoroutine(BulletPatternsModule.ShootArcEnum(-90f, 8, "PurityBullet", TF[0], -Offset, 0.25f * 0.125f));
         AudioManager.instance.ChangePitch("Shoot1", Random.Range(0.75f, 1.25f));
         AudioManager.instance.Play("Shoot1");
     }

@@ -47,6 +47,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -124,7 +125,7 @@ MonoBehaviour:
   Ship: {fileID: 0}
   Anim: {fileID: 4186798775975792349}
   JabSpeed: 35
-  Health: 10
+  Health: 7
 --- !u!50 &4186798775975792350
 Rigidbody2D:
   serializedVersion: 4

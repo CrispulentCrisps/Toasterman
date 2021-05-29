@@ -64,9 +64,24 @@ public class ObjectPools : MonoBehaviour
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
         IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
+
         if (pooledObj != null)
         {
             pooledObj.OnObjectSpawn();
+            
+            try
+            {
+                BulletAI AI = objectToSpawn.GetComponent<BulletAI>();
+                if (AI != null)
+                {
+                    AI.SpeedChanged = false;
+                }
+            }
+            catch (System.Exception)
+            {
+                Debug.LogWarning("Error, BulletAI script not found on spawned object:" + objectToSpawn.name + ": you may have either used the wrong object spawn function or not have the script attached.");
+                throw;
+            }
         }
         else
         {
@@ -89,8 +104,12 @@ public class ObjectPools : MonoBehaviour
         try
         {
             BulletAI AI = objectToSpawn.GetComponent<BulletAI>();
-            AI.speedx = Speed.x;
-            AI.speedy = Speed.y;
+            if (AI != null)
+            {
+                AI.SpeedChanged = true;
+                AI.speedx = Speed.x;
+                AI.speedy = Speed.y;
+            }
         }
         catch (System.Exception)
         {
