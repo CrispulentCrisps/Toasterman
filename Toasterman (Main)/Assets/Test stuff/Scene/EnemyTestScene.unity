@@ -221,6 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 250049568}
     - target: {fileID: 4728287638042413876, guid: e1788abef2348104492658c4766e461b,
         type: 3}
+      propertyPath: Health
+      value: 1e+11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728287638042413876, guid: e1788abef2348104492658c4766e461b,
+        type: 3}
       propertyPath: MaxVel
       value: 5
       objectReference: {fileID: 0}
@@ -1491,7 +1496,7 @@ PrefabInstance:
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
       propertyPath: pools.Array.size
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -1660,6 +1665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
+      propertyPath: pools.Array.data[30].tag
+      value: EnemyBulletHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
       propertyPath: pools.Array.data[3].size
       value: 100
       objectReference: {fileID: 0}
@@ -1792,6 +1802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pools.Array.data[29].size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[30].size
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
@@ -1972,6 +1987,12 @@ PrefabInstance:
       propertyPath: pools.Array.data[29].prefab
       value: 
       objectReference: {fileID: 2146550922964691007, guid: 9e4b500dcd8d08f489a333d3191f7f3d,
+        type: 3}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
+      propertyPath: pools.Array.data[30].prefab
+      value: 
+      objectReference: {fileID: 5367123498466339668, guid: 63bf15fe909dc8a4a8ff4a01a964f82e,
         type: 3}
     - target: {fileID: 5416080080228524158, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}

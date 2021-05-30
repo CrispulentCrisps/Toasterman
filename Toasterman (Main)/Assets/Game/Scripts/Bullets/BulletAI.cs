@@ -50,11 +50,6 @@ public class BulletAI : MonoBehaviour, IPooledObject
             rend.sprite = Resources.Load<Sprite>("Toast");
         }
 
-        if (BulletParticle == null)
-        {
-            BulletParticle = "BulletHit";
-        }
-
         if (!SpeedChanged)
         {
             speedx = speedxMem;
@@ -90,7 +85,10 @@ public class BulletAI : MonoBehaviour, IPooledObject
             speedy -= AccY * Time.deltaTime;
             if (speedx <= -AccMinX || speedx >= AccMinX || speedy <= -AccMinY || speedy >= AccMinY)
             {
-                objectPooler.SpawnFromPool(BulletParticle, tf.position, Quaternion.identity);
+                if (BulletParticle != null)
+                {
+                    objectPooler.SpawnFromPool(BulletParticle, tf.position, Quaternion.identity);
+                }
                 gameObject.SetActive(false);
             }
         }
@@ -106,7 +104,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
             gameObject.SetActive(false);
         }
     }
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         tf.Translate(Movement * Time.deltaTime);
