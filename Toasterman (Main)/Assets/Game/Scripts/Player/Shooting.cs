@@ -35,7 +35,7 @@ public class Shooting : MonoBehaviour
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
-        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Pierce" };//Text cannot be greater than 7-8 characters
         BulletLevel = new int[] {0,0,0,0,0,0};
     }
 
@@ -128,7 +128,7 @@ public class Shooting : MonoBehaviour
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 3:
-                Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
+                Increment = 0.125f + (BulletLevel[BulletType] * 0.125f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
         }
