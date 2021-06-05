@@ -124,25 +124,30 @@ MonoBehaviour:
   sr: {fileID: 1677412444789545139}
   rb: {fileID: 1677412444789545136}
   tf: {fileID: 1677412444789545132}
+  Target: {fileID: 0}
   hurtColour: {r: 1, g: 0, b: 0, a: 0}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 1677412444789545138}
-  Health: 5
-  BulletName: EnemyBullet
+  Health: 10
+  BulletName: Bomb
+  RotationSpeed: 0
   RegularAmount: 3
   Charge: 1
   Full: 3
   ShootType: 0
   RegularAngle: 135
   AngleOffset: 180
+  BaseSpeed: 0
   MinVel: 0
   MaxVel: 0
+  ArcRepeat: 0
   RotateGun: 0
   GunRotateAmount: 0
   ShootNearPlayer: 0
   DistanceToPlayer: 1
   MinTime: 0
+  ShootAtPlayer: 0
   Move: 1
 --- !u!50 &1677412444789545136
 Rigidbody2D:

@@ -128,7 +128,7 @@ public class Shooting : MonoBehaviour
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 3:
-                Increment = 0.125f + (BulletLevel[BulletType] * 0.125f);
+                Increment = 0.25f + (BulletLevel[BulletType] * 0.075f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
         }

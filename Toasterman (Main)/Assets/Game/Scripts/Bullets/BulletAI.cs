@@ -21,9 +21,9 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public float SineAmp;
     public float SineFreq;
     [Header("Set up stuff")]
+    public int BulletHealth;
     public float speedxMem;
     public float speedyMem;
-    private float BulletRot;
     private float ST;
 
     private int Length;
@@ -68,8 +68,11 @@ public class BulletAI : MonoBehaviour, IPooledObject
             {
                 if (coll.gameObject.CompareTag(CollisionNames[i]) && Killable)
                 {
-                    objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
-                    gameObject.SetActive(false);
+                    if (BulletHealth <= 0)
+                    {
+                        objectPooler.SpawnFromPool("BulletHit", tf.position, Quaternion.identity);
+                        gameObject.SetActive(false);
+                    }
                 }
             }
         }
