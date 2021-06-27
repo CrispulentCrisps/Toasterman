@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 9102476307835863062}
-  BulletParticle: EnemyBulletHit
+  BulletParticle: 
   speedx: 0
   speedy: 0
   ChangeAcc: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   SineMove: 0
   SineAmp: 0
   SineFreq: 0
+  BulletHealth: 0
   speedxMem: 9
   speedyMem: 0
   Specifics: 1

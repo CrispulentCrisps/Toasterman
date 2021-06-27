@@ -58,20 +58,20 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.B))// shooting input
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("Fire1"))// shooting input
         {
             Auto = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.B))
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.B) || Input.GetButtonUp("Fire1"))
         {
             Auto = false;
         }
         
-        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M) || Input.GetButtonUp("Fire2"))
         {
             BulletType++;  
         }
-        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N))
+        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N) || Input.GetButtonUp("Fire3"))
         {
             BulletType--;  
         }

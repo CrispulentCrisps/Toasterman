@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShroomMiniAI : StateMachineBehaviour
 {
-    public Transform[] Movables; //0 = Main transform, 1-4 = shroom caps
+    public Transform tf; //0 = Main transform, 1-4 = shroom caps
 
     public float Speed;
     public static float Health = 400f;
@@ -19,20 +19,13 @@ public class ShroomMiniAI : StateMachineBehaviour
     private bool Left;
     public static bool FindTrans = false;
 
-    // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Movables[0] = GameObject.Find("ShroomMinibossMaster(Clone)").GetComponent<Transform>();
-        Movables[0].position = new Vector3(-20f, 0f, 0f);
-    }
-
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (FindTrans)
         {
-            Movables[0] = GameObject.Find("ShroomMinibossMaster").GetComponent<Transform>();
-            Movables[0].position = new Vector3(-20f, 0f, 0f);
+            tf = animator.GetComponent<Transform>();
+            tf.position = new Vector3(-20f, 0f, 0f);
             FindTrans = false;
         }
         if (Move && Health > 0f)
@@ -42,9 +35,9 @@ public class ShroomMiniAI : StateMachineBehaviour
 
         T += Time.deltaTime * Random.Range(0.01f,1f);//Time for attacks
         
-        if (Health > 0f)
+        if (Health > 0f)//Checking if alive
         {
-            Movables[0].position = new Vector3(XPos, Amp * Mathf.Sin(ST * Freq) + 1f, 0f);
+            tf.position = new Vector3(XPos, Amp * Mathf.Sin(ST * Freq) + 1f, 0f);
             if (Left)
             {
                 XPos += Speed * Time.deltaTime;
@@ -54,11 +47,11 @@ public class ShroomMiniAI : StateMachineBehaviour
                 XPos -= Speed * Time.deltaTime;
             }
 
-            if (Movables[0].position.x <= -12f)
+            if (tf.position.x <= -12f)
             {
                 Left = true;
             }
-            else if (Movables[0].position.x >= 11f) //Has to be 11 to adjust for the centers offset
+            else if (tf.position.x >= 11f) //Has to be 11 to adjust for the centers offset
             {
                 Left = false;
             }
@@ -78,8 +71,9 @@ public class ShroomMiniAI : StateMachineBehaviour
         }
         else //Death stuff
         {
-            Movables[0].position -= Vector3.MoveTowards(Movables[0].position, new Vector3(-0f, -0f, 0), Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
-            if (Movables[0].position.x >= -0.25f && Movables[0].position.x <= 0.25f && Movables[0].position.y >= -0.25f && Movables[0].position.y <= 0.25f)
+            tf.position -= Vector3.MoveTowards(tf.position, new Vector3(3f, 3f, 0), Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
+            Move = false;
+            if (tf.position.x >= -0.25f && tf.position.x <= 1.25f && tf.position.y >= -0.25f && tf.position.y <= 1.25f)
             {
                 animator.SetTrigger("Death");
             }

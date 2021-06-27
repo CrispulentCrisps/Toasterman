@@ -3,7 +3,6 @@
 public class HelperHatAI : MonoBehaviour, IPooledObject
 {
     public Transform tf;
-    public Transform PowrSpawnPoint;
 
     private Animator anim;
 
@@ -54,7 +53,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     public void SpawnPower()
     {
-        objectPooler.SpawnFromPool("BulletAdd", PowrSpawnPoint.position, Quaternion.identity);
+        objectPooler.SpawnFromPool("BulletAdd", tf.position, Quaternion.identity);
     }
 
 }

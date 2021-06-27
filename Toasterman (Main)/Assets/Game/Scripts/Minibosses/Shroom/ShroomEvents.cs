@@ -25,6 +25,7 @@ public class ShroomEvents : MonoBehaviour, IPooledObject
     {
         es = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();
         es.start = false;
+        ShroomMiniAI.FindTrans = true;
     }
 
     public void Update()
