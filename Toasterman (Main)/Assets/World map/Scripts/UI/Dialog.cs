@@ -60,6 +60,37 @@ public class Dialog : MonoBehaviour
                 OtherAnim.Play("Out");
             }
 
+            if (sentences[index].ToastIn)
+            {
+                switch (sentences[index].ToastEmote)
+                {
+                    default:
+                        ToastAnim.Play("Normal");
+                        break;
+                    case 0:
+                        ToastAnim.Play("Normal");
+                        break;
+                    case 1:
+                        ToastAnim.Play("Happy");
+                        break;
+                    case 2:
+                        ToastAnim.Play("Sad");
+                        break;
+                    case 3:
+                        ToastAnim.Play("Angry");
+                        break;
+                    case 4:
+                        ToastAnim.Play("Confused");
+                        break;
+                    case 5:
+                        ToastAnim.Play("Electrified");
+                        break;
+                    case 6:
+                        ToastAnim.Play("Suspicious");
+                        break;
+                }
+            }
+
             if (Started == true)
             {
                 StartCoroutine(Type());

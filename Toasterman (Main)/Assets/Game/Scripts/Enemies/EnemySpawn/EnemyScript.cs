@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     private float WallSpace;
     private float EnemyAmount;
     public float RotSpace; //Seperates enemies in a circle
-
+    public static int PowerNum;
     private string Name;
 
 
@@ -48,6 +48,7 @@ public class EnemyScript : MonoBehaviour
 
     public void WaveStart()
     {
+        PowerNum = Waves[i].PowerType;
         switch (Waves[i].WaveType)
         {
             case 1:

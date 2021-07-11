@@ -120,7 +120,6 @@ public class Shooting : MonoBehaviour
                 break;
             case 1:
                 Increment = 1.5f;
-                BulletPatternsModule.ShootArc(BulletLevel[BulletType] * 90, BulletLevel[BulletType], ProjectileNames[BulletType],tf,-90f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 2:

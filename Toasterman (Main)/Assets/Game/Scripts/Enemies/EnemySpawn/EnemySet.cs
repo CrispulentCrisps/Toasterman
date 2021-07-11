@@ -38,4 +38,7 @@ public class EnemySet
     [Range(1, 100)]
     public int Amount;
 
+    [Header("Only use this for HelperHat")]
+    [Range(0, 5)]
+    public int PowerType;
 }
