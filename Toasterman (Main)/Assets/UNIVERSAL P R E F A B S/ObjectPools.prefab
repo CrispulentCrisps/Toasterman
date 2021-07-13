@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: WeakyFli
-    prefab: {fileID: 9126082682317069464, guid: 0ecc43fc0275a3c4cb5d28435a72fbb5,
-      type: 3}
-    size: 10
   - tag: Homie
     prefab: {fileID: 3856419735099327764, guid: ae51d340591728f45956a8c0a66725d4,
       type: 3}
@@ -63,7 +59,7 @@ MonoBehaviour:
   - tag: Boomerang
     prefab: {fileID: 7599684584609106393, guid: 5cc6f6ab1f951b543b740cab40ff7988,
       type: 3}
-    size: 100
+    size: 150
   - tag: EnemyBullet
     prefab: {fileID: 9102476307835863058, guid: d7ad408d2eba78741822ef4faabb0a37,
       type: 3}
@@ -82,11 +78,11 @@ MonoBehaviour:
     size: 50
   - tag: Smoke
     prefab: {fileID: 812783457298150030, guid: 03cdcf3a904949e41922546f07aaf8e0, type: 3}
-    size: 10
+    size: 100
   - tag: BigExplosion
     prefab: {fileID: 3866907682031127683, guid: 3efeee008ff3ab443b58490b7a29694d,
       type: 3}
-    size: 50
+    size: 100
   - tag: LightSmoke
     prefab: {fileID: 632564398361437340, guid: 8a46c420dcdcfbd4eb7205c310cc15ce, type: 3}
     size: 10
@@ -100,11 +96,11 @@ MonoBehaviour:
     size: 1
   - tag: CoreShardBoom
     prefab: {fileID: 474884816660626027, guid: c1bf8a877cd62514f8eaa721e6d4b513, type: 3}
-    size: 50
+    size: 100
   - tag: Shooter
     prefab: {fileID: 4728287638042413882, guid: e1788abef2348104492658c4766e461b,
       type: 3}
-    size: 50
+    size: 100
   - tag: Train
     prefab: {fileID: 7293710316131409959, guid: 559331c127a2dd64dad7a312de9693c3,
       type: 3}
@@ -135,5 +131,37 @@ MonoBehaviour:
     size: 1
   - tag: BulletAdd
     prefab: {fileID: 8104820381169924513, guid: f27d212fea5700c4c9b9735dccd1f2e3,
+      type: 3}
+    size: 1
+  - tag: Acid
+    prefab: {fileID: 2603921016827869008, guid: b04e1566a5be46545b58786578fc8e70,
+      type: 3}
+    size: 100
+  - tag: Bouncer
+    prefab: {fileID: 5023814643816664886, guid: 4af69a99c036ec54f923c84f7f5ea17b,
+      type: 3}
+    size: 100
+  - tag: Power
+    prefab: {fileID: 5537482951707944084, guid: 7d1378c8c91a49649810136876127738,
+      type: 3}
+    size: 100
+  - tag: PlayerBlast
+    prefab: {fileID: 6250758087027782955, guid: 27f16fb4b61f5c444add1a5ce81ed2d9,
+      type: 3}
+    size: 100
+  - tag: DashTrail
+    prefab: {fileID: 2720403783887607537, guid: 3dea4188daefc7c4f89e6c7ec18cf073,
+      type: 3}
+    size: 100
+  - tag: SmokeBig
+    prefab: {fileID: 7703740542874515362, guid: 34bd79220d144054ca5a8f5fd9a49b28,
+      type: 3}
+    size: 1
+  - tag: BreadZookaBullet
+    prefab: {fileID: 9151546099528512684, guid: 55921ba78b1dc094184f2fa8440cd49b,
+      type: 3}
+    size: 500
+  - tag: FlashBang
+    prefab: {fileID: 7395394854120328098, guid: 034057e814cd49140a0f5c02cdfe5a3c,
       type: 3}
     size: 1
