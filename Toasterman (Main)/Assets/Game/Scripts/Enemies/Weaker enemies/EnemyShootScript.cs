@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+//Actual enemy stuff
 public class EnemyShootScript : MonoBehaviour, IPooledObject
 {
     public Vector2 speed;
@@ -20,20 +19,15 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public EnemyScript enemyscript;
 
     public Animator anim;
-
+    public string EnemyShootSound;
+    public string EnemyHurtSound;
     public float Health;
 
     public string BulletName;
 
     public float RotationSpeed;
 
-    private Quaternion BulletRot;
-
-    [Header("this is amount of bullets shot at a time")]
-    [Range(1, 25)]
     public int RegularAmount;
-
-    private float Angle;
 
     ObjectPools objectPooler;
 
@@ -42,30 +36,22 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public float Full;
 
-    [Header("0 = arc, 1 = line, 2 = arc + line")]
-    [Range(0,2)]
     public int ShootType;
-    [Header("for arc: [0, 2]")]
     public float RegularAngle;
     public float AngleOffset;
-    [Header("for line: [1, 2]")]
     public float BaseSpeed;
     public float MinVel;
     public float MaxVel;
-    [Header("For arc + line [2]")]
-    [Range(1, 10)]
     public int ArcRepeat;
 
-    [Header("miscellaneous")]
     public bool RotateGun;
-    [Header("this is Revolutions per second")]
+
     [Range(-5f,5f)]
     public float GunRotateAmount;
     private float FireRate;
 
     public bool ShootNearPlayer;
-    [Header("this is in 1 space in unity world")]
-    [Range(0.1f, 5f)]
+
     public float DistanceToPlayer;
     public float MinTime;//Minimum time to wait before shooting
 
@@ -87,9 +73,24 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             sr = gameObject.GetComponent<SpriteRenderer>();
         }
 
+        if (rb == null)
+        {
+            rb = gameObject.GetComponent<Rigidbody2D>();
+        }
+
+        if (rb == null)
+        {
+            rb = gameObject.GetComponent<Rigidbody2D>();
+        }
+
         if (hurtColour == new Color(0f,0f,0f,0f))
         {
             hurtColour = new Color(255f,0f,0f,255f);
+        }
+
+        if (EnemyShootSound == "")
+        {
+            EnemyShootSound = "EnemyShoot";
         }
     }
 
@@ -102,6 +103,9 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public void ShootBullet()
     {
+        AudioManager.instance.ChangePitch(EnemyShootSound, Random.Range(0.5f,1.5f));
+        AudioManager.instance.Play(EnemyShootSound);
+
         if (ShootAtPlayer)
         {
             Vector3 difference = Target.position - tf.position;

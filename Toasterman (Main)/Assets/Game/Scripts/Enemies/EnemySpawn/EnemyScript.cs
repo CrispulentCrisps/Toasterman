@@ -13,9 +13,7 @@ public class EnemyScript : MonoBehaviour
 
     public float Space = 0; // has spacing added on to spread enemies out
     public float TriPos;
-    private float SinePos;
     private float WallSpace;
-    private float EnemyAmount;
     public float RotSpace; //Seperates enemies in a circle
     public static int PowerNum;
     private string Name;
@@ -41,7 +39,6 @@ public class EnemyScript : MonoBehaviour
         if (Count >= Waves[i].Time) // checks if enough time has past
         {
             Name = Waves[i].EnemyName;
-            EnemyAmount = Waves[i].Amount;
             WaveStart();
         }
     }

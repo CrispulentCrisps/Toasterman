@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -20,16 +18,17 @@ public class Dialog : MonoBehaviour
     public SentencesRec[] sentences;
     public float TypingSpeed;
 
-    public int index = -1;
+    public int index;
     public int indexDone;
 
-    public bool Started;
+    public bool Started = false;
     public bool ToastEntered = false;
     public bool OtherEntered = false;
     private bool StartAnimating = false;
 
     void Update()
     {
+        PauseMenuScript.GameIsPaused = false; //Stops game from being paused
         if (index >= indexDone)
         {
             textDisplay.text = " ";
@@ -59,34 +58,65 @@ public class Dialog : MonoBehaviour
             {
                 OtherAnim.Play("Out");
             }
-
-            if (sentences[index].ToastIn)
+            //Toast emotion
+            if (sentences[index].ToastIn && ToastEntered)
             {
                 switch (sentences[index].ToastEmote)
                 {
-                    default:
-                        ToastAnim.Play("Normal");
-                        break;
-                    case 0:
-                        ToastAnim.Play("Normal");
-                        break;
                     case 1:
-                        ToastAnim.Play("Happy");
+                        ToastAnim.Play("Normal");
                         break;
                     case 2:
-                        ToastAnim.Play("Sad");
+                        ToastAnim.Play("Happy");
                         break;
                     case 3:
-                        ToastAnim.Play("Angry");
+                        ToastAnim.Play("Sad");
                         break;
                     case 4:
-                        ToastAnim.Play("Confused");
+                        ToastAnim.Play("Angry");
                         break;
                     case 5:
-                        ToastAnim.Play("Electrified");
+                        ToastAnim.Play("Confused");
                         break;
                     case 6:
+                        ToastAnim.Play("Electrified");
+                        break;
+                    case 7:
                         ToastAnim.Play("Suspicious");
+                        break;
+                    case 8:
+                        ToastAnim.Play("Sick");
+                        break;
+                }
+            }
+            //Other emotion
+            if (sentences[index].AndrussIn && OtherEntered)
+            {
+                switch (sentences[index].AndrussEmote)
+                {
+                    case 0:
+                        OtherAnim.Play("AndrussNoTalk");
+                        break;
+                    case 1:
+                        OtherAnim.Play("AndrussNormal");
+                        break;
+                    case 2:
+                        OtherAnim.Play("AndrussAngry");
+                        break;
+                    case 3:
+                        OtherAnim.Play("AndrussAngryNoTalk");
+                        break;
+                    case 4:
+                        OtherAnim.Play("AndrussWorry");
+                        break;
+                    case 5:
+                        OtherAnim.Play("AndrussWorryNoTalk");
+                        break;
+                    case 6:
+                        OtherAnim.Play("AndrussHappy");
+                        break;
+                    case 7:
+                        OtherAnim.Play("AndrussHappyNoTalk");
                         break;
                 }
             }
@@ -147,7 +177,6 @@ public class Dialog : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
         Started = true;
-        index = 0;
         StartAnimating = true;
     }
 

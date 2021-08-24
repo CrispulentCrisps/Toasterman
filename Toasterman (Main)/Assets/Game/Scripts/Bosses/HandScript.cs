@@ -34,8 +34,8 @@ public class HandScript : MonoBehaviour
         {
             if (coll.gameObject.CompareTag(CollisionNames[i]))
             {
-                FindObjectOfType<AudioManager>().ChangePitch(SoundName, Random.Range(1f, 0.85f));
-                FindObjectOfType<AudioManager>().Play(SoundName);
+                AudioManager.instance.ChangePitch(SoundName, Random.Range(1f, 0.85f));
+                AudioManager.instance.Play(SoundName);
                 Health -= coll.gameObject.GetComponent<DamageScript>().Damage * (float)DamageMultiplier;
                 if (Health > 0f)
                 {

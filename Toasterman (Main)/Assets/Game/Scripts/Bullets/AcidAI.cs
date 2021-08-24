@@ -22,9 +22,9 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        speedx = Random.Range(11f, 14f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.2f);
+        speedx = Random.Range(11f, 14f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.5f);
         SpeedScaleDivX = speedx;
-        speedy = Random.Range(-5f,5f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.2f);
+        speedy = Random.Range(-5f,5f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.5f);
         SpeedScaleDivY = speedy;
         LifeTimeHits = 3;
     }

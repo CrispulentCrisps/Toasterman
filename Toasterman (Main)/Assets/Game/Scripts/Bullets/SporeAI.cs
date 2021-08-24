@@ -8,7 +8,6 @@ public class SporeAI : MonoBehaviour, IPooledObject
 
     public float speedx;
     public float speedy;
-    private float BulletRot;
 
     public PlayerMovement playermovement;
 
@@ -43,14 +42,17 @@ public class SporeAI : MonoBehaviour, IPooledObject
 
         speedy = Random.Range(3f,10f);
         LifeTime = Random.Range(3f, 5f);
-
+        SizeDiv = LifeTime;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player") && playermovement.Dashin == false)
         {
-            AudioManager.instance.Play("Shroomed");
+            if (!Attached)
+            {
+                AudioManager.instance.Play("Shroomed");
+            }
             Attached = true;
             LifeTime = Random.Range(3f, 5f);
             SizeDiv = LifeTime;

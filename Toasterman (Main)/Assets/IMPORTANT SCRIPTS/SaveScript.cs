@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,5 +11,5 @@ public class SaveScript : MonoBehaviour
         {
             planetTally.PlanetsDone[i] = PlanetsCompleted[i];
         }
-    } 
+    }
 }

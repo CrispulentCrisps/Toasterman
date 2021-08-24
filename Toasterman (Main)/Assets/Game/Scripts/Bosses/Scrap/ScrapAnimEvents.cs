@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScrapAnimEvents : MonoBehaviour
 {
     public ParalaxStuff ps;
-
+    public GameObject[] LavaLayers;
     public Transform TailTf;
 
     public Sprite[] sprite;
@@ -40,7 +40,7 @@ public class ScrapAnimEvents : MonoBehaviour
         }
         if (ExplodeTailGravity)
         {
-            TailMov.z -= 9.81f * 2 * Time.deltaTime;//the axis are a bit weird due to rotation
+            TailMov.z -= 9.81f * 2 * Time.deltaTime;//the axis are a bit weird due to rotation so I can't really help that :/
         }
     }
 
@@ -50,7 +50,11 @@ public class ScrapAnimEvents : MonoBehaviour
         {
             ps.Layer[i].GetComponent<SpriteRenderer>().sprite = sprite[i];
         }
-        ps.ParaDampen = 3f;
+
+        for (int j = 0; j < LavaLayers.Length; j++)
+        {
+            LavaLayers[j].SetActive(false);
+        }
     }
 
     public void SpawnLightning()

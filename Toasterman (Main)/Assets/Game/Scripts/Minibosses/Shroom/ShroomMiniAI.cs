@@ -26,6 +26,7 @@ public class ShroomMiniAI : StateMachineBehaviour
         {
             tf = animator.GetComponent<Transform>();
             tf.position = new Vector3(-20f, 0f, 0f);
+            AudioManager.instance.Play("ShroomEnter");
             FindTrans = false;
         }
         if (Move && Health > 0f)

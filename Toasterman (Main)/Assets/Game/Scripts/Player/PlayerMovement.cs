@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         tf.position = new Vector3(0, 0, 0);
         for (int i = 0; i < Shooting.BulletType; i++)
         {
-            Shooting.BulletLevel[i]--;
+            Shooting.BulletLevel[i] = 0;
         }
     }
 

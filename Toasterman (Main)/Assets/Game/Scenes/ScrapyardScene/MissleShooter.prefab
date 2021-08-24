@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6060261859861975990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -70.13201, y: 5.1353574, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 035f806d527835d4194e2e30267002dc, type: 2}
+  - {fileID: 2100000, guid: 6ebe633a634a49e479fb6c19a9e5bdb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1543121981
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d735edc04ed01104dac7fec9e5065c97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3ca88c8d4570ab459cd2dd0d166f986, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,8 +109,9 @@ MonoBehaviour:
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 627832229}
-  Health: 15
+  Health: 7
   BulletName: Missle
+  RotationSpeed: 0
   RegularAmount: 1
   Charge: 1
   Full: 2.5
@@ -120,6 +121,7 @@ MonoBehaviour:
   BaseSpeed: 0
   MinVel: 0
   MaxVel: 0
+  ArcRepeat: 0
   RotateGun: 0
   GunRotateAmount: 0
   ShootNearPlayer: 0
@@ -172,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!95 &627832229
 Animator:
@@ -184,7 +186,7 @@ Animator:
   m_GameObject: {fileID: 6060261859861975990}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d06678bd44f9b2f4a9c4939189fa699c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 64e70e32b7528784f963e73e768faca8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

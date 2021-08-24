@@ -61,7 +61,7 @@ public class ScrapBossAI : StateMachineBehaviour
             case 0:
                 if (T >= 0.69f)
                 {
-                    BulletPatternsModule.ShootArc(135f, 6, BulletNames[0], ShotPoints[0], 0f);
+                    BulletPatternsModule.ShootArc(135f, 5, BulletNames[0], ShotPoints[0], 0f);
                     T = 0f;
                 }
                 break;

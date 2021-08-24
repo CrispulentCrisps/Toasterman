@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class BossPiecesCollisions : MonoBehaviour
 {
+    ObjectPools objectPooler;
 
     public TrutleBossAI TurtleBossAI;
 
@@ -14,24 +12,21 @@ public class BossPiecesCollisions : MonoBehaviour
 
     public double DamageMultiplier;
 
-    private int Length;
+    private void Start()
+    {
+        objectPooler = ObjectPools.Instance;
+    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-
-        Length = CollisionNames.Length;
-
-        for (int i = 0; i < Length; i++)
+        for (int i = 0; i < CollisionNames.Length; i++)
         {
             if (coll.gameObject.CompareTag(CollisionNames[i]))
             {
-
-                FindObjectOfType<AudioManager>().ChangePitch(SoundName, Random.Range(1f, 0.5f));
-                FindObjectOfType<AudioManager>().Play(SoundName);
-
+                AudioManager.instance.ChangePitch(SoundName, Random.Range(1f, 0.5f));
+                AudioManager.instance.Play(SoundName);
+                objectPooler.SpawnFromPool("Spark", new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), 0f), Quaternion.Euler(0f,-0f,0f));
                 TurtleBossAI.Health -= coll.gameObject.GetComponent<DamageScript>().Damage * (float)DamageMultiplier;
-
-
             }
         }
     }

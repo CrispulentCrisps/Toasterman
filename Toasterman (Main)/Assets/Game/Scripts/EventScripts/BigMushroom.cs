@@ -5,11 +5,9 @@ public class BigMushroom : MonoBehaviour
     ObjectPools objectPooler;
 
     public EnemyScript enemyScript;
+    public Dialog dialog;
 
     public CameraShake camerashake;
-
-    public Color SwitchColour;
-    public Color NormalColour;
 
     public Animator anim;
 
@@ -34,7 +32,7 @@ public class BigMushroom : MonoBehaviour
 
     public void StartShake()
     {
-        StartCoroutine(camerashake.Shake(10f, 0.0075f));
+        StartCoroutine(camerashake.Shake(10f, 0.0025f));
     }
 
     public void PlayThud()
@@ -48,14 +46,16 @@ public class BigMushroom : MonoBehaviour
     {
         AudioManager.instance.Play("Victory2");
     }
-
+    public void DialogStart()
+    {
+        dialog.StartCoroutine(dialog.BoxIn(1f));
+    }
     public void SwapBGToInfected()
     {
         for (int i = 0; i < InfectedSprites.Length; i++)
         {
             SRends[i].sprite = InfectedSprites[i];
         }
-        SRends[8].color = SwitchColour;
     }
     public void SwapBGToBGNormal()
     {
@@ -63,6 +63,5 @@ public class BigMushroom : MonoBehaviour
         {
             SRends[i].sprite = NormalSprites[i];
         }
-        SRends[8].color = NormalColour;
     }
 }

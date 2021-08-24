@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitThenDeactivate : MonoBehaviour
+public class WaitThenDeactivate : MonoBehaviour, IPooledObject
 {
     private float T = 0f;
-    private float inc;
     public float Max;
     private bool Spawned = false;
     ObjectPools objectPooler;
 
-    void OnObjectSpawn()
+    private void Start()
     {
+        objectPooler = ObjectPools.Instance;
         T = 0;
-        Spawned = true;
     }
 
-    void Start()
+    public void OnObjectSpawn()
     {
-        inc = Time.deltaTime;
+        print("I SPAWNED");
         T = 0;
+        Spawned = true;
     }
 
     // Update is called once per frame
@@ -27,12 +25,13 @@ public class WaitThenDeactivate : MonoBehaviour
     {
         if (Spawned)
         {
-            T += inc;
+            T += Time.deltaTime;
         }
         if (T >= Max && Spawned == true)
         {
             gameObject.SetActive(false);
             Spawned = false;
+            T = 0;
         }
     }
 }

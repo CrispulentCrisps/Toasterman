@@ -38,8 +38,6 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     public int RegularAmount;
 
     private int State = 99;
-    
-    private Quaternion BulletRot;
 
     public bool Intro = true;
     public bool Killed = false;
@@ -51,6 +49,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     private float Timer;
     private float Timer2;
+    private float Timer3;
 
     void Start()
     {
@@ -87,14 +86,20 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
-
-        Timer += Time.deltaTime;
+      Timer += Time.deltaTime;
 
         Speed.y = YSpeed;
         
         if (Health <= 0f && State != -1)
         {
             Timer = -1;
+            Timer3 += Time.deltaTime;
+            if (Timer3 >= 0.05f)
+            {
+                objectPooler.SpawnFromPool("Smoke", new Vector3(BoomPoint.position.x + Random.Range(-3.5f, 3.5f), BoomPoint.position.y + Random.Range(-1f, 1f), 0), Quaternion.identity);
+                Timer3 = 0f;
+            }
+
             if (tf.position.y > Target.position.y)
             {
                 YSpeed = 5;
@@ -123,7 +128,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             }
         }
 
-        if (Timer >= 2)
+        if (Timer >= 4)
         {
             if (Health > 0f)
             {
@@ -133,29 +138,46 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             {
                 switch (State) //Attacks
                 {
+                    case 0:
+                        anim.SetTrigger("Idle");
+                        break;
                     case 1:
                         anim.SetTrigger("Missle");
+                        Timer = 0;
                         break;
                     case 2:
                         anim.SetTrigger("Tail");
+                        Timer = 0;
                         break;
                     case 3:
                         anim.SetTrigger("BigHurt");
-                        break;
-                    default:
-                        anim.SetTrigger("Idle");
+                        Timer = 0;
                         break;
                 }
                 Timer = 0;
             }
         }
 
-        if (Health <= 250f && Health > 0)
+        if (Health <= 400f && Health > 0)
         {
-
             paralaxStuff.paraspeedGoal = 100f;
             Timer2 += Time.deltaTime;
-            if (Timer2 >= 1f)
+            if (Health > 300 && Timer2 >= 1f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health > 200 && Health < 300 && Timer2 >= 0.75f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health > 100 && Health < 200 && Timer2 >= 0.5f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health < 100 && Timer2 >= 0.25f)
             {
                 Booming();
                 Timer2 = 0;
@@ -207,11 +229,10 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void Booming()
     {
-
         objectPooler.SpawnFromPool("BigExplosion", new Vector3(BoomPoint.position.x + Random.Range(-3.5f,3.5f), BoomPoint.position.y + Random.Range(-3.5f, 3.5f),0), Quaternion.identity);
         if (tf.position.x >= -15)
         {
-            AudioManager.instance.ChangePitch("Explosion", Random.Range(.1f, .75f));
+            AudioManager.instance.ChangePitch("Explosion", Random.Range(.1f, 1f));
             AudioManager.instance.Play("Explosion");
         }
     }

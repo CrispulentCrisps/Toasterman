@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GunAi : MonoBehaviour
 {
-    private Transform Target;
     private Camera cam;
     private float MinShootTime = 1f;
     private float MaxShootTime = 5f;
     public float Full;
-    public float Recharge = 0.5f;
+    public float Recharge;
     public float Charge = 0f;
     private float width;
 
@@ -24,7 +23,6 @@ public class GunAi : MonoBehaviour
 
         Full = Random.Range(MinShootTime, MaxShootTime);
         objectPooler = ObjectPools.Instance;
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
         cam = Camera.main;
         float height = 2f * cam.orthographicSize;
         width = height * cam.aspect;
@@ -38,12 +36,6 @@ public class GunAi : MonoBehaviour
         {
 
             Charge += Recharge * Time.deltaTime;
-
-            if  (transform.position.x >= -width + 1.5f && transform.position.x >= Target.position.x + 1f && transform.position.x <= Target.position.x - 1f || 
-                 transform.position.x >=  width - 1.5f && transform.position.x >= Target.position.x + 1.5f && transform.position.x <= Target.position.x - 1.5f)
-            {
-                Charge = 99f;
-            }
 
             if (Charge >= Full && transform.position.x >= -width && transform.position.x <= width)
             {

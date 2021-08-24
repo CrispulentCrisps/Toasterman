@@ -582,6 +582,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1314237389461416642}
   - component: {fileID: 1314237389461416643}
+  - component: {fileID: 9050198802337928981}
+  - component: {fileID: 7936679385743674791}
+  - component: {fileID: 6942144022565092373}
   m_Layer: 0
   m_Name: PurityEye
   m_TagString: Untagged
@@ -655,6 +658,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &9050198802337928981
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314237389461416641}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.35
+--- !u!114 &7936679385743674791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314237389461416641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 50
+--- !u!114 &6942144022565092373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314237389461416641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245f2ff70535bec46a94584e5a15c50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 1314237389461416643}
+  hurtcolour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1314237389466778176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8801a5fc9ac572a40afbb99c13f7dd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  es: {fileID: 0}
   TF:
   - {fileID: 1314237389461416642}
   - {fileID: 1314237390128637305}
