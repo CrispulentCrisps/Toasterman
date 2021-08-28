@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2880811144993891058}
   - component: {fileID: 2880811144993891059}
   - component: {fileID: 2880811144993891060}
-  - component: {fileID: 2880811144993891061}
   - component: {fileID: 2880811144993891056}
   - component: {fileID: 2880811144993891055}
+  - component: {fileID: 1370103591936605960}
   m_Layer: 0
   m_Name: FleshBot
   m_TagString: NotSoGoodThing
@@ -108,7 +108,9 @@ MonoBehaviour:
   hurtColour: {r: 0, g: 0, b: 0, a: 0}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
-  anim: {fileID: 2880811144993891061}
+  anim: {fileID: 0}
+  EnemyShootSound: 
+  EnemyHurtSound: 
   Health: 9
   BulletName: EnemyBullet
   RotationSpeed: 271
@@ -150,25 +152,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &2880811144993891061
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2880811144993891062}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55ffef0aa928055499fc2bbcac7a4097, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!58 &2880811144993891056
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,3 +181,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 15
+--- !u!95 &1370103591936605960
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880811144993891062}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0c3f7617b9b4044abafd25790895335, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
