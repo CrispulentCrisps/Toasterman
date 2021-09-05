@@ -6,6 +6,11 @@ public class FPSDisplay : MonoBehaviour
     public bool Show;
 
     float deltaTime = 0.0f;
+    void Start()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
 
     void Update()
     {

@@ -16,6 +16,7 @@ public class PlanetSelect : MonoBehaviour
     public Dialog dialog;
     
     public Transform tf;
+    public Transform UITARGET;
     
     public Vector3 Scale;
 
@@ -73,18 +74,9 @@ public class PlanetSelect : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void OnMouseDown()
     {
-        if (MouseOverPlanet == false)
-        {
-            float Velocity = 0.0f;
-            tf.localScale = new Vector3(Mathf.SmoothDamp(tf.localScale.x, ResetSize, ref Velocity, 0.05f), Mathf.SmoothDamp(tf.localScale.y, ResetSize, ref Velocity, 0.05f), 0f);
-        }
-    }
-    void OnMouseOver()
-    {
-        MouseOverPlanet = true;
-        if (Input.GetMouseButtonDown(0) && Selected == false && Locked == false)
+        if (Selected == false && Locked == false)
         {
             dialog.index = IndexStart;
             dialog.indexDone = IndexEnd;
@@ -94,16 +86,5 @@ public class PlanetSelect : MonoBehaviour
             MouseOverPlanet = false;
             PlanetSelectMouseUI.Selected = true;
         }
-        else if (Selected == false && Locked == false && MouseOverPlanet == true)
-        {
-            float Velocity = 0.0f;
-            tf.localScale = new Vector3(Mathf.SmoothDamp(tf.localScale.x,Scale.x, ref Velocity, 0.05f), Mathf.SmoothDamp(tf.localScale.y, Scale.y, ref Velocity, 0.05f));
-        }
     }
-
-    void OnMouseExit()
-    {
-        MouseOverPlanet = false;
-    }
-
 }

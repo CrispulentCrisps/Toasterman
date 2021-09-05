@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine;  
 
 public class ShroomMiniAI : StateMachineBehaviour
 {
     public Transform tf; //0 = Main transform, 1-4 = shroom caps
+    public Transform Target;
+    private float CameraWidth;
 
     public float Speed;
     public static float Health = 400f;
@@ -24,6 +24,7 @@ public class ShroomMiniAI : StateMachineBehaviour
     {
         if (FindTrans)
         {
+            CameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
             tf = animator.GetComponent<Transform>();
             tf.position = new Vector3(-20f, 0f, 0f);
             AudioManager.instance.Play("ShroomEnter");
@@ -48,11 +49,11 @@ public class ShroomMiniAI : StateMachineBehaviour
                 XPos -= Speed * Time.deltaTime;
             }
 
-            if (tf.position.x <= -12f)
+            if (tf.position.x <= -(CameraWidth * 0.5f))
             {
                 Left = true;
             }
-            else if (tf.position.x >= 11f) //Has to be 11 to adjust for the centers offset
+            else if (tf.position.x >= (CameraWidth * 0.5f)) //Has to be 11 to adjust for the centers offset
             {
                 Left = false;
             }
@@ -72,9 +73,9 @@ public class ShroomMiniAI : StateMachineBehaviour
         }
         else //Death stuff
         {
-            tf.position -= Vector3.MoveTowards(tf.position, new Vector3(3f, 3f, 0), Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
+            tf.position -= Vector3.MoveTowards(tf.position, Target.position, Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
             Move = false;
-            if (tf.position.x >= -0.25f && tf.position.x <= 1.25f && tf.position.y >= -0.25f && tf.position.y <= 1.25f)
+            if (tf.position.x >= Target.position.x + 0.25f && tf.position.x <= Target.position.x - 0.25f && tf.position.y >= -0.25f && tf.position.y <= 1.25f)
             {
                 animator.SetTrigger("Death");
             }

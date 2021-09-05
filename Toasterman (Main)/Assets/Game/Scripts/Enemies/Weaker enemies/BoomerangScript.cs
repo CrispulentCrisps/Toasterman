@@ -74,7 +74,7 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
     void Update()
     {
         //Turn around and hit player
-        if (tf.position.x <= Ship.transform.position.x - 1 && Happy == true)
+        if (tf.position.x <= Ship.transform.position.x - 2 && Happy == true)
         {
             Turn();
         }

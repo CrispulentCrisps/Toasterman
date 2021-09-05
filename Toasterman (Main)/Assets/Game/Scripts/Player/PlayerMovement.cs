@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             Anim.SetTrigger("Hurt");
             timer = 5f;
             AudioManager.instance.Play("Hurt");
-            AudioManager.instance.ChangePitch("Hurt",Random.Range(0.9f,1.1f));
+            AudioManager.instance.ChangePitch("Hurt",Random.Range(0.75f,1.25f));
         }
 
     }
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
                 Die();
             }
             //Dashing
-            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f)
+            if (Input.GetKeyDown(KeyCode.Space) && DashSlider.value >= 1f)
             {
                 Dash();
             }

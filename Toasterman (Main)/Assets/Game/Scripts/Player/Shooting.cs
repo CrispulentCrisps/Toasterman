@@ -66,11 +66,11 @@ public class Shooting : MonoBehaviour
             Auto = false;
         }
         
-        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M) || Input.GetButtonUp("Fire2"))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M) || Input.GetButtonUp("Fire3"))
         {
             BulletType++;  
         }
-        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N) || Input.GetButtonUp("Fire3"))
+        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N) || Input.GetButtonUp("Fire2"))
         {
             BulletType--;  
         }

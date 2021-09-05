@@ -49,6 +49,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,11 +105,11 @@ MonoBehaviour:
   tf: {fileID: 4437360254698354951}
   bounds: {fileID: 4437360254698354949}
   RegenRate: 0.05
-  Normalspeed: 10
+  Normalspeed: 13
   DashTimerSpeed: 0.125
   DashLength: 0
   DashLengthRet: 0.75
-  DashSpeed: 20
+  DashSpeed: 26
   Dashin: 0
   Inverse: 0
   camerashake: {fileID: 0}
@@ -260,6 +261,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
