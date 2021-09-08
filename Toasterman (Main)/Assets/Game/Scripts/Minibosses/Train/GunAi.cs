@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunAi : MonoBehaviour
 {
@@ -32,7 +30,7 @@ public class GunAi : MonoBehaviour
     void Update()
     {
 
-        if (Shooting == true)
+        if (Shooting == true && SegmentAI.Alive)
         {
 
             Charge += Recharge * Time.deltaTime;
