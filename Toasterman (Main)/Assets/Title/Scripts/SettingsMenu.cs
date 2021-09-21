@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -7,6 +6,13 @@ using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
+    GameObject scanlines;
+
+    public Slider ScanSlide;
+
+    public Toggle[] toggles;
+    
+    public UnityEngine.Rendering.VolumeProfile profile;
 
     public AudioMixer audioMixer;
 
@@ -14,8 +20,9 @@ public class SettingsMenu : MonoBehaviour
 
     public TMP_Dropdown ResolutionDropdown;
 
-    void Start()
+    private void OnLevelWasLoaded()
     {
+        scanlines = GameObject.Find("Scanlines 1");
 
         resolutions = Screen.resolutions;
 
@@ -27,12 +34,8 @@ public class SettingsMenu : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-
             string option = resolutions[i].width + "X" + resolutions[i].height;
-            if (resolutions[i].width == 1920 || resolutions[i].width == 1680 || resolutions[i].width == 1600 || resolutions[i].width == 1440 || resolutions[i].width == 1366 || resolutions[i].width == 1280)
-            {
-                options.Add(option);
-            }
+            options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
@@ -43,6 +46,36 @@ public class SettingsMenu : MonoBehaviour
         ResolutionDropdown.AddOptions(options);
         ResolutionDropdown.value = CurrentResolutionIndex;
         ResolutionDropdown.RefreshShownValue();
+
+        ScanlinesSettings.Opacity = ScanSlide.value;
+
+        for (int i = 0; i < toggles.Length; i++)
+        {
+            if (toggles[i].isOn)//Checks if on
+            {
+                switch (i)//Goes through to find which one is on in the array
+                {
+                    case 0:
+                        SetBloom(true);
+                        break;
+                    case 1:
+                        SetLens(true);
+                        break;
+                }
+            }
+            else
+            {
+                switch (i)//Goes through to find which one is on in the array
+                {
+                    case 0:
+                        SetBloom(false);
+                        break;
+                    case 1:
+                        SetLens(false);
+                        break;
+                }
+            }
+        }
     }
 
     public void SetResolution(int ResolutionIndex)
@@ -66,4 +99,22 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = IsFullScreen;
     }
 
+    public void SetBloom(bool Set)
+    {
+        UnityEngine.Rendering.Universal.Bloom bloom;
+        profile.TryGet(out bloom);
+        bloom.active = Set;
+    }
+
+    public void SetScanlines(float opaque)
+    {
+        ScanlinesSettings.Opacity = opaque;
+    }
+
+    public void SetLens(bool Set)
+    {
+        UnityEngine.Rendering.Universal.LensDistortion ld;
+        profile.TryGet(out ld);
+        ld.active = Set;
+    }
 }

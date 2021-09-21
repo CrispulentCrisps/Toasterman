@@ -49,6 +49,7 @@ public class SceneChange : MonoBehaviour
     {
         if (ConditionMet == true)
         {
+            PauseMenuScript.Pausable = false;
             StartCoroutine(LoadLevel(SceneNumber));
         }
     }

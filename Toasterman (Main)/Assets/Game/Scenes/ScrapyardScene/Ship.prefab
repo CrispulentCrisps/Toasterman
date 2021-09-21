@@ -21,7 +21,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4437360254698354951
 Transform:
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0ce50db6b841df449aa0089547061f24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   bounds: {fileID: 4437360254698354949}
   RegenRate: 0.05
   Normalspeed: 13
-  DashTimerSpeed: 0.25
+  DashTimerSpeed: 0.125
   DashLength: 0
   DashLengthRet: 0.75
   DashSpeed: 26
@@ -150,8 +150,8 @@ MonoBehaviour:
   ReloadTime: 0.25
   Increment: 3
   Auto: 0
-  MaxProjec: 0
-  MaxBulletLevel: 20
+  MaxProjec: 2
+  MaxBulletLevel: 5
   BulletRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!95 &4437360254698354954
 Animator:
@@ -163,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4437360254698354947}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cc8eb2ebe4c79a4298644d028f6fc53, type: 2}
+  m_Controller: {fileID: 9100000, guid: 37dc13430931a404d9ef710f67876c80, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -182,7 +182,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.25, y: 1.25}
   m_EdgeRadius: 0
 --- !u!50 &4437360254698354955
 Rigidbody2D:
@@ -234,8 +234,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &6988349150321671045
 Transform:
   m_ObjectHideFlags: 0
@@ -288,10 +288,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1543121981
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4b686a42180d5d49bc5e9634b4a7f87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4e1b3d60c6d89e44b88fca95edc178a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

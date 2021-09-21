@@ -32,7 +32,7 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
         objectPooler = ObjectPools.Instance;
 
-        tf.position = new Vector3(Random.Range(-12f,12f),9f,0f);
+        tf.position = new Vector3(Random.Range(-12f,15f),12f,0f);
 
     }
 

@@ -17,6 +17,8 @@ public class BigMushroom : MonoBehaviour
 
     public int WaveToAppear;
 
+    private int Xpos;
+
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
@@ -63,5 +65,12 @@ public class BigMushroom : MonoBehaviour
         {
             SRends[i].sprite = NormalSprites[i];
         }
+    }
+
+    public void FireSpawn()
+    {
+        objectPooler.SpawnFromPool("Fire", new Vector3(Xpos, -6f, 0f), Quaternion.identity);
+        objectPooler.SpawnFromPool("Fire", new Vector3(-Xpos, -6f, 0f), Quaternion.identity);
+        Xpos++;
     }
 }

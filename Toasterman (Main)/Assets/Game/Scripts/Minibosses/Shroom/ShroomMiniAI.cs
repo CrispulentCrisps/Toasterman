@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShroomMiniAI : StateMachineBehaviour
 {
     public Transform tf; //0 = Main transform, 1-4 = shroom caps
-    public Transform Target;
+    public Vector3 Target;
     private float CameraWidth;
 
     public float Speed;
@@ -26,6 +26,7 @@ public class ShroomMiniAI : StateMachineBehaviour
         {
             CameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
             tf = animator.GetComponent<Transform>();
+            Target = new Vector3(0f,0f,0f);
             tf.position = new Vector3(-20f, 0f, 0f);
             AudioManager.instance.Play("ShroomEnter");
             FindTrans = false;
@@ -73,9 +74,9 @@ public class ShroomMiniAI : StateMachineBehaviour
         }
         else //Death stuff
         {
-            tf.position -= Vector3.MoveTowards(tf.position, Target.position, Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
+            tf.position -= Vector3.MoveTowards(tf.position, Target, Time.deltaTime) * Time.deltaTime; //Moves miniboss to desired coords
             Move = false;
-            if (tf.position.x >= Target.position.x + 0.25f && tf.position.x <= Target.position.x - 0.25f && tf.position.y >= -0.25f && tf.position.y <= 1.25f)
+            if (tf.position.x <= Target.x + 0.25f && tf.position.x >= Target.x - 0.25f && tf.position.y >= -0.25f && tf.position.y <= 0.25f)
             {
                 animator.SetTrigger("Death");
             }

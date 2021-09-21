@@ -479,7 +479,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265591186}
-  - component: {fileID: 265591185}
   m_Layer: 0
   m_Name: ControllerMenuSorter
   m_TagString: Untagged
@@ -487,19 +486,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &265591185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265591184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6b4f36fab211c4fbde61ad9419e942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxPlanet: 1
 --- !u!4 &265591186
 Transform:
   m_ObjectHideFlags: 0
@@ -890,8 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlanetNum: 2
-  IndexStart: 22
-  IndexEnd: 40
+  IndexStart: 21
+  IndexEnd: 31
   LevelIndex: 4
   DialogManager: {fileID: 2700239448863392654}
   planetTally: {fileID: 1044273910}
@@ -2145,10 +2131,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1997980798078349294}
     m_Modifications:
+    - target: {fileID: 23306962, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 23306962, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23306963, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 23306963, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 23306963, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1586429560, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 760301286}
+    - target: {fileID: 1677454038, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677454038, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677454038, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.5
+      objectReference: {fileID: 0}
     - target: {fileID: 936199373234001794, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: m_Camera
@@ -2226,6 +2244,148 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
+      propertyPath: sentences.Array.size
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[21].Words
+      value: 'Andruss: Right, so the boss has asked us to deal with a situation over
+        in the living planet'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[22].Words
+      value: 'Toasterman: What''s going wrong?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[23].Words
+      value: 'Andruss: There''s a massive fungal infection wreaking havoc all over
+        the planet and killing it!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[24].Words
+      value: 'Toasterman: That is a tragedy but why would the boss be interested?
+        it''s not like he''d care about any workers he has.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[25].Words
+      value: 'Andruss: It''s because the planet''s heart produces a lot of energy
+        we need to {live}!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[26].Words
+      value: 'Toasterman: Then we must proceed immediately!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[27].Words
+      value: 'Andruss: Yes! It seems to be that the fungal infection is spreading
+        spores and will quickly take over! They do seem to cling on to objects but
+        can''t hold on at high speeds!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[28].Words
+      value: 'Toasterman: Noted, I should be able to [dash} to get them off of me!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[29].Words
+      value: 'Andruss: Staraspeed toasty! Make sure you use the new acid weapon,
+        it doesn''t travel far but it can deal damage!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[30].Words
+      value: 'Toasterman: See you!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[20].ToastIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[21].ToastIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[22].ToastIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[23].ToastIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[29].ToastIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[30].ToastIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[31].ToastIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[39].ToastIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[40].ToastIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[20].AndrussIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[23].AndrussIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[29].AndrussIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[30].AndrussIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[31].AndrussIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[39].AndrussIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[40].AndrussIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
       propertyPath: sentences.Array.data[18].ToastEmote
       value: -1
       objectReference: {fileID: 0}
@@ -2236,12 +2396,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
+      propertyPath: sentences.Array.data[22].ToastEmote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[0].AndrussEmote
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
       propertyPath: sentences.Array.data[18].AndrussEmote
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
         type: 3}
       propertyPath: sentences.Array.data[19].AndrussEmote
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[21].AndrussEmote
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[22].AndrussEmote
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[23].AndrussEmote
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[24].AndrussEmote
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[25].AndrussEmote
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[26].AndrussEmote
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[27].AndrussEmote
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[28].AndrussEmote
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[29].AndrussEmote
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[30].AndrussEmote
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936199374365196141, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: sentences.Array.data[31].AndrussEmote
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 936199374365196143, guid: ef2ca865af77ff2449478951e01d91fd,
@@ -2279,6 +2504,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1497204122}
+    - target: {fileID: 6248229747733947961, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248229747733947961, guid: ef2ca865af77ff2449478951e01d91fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 125
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5562431490896646441, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef2ca865af77ff2449478951e01d91fd, type: 3}

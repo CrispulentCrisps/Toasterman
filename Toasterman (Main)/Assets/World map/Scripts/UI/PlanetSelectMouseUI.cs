@@ -28,14 +28,7 @@ public class PlanetSelectMouseUI : MonoBehaviour
     void Update()
     {
         tf.Rotate(new Vector3(0, 0, speed * SpeedMult));
-        if (ControllerMenuSort.PlanetIndex > -1)
-        {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-        else
-        {
-            mousePosition = BackButton.position;
-        }
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         for (int i = 0; i < PlanetPos.Length; i++)
         {
@@ -68,11 +61,6 @@ public class PlanetSelectMouseUI : MonoBehaviour
             SpeedMult += 75;
             tf.localScale = new Vector3(tf.localScale.x + 15 * Time.deltaTime,tf.localScale.y + 15 * Time.deltaTime);
             sr.color -= new Color(0f,0f,0f,1f) * Time.deltaTime;
-        }
-
-        if (ControllerMenuSort.PlanetIndex == -1 && Input.GetButtonDown("Fire1") || ControllerMenuSort.PlanetIndex == -1 && Input.GetKeyDown(KeyCode.Z))
-        {
-            sc.ChangeScene();
         }
     }
 }
