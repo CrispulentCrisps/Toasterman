@@ -6,7 +6,6 @@ public class SporeBomb : MonoBehaviour, IPooledObject
     ObjectPools objectPooler;
 
     public Transform tf;
-    private Transform Target;
 
     public string BulletName;
 
@@ -40,7 +39,6 @@ public class SporeBomb : MonoBehaviour, IPooledObject
     {
 
         Ship = GameObject.Find("Ship");//gets the game object
-        Target = Ship.GetComponent<Transform>();// gets the Transform 
         Anim = gameObject.GetComponent<Animator>();
         Alive = true;
         XAmp = Random.Range(10f, 1f);

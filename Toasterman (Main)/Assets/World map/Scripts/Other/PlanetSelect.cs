@@ -9,8 +9,6 @@ public class PlanetSelect : MonoBehaviour
 
     public GameObject DialogManager;
 
-    public PlanetTally planetTally;
-
     public SceneChange scenechange;
 
     public Dialog dialog;
@@ -35,8 +33,7 @@ public class PlanetSelect : MonoBehaviour
     {
         Selected = false;
         dialog = GameObject.Find("Dialogmanager").GetComponent<Dialog>();
-        planetTally = GameObject.Find("PlanetCompletionCounter").GetComponent<PlanetTally>();
-        if (planetTally.PlanetsDone[0] == true)
+        if (PlanetTally.PlanetsDone[0] == true)
         {
             Completed = true;
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShroomEvents : MonoBehaviour, IPooledObject
@@ -52,15 +50,15 @@ public class ShroomEvents : MonoBehaviour, IPooledObject
 
     public void ShootCircle(int pos)
     {
-        BulletPatternsModule.ShootArc(360f, 6, "PurityBullet", TF[pos], 0f);
+        BulletPatternsModule.ShootArc(135f, 7, "PurityBullet", TF[pos], pos * 90f);
         AudioManager.instance.ChangePitch("Shoot1", Random.Range(0.75f, 1.25f));
         AudioManager.instance.Play("Shoot1");
     }
 
     public void ShootCenter(float Offset)
     {
-        StartCoroutine(BulletPatternsModule.ShootArcEnum(90f, 8, "PurityBullet", TF[0], Offset, 0.25f * 0.125f));
-        StartCoroutine(BulletPatternsModule.ShootArcEnum(-90f, 8, "PurityBullet", TF[0], -Offset, 0.25f * 0.125f));
+        StartCoroutine(BulletPatternsModule.ShootArcEnum(90f, 6, "PurityBullet", TF[0], Offset, 0.25f * 0.125f));
+        StartCoroutine(BulletPatternsModule.ShootArcEnum(-90f, 6, "PurityBullet", TF[0], -Offset, 0.25f * 0.125f));
         AudioManager.instance.ChangePitch("Shoot1", Random.Range(0.75f, 1.25f));
         AudioManager.instance.Play("Shoot1");
     }
@@ -74,8 +72,8 @@ public class ShroomEvents : MonoBehaviour, IPooledObject
     {
         Speed[0] = new Vector2(-15f,7.5f);
         Speed[1] = new Vector2(15f,7.5f);
-        Speed[2] = new Vector2(-7.5f,5f);
-        Speed[3] = new Vector2(7.5f,5f);
+        Speed[2] = new Vector2(7.5f,5f);
+        Speed[3] = new Vector2(-7.5f,5f);
         CapsShot = true;
         es.start = true;
         AudioManager.instance.Play("ShootCaps");

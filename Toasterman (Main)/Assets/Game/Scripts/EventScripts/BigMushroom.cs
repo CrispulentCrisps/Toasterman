@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class BigMushroom : MonoBehaviour
 {
     ObjectPools objectPooler;
 
+    public ParalaxStuff ps;
     public EnemyScript enemyScript;
     public Dialog dialog;
 
@@ -17,11 +19,16 @@ public class BigMushroom : MonoBehaviour
 
     public int WaveToAppear;
 
+    public Light2D light;
     private int Xpos;
+
+    private bool LightShine = false;
 
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
+        light.intensity = 0f;
+        LightShine = false;
     }
        
     void Update()
@@ -29,6 +36,12 @@ public class BigMushroom : MonoBehaviour
         if (enemyScript.i == WaveToAppear)
         {
             anim.SetTrigger("Rise");
+            ps.paraspeedGoal = 50;
+        }
+
+        if (LightShine && light.intensity <= 7.5f)
+        {
+            light.intensity += 2 * Time.deltaTime;
         }
     }
 
@@ -58,6 +71,7 @@ public class BigMushroom : MonoBehaviour
         {
             SRends[i].sprite = InfectedSprites[i];
         }
+        LightShine = true;
     }
     public void SwapBGToBGNormal()
     {

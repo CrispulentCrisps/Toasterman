@@ -10,7 +10,7 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 
     ObjectPools objectPooler;
 
-    private float Time = 0f;
+    private float time = 0f;
 
     void Start()
     {
@@ -21,8 +21,8 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        Time += 0.1f;
-        if (Time >= 2.5f)
+        time += Time.deltaTime;
+        if (time >= .5f)
         {
             gameObject.SetActive(false);
         }
@@ -33,6 +33,6 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
     {
         FindObjectOfType<AudioManager>().Play(SoundName);
         anim.SetTrigger("Boom");
-        Time = 0;
+        time = 0;
     }
 }

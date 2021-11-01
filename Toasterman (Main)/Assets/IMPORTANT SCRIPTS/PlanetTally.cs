@@ -2,7 +2,13 @@
 
 public class PlanetTally : MonoBehaviour
 {
-    public bool[] PlanetsDone;
+    public static bool[] PlanetsDone;
+    private void Start()
+    {
+        PlanetsDone = new bool[] { false, false };
+        LoadData();
+    }
+
     public void LoadData()
     {
         SaveScript Data = SaveSystem.LoadData();
@@ -12,9 +18,8 @@ public class PlanetTally : MonoBehaviour
             PlanetsDone[i] = Data;
         }
     }
-
-    public void SaveData()
+    public static void SaveData()
     {
-        SaveSystem.SaveData(this);
+        SaveSystem.SaveData(PlanetsDone);
     }
 }

@@ -3,7 +3,9 @@
 public class BulletAI : MonoBehaviour, IPooledObject
 {
     public Transform tf;
-    
+
+    public TrailRenderer tr;
+
     private Vector2 Movement;
 
     public string BulletParticle;
@@ -65,6 +67,10 @@ public class BulletAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     public void OnObjectSpawn()
     {
+        if (tr != null)
+        {
+            tr.Clear();
+        }
         if (DEBUG.ChangeGraphics == true)//CHanges sprite to toast
         {
             SpriteRenderer rend = gameObject.GetComponent<SpriteRenderer>();

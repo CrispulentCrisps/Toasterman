@@ -73,6 +73,8 @@ public class ShieldMakerCore : MonoBehaviour
     public void Fanfare()
     {
         AudioManager.instance.Play("Victory2");
+        PlanetTally.PlanetsDone[0] = true;
+        PlanetTally.SaveData();
     }
 
     public void BoomUp()

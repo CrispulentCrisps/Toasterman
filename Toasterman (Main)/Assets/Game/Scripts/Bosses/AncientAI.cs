@@ -274,11 +274,6 @@ public class AncientAI : MonoBehaviour, IPooledObject
         IntroDone = true;
     }
 
-    public void ChangeToNormal()
-    {
-        bigmushroom.SwapBGToBGNormal();
-    }
-
     public void KillShroom()
     {
         ShroomAnim.SetTrigger("Die");

@@ -15,7 +15,6 @@ public class WaitThenDeactivate : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        print("I SPAWNED");
         T = 0;
         Spawned = true;
     }
@@ -26,6 +25,7 @@ public class WaitThenDeactivate : MonoBehaviour, IPooledObject
         if (Spawned)
         {
             T += Time.deltaTime;
+            print(T);
         }
         if (T >= Max && Spawned == true)
         {

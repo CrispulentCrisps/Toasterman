@@ -50,11 +50,11 @@ public class ShroomMiniAI : StateMachineBehaviour
                 XPos -= Speed * Time.deltaTime;
             }
 
-            if (tf.position.x <= -(CameraWidth * 0.5f))
+            if (tf.position.x <= -CameraWidth)
             {
                 Left = true;
             }
-            else if (tf.position.x >= (CameraWidth * 0.5f)) //Has to be 11 to adjust for the centers offset
+            else if (tf.position.x >= CameraWidth)
             {
                 Left = false;
             }

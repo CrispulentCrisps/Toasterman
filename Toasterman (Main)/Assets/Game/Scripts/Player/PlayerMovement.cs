@@ -97,6 +97,22 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             Movement.y = Input.GetAxis("Vertical") * Velocity;
         }
 
+        if (Movement.y > .25f)
+        {
+            Anim.SetBool("IsUp", true);
+            Anim.SetBool("IsDown", false);
+        }
+        else if (Movement.y <- .25)
+        {
+            Anim.SetBool("IsUp", false);
+            Anim.SetBool("IsDown", true);
+        }
+        else
+        {
+            Anim.SetBool("IsUp", false);
+            Anim.SetBool("IsDown", false);
+        }
+
         if (Alive == true)
         {
             DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
@@ -167,6 +183,11 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     //-------------------------------------------------|=========|-------------------------------------------------------\\
     //-------------------------------------------------|==functions= |-------------------------------------------------------\\
     //-------------------------------------------------|=========|-------------------------------------------------------\\
+    public void SpawnToast()
+    {
+        //TODO
+    }
+
     public void Die()
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);

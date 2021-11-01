@@ -5,11 +5,11 @@ public class SaveScript : MonoBehaviour
 {
     bool[] PlanetsCompleted;
 
-    public SaveScript (PlanetTally planetTally)
+    public SaveScript (bool[] planetTally)
     {
         for (int i = 0; i < PlanetsCompleted.Length; i++)
         {
-            planetTally.PlanetsDone[i] = PlanetsCompleted[i];
+            planetTally[i] = PlanetsCompleted[i];
         }
     }
 }

@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
-    public static void SaveData(PlanetTally planetTally)
+    public static void SaveData(bool[] planetTally)
     {
         //Creates the binary formatter and opens the file stream, path is relative to the project
         BinaryFormatter formatter = new BinaryFormatter();
