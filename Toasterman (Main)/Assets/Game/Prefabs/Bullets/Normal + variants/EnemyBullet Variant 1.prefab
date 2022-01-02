@@ -15,12 +15,22 @@ PrefabInstance:
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: speedx
-      value: -7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: speedxMem
-      value: 9
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: BulletParticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
@@ -39,6 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -50,16 +65,6 @@ PrefabInstance:
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,

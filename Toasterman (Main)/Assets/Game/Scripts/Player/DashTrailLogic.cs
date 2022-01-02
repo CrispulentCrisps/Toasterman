@@ -20,5 +20,4 @@ public class DashTrailLogic : MonoBehaviour, IPooledObject
         PtfScale = Ptf.localScale;
         gameObject.transform.localScale = PtfScale;
     }
-
 }

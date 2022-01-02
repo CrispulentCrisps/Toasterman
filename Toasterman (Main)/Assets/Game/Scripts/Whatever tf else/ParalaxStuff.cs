@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class ParalaxStuff : MonoBehaviour
@@ -9,10 +7,13 @@ public class ParalaxStuff : MonoBehaviour
 
     public Vector3[] FrontPos;
 
+    public float[] ParaDampen;
+
+    public float[] YPos;
+
     public float paraspeed;
     public float paraspeedGoal;
     public float paraspeedIncrement;
-    public float ParaDampen;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,8 @@ public class ParalaxStuff : MonoBehaviour
         for (int i = 0; i < FrontPos.Length; i++)
         {
             FrontPos[i] = Layer[i].transform.position; // set positions
+            YPos[i] = FrontPos[i].y;
         }
-
     }
 
     // Updates every frame
@@ -55,35 +56,25 @@ public class ParalaxStuff : MonoBehaviour
         }
         for (int i = 0; i < Layer.Length; i++)
         {
-            switch (i)
-            {
-                default: FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
-                    break;
-                case 0: FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
-                    break;
-                case 1:
-                    FrontPos[i] -= new Vector3(paraspeed * Time.deltaTime, 0, 0);
-                    break;
-                case 2:
-                    FrontPos[i] -= new Vector3(paraspeed / ParaDampen * Time.deltaTime, 0, 0);
-                    break;
-                case 3:
-                    FrontPos[i] -= new Vector3(paraspeed / ParaDampen * Time.deltaTime, 0, 0);
-                    break;
-                case 4:
-                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
-                    break;
-                case 5:
-                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 2) * Time.deltaTime, 0, 0);
-                    break;
-                case 6:
-                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 4) * Time.deltaTime, 0, 0);
-                    break;
-                case 7:
-                    FrontPos[i] -= new Vector3(paraspeed / (ParaDampen * 4) * Time.deltaTime, 0, 0);
-                    break;
-            }
+            FrontPos[i] -= new Vector3(paraspeed / ParaDampen[i] * Time.deltaTime, 0f, 0);
             Layer[i].transform.position = FrontPos[i];
         }
+    }
+
+    public IEnumerator MoveYAToB(float seconds, float[] YPosB, AnimationCurve ACurve)
+    {
+        float t = 0f;  //time value for the ACurve.Evaluate
+        while (ACurve.Evaluate(Time.deltaTime / seconds) < 1)
+        {
+            t += Time.deltaTime;
+            for (int i = 0; i < Layer.Length; i++)
+            {
+                float YPosA = FrontPos[i].y;
+                FrontPos[i] = new Vector3(FrontPos[i].x, Mathf.Lerp(YPosA, YPosB[i], ACurve.Evaluate(Time.deltaTime / seconds)), FrontPos[i].z);
+                Layer[i].transform.position = FrontPos[i];
+            }
+            yield return new WaitForFixedUpdate();
+        }
+        Debug.Log("DONE");
     }
 }

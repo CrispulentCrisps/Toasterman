@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -12,24 +10,33 @@ public class Dialog : MonoBehaviour
     public GameObject GotoButton;
     public GameObject SkipButton;
 
+    public RectTransform ContTf;
+    public RectTransform SkipTf;
+
     public Animator ToastAnim;
     public Animator OtherAnim;
     public Animator BoxAnim;
     public Animator TxtAnim;
 
     public SentencesRec[] sentences;
+    
     public float TypingSpeed;
 
-    public int index = -1;
+    public int index;
     public int indexDone;
+    public int SelectState;
 
-    public bool Started;
-    private bool ToastEntered = false;
-    private bool OtherEntered = false;
+    public bool Started = false;
+    public bool ToastEntered = false;
+    public bool OtherEntered = false;
     private bool StartAnimating = false;
+    private bool Continue = false;
+    private bool Changed = false;
 
     void Update()
     {
+        //Move arrow
+        PauseMenuScript.GameIsPaused = false; //Stops game from being paused
         if (index >= indexDone)
         {
             textDisplay.text = " ";
@@ -37,25 +44,120 @@ public class Dialog : MonoBehaviour
             SkipButton.SetActive(false);
             GotoButton.SetActive(true);
         }
+
+        //Controller Input
+        if (Input.GetAxisRaw("Horizontal") > 0f && !Changed)
+        {
+            SelectState++;
+            Changed = true;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0f && !Changed)
+        {
+            SelectState--;
+            Changed = true;
+        }
+        else if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            Changed = false;
+        }
+
+        if (SelectState < 0)
+        {
+            SelectState = 0;
+        }
+
+        if (SelectState > 1)
+        {
+            SelectState = 1;
+        }
+
         if (StartAnimating)
         {
             if (sentences[index].ToastIn && !ToastEntered)
             {
                 ToastAnim.Play("In");
+                ToastEntered = true;
             }
             else if (!sentences[index].ToastIn && ToastEntered)
             {
                 ToastAnim.Play("Out");
             }
-            else if (sentences[index].AndrussIn && !OtherEntered)
+            
+            if (sentences[index].AndrussIn && !OtherEntered)
             {
                 OtherAnim.Play("In");
+                OtherEntered = true;
             }
             else if (!sentences[index].AndrussIn && OtherEntered)
             {
                 OtherAnim.Play("Out");
             }
-
+            //Makes sure portraits don't stay on after text it done
+            if (index < indexDone)
+            {
+                //Toast emotion
+                if (sentences[index].ToastIn && ToastEntered)
+                {
+                    switch (sentences[index].ToastEmote)
+                    {
+                        case 1:
+                            ToastAnim.Play("Normal");
+                            break;
+                        case 2:
+                            ToastAnim.Play("Happy");
+                            break;
+                        case 3:
+                            ToastAnim.Play("Sad");
+                            break;
+                        case 4:
+                            ToastAnim.Play("Angry");
+                            break;
+                        case 5:
+                            ToastAnim.Play("Confused");
+                            break;
+                        case 6:
+                            ToastAnim.Play("Electrified");
+                            break;
+                        case 7:
+                            ToastAnim.Play("Suspicious");
+                            break;
+                        case 8:
+                            ToastAnim.Play("Sick");
+                            break;
+                    }
+                }
+                //Other emotion
+                if (sentences[index].AndrussIn && OtherEntered)
+                {
+                    switch (sentences[index].AndrussEmote)
+                    {
+                        case 0:
+                            OtherAnim.Play("AndrussNoTalk");
+                            break;
+                        case 1:
+                            OtherAnim.Play("AndrussNormal");
+                            break;
+                        case 2:
+                            OtherAnim.Play("AndrussAngry");
+                            break;
+                        case 3:
+                            OtherAnim.Play("AndrussAngryNoTalk");
+                            break;
+                        case 4:
+                            OtherAnim.Play("AndrussWorry");
+                            break;
+                        case 5:
+                            OtherAnim.Play("AndrussWorryNoTalk");
+                            break;
+                        case 6:
+                            OtherAnim.Play("AndrussHappy");
+                            break;
+                        case 7:
+                            OtherAnim.Play("AndrussHappyNoTalk");
+                            break;
+                    }
+                }
+            }
             if (Started == true)
             {
                 StartCoroutine(Type());
@@ -66,9 +168,10 @@ public class Dialog : MonoBehaviour
 
     IEnumerator Type()
     {
+        //actual typing
         ContinueButton.SetActive(false);
         SkipButton.SetActive(false);
-
+        Continue = false;
         foreach (char letter in sentences[index].Words.ToCharArray())
         {
             if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
@@ -102,6 +205,7 @@ public class Dialog : MonoBehaviour
                 yield return new WaitForSeconds(TypingSpeed);
             }
         }
+        Continue = true;
         ContinueButton.SetActive(true);
         SkipButton.SetActive(true);
     }
@@ -112,7 +216,6 @@ public class Dialog : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         TxtAnim.Play("TextBox");
         Started = true;
-        index = 0;
         StartAnimating = true;
     }
 
@@ -134,7 +237,6 @@ public class Dialog : MonoBehaviour
 
     public void SkipText()
     {
-        index = indexDone + 1;
         if (ToastEntered)
         {
             ToastAnim.Play("Out");
@@ -143,6 +245,7 @@ public class Dialog : MonoBehaviour
         {
             OtherAnim.Play("Out");
         }
+        index = indexDone;
         textDisplay.text = " ";
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);

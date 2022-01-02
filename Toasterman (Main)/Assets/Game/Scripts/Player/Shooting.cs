@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +9,13 @@ public class Shooting : MonoBehaviour
     ObjectPools objectPooler;
 
     public TextMeshProUGUI textDisplay;
+    public TextMeshProUGUI ScoreDisplay;
+
+    public float Score;
+    public static float TargetScore;
+
+    public Color AddColour;
+    public Color TakeColour;
 
     public float FireRate = 0f;
     public float ReloadTime = 10f;
@@ -32,23 +38,64 @@ public class Shooting : MonoBehaviour
 
     private string[] ProjectileNames;
 
-
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
-
-        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Power" };//Text cannot be greater than 7-8 characters
+        ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Pierce" };//Text cannot be greater than 7-8 characters
         BulletLevel = new int[] {0,0,0,0,0,0};
-
+        Score = 0;
+        TargetScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //score
+        ScoreDisplay.text = "Score: " + Score;
+        ScoreDisplay.color += new Color(255f, 255f, 255f, 255f) * Time.deltaTime * 0.1f;
+        if (TargetScore - Score <= 1000 && TargetScore - Score > 100)
+        {
+            if (Score < TargetScore)
+            {
+                Score += 100;
+                ScoreDisplay.color = AddColour;
+            }
+            else if (Score > TargetScore)
+            {
+                Score -= 100;
+                ScoreDisplay.color = TakeColour;
+            }
+        }
+        else if (TargetScore - Score <= 100 && TargetScore - Score > 10)
+        {
+            if (Score < TargetScore)
+            {
+                Score += 10;
+                ScoreDisplay.color = AddColour;
+            }
+            else if (Score > TargetScore)
+            {
+                Score -= 10;
+                ScoreDisplay.color = TakeColour;
+            }
+        }
+        else if (TargetScore - Score <= 10)
+        {
+            if (Score < TargetScore)
+            {
+                Score++;
+                ScoreDisplay.color = AddColour;
+            }
+            else if (Score > TargetScore)
+            {
+                Score--;
+                ScoreDisplay.color = TakeColour;
+            }
+        }
 
         FireRate += Increment * Time.deltaTime;
-
-        if (BulletLevel[4] >= 1)
+        //special bullets
+        if (BulletLevel[4] >= 1)//BulletLevel[4] is for the 'fuck everything on screen' attack
         {
             StartCoroutine(BreadzookaBlast(2.25f, 12, 0.05f));
             AudioManager.instance.Play("BreadzookaBlastTheme");
@@ -63,30 +110,22 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))// shooting input
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("Fire1"))// shooting input
         {
-
             Auto = true;
-
         }
-        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.M))
+        else if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.B) || Input.GetButtonUp("Fire1"))
         {
-
             Auto = false;
-
         }
         
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.M) || Input.GetButtonUp("Fire3"))
         {
-
-            BulletType++;
-            
+            BulletType++;  
         }
-        else if (Input.GetKeyUp(KeyCode.X))
+        else if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.N) || Input.GetButtonUp("Fire2"))
         {
-
-            BulletType--;
-            
+            BulletType--;  
         }
 
         if (BulletType < 0)
@@ -133,7 +172,6 @@ public class Shooting : MonoBehaviour
                 break;
             case 1:
                 Increment = 1.5f;
-                BulletPatternsModule.ShootArc(BulletLevel[BulletType] * 90, BulletLevel[BulletType], ProjectileNames[BulletType],tf,-90f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 2:
@@ -141,7 +179,7 @@ public class Shooting : MonoBehaviour
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 3:
-                Increment = 0.25f + (BulletLevel[BulletType] * 0.25f);
+                Increment = 0.25f + (BulletLevel[BulletType] * 0.075f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
         }
@@ -157,7 +195,6 @@ public class Shooting : MonoBehaviour
             angle += AngleStep;
             objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));
         }
-
     }
 
     //IEnumerators

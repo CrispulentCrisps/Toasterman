@@ -93,6 +93,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -102,11 +103,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -175,7 +176,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0e831a28aa598bda0800000000000000
-      internalID: -5928824349864675104
+      internalID: 6838252651532596472
       vertices: []
       indices: 
       edges: []
@@ -196,7 +197,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bcd65aa1de394db90800000000000000
-      internalID: -7217981656204481077
+      internalID: -6352345173558803811
       vertices: []
       indices: 
       edges: []
@@ -217,7 +218,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7e6941094d4978cb0800000000000000
-      internalID: -4861753632051915033
+      internalID: -1181665904896993420
       vertices: []
       indices: 
       edges: []
@@ -274,6 +275,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GasHead_0: 6838252651532596472
+      GasHead_1: -6352345173558803811
+      GasHead_4: -4512688098233680348
+      GasHead_3: -1711017315520460099
+      GasHead_2: -1181665904896993420
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -26,100 +26,65 @@ public class JabAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     public void OnObjectSpawn()
     {
-
         GameObject WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
         enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
-
         Ship = GameObject.Find("Ship");
         Target = Ship.GetComponent<Transform>();
-
         Movement = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-
         if (coll.gameObject.CompareTag("Player"))
         {
-
             Health = 0f;
-
         }else if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
-
         }
 
         if (Health <= 0)
         {
-
+            Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
             objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
             gameObject.SetActive(false);
-
         }
-
-
     }
-
-    // Update is called once per frame
     void Update()
     {
-
         if (tf.position.x <= Target.position.x + 3f || tf.position.x >= Target.position.x - 3f || tf.position.y <= Target.position.y + 5f || tf.position.y >= Target.position.y - 5f)
         {
-
             Anim.SetTrigger("Jab");
-
             TargetLocked = true;
-
         }
-
         if (TargetLocked == true)
         {
-
             Movement *= new Vector2(0.9f, 0.75f);
-
         }
-
     }
-
-
 
     void FixedUpdate()
     {
-
         tf.Translate(Movement * Time.deltaTime);
-
     }
-
 
     public void StopAndLook()
     {
-
         Movement = new Vector2(0f, 0f);
-
         //look at by https://answers.unity.com/questions/1023987/lookat-only-on-z-axis.html
-
         Vector3 difference = Target.position - tf.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         tf.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 180);
-
     }
 
     public void Jab()
     {
-
-        Movement += new Vector2(-JabSpeed, 0f);
-
+        Movement -= new Vector2(JabSpeed, 0f);
     }
-
 }

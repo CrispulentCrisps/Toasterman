@@ -7,6 +7,10 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     public Transform tf;
 
+    public CircleCollider2D Collision;
+
+    private Shooting shooting;
+
     private Vector2 Movement;
 
     private float speedx = 0;
@@ -18,9 +22,9 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        speedx = Random.Range(11f, 14f);
+        speedx = Random.Range(11f, 14f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.5f);
         SpeedScaleDivX = speedx;
-        speedy = Random.Range(-5f,5f);
+        speedy = Random.Range(-5f,5f) * (1 + ((float)Shooting.BulletLevel[1]) * 0.5f);
         SpeedScaleDivY = speedy;
         LifeTimeHits = 3;
     }
@@ -32,11 +36,12 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        speedx *= 0.95f;
-        speedy *= 0.95f;
+        Collision.enabled = !Collision.enabled;
+        speedx *= 0.9f;
+        speedy *= 0.9f;
         Movement = new Vector2(speedx, speedy);
         tf.localScale = new Vector3(speedx / SpeedScaleDivX, speedy / SpeedScaleDivY, 0f);
-        if (speedx <= 0.9f)
+        if (speedx <= 0.1f)
         {
             speedx = 0f;
             speedy = 0f;

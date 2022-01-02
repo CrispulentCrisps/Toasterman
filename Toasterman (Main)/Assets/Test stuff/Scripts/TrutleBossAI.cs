@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class TrutleBossAI : MonoBehaviour, IPooledObject
@@ -38,8 +38,6 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     public int RegularAmount;
 
     private int State = 99;
-    
-    private Quaternion BulletRot;
 
     public bool Intro = true;
     public bool Killed = false;
@@ -51,16 +49,16 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     private float Timer;
     private float Timer2;
-
-
+    private float Timer3;
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
 
         tf.position = new Vector3(25,0,-1);
         Timer = 0;
+        Timer2 = 0;
+        Timer3 = 0;
 
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -74,31 +72,38 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         YSpeed = 0f;
         Timer = 0;
         Timer2 = 0;
+        Timer3 = 0;
         Target = GameObject.FindGameObjectWithTag("Player").transform;
         paralaxStuff = GameObject.FindGameObjectWithTag("BackGroundStuff").GetComponent<ParalaxStuff>();
         paralaxStuff.paraspeedGoal = 75f;
-        BGAnim = GameObject.FindGameObjectWithTag("UninspiredBackground").GetComponent<Animator>();
+        BGAnim = GameObject.FindGameObjectWithTag("BGAnim").GetComponent<Animator>();
         BGAnim.SetTrigger("AnimB");
         Intro = false;
         StartCoroutine(StartStuff());
     }
     public void FixedUpdate()
     {
-        
         rb.MovePosition(rb.position - Speed * Time.deltaTime);
-
     }
 
     void Update()
     {
-
-        Timer += Time.deltaTime;
+      Timer += Time.deltaTime;
 
         Speed.y = YSpeed;
-        
+        //Death
         if (Health <= 0f && State != -1)
         {
+            anim.SetTrigger("Death");
+            State = -2;
             Timer = -1;
+            Timer3 += Time.deltaTime;
+            if (Timer3 >= 0.05f)
+            {
+                objectPooler.SpawnFromPool("Smoke", new Vector3(BoomPoint.position.x + UnityEngine.Random.Range(-3.5f, 3.5f), BoomPoint.position.y + UnityEngine.Random.Range(-1f, 1f), 0), Quaternion.identity);
+                Timer3 = 0f;
+            }
+                        anim.SetTrigger("Death");
             if (tf.position.y > Target.position.y)
             {
                 YSpeed = 5;
@@ -108,62 +113,70 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
                 YSpeed = -5;
             }
 
-            if (tf.position.y > -1f || tf.position.y > 1f)
-            {
-                anim.SetTrigger("Death");
-            }
-
-        }else if (Health <= 0f && State == -1)
+        }
+        else if (Health <= 0f && State == -1)
         {
-
             XSpeed = XVel;
             XVel -= 1f;
             Speed.x -= XSpeed * Time.deltaTime;
             YSpeed = 0;
-
             if (tf.position.x <= -15 && Killed == false)
             {
-
                 DieShake();
                 Killed = true;
             }
         }
 
-        if (Timer >= 2)
+        if (Timer >= 4)
         {
             if (Health > 0f)
             {
-
-                State = Random.Range(0, 4);
-
+                State = UnityEngine.Random.Range(0, 4);
             }
             if (Health > 0f)
             {
                 switch (State) //Attacks
                 {
+                    case 0:
+                        anim.SetTrigger("Idle");
+                        break;
                     case 1:
                         anim.SetTrigger("Missle");
+                        Timer = 0;
                         break;
                     case 2:
                         anim.SetTrigger("Tail");
+                        Timer = 0;
                         break;
                     case 3:
                         anim.SetTrigger("BigHurt");
-                        break;
-                    default:
-                        anim.SetTrigger("Idle");
+                        Timer = 0;
                         break;
                 }
                 Timer = 0;
             }
         }
 
-        if (Health <= 250f && Health > 0)
+        if (Health <= 400f && Health > 0)
         {
-
             paralaxStuff.paraspeedGoal = 100f;
             Timer2 += Time.deltaTime;
-            if (Timer2 >= 1.5f)
+            if (Health > 300 && Timer2 >= 1f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health > 200 && Health < 300 && Timer2 >= 0.75f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health > 100 && Health < 200 && Timer2 >= 0.5f)
+            {
+                Booming();
+                Timer2 = 0;
+            }
+            else if (Health < 100 && Timer2 >= 0.25f)
             {
                 Booming();
                 Timer2 = 0;
@@ -215,11 +228,10 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void Booming()
     {
-
-        objectPooler.SpawnFromPool("BigExplosion", new Vector3(BoomPoint.position.x + Random.Range(-3.5f,3.5f), BoomPoint.position.y + Random.Range(-3.5f, 3.5f),0), Quaternion.identity);
+        objectPooler.SpawnFromPool("BigExplosion", new Vector3(BoomPoint.position.x + UnityEngine.Random.Range(-3.5f,3.5f), BoomPoint.position.y + UnityEngine.Random.Range(-3.5f, 3.5f),0), Quaternion.identity);
         if (tf.position.x >= -15)
         {
-            AudioManager.instance.ChangePitch("Explosion", Random.Range(.1f, .75f));
+            AudioManager.instance.ChangePitch("Explosion", UnityEngine.Random.Range(.1f, 1f));
             AudioManager.instance.Play("Explosion");
         }
     }
@@ -261,10 +273,10 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void ShootTail()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             objectPooler.SpawnFromPool("TailShot", MissleShotSpot.position, Quaternion.identity);
-            AudioManager.instance.ChangePitch("Tail", Random.Range(1f, .75f));
+            AudioManager.instance.ChangePitch("Tail", UnityEngine.Random.Range(1f, .75f));
             AudioManager.instance.Play("Tail");
         }
     }
@@ -272,5 +284,13 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     public void IntroDone()
     {
         Intro = false;
+    }
+
+    public void ResetTriggers()
+    {
+        anim.ResetTrigger("Missle");
+        anim.ResetTrigger("Idle");
+        anim.ResetTrigger("Tail");
+        anim.ResetTrigger("BigHurt");
     }
 }

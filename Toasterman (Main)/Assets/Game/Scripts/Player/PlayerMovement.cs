@@ -5,6 +5,10 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 {
     public Transform tf;
 
+    public SpriteRenderer sr;
+
+    public Sprite[] TiltSprites;
+
     public BoxCollider2D bounds;
 
     private float Health = 100f;
@@ -76,7 +80,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             Anim.SetTrigger("Hurt");
             timer = 5f;
             AudioManager.instance.Play("Hurt");
-            AudioManager.instance.ChangePitch("Hurt",Random.Range(0.9f,1.1f));
+            AudioManager.instance.ChangePitch("Hurt",Random.Range(0.75f,1.25f));
         }
 
     }
@@ -97,12 +101,32 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             Movement.y = Input.GetAxis("Vertical") * Velocity;
         }
 
+        if (Movement.y < -0.01f * Velocity && Movement.y > -0.5f * Velocity)
+        {
+            sr.sprite = TiltSprites[1];
+        } else if (Movement.y <= -0.5f / Normalspeed)
+        {
+            sr.sprite = TiltSprites[2];
+        }
+        else if (Movement.y > 0.01f * Velocity && Movement.y < 0.5f * Velocity)
+        {
+            sr.sprite = TiltSprites[3];
+        }
+        else if (Movement.y >= 0.5f * Velocity)
+        {
+            sr.sprite = TiltSprites[4];
+        }
+        else
+        {
+            sr.sprite = TiltSprites[0];
+        }
+
         if (Alive == true)
         {
             DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
-            if (Alive && !Invincible)//This makes sure thatplayer takes damage in hitbox
+            if (Alive && !Invincible)//This makes sure that player takes damage in hitbox
             {
                 bounds.enabled = !bounds.enabled;
             }
@@ -121,7 +145,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
                 Die();
             }
             //Dashing
-            if (Input.GetKeyUp(KeyCode.Space) && DashSlider.value >= 1f)
+            if (Input.GetKeyDown(KeyCode.Space) && DashSlider.value >= 1f)
             {
                 Dash();
             }
@@ -167,17 +191,22 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     //-------------------------------------------------|=========|-------------------------------------------------------\\
     //-------------------------------------------------|==functions= |-------------------------------------------------------\\
     //-------------------------------------------------|=========|-------------------------------------------------------\\
+    public void SpawnToast()
+    {
+        //TODO
+    }
+
     public void Die()
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
-        FindObjectOfType<AudioManager>().Play("BigExplosion");
+        AudioManager.instance.Play("BigExplosion");
         Alive = false;
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(1f, 1f));
         tf.position = new Vector3(0, 0, 0);
         for (int i = 0; i < Shooting.BulletType; i++)
         {
-            Shooting.BulletLevel[i]--;
+            Shooting.BulletLevel[i] = 0;
         }
     }
 
@@ -209,7 +238,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         DashTimer = DashLength;
         Velocity = DashSpeed;
         Anim.SetTrigger("Dash");
-        FindObjectOfType<AudioManager>().Play("Dash");
+        AudioManager.instance.Play("Dash");
         Dashin = true;
     }
 

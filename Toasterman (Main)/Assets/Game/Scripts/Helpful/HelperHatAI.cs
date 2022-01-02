@@ -3,7 +3,6 @@
 public class HelperHatAI : MonoBehaviour, IPooledObject
 {
     public Transform tf;
-    public Transform PowrSpawnPoint;
 
     private Animator anim;
 
@@ -13,6 +12,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
     private float Xvel;
 
     private bool Thrown;
+    public string[] HelpNames;
 
     ObjectPools objectPooler;
 
@@ -54,7 +54,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     public void SpawnPower()
     {
-        objectPooler.SpawnFromPool("BulletAdd", PowrSpawnPoint.position, Quaternion.identity);
+        objectPooler.SpawnFromPool(HelpNames[EnemyScript.PowerNum], tf.position, Quaternion.identity);
     }
 
 }

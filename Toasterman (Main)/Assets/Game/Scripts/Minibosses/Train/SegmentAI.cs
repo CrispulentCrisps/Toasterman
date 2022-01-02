@@ -17,16 +17,14 @@ public class SegmentAI : MonoBehaviour, IPooledObject
 
     public float YSpeed;
 
-    public bool Alive = true;
+    public static bool Alive = true;
     private bool Gravity;
 
     private float RotationAmount;
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     public void OnObjectSpawn()
@@ -44,17 +42,13 @@ public class SegmentAI : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("BigStone"))
         {
-
             Alive = false;
-
             YSpeed = Random.Range(10f, 20f);
-            MovementSpeed = Random.Range(-1f, -10f);
+            MovementSpeed = Random.Range(1f, 5f);
             RotationAmount = Random.Range(-135f,135f);
             boxcol.enabled = false;
             Gravity = true;
-
         }
-
     }
 
     // Update is called once per frame
@@ -83,7 +77,7 @@ public class SegmentAI : MonoBehaviour, IPooledObject
         {
 
             YSpeed -= 9.81f * Time.deltaTime;
-
+            MovementSpeed -= 10 * Time.deltaTime;
             tf.Rotate(0, 0, RotationAmount);
 
             if (tf.position.y <= -10f + tf.localScale.x)

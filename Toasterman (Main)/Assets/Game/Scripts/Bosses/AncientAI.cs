@@ -21,7 +21,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     private string BulletName;
 
-    public int State;
+    public int State = 0;
     public int SineOffset;
     public int BulletAmount;
     public int ShootingType;
@@ -83,7 +83,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             if (TSpace >= 3f && Shooting == false)
             {
+                int StateCheck = State;
                 State = Random.Range(MinState, MaxState);
+                if (StateCheck == State)
+                {
+                    State = Random.Range(MinState, MaxState);
+                }
                 TSpace = 0;
             }
 
@@ -110,6 +115,10 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     State = 0;
                     break;
                 case 4:
+                    Anim.SetTrigger("Spore");
+                    State = 0;
+                    break;
+                case 5:
                     Anim.SetTrigger("Spore");
                     State = 0;
                     break;
@@ -158,12 +167,12 @@ public class AncientAI : MonoBehaviour, IPooledObject
                 MinState = 0;
                 break;
             case 1:
-                BulletAmount = 10;
+                BulletAmount = 9;
                 MaxState = 4;
                 break;
             case 2:
-                BulletAmount = 12;
-                MaxState = 5;
+                BulletAmount = 10;
+                MaxState = 6;
                 MinState = 1;
                 break;
         }
@@ -180,55 +189,48 @@ public class AncientAI : MonoBehaviour, IPooledObject
                         Shooting = false;
                         j = 0;
                     }
-
                     TimingSpaceRock += Time.deltaTime;
-
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletAmount -= j;
                         BulletName = "Rock";
-                        FindObjectOfType<AudioManager>().Play("Missle");
+                        AudioManager.instance.Play("Missle");
                         BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[j % 2], j + (HandScript.HandsGone * 29f));
                         TimingSpaceRock = 0;
                         j++;
                     }
                     break;
                 case 1:
-
                     TimingSpaceRock += Time.deltaTime;
-
                     if (TimingSpaceRock > 0.1f)
                     {
                         BulletName = "SmallRock";
-                        FindObjectOfType<AudioManager>().Play("Tail");
-                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[4], 15f * Mathf.Sin(j * 0.125f) + (BulletAmount * 0.125f + j));
+                        AudioManager.instance.Play("Tail");
+                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[4], 10f * Mathf.Sin(j * 0.25f) + (BulletAmount * 0.125f + j));
                         TimingSpaceRock = 0;
                         j++;
                     }
                     break;
             }
-
         }
-
     }
 
     //Functions
-
     public void DeathSoundPlay()
     {
-        FindObjectOfType<AudioManager>().Play("Boss die 2");
+        AudioManager.instance.Play("Boss die 2");
         StartCoroutine(camerashake.Shake(4f, 0.1f));
     }
 
     public void FadeBossTheme()
     {
-        StartCoroutine(FindObjectOfType<AudioManager>().FadeAudio("Corrupt deity",0.33f));
+        StartCoroutine(AudioManager.instance.FadeAudio("Corrupt deity",0.33f));
         paralaxstuff.paraspeedGoal = 0f;
     }
 
     public void ShootSpore(int Amount)
     {
-        FindObjectOfType<AudioManager>().Play("Thud");
+        AudioManager.instance.Play("Thud");
         for (int i = 0; i < Amount; i++)
         {
             objectPooler.SpawnFromPool("SporeBomb", BodyParts[4].position, Quaternion.identity);
@@ -239,20 +241,20 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public void StartLazer()
     { 
         objectPooler.SpawnFromPool("Lazer", BodyParts[4].position, Quaternion.identity);
-        StartCoroutine(camerashake.Shake(5f, 0.015f));
+        StartCoroutine(camerashake.Shake(5f, 0.00015f));
     }
 
     public void StartMusic()
     {
-        FindObjectOfType<AudioManager>().SetVolume("Corrupt deity", 1f);
-        FindObjectOfType<AudioManager>().Play("Corrupt deity");
-        paralaxstuff.paraspeedGoal = 100f;
+        AudioManager.instance.SetVolume("Corrupt deity", 1f);
+        AudioManager.instance.Play("Corrupt deity");
+        paralaxstuff.paraspeedGoal = 50f;
     }
 
     public void Shoot()
     {
-        Shooting = true;
         ShootingType = 0;
+        Shooting = true;
     }
     
     public void ShootEnd()
@@ -263,8 +265,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public void ShootCenter()
     {
-        Shooting = true;
         ShootingType = 1;
+        Shooting = true;
     }
 
     public void IntroComplete()
@@ -272,14 +274,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
         IntroDone = true;
     }
 
-    public void ChangeToNormal()
-    {
-        bigmushroom.SwapBGToBGNormal();
-    }
-
     public void KillShroom()
     {
         ShroomAnim.SetTrigger("Die");
     }
-
 }

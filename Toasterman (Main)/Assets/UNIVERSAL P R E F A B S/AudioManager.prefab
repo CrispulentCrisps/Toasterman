@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7064026301311966473}
-  - component: {fileID: 7064026301311966472}
+  - component: {fileID: 7626324398613337657}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7064026301311966472
+--- !u!114 &7626324398613337657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: How shroomy are you?
     clip: {fileID: 8300000, guid: 384b493a88828ed49b8f1fb534ccb481, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -296,4 +296,34 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Shoot1
+    clip: {fileID: 8300000, guid: 3b30940fa8489ac4d899491c7e2f5556, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShootCaps
+    clip: {fileID: 8300000, guid: c9ccd34052280a541afffeb95c28ff55, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot
+    clip: {fileID: 8300000, guid: 10bc8280016da9b4b868005088cd4cca, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DropBomb
+    clip: {fileID: 8300000, guid: 8202568a0d10a6a41b22f2a9ede412d4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShroomEnter
+    clip: {fileID: 8300000, guid: ca6c2b37889f0f748800ad2b3a55d538, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

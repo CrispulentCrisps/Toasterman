@@ -36,6 +36,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -45,8 +46,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -118,20 +119,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 177.65825, y: 1679.9728, z: 0}
         rotation: {x: 0, y: 0, z: -0.71013504, w: 0.7040655}
         length: 740.013
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 851.5757, y: 0.000019770088, z: 0}
         rotation: {x: 0, y: 0, z: 0.7122782, w: 0.7018973}
         length: 373.41342
         parentId: 2
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 740.01294, y: -0.000009769898, z: 0}
         rotation: {x: 0, y: 0, z: 0, w: 1}
         length: 851.5757
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: 96315a92610aeb6c0800000000000000
       internalID: -4125684191576386711
       vertices:
@@ -691,20 +704,32 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
+        guid: 
         position: {x: 267.24683, y: 1692.1675, z: 0}
         rotation: {x: 0, y: 0, z: -0.70468783, w: 0.7095175}
         length: 728.64307
         parentId: -1
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_2
+        guid: 
         position: {x: 728.6432, y: 0.00010435264, z: 0}
         rotation: {x: 0, y: 0, z: 0, w: 1}
         length: 712.289
         parentId: 0
+        color:
+          serializedVersion: 2
+          rgba: 0
       - name: bone_3
+        guid: 
         position: {x: 712.289, y: -0.0000005998314, z: 0}
         rotation: {x: 0, y: 0, z: 0.000000084293205, w: 1}
         length: 225.77423
         parentId: 1
+        color:
+          serializedVersion: 2
+          rgba: 0
       spriteID: ce980266f70f783c0800000000000000
       internalID: -4357249684492744212
       vertices:
@@ -1428,6 +1453,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      RobotSpriteSheet_1: -4357249684492744212
+      RobotSpriteSheet_3: 6212537899125189806
+      RobotSpriteSheet_2: -590659060254215159
+      RobotSpriteSheet_0: -4125684191576386711
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

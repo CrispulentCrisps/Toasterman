@@ -13,6 +13,9 @@ public class BombAI : MonoBehaviour, IPooledObject
 
     public string BulletName;
 
+    public float InitSpeedX;
+    public float InitSpeedY;
+
     private float speedy;
     private float speedx;
 
@@ -31,6 +34,8 @@ public class BombAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        speedy = InitSpeedY;
+        speedx = InitSpeedX;
     }
 
     void Start()

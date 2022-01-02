@@ -23,6 +23,8 @@ public class ShieldMakerCore : MonoBehaviour
 
     public EnemyScript enemyScript;
 
+    private bool Ended = false;
+
     void Start()
     {
         objectPooler = ObjectPools.Instance;
@@ -35,6 +37,12 @@ public class ShieldMakerCore : MonoBehaviour
             CoreAnim.SetTrigger("Enter");
             BGAnim.SetTrigger("AnimA");
         }
+        if (Ended)
+        {
+            BGAnim.SetTrigger("AnimDone");
+            LIGHTAnim.SetTrigger("Normal");
+            AudioManager.instance.Stop("Level 1");
+        }
     }
 
     public void Smoke()
@@ -44,26 +52,29 @@ public class ShieldMakerCore : MonoBehaviour
 
     public void Siren()
     {
-        FindObjectOfType<AudioManager>().Play("Siren");
+        AudioManager.instance.Play("Siren");
     }
 
     public void StartBGEnd()
     {
+        Ended = true;
         BGAnim.SetTrigger("AnimDone");
         LIGHTAnim.SetTrigger("Normal");
-        FindObjectOfType<AudioManager>().Stop("Level 1");
+        AudioManager.instance.Stop("Level 1");
     }
 
     public void Shatter()
     {
         objectPooler.SpawnFromPool("CoreDeath", new Vector3(0f, -2f, 0f), Quaternion.Euler(-90f, 0f,0f));
         StartCoroutine(camerashake.AbberationChange(1f, 0.075f));
-        FindObjectOfType<AudioManager>().Play("BigShatter");
+        AudioManager.instance.Play("BigShatter");
     }
 
     public void Fanfare()
     {
-        FindObjectOfType<AudioManager>().Play("Victory2");
+        AudioManager.instance.Play("Victory2");
+        PlanetTally.PlanetsDone[0] = true;
+        PlanetTally.SaveData();
     }
 
     public void BoomUp()

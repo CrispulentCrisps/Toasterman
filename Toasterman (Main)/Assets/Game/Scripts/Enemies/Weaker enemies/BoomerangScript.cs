@@ -42,10 +42,8 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-
         rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
         tf.Rotate(0,0,RotSpeed * Time.deltaTime);
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -76,7 +74,7 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
     void Update()
     {
         //Turn around and hit player
-        if (tf.position.x <= Ship.transform.position.x && Happy == true)
+        if (tf.position.x <= Ship.transform.position.x - 2 && Happy == true)
         {
             Turn();
         }
@@ -87,7 +85,7 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
         if (Happy == false)
         {
             RotSpeed -= 360f * Time.deltaTime;
-            speed.x -= 0.35f;
+            speed.x -= 0.25f;
         }
     }
 

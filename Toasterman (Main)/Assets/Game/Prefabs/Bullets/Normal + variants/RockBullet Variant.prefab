@@ -14,16 +14,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
       propertyPath: m_Size.x
       value: 0.8
       objectReference: {fileID: 0}
@@ -32,6 +22,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554811445609766649, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863058, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_Name
@@ -39,17 +39,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
-      propertyPath: speedx
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: Freq
+      propertyPath: Amp
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
-      propertyPath: Amp
+      propertyPath: Freq
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
@@ -59,23 +54,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
+      propertyPath: speedx
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863061, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
       propertyPath: speedxMem
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.696236
+      value: -64.92279
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58055663
+      value: 14.880049
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
@@ -90,16 +100,6 @@ PrefabInstance:
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102476307835863062, guid: d7ad408d2eba78741822ef4faabb0a37,

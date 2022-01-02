@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotRunToPlayer : StateMachineBehaviour
@@ -43,7 +41,8 @@ public class RobotRunToPlayer : StateMachineBehaviour
         LaserPoint3 = GameObject.Find("LaserPoint3").GetComponent<Transform>();
         TimeThresh = Random.Range(1f,5f);
         State = 0;
-        Destructibles = new Transform[] {GameObject.Find("LEGFRONT").GetComponent<Transform>(), 
+        Destructibles = new Transform[] {
+            GameObject.Find("LEGFRONT").GetComponent<Transform>(), 
             GameObject.Find("LEGBACC").GetComponent<Transform>(), 
             GameObject.Find("ARMFRONT").GetComponent<Transform>(), 
             GameObject.Find("ARMBACK").GetComponent<Transform>(), 

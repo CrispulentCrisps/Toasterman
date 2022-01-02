@@ -9,11 +9,9 @@ public class ObjectPools : MonoBehaviour
 
     public class Pool
     {
-
         public string tag;
         public GameObject prefab;
         public int size;
-
     }
 
     #region Singleton
@@ -44,22 +42,16 @@ public class ObjectPools : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-
                 GameObject obj = Instantiate(pool.prefab);
-                obj.SetActive(false);
                 objectPool.Enqueue(obj);
-
+                obj.SetActive(false);
             }
-
             poolDictionary.Add(pool.tag, objectPool);
-
         }
-
     }
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
-
         if (!poolDictionary.ContainsKey(tag))
         {
             Debug.LogWarning("Object with tag:" + tag + " is not found");
@@ -71,25 +63,72 @@ public class ObjectPools : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-
         IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
 
         if (pooledObj != null)
         {
-
             pooledObj.OnObjectSpawn();
-
+            
+            try
+            {
+                BulletAI AI = objectToSpawn.GetComponent<BulletAI>();
+                if (AI != null)
+                {
+                    AI.SpeedChanged = false;
+                }
+            }
+            catch (System.Exception)
+            {
+                Debug.LogWarning("Error, BulletAI script not found on spawned object:" + objectToSpawn.name + ": you may have either used the wrong object spawn function or not have the script attached.");
+                throw;
+            }
         }
         else
         {
             Debug.LogWarning("Error, Object:" + objectToSpawn + " not found");
         }
-
-
         poolDictionary[tag].Enqueue(objectToSpawn);
-
         return objectToSpawn;
-
     }
 
+    public GameObject SpawnBulletFromPool(string tag, Vector3 position, Quaternion rotation, Vector2 Speed)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Object with tag:" + tag + " is not found");
+            return null;
+        }
+
+        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+
+        try
+        {
+            BulletAI AI = objectToSpawn.GetComponent<BulletAI>();
+            if (AI != null)
+            {
+                AI.SpeedChanged = true;
+                AI.speedx = Speed.x;
+                AI.speedy = Speed.y;
+            }
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("Error, BulletAI script not found on spawned object:" + objectToSpawn.name + ": you may have either used the wrong object spawn function or not have the script attached.");
+            throw;
+        }
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.rotation = rotation;
+        IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
+        if (pooledObj != null)
+        {
+            pooledObj.OnObjectSpawn();
+        }
+        else
+        {
+            Debug.LogWarning("Error, Object:" + objectToSpawn.name + " not found");
+        }
+        poolDictionary[tag].Enqueue(objectToSpawn);
+        return objectToSpawn;
+    }
 }
