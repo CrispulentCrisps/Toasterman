@@ -29,6 +29,7 @@ public class JabAI : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
     }
 
+    #region SpawningCode
     public void OnObjectSpawn()
     {
         GameObject WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
@@ -38,7 +39,9 @@ public class JabAI : MonoBehaviour, IPooledObject
         Target = Ship.GetComponent<Transform>();
         Movement = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
     }
+    #endregion
 
+    #region CollisionCode
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))
@@ -56,13 +59,12 @@ public class JabAI : MonoBehaviour, IPooledObject
             gameObject.SetActive(false);
         }
     }
+    #endregion
     void Update()
     {
-        if (tf.position.x <= Target.position.x + 3f || tf.position.x >= Target.position.x - 3f || tf.position.y <= Target.position.y + 5f || tf.position.y >= Target.position.y - 5f)
-        {
-            Anim.SetTrigger("Jab");
-            TargetLocked = true;
-        }
+        Anim.SetTrigger("Jab");
+        TargetLocked = true;
+        
         if (TargetLocked == true)
         {
             Movement *= new Vector2(0.9f, 0.75f);

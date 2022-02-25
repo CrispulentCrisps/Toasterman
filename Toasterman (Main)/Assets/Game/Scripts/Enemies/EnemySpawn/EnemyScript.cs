@@ -3,13 +3,15 @@
 public class EnemyScript : MonoBehaviour
 {
 
+    public bool DEBUGMODE;
+
+    public int i = 0; // i is for the amount of Waves in the level
+
     public EnemySet[] Waves; // sets up the variables for easy wave spawning
 
     ObjectPools objectPooler;
 
     private double Count;
-
-    public int i = 0; // i is for the amount of Waves in the level
 
     public float Space = 0; // has spacing added on to spread enemies out
     public float TriPos;
@@ -46,12 +48,18 @@ public class EnemyScript : MonoBehaviour
     public void WaveStart()
     {
         PowerNum = Waves[i].PowerType;
+
+        if (Waves[i].Inverse == 0)
+        {
+            Waves[i].Inverse = 1;
+        }
+
         switch (Waves[i].WaveType)
         {
             case 1:
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
-                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, tf.position.y + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
+                    objectPooler.SpawnFromPool(Name, new Vector3((tf.position.x + Space) * Waves[i].Inverse, tf.position.y + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
                 }
                 break;
@@ -60,7 +68,7 @@ public class EnemyScript : MonoBehaviour
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
 
-                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, (tf.position.y + TriPos) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
+                    objectPooler.SpawnFromPool(Name, new Vector3((tf.position.x + Space) * Waves[i].Inverse, (tf.position.y + TriPos) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
 
                     if (DoneUp == false)
@@ -77,7 +85,6 @@ public class EnemyScript : MonoBehaviour
                     {
                         DoneUp = false;
                     }
-
                 }
                 break;
 
@@ -85,7 +92,7 @@ public class EnemyScript : MonoBehaviour
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
 
-                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x, tf.position.y - 5f + ((WallSpace / Waves[i].Amount) * 10) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
+                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x * Waves[i].Inverse, tf.position.y - 5f + ((WallSpace / Waves[i].Amount) * 10) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
                     WallSpace++;
 
@@ -102,7 +109,7 @@ public class EnemyScript : MonoBehaviour
             case 5:
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
-                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space, tf.position.y * Waves[i].Radius * Mathf.Sin((tf.position.x - 16f) / Waves[i].Amount * Waves[i].RotateSpeed) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);//Radius is amplitude, rot speed is Frequency
+                    objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Space * Waves[i].Inverse, tf.position.y * Waves[i].Radius * Mathf.Sin((tf.position.x - 16f) / Waves[i].Amount * Waves[i].RotateSpeed) + Waves[i].StartYpos, tf.position.z), Quaternion.identity);//Radius is amplitude, rot speed is Frequency
                     Space += Waves[i].Spacing; // spaces the enemies out
                     RotSpace++;
                 }
@@ -111,7 +118,7 @@ public class EnemyScript : MonoBehaviour
                 for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
                 {
                     objectPooler.SpawnFromPool(Name, new Vector3(tf.position.x + Mathf.Max(Mathf.Abs(Waves[i].Radius + Waves[i].Radius * Mathf.Sin(RotSpace * (2 * Mathf.PI) / Waves[i].Amount))), 
-                        tf.position.y + Mathf.Max(Mathf.Abs(Waves[i].Radius + Waves[i].Radius * Mathf.Cos(RotSpace * (2 * Mathf.PI) / Waves[i].Amount))), tf.position.z), Quaternion.identity);
+                                                                 tf.position.y + Mathf.Max(Mathf.Abs(Waves[i].Radius + Waves[i].Radius * Mathf.Cos(RotSpace * (2 * Mathf.PI) / Waves[i].Amount))), tf.position.z), Quaternion.identity);
                     Space += Waves[i].Spacing; // spaces the enemies out
                     RotSpace++;
                 }
@@ -122,5 +129,10 @@ public class EnemyScript : MonoBehaviour
         TriPos = 0;
         Space = 0;
         RotSpace = 0;
+
+        if (DEBUGMODE)
+        {
+
+        }
     }
 }

@@ -18,7 +18,7 @@ public class WormWholeAI : MonoBehaviour, IPooledObject
 
     public float JumpForce;
     private float Timer;
-    private int TimerFull;
+    private float TimerFull;
     public float Health;
     private float TargetPosX;
 
@@ -33,7 +33,7 @@ public class WormWholeAI : MonoBehaviour, IPooledObject
         Ship = GameObject.Find("Ship");//gets the game object
         Target = Ship.GetComponent<Transform>();// gets the Transform 
 
-        TimerFull = Random.Range(1, 4);
+        TimerFull = Random.Range(1f, 3f);
     }
 
     void Start()
@@ -47,9 +47,7 @@ public class WormWholeAI : MonoBehaviour, IPooledObject
     {
         if (tf.position.y <= -10f)
         {
-
             Timer += Time.deltaTime;
-
         }
         
         if (Timer >= TimerFull && tf.position.y <= -10f && Alive == true)

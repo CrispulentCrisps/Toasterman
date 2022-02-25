@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5439253881998334693
 Transform:
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8104820381169924519}
   m_RootOrder: 1
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 5439253881998334693}
-  Speed: 270
+  Speed: -25
   AxisMult: 000000000000000001000000
 --- !u!1 &8067138444016429650
 GameObject:
@@ -115,7 +116,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2483143818718449376
 Transform:
@@ -127,6 +128,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8104820381169924519}
   m_RootOrder: 0
@@ -196,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 2483143818718449376}
-  Speed: -225
+  Speed: 25
   AxisMult: 000000000000000001000000
 --- !u!1 &8104820381169924513
 GameObject:
@@ -227,6 +229,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -28.98424, y: 9.456898, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2483143818718449376}
   - {fileID: 5439253881998334693}
@@ -300,7 +303,7 @@ MonoBehaviour:
   tf: {fileID: 8104820381169924519}
   shooting: {fileID: 0}
   Speed: 5
-  FallSpeedMult: 0.75
+  FallSpeedMult: 1.5
   PowerData: 0
 --- !u!58 &7394961678012771068
 CircleCollider2D:

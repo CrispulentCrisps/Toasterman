@@ -14,7 +14,7 @@ public class CircleAroundPoint : MonoBehaviour
     public bool PointFromCenter;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         TT += Time.deltaTime * Speed;
         //rb.position = new Vector3(CenterPoint.position.x + (XAmp * Mathf.Sin(TT + PhaseOffset)) + (XAmp * 0.5f), CenterPoint.position.y + (YAmp * Mathf.Cos(TT + PhaseOffset)) + (YAmp * 0.5f), 0f);

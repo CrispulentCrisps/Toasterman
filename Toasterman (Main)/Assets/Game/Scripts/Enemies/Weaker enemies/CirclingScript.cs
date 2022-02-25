@@ -49,9 +49,7 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -59,22 +57,19 @@ public class CirclingScript : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
-
         }
 
         if (Health <= 0)
         {
-
+            Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
             objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
             gameObject.SetActive(false);
-
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         angle += RotateSpeed * Time.deltaTime;
 
         Timer += Time.deltaTime;

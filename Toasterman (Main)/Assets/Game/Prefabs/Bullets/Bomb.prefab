@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   ArcSize: 360
   Offset: 0
   LevelToExplode: -3
-  BulletAmount: 6
+  BulletAmount: 12
   XorY: 0
   RandSetOff: 0
   MinSet: 0
@@ -142,6 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 35
+  Points: 0
+  PointMultiplier: 0
 --- !u!50 &3177875504145609683
 Rigidbody2D:
   serializedVersion: 4

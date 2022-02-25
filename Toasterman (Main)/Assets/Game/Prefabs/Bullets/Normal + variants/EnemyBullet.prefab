@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 9102476307835863062}
+  tr: {fileID: 0}
   BulletParticle: 
   speedx: 0
   speedy: 0
@@ -111,16 +113,26 @@ MonoBehaviour:
   SineMove: 0
   SineAmp: 0
   SineFreq: 0
+  Explode: 0
+  BulletShootName: 
+  LifetimeSave: 0
+  BulletAmount: 0
+  BulletShootType: 0
+  ArcSize: 0
+  ArcOffset: 0
+  ShootAtPlayer: 0
+  BaseSpeed: 0
+  MinSpeed: 0
+  MaxSpeed: 0
   BulletHealth: 0
-  speedxMem: 9
+  speedxMem: 0
   speedyMem: 0
   Specifics: 1
   Killable: 1
   SpeedChanged: 0
   CollisionNames:
-  - GoodThing
-  - Player
   - Bullet
+  - Player
 --- !u!61 &7554811445609766649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 8
+  Damage: 0
+  Points: 0
+  PointMultiplier: 0
 --- !u!50 &-1648162066589977527
 Rigidbody2D:
   serializedVersion: 4

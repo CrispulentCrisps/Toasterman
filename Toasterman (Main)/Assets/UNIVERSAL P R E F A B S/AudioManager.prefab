@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -323,6 +324,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ShroomEnter
     clip: {fileID: 8300000, guid: ca6c2b37889f0f748800ad2b3a55d538, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WormEnter
+    clip: {fileID: 8300000, guid: 44283f95426397d4f86fa6222ba6fa48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WormDie
+    clip: {fileID: 8300000, guid: a699125f0b8ca214c8f286d6a1a6f5ee, type: 3}
     volume: 1
     pitch: 1
     loop: 0

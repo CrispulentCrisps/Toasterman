@@ -121,19 +121,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f7b658bf4d42f4db1a20587c098c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tf: {fileID: 0}
+  tf: {fileID: 8598170598732470313}
   Target: {fileID: 0}
   Ship: {fileID: 0}
   WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
-  BulletName: 
-  BulletAmount: 0
+  BulletName: SlowEnemyBullet
+  BulletAmount: 1
   angle: 0
-  ShotTime: 0
+  ShotTime: 3
   ShotInterval: 0
   Radius: 0
   RotateSpeed: 0
-  Health: 0
+  Health: 5
 --- !u!58 &525031738
 CircleCollider2D:
   m_ObjectHideFlags: 0

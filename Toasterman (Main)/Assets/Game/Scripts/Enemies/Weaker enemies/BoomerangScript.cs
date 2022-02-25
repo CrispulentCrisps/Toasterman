@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BoomerangScript : MonoBehaviour, IPooledObject
 {
@@ -35,7 +33,7 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
         I = enemyscript.i;
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
-        speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
+        speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);
         RotSpeed = 45f;
     }
 
@@ -57,6 +55,7 @@ public class BoomerangScript : MonoBehaviour, IPooledObject
             Health -= coll.GetComponent<DamageScript>().Damage;
             if (Health <= 0f)
             {
+                Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }

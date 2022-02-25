@@ -66,7 +66,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
         Target = Ship.GetComponent<Transform>();
-        speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);//This determines movement speed
+        speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);//This determines movement speed
+        Debug.Log("ENEMY SPEED:" + speed);
+
+        if (enemyscript.Waves[I].Inverse == -1)
+        {
+            sr.flipX = true;
+        }
 
         if (sr == null)
         {
@@ -131,6 +137,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     {
         sr.color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
         tf.Rotate(0f, 0f, RotationSpeed * Time.deltaTime);
+
         if (tf.position.x <= -16)
         {
             gameObject.SetActive(false);
@@ -144,8 +151,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         {
             anim.Play("Fire");
         }
-
-        if (FireRate >= Full)
+        else if (FireRate >= Full)
         {
             anim.Play("Fire");
             FireRate = 0;

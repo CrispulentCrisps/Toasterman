@@ -106,15 +106,15 @@ MonoBehaviour:
   sr: {fileID: 2880811144993891058}
   rb: {fileID: 2880811144993891060}
   tf: {fileID: 2880811144993891057}
-  Target: {fileID: 0}
-  hurtColour: {r: 0, g: 0, b: 0, a: 0}
+  Target: {fileID: 2880811144993891057}
+  hurtColour: {r: 1, g: 0, b: 0, a: 1}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 1370103591936605960}
-  EnemyShootSound: 
+  EnemyShootSound: EnemyShoot
   EnemyHurtSound: 
-  Health: 9
-  BulletName: EnemyBullet
+  Health: 10
+  BulletName: SlowEnemyBullet
   RotationSpeed: 271
   RegularAmount: 3
   Charge: 1
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.05
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000cd928ce4e9f48ca9e3f66e6b5b10a1eac3d305a45b36b8fa45363909837fe4cf53dab70db3a65696
@@ -303,7 +303,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1
+  m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0

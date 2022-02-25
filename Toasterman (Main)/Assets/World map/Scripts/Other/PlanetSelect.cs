@@ -6,7 +6,7 @@ public class PlanetSelect : MonoBehaviour
     public int IndexStart;
     public int IndexEnd;
     public int LevelIndex;
-
+    public int TargetScore;
     public GameObject DialogManager;
 
     public SceneChange scenechange;
@@ -24,7 +24,6 @@ public class PlanetSelect : MonoBehaviour
 
     public float ResetSize;
 
-    public bool MouseOverPlanet = false; //Make private, public for debugging
     public static bool Selected = false;
     public bool Locked;
     public bool Completed;
@@ -37,10 +36,12 @@ public class PlanetSelect : MonoBehaviour
         {
             Completed = true;
         }
+        
         else if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
         {
             Locked = false;
         }
+        //Check if level is Locked
         if (Locks.Length != 0 && Locked == false)
         { 
             for (int i = 0; i < Locks.Length; i++)
@@ -55,6 +56,7 @@ public class PlanetSelect : MonoBehaviour
                 Locks[i].SetActive(true);
             }
         }
+        //Check planets ailments
         if (Completed == true)
         {
             for (int i = 0; i < Ailments.Length; i++)
@@ -80,7 +82,6 @@ public class PlanetSelect : MonoBehaviour
             scenechange.SceneNumber = LevelIndex;
             dialog.StartCoroutine(dialog.BoxIn(1f));
             Selected = true;
-            MouseOverPlanet = false;
             PlanetSelectMouseUI.Selected = true;
         }
     }

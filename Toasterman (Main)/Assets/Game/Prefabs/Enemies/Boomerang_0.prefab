@@ -122,15 +122,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76da7c69fd424a44ab4a74c1971cbca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  tf: {fileID: 0}
+  rb: {fileID: 7599684584609106392}
+  tf: {fileID: 7599684584609106396}
   Ship: {fileID: 0}
   WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
-  Anim: {fileID: 0}
+  Anim: {fileID: 7599684584609106394}
   speed: {x: 0, y: 0}
-  Health: 0
-  RotSpeed: 0
+  Health: 3
+  RotSpeed: 45
 --- !u!50 &7599684584609106392
 Rigidbody2D:
   serializedVersion: 4
@@ -181,5 +181,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 15
-  Points: 0
-  PointMultiplier: 0
+  Points: 150
+  PointMultiplier: 1

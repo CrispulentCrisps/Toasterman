@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 
 // Chromatic abberation from https://www.reddit.com/r/Unity3D/comments/hbch73/how_do_you_change_chromatic_aberration_through/
 

@@ -40,4 +40,7 @@ public class EnemySet
     [Header("Only use this for HelperHat")]
     [Range(0, 5)]
     public int PowerType;
+    [Range(-1,1)]
+    [Header("Reverses values of attributes and sets enemies to the left of the screen")]
+    public int Inverse;
 }

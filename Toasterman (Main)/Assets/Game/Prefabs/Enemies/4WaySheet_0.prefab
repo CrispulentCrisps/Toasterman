@@ -104,36 +104,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 0}
-  rb: {fileID: 0}
-  tf: {fileID: 0}
-  Target: {fileID: 0}
-  hurtColour: {r: 0, g: 0, b: 0, a: 0}
+  sr: {fileID: 2146550922964691003}
+  rb: {fileID: 2146550922964691005}
+  tf: {fileID: 2146550922964691000}
+  Target: {fileID: 2146550922964691000}
+  hurtColour: {r: 1, g: 0, b: 0, a: 1}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
-  anim: {fileID: 0}
-  EnemyShootSound: 
+  anim: {fileID: 2146550922964691004}
+  EnemyShootSound: EnemyShoot
   EnemyHurtSound: 
-  Health: 0
-  BulletName: 
+  Health: 7
+  BulletName: SlowEnemyBullet
   RotationSpeed: 0
-  RegularAmount: 0
-  Charge: 0
-  Full: 0
+  RegularAmount: 4
+  Charge: 1
+  Full: 2
   ShootType: 0
-  RegularAngle: 0
+  RegularAngle: 60
   AngleOffset: 0
-  BaseSpeed: 0
+  BaseSpeed: 10
   MinVel: 0
   MaxVel: 0
   ArcRepeat: 0
   RotateGun: 0
   GunRotateAmount: 0
   ShootNearPlayer: 0
-  DistanceToPlayer: 0
-  MinTime: 0
-  ShootAtPlayer: 0
-  Move: 0
+  DistanceToPlayer: 1
+  MinTime: 2
+  ShootAtPlayer: 1
+  Move: 1
 --- !u!50 &2146550922964691005
 Rigidbody2D:
   serializedVersion: 4
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000cd928ce4e9f48ca9e3f66e6b5b10a1eac3d305a4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -271,13 +271,37 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
-  - position: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  m_Triangles: 0000
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
   m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

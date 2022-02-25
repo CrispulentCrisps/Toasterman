@@ -25,7 +25,7 @@ public class Homing : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
         speed = enemyscript.Waves[I].EnemySpeed;
-        tf.Rotate(new Vector3(0, 0, tf.position.x * 10));
+        tf.Rotate(new Vector3(0, 0, speed * 10));
     }
 
     void Start()
@@ -35,10 +35,9 @@ public class Homing : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        if (tf.position.x <= -12)
+        if (tf.position.x <= -100)
         {
-            tf.position = new Vector2(-999, -999);
-            MySelf.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
@@ -54,6 +53,7 @@ public class Homing : MonoBehaviour, IPooledObject
             Health -= coll.GetComponent<DamageScript>().Damage;
             if (Health <= 0f)
             {
+                Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }

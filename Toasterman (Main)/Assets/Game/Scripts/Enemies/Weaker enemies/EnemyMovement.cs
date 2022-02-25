@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
 
         objectPooler = ObjectPools.Instance;
 
-        speed = new Vector2(enemyscript.Waves[I].EnemySpeed, 0);
+        speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);
     }
 
     void Start()
