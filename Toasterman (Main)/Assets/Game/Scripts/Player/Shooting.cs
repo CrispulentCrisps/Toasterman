@@ -53,7 +53,9 @@ public class Shooting : MonoBehaviour
         //score
         ScoreDisplay.text = "Score: " + Score;
         ScoreDisplay.color += new Color(255f, 255f, 255f, 255f) * Time.deltaTime * 0.1f;
-        if (TargetScore - Score <= 1000 && TargetScore - Score > 100)
+
+		#region ScoreDisplay
+		if (TargetScore - Score <= 1000 && TargetScore - Score > 100)
         {
             if (Score < TargetScore)
             {
@@ -92,7 +94,8 @@ public class Shooting : MonoBehaviour
                 ScoreDisplay.color = TakeColour;
             }
         }
-
+		#endregion ScoreDisplay
+		
         FireRate += Increment * Time.deltaTime;
         //special bullets
         if (BulletLevel[4] >= 1)//BulletLevel[4] is for the 'fuck everything on screen' attack
@@ -165,8 +168,8 @@ public class Shooting : MonoBehaviour
                 for (int i = 0; i < BulletLevel[BulletType] + 1; i++)// spread shot
                 {
                     //Spread
-                    BulletSpreadMult = BulletLevel[BulletType] + 1;
-                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult) % 360));
+                    BulletSpreadMult = BulletLevel[BulletType] + 1.5f;
+                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType])) * BulletSpreadMult) % 360) * 0.5f);
                     objectPooler.SpawnFromPool(ProjectileNames[0], ShootPos.position, BulletRot);
                 }
                 break;

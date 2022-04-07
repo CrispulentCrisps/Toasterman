@@ -18,8 +18,13 @@ public class ScrapBossAI : StateMachineBehaviour
         T += Time.deltaTime;
         switch (health)
         {
-            case 1000:
-                health = 2;
+            case 5500:
+                ScrapEvents.State = 2;
+                animator.SetTrigger("P1");
+                break;
+            case 5000:
+                ScrapEvents.State = 3;
+                animator.SetTrigger("P2");
                 break;
         }
 
@@ -32,15 +37,12 @@ public class ScrapBossAI : StateMachineBehaviour
                     T = 0;
                 }
                 break;
-        }
-
-        if (ScrapEvents.State == 1)
-        {
-            if (T > 2f)
-            {
-                SE.Shoot5Way();
-                T = 0;
-            }
+            case 2:
+                if (T > 2f)
+                {
+                    T = 0;
+                }
+                break;
         }
     }
 }

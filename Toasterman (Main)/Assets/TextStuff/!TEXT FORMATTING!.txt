@@ -1,0 +1,74 @@
+MANDATORY
+
+[sections of chat must be divided by a START and END line in the file and an index number for lookup]
+
+e.g	START
+	[INSERT TEXT HERE]
+	END
+
+[all text ends with ; to signify a line has ended]
+
+	e.g. 	Hello Toasterman;
+		Hello Andruss;
+
+	this constitutes as 2 seperate text lines
+
+[Text must be given an overhead number to determine the speaker and emotion]
+
+	[0] is for Toasterman
+
+		emotion range us 1-8
+
+			1 = Normal
+			2 = Happy
+			3 = Sad
+			4 = Angry
+			5 = Confused
+			6 = Electrified
+			7 = Suspicious
+			8 =  Sick
+
+	[1] is for Andruss
+
+		emotion range us 1-8
+
+			0 = AndrussNoTalk
+			1 = AndrussNormal
+			2 = AndrussAngry
+			3 = AndrussAngryNoTalk
+			4 = AndrussWorry
+			5 = AndrussWorryNoTalk
+			6 = AndrussHappy
+			7 = AndrussHappyNoTalk
+
+OPTIONAL
+
+	Text Formatting
+		
+		Text can be changed into bold, italic, underlined or any combination with reserved characters
+
+			Bold is [ ]
+			Italic is { }
+			Underline _ ~
+
+
+So a complete sentence should be 
+
+0;0;Hello Andruss;
+^ ^ ^
+ |  |  |
+ |  |  > The actual text
+ |  |
+ |   > The emotion on display
+ |
+  > Who's talking
+
+
+and the general structure should look like this:
+
+START 0
+0;0;Hello Andruss;
+1;0;Hello Toasterman;
+0;0;How are you?;
+1;0;I am fine :D;
+END 0

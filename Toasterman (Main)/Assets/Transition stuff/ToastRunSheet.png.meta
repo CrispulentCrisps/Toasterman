@@ -1,34 +1,7 @@
 fileFormatVersion: 2
 guid: 4f37ab1c7a1f1114b906a193bbbb927d
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 6988992304748263161
-    second: ToastRunSheet_0
-  - first:
-      213: 3845962379538600462
-    second: ToastRunSheet_1
-  - first:
-      213: 8740633689395362166
-    second: ToastRunSheet_2
-  - first:
-      213: 2234450185967914403
-    second: ToastRunSheet_0
-  - first:
-      213: 343085764962995151
-    second: ToastRunSheet_1
-  - first:
-      213: -5271656375000656574
-    second: ToastRunSheet_2
-  - first:
-      213: -4983016550037218564
-    second: ToastRunSheet_3
-  - first:
-      213: -298130448810543261
-    second: ToastRunSheet_4
-  - first:
-      213: 1458192274459894010
-    second: ToastRunSheet_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -60,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -74,9 +47,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -96,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +81,55 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad4ce20b9c520f10800000000000000
-      internalID: 6988992304748263161
+      spriteID: 4fdcaafcdb714614e904fc16cd1c676a
+      internalID: -1334850557
       vertices: []
       indices: 
       edges: []
@@ -154,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcbcc1c7fa2e2c400800000000000000
-      internalID: 3845962379538600462
+      spriteID: c9a6ad5c86eaa95409df48e5bf191f40
+      internalID: 1222426159
       vertices: []
       indices: 
       edges: []
@@ -175,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2459926157057d6b0800000000000000
-      internalID: 8740633689395362166
+      spriteID: c7ef9c32278dc994c9d6cdee301986fd
+      internalID: -318710159
       vertices: []
       indices: 
       edges: []
@@ -196,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfa932159d4c8dab0800000000000000
-      internalID: -4983016550037218564
+      spriteID: f364361df46ef7a4f876de30192e4a83
+      internalID: -1717751434
       vertices: []
       indices: 
       edges: []
@@ -217,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3677be5bfe3dcdbf0800000000000000
-      internalID: -298130448810543261
+      spriteID: a260fbb171199b640a1b5d6ca953e0b7
+      internalID: 555450439
       vertices: []
       indices: 
       edges: []
@@ -238,8 +259,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af0a665d52a8c3410800000000000000
-      internalID: 1458192274459894010
+      spriteID: fc4c0b5a12481004593b69d8ac1937b1
+      internalID: -1331367127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToastRunSheet_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7e3c012c631ae408e28bee8912f518
+      internalID: 1551165282
       vertices: []
       indices: 
       edges: []
@@ -255,12 +297,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ToastRunSheet_3: -4983016550037218564
-      ToastRunSheet_1: 3845962379538600462
-      ToastRunSheet_4: -298130448810543261
-      ToastRunSheet_5: 1458192274459894010
-      ToastRunSheet_2: 8740633689395362166
-      ToastRunSheet_0: 6988992304748263161
+      ToastRunSheet_3: -1717751434
+      ToastRunSheet_1: 1222426159
+      ToastRunSheet_4: 555450439
+      ToastRunSheet_5: -1331367127
+      ToastRunSheet_2: -318710159
+      ToastRunSheet_0: -1334850557
+      ToastRunSheet_6: 1551165282
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

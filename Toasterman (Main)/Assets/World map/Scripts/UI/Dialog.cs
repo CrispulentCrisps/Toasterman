@@ -250,4 +250,9 @@ public class Dialog : MonoBehaviour
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);
     }
+
+    void InterpretText(string path)
+	{
+
+	}
 }

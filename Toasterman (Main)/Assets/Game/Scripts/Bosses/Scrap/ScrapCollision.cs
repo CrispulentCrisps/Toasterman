@@ -4,7 +4,11 @@ public class ScrapCollision : MonoBehaviour
 {
     public ScrapBossAI sba;
 
-    void OnTriggerEnter2D(Collider2D coll)
+	public void Start()
+	{
+        sba = GameObject.Find("ScrapBoss").GetComponent<Animator>().GetBehaviour<ScrapBossAI>();
+	}
+	void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Bullet"))
         {
