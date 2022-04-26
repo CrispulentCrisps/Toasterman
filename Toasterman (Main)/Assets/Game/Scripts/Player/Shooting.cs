@@ -169,7 +169,7 @@ public class Shooting : MonoBehaviour
                 {
                     //Spread
                     BulletSpreadMult = BulletLevel[BulletType] + 1.5f;
-                    BulletRot = Quaternion.Euler(0, 0, ((BulletLevel[BulletType] + (i - (BulletLevel[BulletType])) * BulletSpreadMult) % 360) * 0.5f);
+                    BulletRot = Quaternion.Euler(0, 0, (((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult)) % 360));
                     objectPooler.SpawnFromPool(ProjectileNames[0], ShootPos.position, BulletRot);
                 }
                 break;

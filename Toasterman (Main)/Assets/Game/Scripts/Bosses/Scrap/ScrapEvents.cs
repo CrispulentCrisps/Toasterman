@@ -3,15 +3,20 @@ using UnityEngine;
 public class ScrapEvents : MonoBehaviour
 {
     public GameObject[] RemovableLayers;
+    public GameObject[] Colliders;
+
     public ParalaxStuff ps;
     public Transform LaserPoint;
+    public Transform CannonPoint;
     public AnimationCurve BGCurve;
+    public Animator GunAnim;
     
     public Transform TailTf;
     private Vector2 MovementTail;
     private bool TailShot;
+    private bool GravityOn;
 
-    public static int State;
+    public int State;
     public void Start()
     {
         State = 0;
@@ -21,9 +26,24 @@ public class ScrapEvents : MonoBehaviour
     public void Update()
     {
         if (TailShot){
-            MovementTail = new Vector2(MovementTail.x - 6f, MovementTail.y - 9.81f) * Time.deltaTime;
+            MovementTail = new Vector2(-6f, 9.81f);
+            TailShot = false;
+            GravityOn = true;
         }
+		if (GravityOn)
+		{
+            MovementTail -= new Vector2(-12f, 9.18f) * Time.deltaTime;
+		}
+
         TailTf.Translate(MovementTail * Time.deltaTime);
+    }
+
+    public void RemoveTailColliders()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Colliders[i].SetActive(false);
+        }
     }
 
 	public void StartBGChange()
@@ -45,6 +65,16 @@ public class ScrapEvents : MonoBehaviour
     public void Shoot5Way()
     {
         StartCoroutine(BulletPatternsModule.ShootArcEnum(120f, 5, "SideLaser", LaserPoint, 110f, 0.02f));
+    }
+
+    public void ShootGun()
+	{
+        GunAnim.Play("GunShoot");
+	}
+
+    public void FireBullet()
+    {
+        BulletPatternsModule.ShootArc(0f, 1, "GunBomb", CannonPoint, 0f);
     }
 
     public void ShootTail()

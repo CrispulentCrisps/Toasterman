@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +11,8 @@ public class Dialog : MonoBehaviour
     public GameObject GotoButton;
     public GameObject SkipButton;
 
+    public TextObject txt;
+
     public RectTransform ContTf;
     public RectTransform SkipTf;
 
@@ -18,13 +21,19 @@ public class Dialog : MonoBehaviour
     public Animator BoxAnim;
     public Animator TxtAnim;
 
-    public SentencesRec[] sentences;
-    
     public float TypingSpeed;
+    
+    public int POS;
 
     public int index;
     public int indexDone;
     public int SelectState;
+
+    const int ENGLISH = 0;
+    const int GERMAN = 1;
+    const int NSPANISH = 2;
+    const int ARGENTINIAN = 3;
+    const int PORTUGUESE = 4;
 
     public bool Started = false;
     public bool ToastEntered = false;
@@ -33,7 +42,45 @@ public class Dialog : MonoBehaviour
     private bool Continue = false;
     private bool Changed = false;
 
-    void Update()
+    void GetLanguageFromJSON(int Language, int Pos)
+	{
+        string path = Application.streamingAssetsPath + "/TextStuff/";
+		switch (Language)
+		{
+            default:
+                path += "English/toast_en";
+                break;
+            case ENGLISH:
+                path += "English/toast_en";
+                break;
+            case GERMAN:
+                path += "German/toast_gr";
+                break;
+        }
+
+        switch (Pos)
+	    {
+		    default:
+                path += ".json";
+                break;
+            case 1:
+                path += "1.json";
+                break;
+            case 2:
+                path += "2.json";
+                break;
+	    }
+
+        Debug.Log(path);
+        txt = JsonUtility.FromJson<TextObject>(File.ReadAllText(path));
+    }
+
+	public void Start()
+	{
+        GetLanguageFromJSON(ENGLISH, POS);
+    }
+
+	void Update()
     {
         //Move arrow
         PauseMenuScript.GameIsPaused = false; //Stops game from being paused
@@ -73,22 +120,22 @@ public class Dialog : MonoBehaviour
 
         if (StartAnimating)
         {
-            if (sentences[index].ToastIn && !ToastEntered)
+            if (txt.text[index].ToastIn && !ToastEntered)
             {
                 ToastAnim.Play("In");
                 ToastEntered = true;
             }
-            else if (!sentences[index].ToastIn && ToastEntered)
+            else if (!txt.text[index].ToastIn && ToastEntered)
             {
                 ToastAnim.Play("Out");
             }
             
-            if (sentences[index].AndrussIn && !OtherEntered)
+            if (txt.text[index].AndrussIn && !OtherEntered)
             {
                 OtherAnim.Play("In");
                 OtherEntered = true;
             }
-            else if (!sentences[index].AndrussIn && OtherEntered)
+            else if (!txt.text[index].AndrussIn && OtherEntered)
             {
                 OtherAnim.Play("Out");
             }
@@ -96,9 +143,9 @@ public class Dialog : MonoBehaviour
             if (index < indexDone)
             {
                 //Toast emotion
-                if (sentences[index].ToastIn && ToastEntered)
+                if (txt.text[index].ToastIn && ToastEntered)
                 {
-                    switch (sentences[index].ToastEmote)
+                    switch (txt.text[index].ToastEmote)
                     {
                         case 1:
                             ToastAnim.Play("Normal");
@@ -127,9 +174,9 @@ public class Dialog : MonoBehaviour
                     }
                 }
                 //Other emotion
-                if (sentences[index].AndrussIn && OtherEntered)
+                if (txt.text[index].AndrussIn && OtherEntered)
                 {
-                    switch (sentences[index].AndrussEmote)
+                    switch (txt.text[index].AndrussEmote)
                     {
                         case 0:
                             OtherAnim.Play("AndrussNoTalk");
@@ -172,7 +219,7 @@ public class Dialog : MonoBehaviour
         ContinueButton.SetActive(false);
         SkipButton.SetActive(false);
         Continue = false;
-        foreach (char letter in sentences[index].Words.ToCharArray())
+        foreach (char letter in txt.text[index].Words.ToCharArray())
         {
             if (letter == '{') //Reserve { and } for italics, [ and ] for bold, _ and ~ for underline
             {
@@ -221,7 +268,7 @@ public class Dialog : MonoBehaviour
 
     public void NextSentence()
     {
-        if (index < sentences.Length - 1)
+        if (index < txt.text.Length - 1)
         {
             index++;
             textDisplay.text = "";
@@ -250,9 +297,4 @@ public class Dialog : MonoBehaviour
         SkipButton.SetActive(false);
         GotoButton.SetActive(true);
     }
-
-    void InterpretText(string path)
-	{
-
-	}
 }

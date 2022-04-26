@@ -7,7 +7,7 @@ public static class SaveSystem
     {
         //Creates the binary formatter and opens the file stream, path is relative to the project
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/sav.toast";
+        string path = Application.streamingAssetsPath + "/sav.toast";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveScript SaveData = new SaveScript(planetTally, PlanetScore);
@@ -17,7 +17,7 @@ public static class SaveSystem
     }
     public static SaveScript LoadData()
     {
-        string path = Application.persistentDataPath + "/sav.toast";
+        string path = Application.streamingAssetsPath + "/sav.toast";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

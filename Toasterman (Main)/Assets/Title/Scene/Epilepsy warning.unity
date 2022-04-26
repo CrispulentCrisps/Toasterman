@@ -152,6 +152,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802681388}
   m_RootOrder: 1
@@ -239,8 +240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Click to continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
-  m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+  m_fontAsset: {fileID: 11400000, guid: c4eee68bc88e18b4fbb8198f6fa80594, type: 2}
+  m_sharedMaterial: {fileID: -2227754959343969480, guid: c4eee68bc88e18b4fbb8198f6fa80594,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -344,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGlobal: 1
+  m_IsGlobal: 1
   priority: 0
   blendDistance: 0
   weight: 1
@@ -359,6 +360,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.0672023, y: -0.6505355, z: -2555.178}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -384,6 +386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scene changer
+      objectReference: {fileID: 0}
+    - target: {fileID: 450264641973510897, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 450264641973510899, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
@@ -583,6 +590,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -616,6 +624,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802681388}
   m_RootOrder: 0
@@ -653,8 +662,8 @@ MonoBehaviour:
     otherwise, go ahead
     :)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
-  m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+  m_fontAsset: {fileID: 11400000, guid: c4eee68bc88e18b4fbb8198f6fa80594, type: 2}
+  m_sharedMaterial: {fileID: -2227754959343969480, guid: c4eee68bc88e18b4fbb8198f6fa80594,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -732,7 +741,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!95 &741211031
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -745,6 +754,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1010,6 +1020,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 741211028}
   - {fileID: 42050124}

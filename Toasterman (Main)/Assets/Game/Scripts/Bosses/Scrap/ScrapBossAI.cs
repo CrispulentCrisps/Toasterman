@@ -14,21 +14,21 @@ public class ScrapBossAI : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("State = " + ScrapEvents.State + ": Health = " + health);
+        Debug.Log("State = " + SE.State + ": Health = " + health);
         T += Time.deltaTime;
-        switch (health)
+		if (health <= 5500 && health > 5000)//Second phase
         {
-            case 5500:
-                ScrapEvents.State = 2;
-                animator.SetTrigger("P1");
-                break;
-            case 5000:
-                ScrapEvents.State = 3;
-                animator.SetTrigger("P2");
-                break;
+            SE.RemoveTailColliders();
+            SE.State = 2;
+            animator.SetTrigger("P1");
+		}
+        else if (health <= 5500 && health > 5000)//Third phase
+        {
+            SE.State = 3;
+            animator.SetTrigger("P2");
         }
 
-        switch (ScrapEvents.State)
+        switch (SE.State)
         {
             case 1:
                 if (T > 2f)
@@ -38,8 +38,9 @@ public class ScrapBossAI : StateMachineBehaviour
                 }
                 break;
             case 2:
-                if (T > 2f)
+                if (T > 4f)
                 {
+                    SE.ShootGun();
                     T = 0;
                 }
                 break;
