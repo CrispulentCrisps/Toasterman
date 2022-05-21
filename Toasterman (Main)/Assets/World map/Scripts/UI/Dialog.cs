@@ -92,32 +92,6 @@ public class Dialog : MonoBehaviour
             GotoButton.SetActive(true);
         }
 
-        //Controller Input
-        if (Input.GetAxisRaw("Horizontal") > 0f && !Changed)
-        {
-            SelectState++;
-            Changed = true;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0f && !Changed)
-        {
-            SelectState--;
-            Changed = true;
-        }
-        else if (Input.GetAxisRaw("Horizontal") == 0)
-        {
-            Changed = false;
-        }
-
-        if (SelectState < 0)
-        {
-            SelectState = 0;
-        }
-
-        if (SelectState > 1)
-        {
-            SelectState = 1;
-        }
-
         if (StartAnimating)
         {
             if (txt.text[index].ToastIn && !ToastEntered)

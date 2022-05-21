@@ -1,12 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class SettingsData
+{
+    public float opacity;
+    public int Language;
+}
+
 public class SettingsMenu : MonoBehaviour
 {
     GameObject scanlines;
+
+    SettingsData settings;
 
     public Slider ScanSlide;
 
@@ -19,6 +29,11 @@ public class SettingsMenu : MonoBehaviour
     public Resolution[] resolutions;
 
     public TMP_Dropdown ResolutionDropdown;
+    public TMP_Dropdown LanguageDropdown;
+
+    public UITrans ui;
+
+    public int Language;
 
     void OnLevelWasLoaded()
     {
@@ -27,6 +42,10 @@ public class SettingsMenu : MonoBehaviour
         resolutions = Screen.resolutions;
 
         ResolutionDropdown.ClearOptions();
+
+        string path = Application.streamingAssetsPath + "/settings.json";
+        settings = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
+        Language = settings.Language;
 
         List<string> options = new List<string>();
 
@@ -76,6 +95,21 @@ public class SettingsMenu : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetLanguge()
+    {
+        Language = LanguageDropdown.value;
+        Debug.Log("Language is: " + Language);
+        BroadcastMessage("GetLanguageFromJSON", Language);
+        string path = Application.streamingAssetsPath + "/settings.json";
+        SettingsData data = new SettingsData();
+        data.Language = Language;
+        data.opacity = ScanSlide.value;
+        System.IO.File.WriteAllText(path, JsonUtility.ToJson(data)); 
+        settings = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
+        Language = settings.Language;
+        ScanSlide.value = settings.opacity;
     }
 
     public void SetResolution(int ResolutionIndex)

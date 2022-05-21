@@ -60,6 +60,7 @@ public class JabAI : MonoBehaviour, IPooledObject
         }
     }
     #endregion
+
     void Update()
     {
         Anim.SetTrigger("Jab");
@@ -67,7 +68,7 @@ public class JabAI : MonoBehaviour, IPooledObject
         
         if (TargetLocked == true)
         {
-            Movement *= new Vector2(0.9f, 0.75f);
+            Movement *= new Vector2(0.85f, 0.75f);
         }
     }
 

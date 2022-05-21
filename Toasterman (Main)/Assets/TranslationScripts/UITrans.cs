@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
 public class Translatedtext
 {
     public string[] Words;
@@ -12,6 +13,9 @@ public class Translatedtext
 public class UITrans : MonoBehaviour
 {
     Translatedtext txt;
+    SettingsData sd;
+
+    public TextMeshProUGUI textDisplay;
 
     public int TextPos;
     public int LanguageChoice;
@@ -22,11 +26,11 @@ public class UITrans : MonoBehaviour
     const int ARGENTINIAN = 3;
     const int PORTUGUESE = 4;
 
-    void GetLanguageFromJSON(int Language, int Pos)
-	{
+    public void GetLanguageFromJSON(int Language)
+    {
         string path = Application.streamingAssetsPath + "/TextStuff/";
-		switch (Language)
-		{
+        switch (Language)
+        {
             default:
                 path += "English/toast_settings_en.json";
                 break;
@@ -34,16 +38,31 @@ public class UITrans : MonoBehaviour
                 path += "English/toast_settings_en.json";
                 break;
             case GERMAN:
-                path += "German/toast_settings_gr";
+                path += "German/toast_settings_gr.json";
                 break;
         }
 
         Debug.Log(path);
         txt = JsonUtility.FromJson<Translatedtext>(File.ReadAllText(path));
+        textDisplay.text = txt.Words[TextPos];
     }
+
+    public void InitLanguage()
+    {
+        string path = Application.streamingAssetsPath + "/settings.json";
+        Debug.Log(path);
+        sd = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
+        LanguageChoice = sd.Language;
+    }
+
     void Start()
     {
-        LanguageChoice = ENGLISH;
-        GetLanguageFromJSON(LanguageChoice, TextPos);
+        gameObject.tag = "Text";
+        InitLanguage();
+    }
+
+    public void ChangeLanguage(int Language)
+    {
+        GetLanguageFromJSON(Language);
     }
 }

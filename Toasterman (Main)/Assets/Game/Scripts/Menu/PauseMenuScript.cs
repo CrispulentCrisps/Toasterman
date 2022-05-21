@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PauseMenuScript : MonoBehaviour
 {
     public SceneChange scenechange;
 
     public GameObject PauseMenuUI;
-    
+
+    public Animator anim;
+
     public static bool GameIsPaused = false;
     public static bool Pausable = true;
 
@@ -21,13 +24,20 @@ public class PauseMenuScript : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                Resume();
+               StartCoroutine(ExitMenu());
             }
             else
             {
                 Pause();
             }
         }   
+    }
+
+    public IEnumerator ExitMenu()
+    {
+        anim.Play("UnPause");
+        yield return new WaitForSeconds(1);
+        Resume();
     }
 
     public void Resume()
@@ -37,7 +47,7 @@ public class PauseMenuScript : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

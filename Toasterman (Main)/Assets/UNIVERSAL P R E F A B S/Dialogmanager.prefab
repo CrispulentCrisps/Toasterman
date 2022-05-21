@@ -26,8 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23306960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 350, y: 25, z: 0}
-  m_LocalScale: {x: 60, y: 75, z: 1}
+  m_LocalPosition: {x: 350, y: 12.5, z: 0}
+  m_LocalScale: {x: 75, y: 75, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6248229747733947961}
   m_RootOrder: 1
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 2147483648
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74a470242a8cec64fb9220afcbed2146, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &23306961
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,6 +100,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -129,8 +131,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677454037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -350, y: 25, z: 0}
+  m_LocalPosition: {x: -350, y: 12.5, z: 0}
   m_LocalScale: {x: 0, y: 75, z: 75}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6248229747733947961}
   m_RootOrder: 0
@@ -155,7 +158,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 2147483648
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74a470242a8cec64fb9220afcbed2146, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,15 +185,15 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1677454039
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -203,6 +206,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -235,6 +239,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936199373234001855}
   m_RootOrder: 1
@@ -274,8 +279,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
-  m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
+  m_sharedMaterial: {fileID: -9004853261907143612, guid: 58f74f92990cc04438186623de129151,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -372,6 +377,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1676549270090072168}
   - {fileID: 936199372602109520}
@@ -474,6 +480,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 936199373234001855}
   - {fileID: 5161582236508061748}
@@ -497,524 +504,19 @@ MonoBehaviour:
   ContinueButton: {fileID: 1676549270090072169}
   GotoButton: {fileID: 1676549269565968208}
   SkipButton: {fileID: 3731157069950605375}
+  txt:
+    text: []
+  ContTf: {fileID: 1676549270090072168}
+  SkipTf: {fileID: 5092799769197046927}
   ToastAnim: {fileID: 1677454039}
   OtherAnim: {fileID: 23306961}
   BoxAnim: {fileID: 6248229747733947962}
   TxtAnim: {fileID: 988104833}
-  sentences:
-  - Words: ???:Toast, {you there?}
-    ToastIn: 0
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: -1
-  - Words: 'Toasterman: Aye, I am.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 'Andruss: Good! So the boss has given you a task for today.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 1
-  - Words: 'Toasterman: Right, what is it this time? Because I swear if he want me
-      to do more trivial rubbish then he can find another, more modern robot to do
-      it.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 0
-  - Words: 'Andruss: It''s not that actually'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: So it isn''t me having to find out the answer to some weird
-      life question or trying and calculate Pi.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 7
-    AndrussEmote: 0
-  - Words: 'Andruss: Well either way you are needed for an {exciting} job!'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: {Go on}...'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 0
-  - Words: 'Andruss: You get to go and have an adventure in that rocky planet over
-      there and meet the lovely locals!'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: Oh great, another desolate planet with lifeforms that have
-      a superiority complex. Brilliant. {As if humans weren''t enough}'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 8
-    AndrussEmote: 0
-  - Words: 'Andruss: Oh no it''s fine! They''ve made a pact to not attack you while
-      you work! So there should be no interference there!'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 8
-    AndrussEmote: 1
-  - Words: 'Toasterman: Well how am I supposed to get there? {I can''t exactly fly}.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 7
-    AndrussEmote: 0
-  - Words: 'Andruss: Don''t worry, the boss went out of his way to get you a ship
-      of your own! It''s right here!'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: Well at least it''s provided to me unlike general respect.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 0
-  - Words: 'Andruss: Your method of transport, a taiga SC398P! You can tell with
-      the curved edges round the ship and the elasti-'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: yea, I know. You said it a few times yesterday in your 20
-      minute ramble on it, with massive amounts of detail.'
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 0
-  - Words: 'Andruss: I just like spaceships. They''re so cool! But I should probably
-      let you get on with your work. '
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 'Toasterman: Yea. See ya in a while.'
-    ToastIn: 0
-    AndrussIn: 1
-    ToastEmote: 1
-    AndrussEmote: 0
-  - Words: 'Andruss: See ya toasty!'
-    ToastIn: 0
-    AndrussIn: 0
-    ToastEmote: 1
-    AndrussEmote: 1
-  - Words: 
-    ToastIn: 0
-    AndrussIn: 0
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: this text should not exist, press skip to get to planet
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 0
-    AndrussIn: 0
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
-  - Words: 
-    ToastIn: 1
-    AndrussIn: 1
-    ToastEmote: 0
-    AndrussEmote: 0
   TypingSpeed: 0.01
+  POS: 0
   index: -1
   indexDone: 999
+  SelectState: 0
   Started: 0
   ToastEntered: 0
   OtherEntered: 0
@@ -1030,6 +532,7 @@ GameObject:
   - component: {fileID: 1676549269565968213}
   - component: {fileID: 1676549269565968210}
   - component: {fileID: 1586429560}
+  - component: {fileID: 1136437714}
   m_Layer: 8
   m_Name: Space
   m_TagString: Untagged
@@ -1047,6 +550,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5562431490189847965}
   m_Father: {fileID: 936199373234001855}
@@ -1087,7 +591,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go to planet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
   m_sharedMaterial: {fileID: -4164043733847707811, guid: 695a46806e5afcf43a2c76829a95a07c,
     type: 2}
   m_fontSharedMaterials: []
@@ -1212,6 +716,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1136437714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676549269565968208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3e7d2f99f115944aa0a26926c97537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 1676549269565968210}
+  TextPos: 25
+  LanguageChoice: 0
 --- !u!1 &1676549270090072169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,15 +760,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936199373234001855}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -75, y: 25}
+  m_AnchoredPosition: {x: -225, y: 75}
   m_SizeDelta: {x: 300, y: 100}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1676549270090072173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1282,7 +802,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
   m_sharedMaterial: {fileID: 8971008636187854558, guid: 3f094aeb7b3c0b940a6cc66ba35669ef,
     type: 2}
   m_fontSharedMaterials: []
@@ -1435,6 +955,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 2.1, y: 0, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936199374365196140}
   m_RootOrder: 1
@@ -1493,7 +1014,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &988104833
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1506,6 +1027,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1539,6 +1061,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936199373234001855}
   m_RootOrder: 4
@@ -1580,7 +1103,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
   m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
     type: 2}
   m_fontSharedMaterials: []
@@ -1646,7 +1169,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &5953372322632068986
@@ -1717,6 +1240,7 @@ GameObject:
   - component: {fileID: 5562431490101833190}
   - component: {fileID: 5562431490101833191}
   - component: {fileID: 5562431490101833188}
+  - component: {fileID: 351118539}
   m_Layer: 5
   m_Name: Select
   m_TagString: Untagged
@@ -1734,6 +1258,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5562431491092629884}
   m_RootOrder: 1
@@ -1771,10 +1296,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select a planet
+  m_text: Select a Planet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
-  m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
+  m_sharedMaterial: {fileID: -9004853261907143612, guid: 58f74f92990cc04438186623de129151,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1844,7 +1369,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!95 &5562431490101833188
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1857,10 +1382,26 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &351118539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562431490101833194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3e7d2f99f115944aa0a26926c97537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 5562431490101833191}
+  TextPos: 23
+  LanguageChoice: 0
 --- !u!1 &5562431490189847906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,6 +1428,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1676549269565968211}
   m_RootOrder: 0
@@ -1907,7 +1449,7 @@ GameObject:
   - component: {fileID: 5562431490896646444}
   - component: {fileID: 5562431490896646446}
   - component: {fileID: 5562431490896646447}
-  - component: {fileID: 5562431490896646441}
+  - component: {fileID: 2053149549}
   m_Layer: 5
   m_Name: Back (TMP)
   m_TagString: Untagged
@@ -1925,6 +1467,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5562431491092629884}
   m_RootOrder: 0
@@ -1964,8 +1507,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to menu.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2caed767dd235e842a2ca0e6abbe4391, type: 2}
-  m_sharedMaterial: {fileID: 6632449616135209525, guid: 2caed767dd235e842a2ca0e6abbe4391,
+  m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
+  m_sharedMaterial: {fileID: -9004853261907143612, guid: 58f74f92990cc04438186623de129151,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2033,7 +1576,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5562431490896646441
+--- !u!114 &2053149549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2042,53 +1585,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5562431490896646445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a3e7d2f99f115944aa0a26926c97537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.6666667}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.39215687}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5562431490896646447}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  textDisplay: {fileID: 5562431490896646447}
+  TextPos: 24
+  LanguageChoice: 0
 --- !u!1 &5562431491092629885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +1620,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5562431490896646444}
   - {fileID: 5562431490101833189}
@@ -2219,6 +1722,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1677454038}
   - {fileID: 23306963}
@@ -2227,8 +1731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 1920, y: 200}
+  m_AnchoredPosition: {x: 0, y: 125}
+  m_SizeDelta: {x: 1920, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6248229747733947956
 CanvasRenderer:
@@ -2270,7 +1774,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &6248229747733947962
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2283,6 +1787,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

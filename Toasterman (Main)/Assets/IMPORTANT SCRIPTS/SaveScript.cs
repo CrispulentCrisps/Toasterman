@@ -1,21 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class SaveScript : MonoBehaviour
+public class Data 
 {
     public bool[] PlanetsCompleted;
-    public int[] ScoreForPlanet;
+    public int[] ScoreForPlanet; //Planet highscore
+    public int[] TimesLost;
+    public int[] TimesPlayed;
 
-    public SaveScript (bool[] planetTally, int[] PlanetScore)
-    {
-        for (int i = 0; i < PlanetsCompleted.Length; i++)
-        {
-            planetTally[i] = PlanetsCompleted[i];
-        }
-
-        for (int i = 0; i < ScoreForPlanet.Length; i++)
-        {
-            PlanetScore[i] = ScoreForPlanet[i];
-        }
-    }
+}
+public class SaveScript : MonoBehaviour
+{
 }
