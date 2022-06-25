@@ -78,16 +78,16 @@ SpriteRenderer:
   m_SortingLayerID: -358543269
   m_SortingLayer: 4
   m_SortingOrder: 99
-  m_Sprite: {fileID: -4866215267170806279, guid: bfb424f6d46576249ae4251aadb486a8,
+  m_Sprite: {fileID: -4598539148554487769, guid: 6c773b7a5f08a5348b27d86520774e37,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 0.75}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4728287638042413881
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 4728287638042413882}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53414656a58ba554bb866b4f32a8a32d, type: 2}
+  m_Controller: {fileID: 9100000, guid: c52f2db7d7d69144493967bd9359c558, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -123,11 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 0}
+  sr: {fileID: 4728287638042413880}
   rb: {fileID: 4728287638042413878}
   tf: {fileID: 4728287638042413879}
   Target: {fileID: 0}
-  hurtColour: {r: 0, g: 0, b: 0, a: 0}
+  hurtColour: {r: 1, g: 0, b: 0, a: 1}
   Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 4728287638042413881}

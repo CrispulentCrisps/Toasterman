@@ -33,14 +33,6 @@ public class Homing : MonoBehaviour, IPooledObject
         objectPooler = ObjectPools.Instance;
     }
 
-    void Update()
-    {
-        if (tf.position.x <= -100)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))

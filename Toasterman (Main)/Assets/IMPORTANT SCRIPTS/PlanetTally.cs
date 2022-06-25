@@ -2,29 +2,35 @@
 
 public class PlanetTally : MonoBehaviour
 {
-    public static bool[] PlanetsDone;
-    public static int[] PlanetScore;
-    private void Start()
+    public static bool[] PlanetsDone = { false, false};
+    public static int[] PlanetScore = { 0, 0 };
+
+    public SaveScript save;
+
+    void Start()
     {
-        PlanetsDone = new bool[] { false, false };
-        PlanetScore = new int[] { 0, 0 };
         LoadData();
     }
 
     public void LoadData()
     {
-        SaveScript Data = SaveSystem.LoadData();
+        save.LoadData();
         for (int i = 0; i < PlanetsDone.Length; i++)
         {
-            PlanetsDone[i] = Data.PlanetsCompleted[i];
+            PlanetsDone[i] = save.TEMP_PlanetsCompleted[i];
         }
         for (int i = 0; i < PlanetsDone.Length; i++)
         {
-            PlanetScore[i] = Data.ScoreForPlanet[i];
+            PlanetScore[i] = save.TEMP_ScoreForPlanet[i];
         }
     }
-    public static void SaveData()
+    public void SaveData()
     {
-        SaveSystem.SaveData(PlanetsDone, PlanetScore);
+        for (int i = 0; i < PlanetsDone.Length; i++)
+        {
+            save.SetPS(PlanetScore[i], i);
+            save.SetPC(PlanetsDone[i], i);
+        }
+        save.SaveData();
     }
 }

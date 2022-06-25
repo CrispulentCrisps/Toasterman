@@ -24,7 +24,8 @@ public class PauseMenuScript : MonoBehaviour
         {
             if (GameIsPaused)
             {
-               StartCoroutine(ExitMenu());
+                Time.timeScale = 1f;
+                Resume();
             }
             else
             {
@@ -35,16 +36,17 @@ public class PauseMenuScript : MonoBehaviour
 
     public IEnumerator ExitMenu()
     {
+        Time.timeScale = 1f;
         anim.Play("UnPause");
-        yield return new WaitForSeconds(1);
-        Resume();
+        yield return new WaitForSeconds(0.15f);
+        PauseMenuUI.SetActive(false);
+        GameIsPaused = false;
     }
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        StartCoroutine(ExitMenu());
     }
 
     public void Pause()

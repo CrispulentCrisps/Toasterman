@@ -74,7 +74,8 @@ public class ShieldMakerCore : MonoBehaviour
     {
         AudioManager.instance.Play("Victory2");
         PlanetTally.PlanetsDone[0] = true;
-        PlanetTally.SaveData();
+        PlanetTally pt = GameObject.FindGameObjectWithTag("TallyCounter").GetComponent<PlanetTally>();
+        pt.SaveData();
     }
 
     public void BoomUp()

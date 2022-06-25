@@ -149,25 +149,25 @@ MonoBehaviour:
   enemyscript: {fileID: 0}
   anim: {fileID: 2573347716514225857}
   EnemyShootSound: EnemyShoot2
-  EnemyHurtSound: 
+  EnemyHurtSound: EnemyHurt2
   Health: 10
-  BulletName: EnemyBullet
+  BulletName: SporeShot
   RotationSpeed: 0
   RegularAmount: 6
-  Charge: 0
-  Full: 0
+  Charge: 1
+  Full: 2.5
   ShootType: 0
-  RegularAngle: 0
+  RegularAngle: 360
   AngleOffset: 0
-  BaseSpeed: 0
+  BaseSpeed: 11
   MinVel: 0
   MaxVel: 0
-  ArcRepeat: 0
-  RotateGun: 0
-  GunRotateAmount: 0
-  ShootNearPlayer: 0
-  DistanceToPlayer: 0
-  MinTime: 0
+  ArcRepeat: 3
+  RotateGun: 1
+  GunRotateAmount: 5
+  ShootNearPlayer: 1
+  DistanceToPlayer: 2
+  MinTime: 2.5
   ShootAtPlayer: 0
   Move: 1
 --- !u!50 &2573347716514225726
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 25
-  Points: 500
+  Points: 300
   PointMultiplier: 1
 --- !u!1 &6894045692621885186
 GameObject:

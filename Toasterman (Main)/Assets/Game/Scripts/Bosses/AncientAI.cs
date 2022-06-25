@@ -43,20 +43,22 @@ public class AncientAI : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
-        SineFreq = 2f;
+        SineFreq = 1f;
         SineAmp = 1f;
         j = 0;
         handscripts[0] = Hands[0].GetComponent<HandScript>();
         handscripts[1] = Hands[1].GetComponent<HandScript>();
+        gameObject.transform.position = new Vector3(0f, 0f, -5f);
     }
 
     public void OnObjectSpawn()
     {
         gameObject.transform.Rotate(0f, -90f, 0f);
+        gameObject.transform.position = new Vector3(0f,0f,-5f);
         camerashake = Camera.main.GetComponent<CameraShake>();
         BG = GameObject.Find("BG stuff");
         paralaxstuff = BG.GetComponent<ParalaxStuff>();
-        SineFreq = 2f;
+        SineFreq = 1f;
         SineAmp = 1f;
         j = 0;
         ShroomAnim = GameObject.Find("BigMushroom").GetComponent<Animator>();
@@ -162,16 +164,16 @@ public class AncientAI : MonoBehaviour, IPooledObject
         switch (HandScript.HandsGone)
         {
             case 0:
-                BulletAmount = 8;
+                BulletAmount = 4;
                 MaxState = 3;
                 MinState = 0;
                 break;
             case 1:
-                BulletAmount = 9;
+                BulletAmount = 6;
                 MaxState = 4;
                 break;
             case 2:
-                BulletAmount = 10;
+                BulletAmount = 8;
                 MaxState = 6;
                 MinState = 1;
                 break;
@@ -206,7 +208,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
                     {
                         BulletName = "SmallRock";
                         AudioManager.instance.Play("Tail");
-                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[4], 10f * Mathf.Sin(j * 0.25f) + (BulletAmount * 0.125f + j));
+                        BulletPatternsModule.ShootArc(360f, BulletAmount, BulletName, BodyParts[2], 10f * Mathf.Sin(j * 0.25f) + (BulletAmount * 0.125f + j));
                         TimingSpaceRock = 0;
                         j++;
                     }
@@ -233,14 +235,14 @@ public class AncientAI : MonoBehaviour, IPooledObject
         AudioManager.instance.Play("Thud");
         for (int i = 0; i < Amount; i++)
         {
-            objectPooler.SpawnFromPool("SporeBomb", BodyParts[4].position, Quaternion.identity);
+            objectPooler.SpawnFromPool("SporeBomb", BodyParts[2].position, Quaternion.identity);
             StartCoroutine(camerashake.Shake(1f, 0.05f));
         }
     }
 
     public void StartLazer()
     { 
-        objectPooler.SpawnFromPool("Lazer", BodyParts[4].position, Quaternion.identity);
+        objectPooler.SpawnFromPool("Lazer", BodyParts[2].position, Quaternion.identity);
         StartCoroutine(camerashake.Shake(5f, 0.00015f));
     }
 

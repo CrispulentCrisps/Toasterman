@@ -69,23 +69,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 3653367361674309134}
+    - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
+        type: 3}
+      propertyPath: tf
+      value: 
+      objectReference: {fileID: 183728431128030057}
+    - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
+        type: 3}
       propertyPath: XorY
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: Offset
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: ArcSize
-      value: 270
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: BulletName
-      value: WavyKite
+      value: Wavykite
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
@@ -95,17 +105,34 @@ PrefabInstance:
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: BulletAmount
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170294, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: LevelToExplode
-      value: -13
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 2028298398534170295, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
         type: 3}
       propertyPath: m_Name
       value: BombWavy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2028298398534170295, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd0179a0879f5ea4aa3fd88155f9e35f, type: 3}
+--- !u!4 &183728431128030057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2028298398534170292, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2209379200293002717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &3653367361674309134 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3177875504145609683, guid: cd0179a0879f5ea4aa3fd88155f9e35f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2209379200293002717}
+  m_PrefabAsset: {fileID: 0}

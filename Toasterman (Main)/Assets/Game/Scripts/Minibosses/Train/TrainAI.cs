@@ -24,29 +24,20 @@ public class TrainAI : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
-
     }
 
     public void OnObjectSpawn()
     {
-
         Life = LifeTime;
-
         paralaxStuff = GameObject.FindGameObjectWithTag("BackGroundStuff").GetComponent<ParalaxStuff>();
-
+        AudioManager.instance.Play("TrainEnter");
         paralaxStuff.paraspeedGoal = 50f;
-
     }
 
     void Update()
     {
-
-
         Life -= 1f * Time.deltaTime;
-
         if (Life <= 0f && roccai.Ending == false)
         {
 

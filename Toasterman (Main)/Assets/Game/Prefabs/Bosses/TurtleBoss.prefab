@@ -72,10 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &4508790996175235411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &602809489510829161
@@ -163,10 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &5385802389435958150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &2122149401360671652
@@ -227,9 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: Metalhit
+  CollisionNames:
+  - Bullet
   DamageMultiplier: 0
 --- !u!58 &5916592342142950963
 CircleCollider2D:
@@ -319,10 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &301118395370794083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &2301185873347130375
@@ -410,10 +414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &6249047095767380570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &2418553357896272281
@@ -501,10 +506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &7916774034191420821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &3645588618042748975
@@ -592,10 +598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &6922884431805052111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &3673072464800126766
@@ -683,10 +690,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &151752438195046562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &3693146563703828591
@@ -774,10 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &7087739427708802956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &4337332632304231875
@@ -858,26 +867,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6897c9329470b534d9fb8ba565f38985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tf: {fileID: 0}
+  tf: {fileID: 5318748103862529748}
   Target: {fileID: 0}
-  MissleShotSpot: {fileID: 0}
-  TailShotSpot: {fileID: 0}
-  BoomPoint: {fileID: 0}
-  rb: {fileID: 0}
+  MissleShotSpot: {fileID: 5074722319915421939}
+  TailShotSpot: {fileID: 5074722320360486628}
+  BoomPoint: {fileID: 5318748103862529748}
+  rb: {fileID: 4337332632304231879}
   camerashake: {fileID: 0}
   paralaxStuff: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 4337332632304231876}
   CoreAnim: {fileID: 0}
   BGAnim: {fileID: 0}
-  SinAmp: 0
-  SineFreq: 0
-  Health: 0
-  YSpeed: 0
-  YVel: 0
-  XSpeed: 0
-  XVel: 0
-  RegularAngle: 0
-  RegularAmount: 0
+  SinAmp: 5
+  SineFreq: 5
+  Health: 500
+  YSpeed: 5
+  YVel: 5
+  XSpeed: 5
+  XVel: 5
+  RegularAngle: 135
+  RegularAmount: 3
   Intro: 1
   Killed: 0
   Speed: {x: 25, y: 0, z: 0}
@@ -913,9 +922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
-  Points: 0
-  PointMultiplier: 0
+  Damage: 25
+  Points: 2500
+  PointMultiplier: 1
 --- !u!1 &4603118458382819458
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,10 +997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &2034075914747472023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &5074722319915421938
@@ -1140,9 +1150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: Metalhit
+  CollisionNames:
+  - Bullet
   DamageMultiplier: 0
 --- !u!1 &5499578325863654800
 GameObject:
@@ -1216,10 +1227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &6220098033220004254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &5589116660046295546
@@ -1307,10 +1319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &344209368782272423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,7 +1336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &5696085968745883225
@@ -1372,10 +1385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!58 &28154928626949070
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1404,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &6494876380315077012
@@ -1479,10 +1493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &1783923658067117691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,7 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &6955436148343198419
@@ -1570,10 +1585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &5792985543296683359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,7 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &7007392778368005522
@@ -1661,10 +1677,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &3468694016036131441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &7482162183092445213
@@ -1752,10 +1769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &6446086229744894557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,7 +1786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &7898887651824362879
@@ -1843,10 +1861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &5640071223052676458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,7 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1 &7969668224748518401
@@ -2040,10 +2059,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd7d1fe13e2d744f8d9eeaec980b6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurtleBossAI: {fileID: 0}
-  SoundName: 
-  CollisionNames: []
-  DamageMultiplier: 0
+  TurtleBossAI: {fileID: 4337332632304231878}
+  SoundName: MetalHit
+  CollisionNames:
+  - Bullet
+  DamageMultiplier: 1
 --- !u!114 &4585222609347692648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,7 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 25
   Points: 0
   PointMultiplier: 0
 --- !u!1001 &2040047771008430529
@@ -2953,26 +2973,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7a4711cd2705bc45980849a9ae93e6c, type: 3}
---- !u!1 &551272483465093964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7212172010138725747, guid: d7a4711cd2705bc45980849a9ae93e6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2040047771008430529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7283949203062962170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551272483465093964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23dc7ce15bdfac94997bb751607fb263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerName: 
-  order: 0
 --- !u!4 &808435654753406989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1690986564661715404, guid: d7a4711cd2705bc45980849a9ae93e6c,
@@ -3003,46 +3003,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2040047771008430529}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2157181780132915244 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 117214286460000749, guid: d7a4711cd2705bc45980849a9ae93e6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2040047771008430529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7283949203062962169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157181780132915244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23dc7ce15bdfac94997bb751607fb263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerName: 
-  order: 0
---- !u!1 &2645286730348508323 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5117700066308340382, guid: d7a4711cd2705bc45980849a9ae93e6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2040047771008430529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7283949203062962168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2645286730348508323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23dc7ce15bdfac94997bb751607fb263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerName: 
-  order: 0
 --- !u!4 &3953438276681107435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6155616359191775702, guid: d7a4711cd2705bc45980849a9ae93e6c,
@@ -3061,26 +3021,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2040047771008430529}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4716614326416271803 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6718089845719668858, guid: d7a4711cd2705bc45980849a9ae93e6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2040047771008430529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5074722321506891770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4716614326416271803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1fe55f57f2f3e4f80399902a581c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerName: 
-  order: 0
 --- !u!4 &4824500008545260421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2397140330832108988, guid: d7a4711cd2705bc45980849a9ae93e6c,
@@ -3093,26 +3033,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2040047771008430529}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5559567759316685931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5866002047098283434, guid: d7a4711cd2705bc45980849a9ae93e6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2040047771008430529}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7283949203062962172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5559567759316685931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23dc7ce15bdfac94997bb751607fb263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerName: 
-  order: 0
 --- !u!4 &6042008896502748422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5734828040031249607, guid: d7a4711cd2705bc45980849a9ae93e6c,

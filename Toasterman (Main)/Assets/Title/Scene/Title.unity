@@ -25448,7 +25448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2005331731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32030,6 +32030,9 @@ MonoBehaviour:
   profile: {fileID: 11400000, guid: 87bae33bd5ec4c7439a79bb469a6451d, type: 2}
   audioMixer: {fileID: 24100000, guid: c8e66e01b54089d45938ca9a2e6148e9, type: 2}
   ResolutionDropdown: {fileID: 2977340302336489402}
+  LanguageDropdown: {fileID: 0}
+  ui: {fileID: 0}
+  Language: 0
 --- !u!1001 &5302064409845112345
 PrefabInstance:
   m_ObjectHideFlags: 0

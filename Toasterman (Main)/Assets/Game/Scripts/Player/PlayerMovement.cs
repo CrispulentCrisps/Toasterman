@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour, IPooledObject
 {
+    Shooting shooting;
+
     public Transform tf;
 
     public SpriteRenderer sr;
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         TrailTimer = 0;
         objectPooler = ObjectPools.Instance;
         DashAnim = DashSlider.GetComponent<Animator>();
-        //Blast = true;
+        shooting = gameObject.GetComponent<Shooting>();
     }
 
     public void OnObjectSpawn()
@@ -188,9 +190,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     { 
         tf.Translate(Movement * Time.deltaTime);
     }
-    //-------------------------------------------------|=========|-------------------------------------------------------\\
-    //-------------------------------------------------|==functions= |-------------------------------------------------------\\
-    //-------------------------------------------------|=========|-------------------------------------------------------\\
+
     public void SpawnToast()
     {
         //TODO
@@ -200,6 +200,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
         AudioManager.instance.Play("BigExplosion");
+        shooting.Score *= 0.5f;
         Alive = false;
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(1f, 1f));

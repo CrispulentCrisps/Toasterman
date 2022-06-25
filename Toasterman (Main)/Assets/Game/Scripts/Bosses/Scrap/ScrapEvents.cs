@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ScrapEvents : MonoBehaviour
 {
@@ -7,24 +8,41 @@ public class ScrapEvents : MonoBehaviour
 
     public ParalaxStuff ps;
     public Transform LaserPoint;
-    public Transform CannonPoint;
+    public Transform tf;
+    public Transform Target;
+    public Transform PlayerTf;
+    public Transform AttackTf;
+
     public AnimationCurve BGCurve;
     public Animator GunAnim;
+    public Animator GunAnim2;
     
     public Transform TailTf;
     private Vector2 MovementTail;
+    private Vector2 MovementSeg1;
     private bool TailShot;
     private bool GravityOn;
 
+    public Transform Seg1Trans;
+    bool Seg1Shot = false;
+    bool SegGrav = false;
+    
+    bool IsAttacking = true;
+    float Amp = 2;
+    float T = 0;
+
     public int State;
+
     public void Start()
     {
         State = 0;
         MovementTail = new Vector2(0, 0);
+        Target = GameObject.Find("New CCDSolver2D_Target").GetComponent<Transform>();
     }
 
     public void Update()
     {
+        T += Time.deltaTime;
         if (TailShot){
             MovementTail = new Vector2(-6f, 9.81f);
             TailShot = false;
@@ -32,15 +50,47 @@ public class ScrapEvents : MonoBehaviour
         }
 		if (GravityOn)
 		{
-            MovementTail -= new Vector2(-12f, 9.18f) * Time.deltaTime;
+            MovementTail -= new Vector2(-12f, 18.36f) * Time.deltaTime;
 		}
+
+        if (Seg1Shot)
+        {
+            GravityOn = false;
+            MovementTail = new Vector2(3, 0);
+            SegGrav = true;
+            Seg1Shot = false;
+        }
+
+        if (SegGrav)
+        {
+            MovementSeg1 += new Vector2(0, 18.36f) * Time.deltaTime;
+            Debug.Log(MovementSeg1);
+            Seg1Trans.Translate(MovementSeg1 * Time.deltaTime);
+        }
+
+        Target.position = new Vector3(Target.position.x, Amp * Mathf.Sin(T * 12f), Target.position.z);
+
+        if (!IsAttacking)
+        {
+            if (Amp < 2)
+            {
+                Amp += 2 * Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (Amp > 0)
+            {
+                Amp -= 2 * Time.deltaTime;
+            }
+        }
 
         TailTf.Translate(MovementTail * Time.deltaTime);
     }
 
     public void RemoveTailColliders()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < Colliders.Length; i++)
         {
             Colliders[i].SetActive(false);
         }
@@ -66,20 +116,34 @@ public class ScrapEvents : MonoBehaviour
     {
         StartCoroutine(BulletPatternsModule.ShootArcEnum(120f, 5, "SideLaser", LaserPoint, 110f, 0.02f));
     }
-
     public void ShootGun()
 	{
         GunAnim.Play("GunShoot");
-	}
-
-    public void FireBullet()
-    {
-        BulletPatternsModule.ShootArc(0f, 1, "GunBomb", CannonPoint, 0f);
     }
-
+    public void ShootGun2()
+    {
+        GunAnim2.Play("GunShoot2");
+    }
+    public void ShootSeg1()
+    {
+        IsAttacking = false;
+        Seg1Shot = true;
+        MovementTail = new Vector2(3,0);
+    }
     public void ShootTail()
 	{
         TailShot = true;
-        MovementTail = new Vector2(6, 10);
+        MovementSeg1 = new Vector2(6, 10);
 	}
+
+    public IEnumerator Attack3()
+    {
+        IsAttacking = true;
+        yield return null;
+    }
+
+    public void StartAttack3()
+    {
+        StartCoroutine("Attack3");
+    }
 }

@@ -30,6 +30,7 @@ public class HandScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        Debug.Log("coll is: " + coll.name);
         for (int i = 0; i < Length; i++)
         {
             if (coll.gameObject.CompareTag(CollisionNames[i]))

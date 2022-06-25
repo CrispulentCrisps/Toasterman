@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 267039277768253592}
   - component: {fileID: 1247258954402602286}
   - component: {fileID: 1114909102288256131}
+  - component: {fileID: 4893644206862284076}
   m_Layer: 0
   m_Name: Worm
   m_TagString: NotSoGoodThing
@@ -270,6 +271,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4893644206862284076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474078846665577053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
+  Points: 600
+  PointMultiplier: 1
 --- !u!1001 &1657008334931784492
 PrefabInstance:
   m_ObjectHideFlags: 0
