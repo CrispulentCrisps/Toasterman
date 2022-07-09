@@ -6,12 +6,15 @@ public class FlyGunAI : MonoBehaviour, IPooledObject
 {
     ObjectPools objectPooler;
 
+    public GameObject pointer;
+
     public Transform tf;
     Transform Target;
 
     public float TimeToShoot;
     public float Health;
 
+    bool IsDead = false;
     void Start()
     {
         objectPooler = ObjectPools.Instance;
@@ -29,9 +32,11 @@ public class FlyGunAI : MonoBehaviour, IPooledObject
             Health -= coll.GetComponent<DamageScript>().Damage;
             if (Health <= 0f)
             {
-                Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-                objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
-                gameObject.SetActive(false);
+                if (!IsDead)
+                {
+                    Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
+                }
+                IsDead = true;
             }
         }
     }

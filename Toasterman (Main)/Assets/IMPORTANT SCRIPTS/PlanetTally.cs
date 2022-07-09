@@ -9,6 +9,7 @@ public class PlanetTally : MonoBehaviour
 
     void Start()
     {
+        save = gameObject.GetComponent<SaveScript>();
         LoadData();
     }
 

@@ -10,7 +10,6 @@ public class ScrapEvents : MonoBehaviour
     public Transform LaserPoint;
     public Transform tf;
     public Transform Target;
-    public Transform PlayerTf;
     public Transform AttackTf;
 
     public AnimationCurve BGCurve;
@@ -19,15 +18,21 @@ public class ScrapEvents : MonoBehaviour
     
     public Transform TailTf;
     private Vector2 MovementTail;
+
+    public Transform Seg1Trans;
+    public Transform Seg2Trans;
+    bool Seg1Shot = false;
+    bool Seg2Shot = false;
+    bool SegGrav = false;
+
     private Vector2 MovementSeg1;
+    private Vector2 MovementSeg2;
+
     private bool TailShot;
     private bool GravityOn;
 
-    public Transform Seg1Trans;
-    bool Seg1Shot = false;
-    bool SegGrav = false;
     
-    bool IsAttacking = true;
+    public bool IsAttacking = true;
     float Amp = 2;
     float T = 0;
 
@@ -43,6 +48,7 @@ public class ScrapEvents : MonoBehaviour
     public void Update()
     {
         T += Time.deltaTime;
+
         if (TailShot){
             MovementTail = new Vector2(-6f, 9.81f);
             TailShot = false;
@@ -68,23 +74,32 @@ public class ScrapEvents : MonoBehaviour
             Seg1Trans.Translate(MovementSeg1 * Time.deltaTime);
         }
 
-        Target.position = new Vector3(Target.position.x, Amp * Mathf.Sin(T * 12f), Target.position.z);
+        Target.position = new Vector3(Target.position.x, AttackTf.position.y + (Amp * 0.5f * Mathf.Sin(T * 12f)), Target.position.z);
 
-        if (!IsAttacking)
-        {
-            if (Amp < 2)
-            {
-                Amp += 2 * Time.deltaTime;
-            }
-        }
-        else
+        if (IsAttacking)
         {
             if (Amp > 0)
             {
                 Amp -= 2 * Time.deltaTime;
             }
+            else if (Amp < 0)
+            {
+                Amp = 0;
+            }
+        }
+        else
+        {
+            if (Amp < 2)
+            {
+                Amp += 2 * Time.deltaTime;
+            }
+            else if (Amp < 0)
+            {
+                Amp = 0;
+            }
         }
 
+        Mathf.Clamp(AttackTf.position.x, 1.5f, 3f);
         TailTf.Translate(MovementTail * Time.deltaTime);
     }
 
@@ -131,19 +146,16 @@ public class ScrapEvents : MonoBehaviour
         MovementTail = new Vector2(3,0);
     }
     public void ShootTail()
-	{
+    {
         TailShot = true;
         MovementSeg1 = new Vector2(6, 10);
-	}
-
-    public IEnumerator Attack3()
+    }
+    public void FollowPlayer()
+    {
+        IsAttacking = false;
+    }
+    public void UnFollowPlayer()
     {
         IsAttacking = true;
-        yield return null;
-    }
-
-    public void StartAttack3()
-    {
-        StartCoroutine("Attack3");
     }
 }

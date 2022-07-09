@@ -160,14 +160,6 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         if (RotateGun)
         {
             AngleOffset += (GunRotateAmount * 360f) * Time.deltaTime;
-            if (AngleOffset > 360f)
-            {
-                AngleOffset -= 360f;
-            }
-            else if (AngleOffset < -360f)
-            {
-                AngleOffset += 360f;
-            }
         }
     }
 

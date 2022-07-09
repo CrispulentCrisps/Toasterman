@@ -10,6 +10,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public Animator EyeAnim;
     public Animator ShroomAnim;
 
+    public ParticleSystem ps;
+
     public CameraShake camerashake;
     public BigMushroom bigmushroom;
     public ParalaxStuff paralaxstuff;
@@ -64,6 +66,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
         ShroomAnim = GameObject.Find("BigMushroom").GetComponent<Animator>();
         bigmushroom = GameObject.Find("BigMushroom").GetComponent<BigMushroom>();
         StartCoroutine(AudioManager.instance.FadeAudio("How shroomy are you?", 1f));
+        ps.enableEmission = false;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -77,6 +80,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
+        var emmision = ps.emission;
+        emmision.rateOverTime = Mathf.Clamp((200 / (Health * 0.05f)) - 1,0f,200f);
 
         if (IntroDone == true)
         {
@@ -157,6 +162,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
             else if (HandScript.HandsGone == 2)
             {
                 EyeAnim.SetTrigger("AngryToWorry");
+                ps.enableEmission = true;
             }
 
         }

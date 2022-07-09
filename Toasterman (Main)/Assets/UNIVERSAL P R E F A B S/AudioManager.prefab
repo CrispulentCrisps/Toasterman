@@ -48,7 +48,7 @@ MonoBehaviour:
   sounds:
   - name: WorldMapTheme
     clip: {fileID: 8300000, guid: 10d3f58faac23a646891f59fd24444ac, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -60,7 +60,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BossTheme
     clip: {fileID: 8300000, guid: 730b6a4397c744c42809501cda560f91, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -172,13 +172,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Purity hit
+  - name: PurityHit
     clip: {fileID: 8300000, guid: d0c108de618c41540a4eace1862ea7a4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Purity hit badly
+  - name: PurityHurtBad
     clip: {fileID: 8300000, guid: 8146a9b1a386bbf4589bc66d6d165a53, type: 3}
     volume: 1
     pitch: 1
@@ -336,6 +336,30 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: WormDie
     clip: {fileID: 8300000, guid: a699125f0b8ca214c8f286d6a1a6f5ee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot2
+    clip: {fileID: 8300000, guid: 4217754e6029ab44eaf0621842f8b3e3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot3
+    clip: {fileID: 8300000, guid: 0a664eaaa5a4cd245ab7d2a2977ab999, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot3
+    clip: {fileID: 8300000, guid: 0a664eaaa5a4cd245ab7d2a2977ab999, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TrainEnter
+    clip: {fileID: 8300000, guid: f18609b1433f5e84b9d420fd2364aae3, type: 3}
     volume: 1
     pitch: 1
     loop: 0

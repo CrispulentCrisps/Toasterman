@@ -50,7 +50,6 @@ public class ScrapAnimEvents : MonoBehaviour
         {
             ps.Layer[i].GetComponent<SpriteRenderer>().sprite = sprite[i];
         }
-        ps.ParaDampen = 3f;
     }
 
     public void SpawnLightning()
@@ -76,7 +75,7 @@ public class ScrapAnimEvents : MonoBehaviour
     }
     public void ChangeState(int StateNum)
     {
-        ScrapBossAI.State = StateNum;
+        gameObject.GetComponent<ScrapEvents>().State = StateNum;
     }
     
     public void StopLevelMusic()

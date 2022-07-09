@@ -29,6 +29,6 @@ public class CircleAroundPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.position = new Vector3(CenterPoint.position.x + (XAmp * Mathf.Sin(TT + PhaseOffset) + XOff), CenterPoint.position.y + (YAmp * Mathf.Sin(TT + PhaseOffset) + YOff), 0f);
+        rb.position = new Vector3(CenterPoint.position.x + (XAmp * Mathf.Sin(TT + PhaseOffset) + XOff), CenterPoint.position.y + (YAmp * Mathf.Cos(TT + PhaseOffset) + YOff), 0f);
     }
 }

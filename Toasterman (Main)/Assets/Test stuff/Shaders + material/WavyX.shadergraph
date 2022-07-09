@@ -137,6 +137,9 @@
         },
         {
             "m_Id": "b147c06dc0af4d09b299c14011dd39c2"
+        },
+        {
+            "m_Id": "3aac32ced5d44870b444f6f97bbf5f97"
         }
     ],
     "m_GroupDatas": [],
@@ -252,6 +255,20 @@
                     "m_Id": "553530f33834a98883217d6bd22846b0"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "3aac32ced5d44870b444f6f97bbf5f97"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e78edf3979ce28848ead6cfa8654aee9"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -1415,6 +1432,41 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "3aac32ced5d44870b444f6f97bbf5f97",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 2421.92822265625,
+            "y": -229.86769104003907,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "3ee17d0758654bbba4fb242aa2e8a398"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "74bcf1b6f4c9a18abc74c1ffa55dc9d0"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "3b2ccd74a06d6d8289cbdd09e42e495b",
     "m_Id": 2,
@@ -1460,6 +1512,19 @@
         "w": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "3ee17d0758654bbba4fb242aa2e8a398",
+    "m_Id": 0,
+    "m_DisplayName": "MainTex",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {
