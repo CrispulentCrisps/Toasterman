@@ -230,10 +230,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurtleBossAI: {fileID: 4337332632304231878}
-  SoundName: Metalhit
+  SoundName: MetalHit
   CollisionNames:
   - Bullet
-  DamageMultiplier: 0
+  DamageMultiplier: 1
 --- !u!58 &5916592342142950963
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -878,8 +878,8 @@ MonoBehaviour:
   anim: {fileID: 4337332632304231876}
   CoreAnim: {fileID: 0}
   BGAnim: {fileID: 0}
-  SinAmp: 5
-  SineFreq: 1
+  SinAmp: 0
+  SineFreq: 1.5
   Health: 500
   YSpeed: 1
   YVel: 1
@@ -887,9 +887,9 @@ MonoBehaviour:
   XVel: 1
   RegularAngle: 135
   RegularAmount: 3
-  Intro: 1
+  Intro: 0
   Killed: 0
-  Speed: {x: 25, y: 0, z: 0}
+  Speed: {x: 0, y: 0, z: 0}
 --- !u!95 &4337332632304231876
 Animator:
   serializedVersion: 4
@@ -1151,10 +1151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurtleBossAI: {fileID: 4337332632304231878}
-  SoundName: Metalhit
+  SoundName: MetalHit
   CollisionNames:
   - Bullet
-  DamageMultiplier: 0
+  DamageMultiplier: 1
 --- !u!1 &5499578325863654800
 GameObject:
   m_ObjectHideFlags: 0

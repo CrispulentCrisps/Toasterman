@@ -11,8 +11,8 @@ public class Shooting : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI ScoreDisplay;
 
-    public float Score;
-    public static float TargetScore;
+    public float Score = 0;
+    public static float TargetScore = 0;
 
     public Color AddColour;
     public Color TakeColour;
@@ -174,7 +174,7 @@ public class Shooting : MonoBehaviour
                 }
                 break;
             case 1:
-                Increment = 1.5f;
+                Increment = 1.5f * (BulletLevel[BulletType]*0.5f);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
                 break;
             case 2:

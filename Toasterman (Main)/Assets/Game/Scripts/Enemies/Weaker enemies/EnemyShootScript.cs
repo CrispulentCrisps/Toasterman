@@ -9,6 +9,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public Rigidbody2D rb;
     public Transform tf;
+
     [Header("Only use if ShootAtPlayer is used")]
     public Transform Target;
 
@@ -35,13 +36,15 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public int Charge;
 
     public float Full;
-
+    [Range(0, 2)]
     public int ShootType;
+
     public float RegularAngle;
     public float AngleOffset;
     public float BaseSpeed;
     public float MinVel;
     public float MaxVel;
+    
     public int ArcRepeat;
 
     public bool RotateGun;
@@ -64,10 +67,12 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
         objectPooler = ObjectPools.Instance;
-        Ship = GameObject.Find("Ship");
-        Target = Ship.GetComponent<Transform>();
+        if (ShootAtPlayer)
+        {
+            Ship = GameObject.Find("Ship");
+            Target = Ship.GetComponent<Transform>();
+        }
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);//This determines movement speed
-        Debug.Log("ENEMY SPEED:" + speed);
 
         if (enemyscript.Waves[I].Inverse == -1)
         {
@@ -77,11 +82,6 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         if (sr == null)
         {
             sr = gameObject.GetComponent<SpriteRenderer>();
-        }
-
-        if (rb == null)
-        {
-            rb = gameObject.GetComponent<Rigidbody2D>();
         }
 
         if (rb == null)
@@ -150,6 +150,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= Ship.transform.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the player on the X axis
         {
             anim.Play("Fire");
+            FireRate = 0;
         }
         else if (FireRate >= Full)
         {

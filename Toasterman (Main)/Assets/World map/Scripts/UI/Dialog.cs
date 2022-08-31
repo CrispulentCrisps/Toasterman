@@ -22,12 +22,11 @@ public class Dialog : MonoBehaviour
     public Animator TxtAnim;
 
     public float TypingSpeed;
-    
+    [Header("This decides which JSON file to get when getting text")]
     public int POS;
 
     public int index;
     public int indexDone;
-    public int SelectState;
 
     const int ENGLISH = 0;
     const int GERMAN = 1;
@@ -60,7 +59,7 @@ public class Dialog : MonoBehaviour
 
         switch (Pos)
 	    {
-		    default:
+		    case 0:
                 path += ".json";
                 break;
             case 1:
@@ -78,6 +77,7 @@ public class Dialog : MonoBehaviour
 	public void Start()
 	{
         GetLanguageFromJSON(ENGLISH, POS);
+
     }
 
 	void Update()

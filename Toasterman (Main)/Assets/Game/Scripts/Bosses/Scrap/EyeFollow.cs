@@ -12,7 +12,6 @@ public class EyeFollow : MonoBehaviour
     float EyeHeight;
     float dx;
     float dy;
-    float diff;
 
     private void Start()
     {
@@ -22,7 +21,7 @@ public class EyeFollow : MonoBehaviour
     }
     void Update()
     {
-        //Thank you blumba for helping with this code :]    
+        //Thank you Blumba for helping with this code :]    
         dx = (PlayerTf.position.x - EyeTf.position.x);
         dy = (PlayerTf.position.y - EyeTf.position.y);
         float I = Mathf.Sqrt(dx * dx + dy * dy);

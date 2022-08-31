@@ -11,6 +11,7 @@ public class ScrapEvents : MonoBehaviour
     public Transform tf;
     public Transform Target;
     public Transform AttackTf;
+    public Transform AnimTf;
 
     public AnimationCurve BGCurve;
     public Animator GunAnim;
@@ -21,17 +22,24 @@ public class ScrapEvents : MonoBehaviour
 
     public Transform Seg1Trans;
     public Transform Seg2Trans;
+    public Transform Seg3Trans;
+
     bool Seg1Shot = false;
     bool Seg2Shot = false;
+    bool Seg3Shot = false;
+
     bool SegGrav = false;
+    public bool StartSpawning = false;
+
+    public Vector3 STrans;
 
     private Vector2 MovementSeg1;
     private Vector2 MovementSeg2;
+    private Vector2 MovementSeg3;
 
     private bool TailShot;
     private bool GravityOn;
 
-    
     public bool IsAttacking = true;
     float Amp = 2;
     float T = 0;
@@ -42,7 +50,6 @@ public class ScrapEvents : MonoBehaviour
     {
         State = 0;
         MovementTail = new Vector2(0, 0);
-        Target = GameObject.Find("New CCDSolver2D_Target").GetComponent<Transform>();
     }
 
     public void Update()
@@ -70,8 +77,17 @@ public class ScrapEvents : MonoBehaviour
         if (SegGrav)
         {
             MovementSeg1 += new Vector2(0, 18.36f) * Time.deltaTime;
-            Debug.Log(MovementSeg1);
             Seg1Trans.Translate(MovementSeg1 * Time.deltaTime);
+            if (Seg2Shot)
+            {
+                MovementSeg2 += new Vector2(0, 18.36f) * Time.deltaTime;
+                Seg2Trans.Translate(MovementSeg2 * Time.deltaTime);
+            }
+            if (Seg3Shot)
+            {
+                MovementSeg3 += new Vector2(0, 18.36f) * Time.deltaTime;
+                Seg2Trans.Translate(MovementSeg3 * Time.deltaTime);
+            }
         }
 
         Target.position = new Vector3(Target.position.x, AttackTf.position.y + (Amp * 0.5f * Mathf.Sin(T * 12f)), Target.position.z);
@@ -127,6 +143,16 @@ public class ScrapEvents : MonoBehaviour
         State = state;
     }
 
+    void StartAmp()
+    {
+        ScrapBossAI.StartAmp = true;
+    }
+
+    public void P4Spawn()
+    {
+        StartSpawning = true;
+    }
+
     public void Shoot5Way()
     {
         StartCoroutine(BulletPatternsModule.ShootArcEnum(120f, 5, "SideLaser", LaserPoint, 110f, 0.02f));
@@ -150,6 +176,18 @@ public class ScrapEvents : MonoBehaviour
         TailShot = true;
         MovementSeg1 = new Vector2(6, 10);
     }
+    public void ShootSeg2()
+    {
+        Seg2Shot = true;
+        MovementSeg2 = new Vector2(0, 6);
+        SegGrav = true;
+    }
+    public void ShootSeg3()
+    {
+        Seg3Shot = true;
+        MovementSeg3 = new Vector2(0, 6);
+        SegGrav = true;
+    }
     public void FollowPlayer()
     {
         IsAttacking = false;
@@ -157,5 +195,10 @@ public class ScrapEvents : MonoBehaviour
     public void UnFollowPlayer()
     {
         IsAttacking = true;
+    }
+
+    public void CurrentPos()
+    {
+        STrans = AnimTf.position;
     }
 }

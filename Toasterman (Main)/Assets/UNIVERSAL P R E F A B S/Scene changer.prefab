@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.44, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 1
@@ -102,6 +103,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 500, y: 500, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 0
@@ -145,7 +147,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 230152787
-  m_SortingLayer: 10
+  m_SortingLayer: 9
   m_SortingOrder: 32767
   m_Sprite: {fileID: 6988992304748263161, guid: 4f37ab1c7a1f1114b906a193bbbb927d,
     type: 3}
@@ -156,7 +158,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &450264641973510897
@@ -187,6 +189,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6295877709711300406}
   m_Father: {fileID: 0}
@@ -250,6 +253,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.44, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 2
@@ -325,6 +329,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.44, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6295877709701221893}
   m_RootOrder: 3
@@ -453,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 6295877710265403961, guid: 9d603d4a422f1404cb03dfca7ea56905,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 230152787
+      value: -807108733
       objectReference: {fileID: 0}
     - target: {fileID: 6295877710265403962, guid: 9d603d4a422f1404cb03dfca7ea56905,
         type: 3}
@@ -568,12 +573,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6295877710254543635, guid: 9d603d4a422f1404cb03dfca7ea56905, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d603d4a422f1404cb03dfca7ea56905, type: 3}
---- !u!224 &6295877709711300406 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6295877710265403966, guid: 9d603d4a422f1404cb03dfca7ea56905,
-    type: 3}
-  m_PrefabInstance: {fileID: 554638600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6295877709701221893 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6295877710254543629, guid: 9d603d4a422f1404cb03dfca7ea56905,
@@ -583,6 +582,12 @@ RectTransform:
 --- !u!95 &6295877709701221914 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6295877710254543634, guid: 9d603d4a422f1404cb03dfca7ea56905,
+    type: 3}
+  m_PrefabInstance: {fileID: 554638600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6295877709711300406 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6295877710265403966, guid: 9d603d4a422f1404cb03dfca7ea56905,
     type: 3}
   m_PrefabInstance: {fileID: 554638600}
   m_PrefabAsset: {fileID: 0}

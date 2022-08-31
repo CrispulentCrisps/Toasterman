@@ -6395,8 +6395,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits\r\n\r\nCode, design & sound:\r\nCrisps\r\n\r\nArt:\r\nLewis Pennycook\nTheMaskedMonocle
-    \nCrisps.\n\nTranslators:\nDeutsch: Blumba\nNeutral Spanish/Argentina: MegaSparky\nPortuguese:
+  m_text: "Credits\r\nCode, Design & Sound:\r\nCrisps\r\n\rArt:\r\nLewis Pennycook\nTheMaskedMonocle
+    \nCrisps.\nTranslators:\nDeutsch: Blumba\nNeutral Spanish/Argentina: MegaSparky\nPortuguese:
     Doumier"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58f74f92990cc04438186623de129151, type: 2}
@@ -6426,7 +6426,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.65
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10583,7 +10583,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &810326505
 SpriteRenderer:
@@ -12483,6 +12483,7 @@ GameObject:
   - component: {fileID: 978370337}
   - component: {fileID: 978370336}
   - component: {fileID: 978370335}
+  - component: {fileID: 978370338}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -12570,9 +12571,26 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 31
-  m_SortingLayerID: -460549427
+  m_SortingLayerID: -1543121981
   m_SortingOrder: 99
   m_TargetDisplay: 0
+--- !u!114 &978370338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978370333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37abdfa354f6cc46853da737d8e6041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 506066648}
+  amp1: 0
+  amp2: 5
+  freq1: 0
+  freq2: 5
 --- !u!1 &978521966
 GameObject:
   m_ObjectHideFlags: 0
@@ -15650,7 +15668,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1248092771
 MonoBehaviour:
@@ -16393,7 +16411,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &1325260272
 SpriteRenderer:
@@ -16553,6 +16571,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4391624308565038237, guid: c15edbd6a03a50549a697090d12514d6,
+        type: 3}
+      propertyPath: save
+      value: 
+      objectReference: {fileID: 1821503322}
     - target: {fileID: 4391624308565038238, guid: c15edbd6a03a50549a697090d12514d6,
         type: 3}
       propertyPath: m_Name
@@ -16588,7 +16611,7 @@ RectTransform:
   m_GameObject: {fileID: 1329220754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 978370334}
@@ -22662,7 +22685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!95 &1697082229
 Animator:
@@ -24308,6 +24331,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1821503322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4391624308565038227, guid: c15edbd6a03a50549a697090d12514d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1325343660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d411c8b61f3e322479adb1feb8b5e12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1839062291
 GameObject:
   m_ObjectHideFlags: 0
@@ -25072,7 +25107,7 @@ PrefabInstance:
     - target: {fileID: 2439331774297059904, guid: 1d4bb63913554cd4ebb1e714c210f2d4,
         type: 3}
       propertyPath: m_Name
-      value: Global Volume (1)
+      value: Global Volume
       objectReference: {fileID: 0}
     - target: {fileID: 2439331774297059905, guid: 1d4bb63913554cd4ebb1e714c210f2d4,
         type: 3}
@@ -30586,7 +30621,7 @@ PrefabInstance:
     - target: {fileID: 450264641973510897, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 450264641973510899, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
@@ -30642,6 +30677,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6295877709701221892, guid: e32e1f2b617222644b375f877396c3e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6295877709711300401, guid: e32e1f2b617222644b375f877396c3e8,
         type: 3}
@@ -33476,6 +33516,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: c8e66e01b54089d45938ca9a2e6148e9, type: 2}
   ResolutionDropdown: {fileID: 2977340302336489402}
   LanguageDropdown: {fileID: 0}
+  FPSDropdown: {fileID: 0}
   ui: {fileID: 0}
   Language: 0
 --- !u!1001 &5302064409845112345

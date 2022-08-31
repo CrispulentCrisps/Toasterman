@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 9013501054181996899}
   - component: {fileID: 9013501054181996897}
   - component: {fileID: 9013501054181996898}
+  - component: {fileID: 6354814592722277422}
   m_Layer: 0
-  m_Name: GiantEye_1
+  m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +101,26 @@ MonoBehaviour:
   tf: {fileID: 9013501054181996899}
   EyeTf: {fileID: 9013501054869552370}
   sr: {fileID: 9013501054869552369}
+--- !u!95 &6354814592722277422
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013501054181996900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 994e59136d0d8dd4a9ee92324261c691, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9013501054869552371
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +132,7 @@ GameObject:
   - component: {fileID: 9013501054869552370}
   - component: {fileID: 9013501054869552369}
   m_Layer: 0
-  m_Name: GiantEye_0
+  m_Name: EyeballWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9013501054869552371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.32, y: -0.8308032, z: 13.3742695}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -211,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9013501054949375296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3, y: 0.8308032, z: -13.3742695}
+  m_LocalPosition: {x: 5.3, y: 0.8308032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -230,7 +251,7 @@ GameObject:
   - component: {fileID: 9013501055005849476}
   - component: {fileID: 9013501055005849475}
   m_Layer: 0
-  m_Name: GiantEye_1 (1)
+  m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +336,7 @@ GameObject:
   - component: {fileID: 9013501055184589985}
   - component: {fileID: 9013501055184589986}
   m_Layer: 0
-  m_Name: GiantEye_2
+  m_Name: Eyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

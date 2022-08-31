@@ -25,11 +25,11 @@ public class TailShotAI : MonoBehaviour, IPooledObject
         tf.position = GameObject.Find("TailShotPoint").transform.position;
         if (XORY == true)
         {
-            Speed = new Vector2(Random.Range(-5f, -10f), Random.Range(-4f, 4f));
+            Speed = new Vector2(Random.Range(-5f, -10f), Random.Range(-6f, 6f));
         }
         else
         {
-            Speed = new Vector2(Random.Range(-4f, 4f), Random.Range(-5f, -10f));
+            Speed = new Vector2(Random.Range(-6f, 6f), Random.Range(-5f, -10f));
         }
         Health = 1f;
     }
@@ -47,7 +47,7 @@ public class TailShotAI : MonoBehaviour, IPooledObject
     {
         if (Health <= 0f || tf.position.x <= -18f)
         {
-            FindObjectOfType<AudioManager>().Play("TailShotHit");
+            AudioManager.instance.Play("TailShotHit");
             gameObject.SetActive(false);
         }
     }

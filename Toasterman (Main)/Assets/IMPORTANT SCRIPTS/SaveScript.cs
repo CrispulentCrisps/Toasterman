@@ -5,7 +5,7 @@ using System.IO;
 public class Data 
 {
     public bool[] PlanetsCompleted = { false, false };
-    public int[] ScoreForPlanet = { 0, 0 };
+    public float[] ScoreForPlanet = { 0, 0 };
     public int[] TimesLost = { 0, 0 };
     public int[] TimesPlayed = { 0, 0 };
     public bool[] DevScoreBeat = { false, false };
@@ -13,18 +13,27 @@ public class Data
 public class SaveScript : MonoBehaviour
 {
     public bool[] TEMP_PlanetsCompleted = { false, false };
-    public int[] TEMP_ScoreForPlanet = { 0, 0 };
+    public float[] TEMP_ScoreForPlanet = { 0, 0 };
     public int[] TEMP_TimesLost = { 0, 0 };
     public int[] TEMP_TimesPlayed = { 0, 0 };
     public bool[] TEMP_DevScoreBeat = { false, false };
     Data data;
     string path;
 
-    void Start()
+    void OnAwake()
     {
         path = Application.dataPath + "/SaveData/SaveData.json";
         Debug.Log(path);
-        LoadData();
+        try
+        {
+            LoadData();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log("ERROR LOADING DATA");
+            Debug.LogError(e);
+            throw;
+        }
     }
 
     public void SaveData()
@@ -40,6 +49,7 @@ public class SaveScript : MonoBehaviour
 
     public void LoadData()
     {
+        path = Application.dataPath + "/SaveData/SaveData.json";
         data = JsonUtility.FromJson<Data>(File.ReadAllText(path));
         TEMP_PlanetsCompleted = data.PlanetsCompleted;
         TEMP_ScoreForPlanet = data.ScoreForPlanet;
@@ -53,7 +63,7 @@ public class SaveScript : MonoBehaviour
         TEMP_PlanetsCompleted[index] = State;
     }
 
-    public void SetPS(int Score, int index)
+    public void SetPS(float Score, int index)
     {
         TEMP_ScoreForPlanet[index] = Score;
     }

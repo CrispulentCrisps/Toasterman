@@ -2,7 +2,6 @@
 
 public class EnemyScript : MonoBehaviour
 {
-
     public bool DEBUGMODE;
 
     public int i = 0; // i is for the amount of Waves in the level
@@ -19,7 +18,7 @@ public class EnemyScript : MonoBehaviour
     public float RotSpace; //Seperates enemies in a circle
     public static int PowerNum;
     private string Name;
-
+    private int WaveTypeDeb;
 
     public bool start = false;
     private bool DoneUp = false;
@@ -43,6 +42,10 @@ public class EnemyScript : MonoBehaviour
             Name = Waves[i].EnemyName;
             WaveStart();
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            DEBUGMODE = !DEBUGMODE;
+        }
     }
 
     public void WaveStart()
@@ -53,7 +56,7 @@ public class EnemyScript : MonoBehaviour
         {
             Waves[i].Inverse = 1;
         }
-
+        WaveTypeDeb = Waves[i].WaveType;
         switch (Waves[i].WaveType)
         {
             case 1:
@@ -129,10 +132,21 @@ public class EnemyScript : MonoBehaviour
         TriPos = 0;
         Space = 0;
         RotSpace = 0;
-
+    }
+    public void OnGUI()
+    {
         if (DEBUGMODE)
         {
+            int w = Screen.width, h = Screen.height;
 
+            GUIStyle style = new GUIStyle();
+
+            Rect rect = new Rect(0, 50, w, h * 2 / 50);
+            style.alignment = TextAnchor.UpperRight;
+            style.fontSize = h * 2 / 50;
+            style.normal.textColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            string text = string.Format("Current Wave: " + i + "\n Enemy type: " + Name + "\n Wave Type: " + WaveTypeDeb);
+            GUI.Label(rect, text, style);
         }
     }
 }

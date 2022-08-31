@@ -25,6 +25,12 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public float SineAmp;
     public float SineFreq;
 
+    [Header("Rotation")]
+    public bool Rotate;
+    public float AngleTarget;
+    public float AngleTime;
+    private float timer = 0;
+
     [Header("Exploding into bullets")]
     public bool Explode;
     public string BulletShootName;
@@ -167,6 +173,29 @@ public class BulletAI : MonoBehaviour, IPooledObject
         {
             ST += Time.deltaTime;
             speedy = SineAmp * Mathf.Sin(ST * SineFreq);
+        }
+
+        //Rotation
+        if (Rotate)
+        {
+            timer += Time.deltaTime;
+            if (timer >= AngleTime)
+            {
+                Rotate = false;
+            }
+
+            tf.Rotate(new Vector3(0f, 0f, AngleTarget * (AngleTime * Time.deltaTime)));
+            
+            if (AngleTarget > 0 && tf.rotation.z > AngleTarget)
+            {
+                tf.rotation = Quaternion.Euler(0f, 0f, AngleTarget);
+                Rotate = false;
+            }
+            else if (AngleTarget < 0 && tf.rotation.z < AngleTarget)
+            {
+                tf.rotation = Quaternion.Euler(0f, 0f, AngleTarget);
+                Rotate = false;
+            }
         }
 
         if (tf.position.x > 25 || tf.position.x < -25f || tf.position.y > 15f || tf.position.x < -15f)

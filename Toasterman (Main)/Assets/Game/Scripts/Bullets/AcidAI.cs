@@ -9,8 +9,6 @@ public class AcidAI : MonoBehaviour, IPooledObject
 
     public CircleCollider2D Collision;
 
-    private Shooting shooting;
-
     private Vector2 Movement;
 
     private float speedx = 0;
@@ -37,8 +35,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     void Update()
     {
         Collision.enabled = !Collision.enabled;
-        speedx *= 0.91f;
-        speedy *= 0.91f;
+        speedx *= 0.92f;
+        speedy *= 0.92f;
         Movement = new Vector2(speedx, speedy);
         tf.localScale = new Vector3(speedx / SpeedScaleDivX, speedy / SpeedScaleDivY, 0f);
         if (speedx <= 0.1f)

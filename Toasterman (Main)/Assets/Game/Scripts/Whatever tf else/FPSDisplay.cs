@@ -4,12 +4,15 @@ using System.Collections;
 public class FPSDisplay : MonoBehaviour
 {
     public bool Show;
-
     float deltaTime = 0.0f;
+
+    public static int FPS = 120;
+    public static int VSYNC = 1;
+
     void Start()
     {
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = VSYNC;
+        Application.targetFrameRate = FPS;
     }
 
     void Update()
@@ -19,6 +22,14 @@ public class FPSDisplay : MonoBehaviour
         {
             Show = !Show;
         }
+    }
+
+    public void UpdateSettings(int fps, int vsync)
+    {
+        /*
+        QualitySettings.vSyncCount = vsync;
+        Application.targetFrameRate = fps;
+        */
     }
 
     void OnGUI()

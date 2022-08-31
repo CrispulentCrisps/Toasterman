@@ -29,7 +29,7 @@ public class Lightning : MonoBehaviour
     void Update()
     {
         Wait += Time.deltaTime;
-        if (Wait >= Max) 
+        if (Wait >= Max)
         {
             if (MonsterChance >= 99 && !RoamingMonster.active)
             {

@@ -10,6 +10,8 @@ public class SettingsData
 {
     public float opacity;
     public int Language;
+    public int VSYNC;
+    public int FPS;
 }
 
 public class SettingsMenu : MonoBehaviour
@@ -17,6 +19,8 @@ public class SettingsMenu : MonoBehaviour
     GameObject scanlines;
 
     SettingsData settings;
+
+    FPSDisplay fpsdis;
 
     public Slider ScanSlide;
 
@@ -30,11 +34,15 @@ public class SettingsMenu : MonoBehaviour
 
     public TMP_Dropdown ResolutionDropdown;
     public TMP_Dropdown LanguageDropdown;
+    public TMP_Dropdown FPSDropdown;
 
     public UITrans ui;
 
     public int Language;
-
+    private void Start()
+    {
+        fpsdis = Camera.main.GetComponent<FPSDisplay>();
+    }
     void OnLevelWasLoaded()
     {
         scanlines = GameObject.Find("Scanlines 1");
@@ -80,6 +88,9 @@ public class SettingsMenu : MonoBehaviour
                     case 1:
                         SetLens(true);
                         break;
+                    case 2:
+
+                        break;
                 }
             }
             else
@@ -106,10 +117,40 @@ public class SettingsMenu : MonoBehaviour
         SettingsData data = new SettingsData();
         data.Language = Language;
         data.opacity = ScanSlide.value;
+        SetFPSandVSYNC(data);
         System.IO.File.WriteAllText(path, JsonUtility.ToJson(data)); 
         settings = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
         Language = settings.Language;
         ScanSlide.value = settings.opacity;
+    }
+
+
+    public void UpdateFPS()
+    {
+        int fpsinsert = 60;
+        switch (FPSDropdown.value)
+        {
+            case 0:
+                fpsinsert = 30;
+                break;
+            case 1:
+                fpsinsert = 60;
+                break;
+            case 2:
+                fpsinsert = 120;
+                break;
+            case 3:
+                fpsinsert = 144;
+                break;
+        }
+        fpsdis.UpdateSettings(fpsinsert, toggles[2].isOn ? 1 : 0);
+    }
+
+    public void SetFPSandVSYNC(SettingsData data)
+    {
+        data.VSYNC = toggles[2].isOn ? 1 : 0;
+        data.FPS = FPSDropdown.value;
+        fpsdis.UpdateSettings(data.FPS, data.VSYNC);
     }
 
     public void SetResolution(int ResolutionIndex)

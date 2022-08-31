@@ -54,8 +54,8 @@ public class BulletPatternsModule : MonoBehaviour
     public static void ShootArcLine(float BaseSpeed, float MinVel, float MaxVel, int BulletAmount, string BulletName, Transform tf, float Offset, float ArcSize, int ArcRepeat)//All arcs are in angles, not radians
     {
         float Difference = (MaxVel - MinVel + 1) / BulletAmount;
-        float angle = Offset;//Offset is to the left
-        float AngleStep = (ArcSize/ BulletAmount) - ((float)ArcRepeat * 0.75f);
+        float angle = Offset - (ArcSize / ArcRepeat) * 0.5f;//Offset is to the left
+        float AngleStep = (ArcSize / ArcRepeat);
         for (int j = 0; j < ArcRepeat; j++)
         {
             angle += AngleStep;

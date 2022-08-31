@@ -127,7 +127,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             }
         }
 
-        if (Timer >= 4)
+        if (Timer >= 8)
         {
             if (Health > 0f)
             {
@@ -186,8 +186,11 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         //intro stuff
         if (tf.position.x > 7 && Intro == true)
         {
+            tf.position = Vector3.MoveTowards(tf.position, new Vector3(7f,0f,0f),7.5f * Time.deltaTime);
+            /*
             XSpeed = 7.5f;
             Speed.x = XSpeed;
+            */
         }
         else if(tf.position.x <= 7 && Intro == true)
         {
@@ -201,7 +204,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         {
             Speed.x = 0;
             YVel += Time.deltaTime;
-            if (SinAmp <= 7f)
+            if (SinAmp <= 5f)
             {
                 SinAmp += Time.deltaTime;
             }

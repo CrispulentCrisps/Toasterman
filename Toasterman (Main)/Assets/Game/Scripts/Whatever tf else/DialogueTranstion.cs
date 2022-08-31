@@ -4,6 +4,7 @@ public class DialogueTranstion : MonoBehaviour
 {
 
     public Dialog dialog;
+    public string LevelTheme;
 
     public void Start()
     {
@@ -12,7 +13,7 @@ public class DialogueTranstion : MonoBehaviour
 
     public void StartDialogue()
     {
-        AudioManager.instance.Stop("Level 1");
+        AudioManager.instance.Stop(LevelTheme);
         StartCoroutine(dialog.BoxIn(1f));
     }
 }

@@ -3,10 +3,10 @@
 public class PlanetTally : MonoBehaviour
 {
     public static bool[] PlanetsDone = { false, false};
-    public static int[] PlanetScore = { 0, 0 };
+    public static float[] PlanetScore = { 0, 0 };
+    public static int[] TimesCompleted = { 0, 0 };
 
     public SaveScript save;
-
     void Start()
     {
         save = gameObject.GetComponent<SaveScript>();
@@ -24,6 +24,10 @@ public class PlanetTally : MonoBehaviour
         {
             PlanetScore[i] = save.TEMP_ScoreForPlanet[i];
         }
+        for (int i = 0; i < TimesCompleted.Length; i++)
+        {
+            TimesCompleted[i] = save.TEMP_TimesPlayed[i];
+        }
     }
     public void SaveData()
     {
@@ -31,6 +35,7 @@ public class PlanetTally : MonoBehaviour
         {
             save.SetPS(PlanetScore[i], i);
             save.SetPC(PlanetsDone[i], i);
+            save.SetTP(TimesCompleted[i], i);
         }
         save.SaveData();
     }

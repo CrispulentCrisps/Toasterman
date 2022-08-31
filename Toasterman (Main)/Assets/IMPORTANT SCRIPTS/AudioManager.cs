@@ -47,14 +47,28 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Stop();
+        if (name == "")
+        {
+            Debug.LogWarning("SOUND: " + name + " IS NOT FOUND");
+        }
+        else
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            s.source.Stop();
+        }
     }
 
     public void SetVolume(string name,float Volume)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.volume = Volume;
+        if (name == "")
+        {
+            Debug.LogWarning("SOUND: " + name + " IS NOT FOUND");
+        }
+        else
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            s.source.volume = Volume;
+        }
     }
 
     public void ChangePitch(string name, float Pitch)
@@ -67,7 +81,7 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        while (s.source.volume >= 0f || s.source.volume <= 1f)
+        while (s.source.volume > 0f || s.source.volume <= 1f)
         {
             s.source.volume -= Increment * Time.deltaTime;
             yield return null;
