@@ -16,7 +16,6 @@ public class PurityHoming : MonoBehaviour, IPooledObject
     {
         objectPooler = ObjectPools.Instance;
         Ship = GameObject.Find("Ship");
-        tf.Rotate(new Vector3(0, 0, speed * 10));
     }
 
     void Start()
@@ -37,7 +36,7 @@ public class PurityHoming : MonoBehaviour, IPooledObject
             if (Health <= 0f)
             {
                 Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-                objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool("PurityDie", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
         }

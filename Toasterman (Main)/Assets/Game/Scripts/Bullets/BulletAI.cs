@@ -7,8 +7,10 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public TrailRenderer tr;
 
     private Vector2 Movement;
+    public Vector2 Bounds;
 
     public string BulletParticle;
+    public string BulletSoundOnImpact;
 
     public float speedx;
     public float speedy;
@@ -73,6 +75,12 @@ public class BulletAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     public void OnObjectSpawn()
     {
+        if (Bounds.x == 0 || Bounds.y == 0)
+        {
+            Bounds.x = 30f;
+            Bounds.y = 20f;
+        }
+
         if (tr != null)
         {
             tr.Clear();
@@ -108,6 +116,11 @@ public class BulletAI : MonoBehaviour, IPooledObject
                         if (BulletParticle != "")//just incase it's null
                         {
                             objectPooler.SpawnFromPool(BulletParticle, tf.position, Quaternion.identity);
+                            if (BulletSoundOnImpact != "")
+                            {
+                                AudioManager.instance.Play(BulletSoundOnImpact);
+                                AudioManager.instance.ChangePitch(BulletSoundOnImpact, Random.Range(1.1f, 0.9f));
+                            }
                         }
                         gameObject.SetActive(false);
                     }
@@ -198,7 +211,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
             }
         }
 
-        if (tf.position.x > 25 || tf.position.x < -25f || tf.position.y > 15f || tf.position.x < -15f)
+        if (tf.position.x > Camera.main.transform.position.x + Bounds.x || tf.position.x < Camera.main.transform.position.x - Bounds.x || tf.position.y > Camera.main.transform.position.y + Bounds.y || tf.position.y < Camera.main.transform.position.y - Bounds.y)
         {
             gameObject.SetActive(false);
         }

@@ -9,7 +9,7 @@ public class ScrapDamageScript : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Bullet"))
         {
-            gameObject.GetComponent<ScrapBossAI>().health -= coll.gameObject.GetComponent<DamageScript>().Damage;
+            ScrapBossAI.health -= coll.gameObject.GetComponent<DamageScript>().Damage;
             AudioManager.instance.Play(SoundName);
             AudioManager.instance.ChangePitch(SoundName, Random.Range(0.5f,1.5f));
         }

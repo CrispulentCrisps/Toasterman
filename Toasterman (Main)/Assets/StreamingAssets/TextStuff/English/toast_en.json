@@ -183,42 +183,50 @@
 			"ToastIn": true,
 			"AndrussIn": true,
 			"ToastEmote": 0,
-			"AndrussEmote": 5
+			"AndrussEmote": 4
 		},
 		{
 			"Words": "Toasterman: Then we must proceed immediately! I can't have you dying on me!",
 			"ToastIn": true,
 			"AndrussIn": true,
 			"ToastEmote": 0,
-			"AndrussEmote": 4
+			"AndrussEmote": 5
 		},
 		{
 			"Words": "Andruss: Yes! It seems to be that the fungal infection is spreading spores and will quickly take over! They do seem to cling on to objects but can't hold on at high speeds!",
 			"ToastIn": true,
 			"AndrussIn": true,
 			"ToastEmote": 0,
-			"AndrussEmote": 5
+			"AndrussEmote": 4
 		},
 		{
 			"Words": "Toasterman: Noted, I should be able to [dash] to get them off of me!",
 			"ToastIn": true,
 			"AndrussIn": true,
 			"ToastEmote": 0,
-			"AndrussEmote": 4
+			"AndrussEmote": 5
 		},
 		{
 			"Words": "Andruss: Staraspeed toasty! Make sure you use the new acid weapon, it doesn't travel far but it can deal damage! (weapons can be changed with the Z or < and X or > key)",
 			"ToastIn": true,
 			"AndrussIn": true,
 			"ToastEmote": 0,
-			"AndrussEmote": 5
+			"AndrussEmote": 4
 		},
 		{
 			"Words": "Toasterman: See you!",
 			"ToastIn": true,
-			"AndrussIn": true,
+			"AndrussIn": false,
 			"ToastEmote": 0,
 			"AndrussEmote": -1
+		},
+
+		{
+			"Words": "",
+			"ToastIn": false,
+			"AndrussIn": false,
+			"ToastEmote": -1,
+			"AndrussEmote": 0
 		}
 	]
 }

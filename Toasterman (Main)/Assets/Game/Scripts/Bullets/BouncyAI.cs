@@ -20,7 +20,7 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         Target = GameObject.FindGameObjectWithTag("Player");
-        speed = 17.5f;
+        speed = 22.5f;
     }
 
     private void Start()
@@ -31,7 +31,6 @@ public class BouncyAI : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-
         BounceAmount = (Shooting.BulletLevel[2]) + 2;
 
         Movement = new Vector2(speed, 0);
@@ -48,7 +47,7 @@ public class BouncyAI : MonoBehaviour, IPooledObject
         tf.Translate(Movement * Time.deltaTime);
 
     }
-
+        
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("NotSoGoodThing"))

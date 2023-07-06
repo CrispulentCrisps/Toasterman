@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class Homing : MonoBehaviour, IPooledObject
 {
-
     public Transform tf;
     public GameObject Ship;
-    private float speed;
+    public float speed;
     public GameObject MySelf;
     public GameObject WaveMaker;
     public EnemyScript enemyscript;
-    private int I; //Wave number
 
     public float Health;
 
     ObjectPools objectPooler;
 
     public void OnObjectSpawn()
-    {
+    {   
         WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
         enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
-        I = enemyscript.i;
+        EnemyScript.EnemyAmount++;
         objectPooler = ObjectPools.Instance;
-        Ship = GameObject.Find("Ship");
-        speed = enemyscript.Waves[I].EnemySpeed;
-        tf.Rotate(new Vector3(0, 0, speed * 10));
+        Ship = GameObject.FindGameObjectWithTag("Player");
+        speed = enemyscript.Waves[enemyscript.i].EnemySpeed;
     }
 
     void Start()
@@ -45,6 +42,7 @@ public class Homing : MonoBehaviour, IPooledObject
             Health -= coll.GetComponent<DamageScript>().Damage;
             if (Health <= 0f)
             {
+                EnemyScript.EnemyAmount--;
                 Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
@@ -55,7 +53,7 @@ public class Homing : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void FixedUpdate()
     {
-        tf.Rotate(new Vector3(0, 0, speed));
+        tf.Rotate(new Vector3(0, 0, speed * 2));
         tf.position = Vector3.MoveTowards(tf.position,Ship.transform.position, speed * Time.deltaTime);
     }
 }

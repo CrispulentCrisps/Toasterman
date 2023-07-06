@@ -8,6 +8,7 @@ public class BigMushroom : MonoBehaviour
     public ParalaxStuff ps;
     public EnemyScript enemyScript;
     public Dialog dialog;
+    public EnemyScript es;
 
     public CameraShake camerashake;
 
@@ -26,6 +27,7 @@ public class BigMushroom : MonoBehaviour
 
     private void Start()
     {
+        es = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();
         objectPooler = ObjectPools.Instance;
         light.intensity = 0f;
         LightShine = false;
@@ -47,7 +49,7 @@ public class BigMushroom : MonoBehaviour
 
     public void StartShake()
     {
-        StartCoroutine(camerashake.Shake(10f, 0.0025f));
+        StartCoroutine(camerashake.Shake(10f, 0.01f));
     }
 
     public void PlayThud()
@@ -91,5 +93,21 @@ public class BigMushroom : MonoBehaviour
         objectPooler.SpawnFromPool("Fire", new Vector3(Xpos, -6f, 0f), Quaternion.identity);
         objectPooler.SpawnFromPool("Fire", new Vector3(-Xpos, -6f, 0f), Quaternion.identity);
         Xpos++;
+    }
+
+    public void SetEnemyState(int Amount)
+    {
+        EnemyScript.EnemyAmount += Amount;
+    }
+    public void SetWaveState(int State)
+    {
+        if (State == 0)
+        {
+            es.start = false;
+        }
+        else
+        {
+            es.start = true;
+        }
     }
 }

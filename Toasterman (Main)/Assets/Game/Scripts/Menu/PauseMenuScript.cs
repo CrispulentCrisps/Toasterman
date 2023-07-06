@@ -6,6 +6,8 @@ public class PauseMenuScript : MonoBehaviour
     public SceneChange scenechange;
 
     public GameObject PauseMenuUI;
+    public GameObject OptionsMenu;
+    public GameObject PauseMenu;
 
     public Animator anim;
 
@@ -26,21 +28,28 @@ public class PauseMenuScript : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 Resume();
+                Debug.Log("IS RESUMED");
             }
             else
             {
                 Pause();
+                Debug.Log("IS PAUSED");
             }
         }   
     }
 
     public IEnumerator ExitMenu()
     {
-        Time.timeScale = 1f;
         anim.Play("UnPause");
         yield return new WaitForSeconds(0.15f);
         PauseMenuUI.SetActive(false);
-        GameIsPaused = false;
+        GameIsPaused = true;
+    }
+
+    public void OptionsToPause()
+    {
+        PauseMenu.active = true;
+        OptionsMenu.active = false;
     }
 
     public void Resume()

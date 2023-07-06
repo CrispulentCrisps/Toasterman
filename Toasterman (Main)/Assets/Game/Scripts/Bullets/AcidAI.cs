@@ -35,8 +35,8 @@ public class AcidAI : MonoBehaviour, IPooledObject
     void Update()
     {
         Collision.enabled = !Collision.enabled;
-        speedx *= 0.92f;
-        speedy *= 0.92f;
+        speedx *= 0.96f;
+        speedy *= 0.96f;
         Movement = new Vector2(speedx, speedy);
         tf.localScale = new Vector3(speedx / SpeedScaleDivX, speedy / SpeedScaleDivY, 0f);
         if (speedx <= 0.1f)

@@ -32,6 +32,8 @@ public class JabAI : MonoBehaviour, IPooledObject
     #region SpawningCode
     public void OnObjectSpawn()
     {
+        EnemyScript.EnemyAmount++;
+        tf = transform;
         GameObject WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
         enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
@@ -47,13 +49,15 @@ public class JabAI : MonoBehaviour, IPooledObject
         if (coll.gameObject.CompareTag("Player"))
         {
             Health = 0f;
-        }else if (coll.gameObject.CompareTag("Bullet"))
+        }
+        else if (coll.gameObject.CompareTag("Bullet"))
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
         }
 
         if (Health <= 0)
         {
+            EnemyScript.EnemyAmount--;
             Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
             objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
             gameObject.SetActive(false);
@@ -63,12 +67,13 @@ public class JabAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
-        Anim.SetTrigger("Jab");
+        //Debug.Assert(gameObject.active);
+
         TargetLocked = true;
         
         if (TargetLocked == true)
         {
-            Movement *= new Vector2(0.85f, 0.75f);
+            Movement *= new Vector2(0.9f, 0.75f);
         }
     }
 

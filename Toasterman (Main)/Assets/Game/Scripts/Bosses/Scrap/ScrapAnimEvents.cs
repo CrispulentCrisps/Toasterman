@@ -32,9 +32,12 @@ public class ScrapAnimEvents : MonoBehaviour
         TailTf.Translate(TailMov * Time.deltaTime);
         if (ExplodeTail)
         {
-            if (T >= 0.01f)
+            if (T >= 0.1f)
             {
-                objectPooler.SpawnFromPool("ExplosionBig", new Vector3(TailTf.position.x + Random.Range(0f, -25f), TailTf.position.y, TailTf.position.z), Quaternion.identity);
+                for (int i = 0; i < 10; i++)
+                {
+                    objectPooler.SpawnFromPool("ExplosionBig", new Vector3(TailTf.position.x + Random.Range(0f, -25f), TailTf.position.y, TailTf.position.z), Quaternion.identity);
+                }
                 T = 0f;
             }
         }
@@ -66,7 +69,6 @@ public class ScrapAnimEvents : MonoBehaviour
     {
         ExplodeTail = true;
     }
-
     public void ShootTailOff()
     {
         TailMov.y = 1f;

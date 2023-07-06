@@ -31,7 +31,7 @@ public class EnemySet
     [Range(0f, 99)]
     public double Time;
 
-    [Range(0.01f,5)]
+    [Range(0.01f,10)]
     public float Spacing;
 
     [Range(1, 100)]

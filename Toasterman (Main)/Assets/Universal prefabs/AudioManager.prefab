@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,7 +48,7 @@ MonoBehaviour:
   sounds:
   - name: WorldMapTheme
     clip: {fileID: 8300000, guid: 10d3f58faac23a646891f59fd24444ac, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -59,7 +60,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BossTheme
     clip: {fileID: 8300000, guid: 730b6a4397c744c42809501cda560f91, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -131,7 +132,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Place holder
     clip: {fileID: 8300000, guid: 7500268dc75aa6340aad3978a8a428b0, type: 3}
-    volume: 1
+    volume: 0.9
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -155,7 +156,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: How shroomy are you?
     clip: {fileID: 8300000, guid: 384b493a88828ed49b8f1fb534ccb481, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -167,6 +168,258 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Siren
     clip: {fileID: 8300000, guid: 16ac35aed2ba35143b4468ab4b483f8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurityHit
+    clip: {fileID: 8300000, guid: d0c108de618c41540a4eace1862ea7a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurityHurtBad
+    clip: {fileID: 8300000, guid: 8146a9b1a386bbf4589bc66d6d165a53, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laser fire
+    clip: {fileID: 8300000, guid: d687a3bc144654840a33df1d2626f390, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thud
+    clip: {fileID: 8300000, guid: beb0df461ed6f384ab1a0412e603c6dc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Get power
+    clip: {fileID: 8300000, guid: a7340c0df8f0b0146ae70ce91df0bac2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Corrupt deity
+    clip: {fileID: 8300000, guid: 4c496b47c87c608438e8978b23459402, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: TailShotHit
+    clip: {fileID: 8300000, guid: 9e072b39cdf7aeb469f23c72eef23fb5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shoot regular
+    clip: {fileID: 8300000, guid: 2c5b29fcb8ba0e6429ad813534c30cc6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss die 2
+    clip: {fileID: 8300000, guid: efb013948356e2d44ab30df4c95b29b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SmallExplosion
+    clip: {fileID: 8300000, guid: 6b5f4ae643f27e64f8fc7b48bc73dee5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WoodBreak
+    clip: {fileID: 8300000, guid: 51f3ba4ac2c2d244b957b6d23b5d23c7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 62e036788ab3c654e945613d716a84fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thud2
+    clip: {fileID: 8300000, guid: cbd4d79ca5d2e1647af23f124bf9ad7b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BreadzookaBlastTheme
+    clip: {fileID: 8300000, guid: f1aa0ecb052bb90498306127ce745726, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: c27556f7c1180e54e983c3ccd039126e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Beta
+    clip: {fileID: 8300000, guid: 3723a32229d57e048b3cf52f4dbefbf2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Gamma
+    clip: {fileID: 8300000, guid: 4054d28fa604be24f9e9a3a3367cfb66, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScrapyardTheme
+    clip: {fileID: 8300000, guid: 14a8a1a255c7a054c9e1c2f3be1b7b57, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: RoarAway
+    clip: {fileID: 8300000, guid: 8a022d66c5f16b34f8ba5f4295908606, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Strike
+    clip: {fileID: 8300000, guid: 864302e372018b74196ea493d636d8a5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScrapBossTheme
+    clip: {fileID: 8300000, guid: 612ba66f465eb3c4b9ff9d2d1103259e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Shoot1
+    clip: {fileID: 8300000, guid: 3b30940fa8489ac4d899491c7e2f5556, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShootCaps
+    clip: {fileID: 8300000, guid: c9ccd34052280a541afffeb95c28ff55, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot
+    clip: {fileID: 8300000, guid: 10bc8280016da9b4b868005088cd4cca, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DropBomb
+    clip: {fileID: 8300000, guid: 8202568a0d10a6a41b22f2a9ede412d4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShroomEnter
+    clip: {fileID: 8300000, guid: ca6c2b37889f0f748800ad2b3a55d538, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WormEnter
+    clip: {fileID: 8300000, guid: 44283f95426397d4f86fa6222ba6fa48, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WormDie
+    clip: {fileID: 8300000, guid: a699125f0b8ca214c8f286d6a1a6f5ee, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GreatScream
+    clip: {fileID: 8300000, guid: 32d6618fc19d7f44cbb501f2387bc8f2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TrainEnter
+    clip: {fileID: 8300000, guid: f18609b1433f5e84b9d420fd2364aae3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MediumExplosion
+    clip: {fileID: 8300000, guid: a27c8013b9e0e0c48975a231a7b74000, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Electricity
+    clip: {fileID: 8300000, guid: e37d29c58bbad4343bb272488a4d108d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot2
+    clip: {fileID: 8300000, guid: 4217754e6029ab44eaf0621842f8b3e3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyShoot3
+    clip: {fileID: 8300000, guid: 0a664eaaa5a4cd245ab7d2a2977ab999, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MassiveExplosion
+    clip: {fileID: 8300000, guid: 8d9980822e86037438fc7aafb2107ec7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurityRoar1
+    clip: {fileID: 8300000, guid: 71b8c0efae50ea24e96d05417777830e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScrapPartBroke
+    clip: {fileID: 8300000, guid: 027b49059d1d9344bbaf2e3dcf705b86, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserCharge
+    clip: {fileID: 8300000, guid: 107dc8dd6567ec848a9e764569c31460, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserDischarge
+    clip: {fileID: 8300000, guid: e48528fdfb2bdfc499d86de92702481d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BulletHit
+    clip: {fileID: 8300000, guid: 78cc6bc550b08aa4fb398abcdcb2ad1a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MidExplosion
+    clip: {fileID: 8300000, guid: 07096cc0b5223774d89b4780eb4224ba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PurityDie
+    clip: {fileID: 8300000, guid: 67fea9116fac8214885c8161bf556772, type: 3}
     volume: 1
     pitch: 1
     loop: 0

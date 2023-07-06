@@ -23,6 +23,9 @@
         },
         {
             "m_Id": "789a62f56c5240c5b89b430881c4c3ad"
+        },
+        {
+            "m_Id": "30e5e0f1759e491593e97e61ff54e618"
         }
     ],
     "m_Keywords": [],
@@ -1105,6 +1108,35 @@
 }
 
 {
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "30e5e0f1759e491593e97e61ff54e618",
+    "m_Guid": {
+        "m_GuidSerialized": "00f25434-0a50-4d78-a59f-254b4e4905eb"
+    },
+    "m_Name": "OverallColour",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "OverallColour",
+    "m_DefaultReferenceName": "_OverallColour",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "33f8765d97dc464cba296429645e5fbc",
@@ -1157,6 +1189,9 @@
         },
         {
             "m_Id": "789a62f56c5240c5b89b430881c4c3ad"
+        },
+        {
+            "m_Id": "30e5e0f1759e491593e97e61ff54e618"
         }
     ]
 }

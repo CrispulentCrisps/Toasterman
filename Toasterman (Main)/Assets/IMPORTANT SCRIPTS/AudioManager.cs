@@ -34,10 +34,6 @@ public class AudioManager : MonoBehaviour
             s.source.outputAudioMixerGroup = audioMixer;
         }
     }
-
-    ///+==========================================================================================+
-    ///|                                                                                         Functions                                                                                                  |
-    ///+==========================================================================================+
     
     public void Play(string name)
     {

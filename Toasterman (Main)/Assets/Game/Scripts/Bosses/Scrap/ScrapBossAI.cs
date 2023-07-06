@@ -12,7 +12,7 @@ public class ScrapBossAI : StateMachineBehaviour
     float Amp = 0;
     public float T;
     public float T2;
-    public float health;
+    public static float health = 3000f;
     public static bool StartAmp = false;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,6 +22,7 @@ public class ScrapBossAI : StateMachineBehaviour
         BodyTf = GameObject.Find("FollowPoint").GetComponent<Transform>();
         AnimTf = GameObject.Find("P3ANIM").GetComponent<Transform>();
         SpawnPoint = GameObject.Find("TentacleParent").GetComponent<Transform>();
+        EyeTf = GameObject.Find("Pupil").GetComponent<Transform>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,30 +30,30 @@ public class ScrapBossAI : StateMachineBehaviour
         Debug.Log("State = " + SE.State + ": Health = " + health);
         T += Time.deltaTime;
         T2 += Time.deltaTime;
-		if (health <= 5500 && health > 5000)//Second phase
+		if (health <= 2000 && health > 2000)//Second phase
         {
             SE.RemoveTailColliders();
             SE.State = 2;
             animator.SetTrigger("P1");
 		}
-        else if (health <= 5000 && health > 4500)//Third phase
+        else if (health <= 2000 && health > 1500)//Third phase
         {
             SE.State = 3;
             animator.SetTrigger("P2");
         }
-        else if (health <= 4500 && health > 4000)//Fourth phase
+        else if (health <= 1500 && health > 1000)//Fourth phase
         {
             SE.State = 4;
             animator.SetTrigger("P3");
         }
-        else if (health <= 4000 && health > 3500)//Fourth phase
+        else if (health <= 1000 && health > 500)//Fourth phase
         {
             SE.State = 5;
             animator.SetTrigger("P4");
         }
-        else if (health <= 3500 && health > 3000)//Fifth phase
+        else if (health <= 500 && health > 0)//Fifth phase
         {
-            SE.State = 5;
+            SE.State = 6;
             animator.SetTrigger("P5");
         }
 
@@ -62,6 +63,7 @@ public class ScrapBossAI : StateMachineBehaviour
                 if (T > 2f)
                 {
                     SE.Shoot5Way();
+                    AudioManager.instance.Play("EnemyShoot3");
                     T = 0;
                 }
                 break;
@@ -69,11 +71,13 @@ public class ScrapBossAI : StateMachineBehaviour
                 if (T2 > 3.75f)
                 {
                     SE.ShootGun2();
+                    AudioManager.instance.Play("EnemyShoot2");
                     T2 = 0;
                 }
                 if (T > 2.97f)
                 {
                     SE.ShootGun();
+                    AudioManager.instance.Play("EnemyShoot2");
                     T = 0;
                 }
                 break;
@@ -96,7 +100,6 @@ public class ScrapBossAI : StateMachineBehaviour
                     if (Amp < 5f)
                     {
                         Amp += 2f * Time.deltaTime;
-                        Debug.Log("AMPLITUDE: " + Amp);
 
                     }
                     else if (Amp > 5f)
@@ -129,10 +132,17 @@ public class ScrapBossAI : StateMachineBehaviour
                 {
                     AnimTf.position -= new Vector3(0f, 1f, 0f) * Time.deltaTime;
                 }
-                if (T >= 1f)
+                if (T >= 1f && SE.firing)
                 {
-                    ObjectPools.Instance.SpawnFromPool("PurityLaser", EyeTf.position, Quaternion.identity);
+                    T = 0;
+                    AudioManager.instance.Play("Electricity");
+                    AudioManager.instance.ChangePitch("Electricity", 2f);
+                    ObjectPools.Instance.SpawnFromPool("PurityLaser", new Vector3(EyeTf.position.x + 2f, EyeTf.position.y, EyeTf.position.z), Quaternion.identity);
                 }
+                break;
+            case 6:
+                T = -99f;
+                AnimTf.position = Vector3.MoveTowards(AnimTf.position, new Vector3(12f,-5f,0f), 4f * Time.deltaTime);
                 break;
         }
     }

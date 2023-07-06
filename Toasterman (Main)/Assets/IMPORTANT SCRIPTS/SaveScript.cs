@@ -4,19 +4,19 @@ using System.IO;
 [System.Serializable]
 public class Data 
 {
-    public bool[] PlanetsCompleted = { false, false };
-    public float[] ScoreForPlanet = { 0, 0 };
-    public int[] TimesLost = { 0, 0 };
-    public int[] TimesPlayed = { 0, 0 };
-    public bool[] DevScoreBeat = { false, false };
+    public bool[] PlanetsCompleted = { false, false, false };
+    public float[] ScoreForPlanet = { 0, 0, 0 };
+    public int[] TimesLost = { 0, 0, 0 };
+    public int[] TimesPlayed = { 0, 0, 0 };
+    public bool[] DevScoreBeat = { false, false, false };
 }
 public class SaveScript : MonoBehaviour
 {
-    public bool[] TEMP_PlanetsCompleted = { false, false };
-    public float[] TEMP_ScoreForPlanet = { 0, 0 };
-    public int[] TEMP_TimesLost = { 0, 0 };
-    public int[] TEMP_TimesPlayed = { 0, 0 };
-    public bool[] TEMP_DevScoreBeat = { false, false };
+    public bool[] TEMP_PlanetsCompleted = { false, false, false };
+    public float[] TEMP_ScoreForPlanet = { 0, 0, 0 };
+    public int[] TEMP_TimesLost = { 0, 0, 0 };
+    public int[] TEMP_TimesPlayed = { 0, 0, 0 };
+    public bool[] TEMP_DevScoreBeat = { false, false, false };
     Data data;
     string path;
 

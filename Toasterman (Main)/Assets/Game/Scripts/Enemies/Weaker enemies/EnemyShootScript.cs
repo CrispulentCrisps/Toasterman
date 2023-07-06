@@ -5,17 +5,18 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 {
     public Vector2 speed;
 
-    public SpriteRenderer sr;
+    public SpriteRenderer[] sr;
 
     public Rigidbody2D rb;
     public Transform tf;
+
+    public string ExplosionName;
+    public string ExplosionSound;
 
     [Header("Only use if ShootAtPlayer is used")]
     public Transform Target;
 
     public Color hurtColour;
-
-    public GameObject Ship;
 
     public EnemyScript enemyscript;
 
@@ -36,11 +37,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public int Charge;
 
     public float Full;
-    [Range(0, 2)]
+    [Range(0, 3)]
     public int ShootType;
 
     public float RegularAngle;
     public float AngleOffset;
+    public float GapSize;
+    public float GapOffset;
     public float BaseSpeed;
     public float MinVel;
     public float MaxVel;
@@ -65,23 +68,27 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
+        tf = transform;
+        EnemyScript.EnemyAmount++;
         I = enemyscript.i;
-        objectPooler = ObjectPools.Instance;
-        if (ShootAtPlayer)
-        {
-            Ship = GameObject.Find("Ship");
-            Target = Ship.GetComponent<Transform>();
-        }
         speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);//This determines movement speed
 
-        if (enemyscript.Waves[I].Inverse == -1)
-        {
-            sr.flipX = true;
-        }
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (sr == null)
         {
-            sr = gameObject.GetComponent<SpriteRenderer>();
+            sr = new SpriteRenderer[0];
+            sr[0] = gameObject.GetComponent<SpriteRenderer>();
+        }
+        
+        if (!sr[0])
+        {
+            sr[0] = gameObject.GetComponent<SpriteRenderer>();
+        }
+
+        if (enemyscript.Waves[I].Inverse == -1)
+        {
+            sr[0].flipX = true;
         }
 
         if (rb == null)
@@ -100,11 +107,19 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         }
     }
 
-    void Start()
+    void Awake()
     {
+        enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
         objectPooler = ObjectPools.Instance;
-        Ship = GameObject.Find("Ship");
-        Target = Ship.GetComponent<Transform>();
+        if (ExplosionName == "")
+        {
+            ExplosionName = "Boom";
+        }
+        if (ExplosionSound == "")
+        {
+            ExplosionSound = "SmallExplosion";
+        }
     }
 
     public void ShootBullet()
@@ -130,24 +145,32 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
             case 2:
                 BulletPatternsModule.ShootArcLine(BaseSpeed, MinVel, MaxVel, RegularAmount, BulletName, tf, AngleOffset, RegularAngle, ArcRepeat);
                 break;
+            case 3:
+                BulletPatternsModule.ShootArcGap(RegularAngle, GapSize, GapOffset, RegularAmount ,BulletName, tf, AngleOffset);
+                break;
         }
     }
 
     void Update()
     {
-        sr.color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
+        for (int i = 0; i < sr.Length; i++)
+        {
+            sr[i].color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
+        }
         tf.Rotate(0f, 0f, RotationSpeed * Time.deltaTime);
 
-        if (tf.position.x <= -16)
+        if (tf.position.x <= -30 || tf.position.x >= 30)
         {
+            //Debug.Assert(gameObject.active);
+            EnemyScript.EnemyAmount--;
             gameObject.SetActive(false);
 
-        }else if (tf.position.x <= 16f)
+        }else if (tf.position.x <= 16f && tf.position.x >= -16f)
         {
             FireRate += Charge * Time.deltaTime;
         }
 
-        if (tf.position.x >= Ship.transform.position.x - DistanceToPlayer && tf.position.x <= Ship.transform.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the player on the X axis
+        if (tf.position.x >= Target.position.x - DistanceToPlayer && tf.position.x <= Target.position.x + DistanceToPlayer && FireRate >= MinTime)//If close enough to the player on the X axis
         {
             anim.Play("Fire");
             FireRate = 0;
@@ -168,12 +191,25 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("Bullet"))
         {
+            if (EnemyHurtSound != "")
+            {
+                AudioManager.instance.ChangePitch(EnemyHurtSound, Random.Range(0.75f, 1.25f));
+                AudioManager.instance.Play(EnemyHurtSound);
+            }
             Health -= coll.GetComponent<DamageScript>().Damage;
-            sr.color = hurtColour;
+            for (int i = 0; i < sr.Length; i++)
+            {
+                sr[i].color = hurtColour;
+            }
             if (Health <= 0f)
             {
                 Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-                objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool(ExplosionName, tf.position, Quaternion.identity);
+                if (ExplosionSound != "")
+                {
+                    AudioManager.instance.Play(ExplosionSound);
+                }
+                EnemyScript.EnemyAmount--;
                 gameObject.SetActive(false);
             }
         }

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 3856419735099328233}
   Ship: {fileID: 0}
+  speed: 5
   MySelf: {fileID: 3856419735099327764}
   WaveMaker: {fileID: 0}
   enemyscript: {fileID: 0}
@@ -155,6 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
-  Points: 50
+  Damage: 5
+  Points: 25
   PointMultiplier: 1

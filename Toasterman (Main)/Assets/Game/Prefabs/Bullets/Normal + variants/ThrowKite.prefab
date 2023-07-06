@@ -19,7 +19,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8445773213318532461
 Transform:
@@ -102,7 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 8445773213318532461}
   tr: {fileID: 0}
+  Bounds: {x: 0, y: 0}
   BulletParticle: 
+  BulletSoundOnImpact: 
   speedx: 0
   speedy: 0
   ChangeAcc: 0

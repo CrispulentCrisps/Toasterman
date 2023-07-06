@@ -31,7 +31,8 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
+        EnemyScript.EnemyAmount++;
+        tf = transform;
         WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
         enemyscript = WaveMaker.GetComponent<EnemyScript>();// gets the scripts for the wave makers
         I = enemyscript.i;
@@ -61,8 +62,9 @@ public class CirclingScript : MonoBehaviour, IPooledObject
 
         if (Health <= 0)
         {
+            EnemyScript.EnemyAmount--;
             Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-            objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
+            objectPooler.SpawnFromPool("PurityDie", tf.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
     }

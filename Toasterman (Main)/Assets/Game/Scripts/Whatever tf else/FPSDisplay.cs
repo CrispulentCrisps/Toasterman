@@ -37,7 +37,6 @@ public class FPSDisplay : MonoBehaviour
         if (Show)
         {
             int w = Screen.width, h = Screen.height;
-
             GUIStyle style = new GUIStyle();
 
             Rect rect = new Rect(0, 0, w, h * 2 / 50);

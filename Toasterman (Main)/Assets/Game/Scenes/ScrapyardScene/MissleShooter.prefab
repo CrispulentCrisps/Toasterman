@@ -102,17 +102,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 6060261859861975991}
+  sr:
+  - {fileID: 6060261859861975991}
   rb: {fileID: 627832231}
   tf: {fileID: 6060261859861975984}
+  ExplosionName: 
+  ExplosionSound: 
   Target: {fileID: 0}
   hurtColour: {r: 1, g: 0, b: 0, a: 0}
-  Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 627832229}
   EnemyShootSound: 
   EnemyHurtSound: 
-  Health: 15
+  Health: 10
   BulletName: Missle
   RotationSpeed: 0
   RegularAmount: 2

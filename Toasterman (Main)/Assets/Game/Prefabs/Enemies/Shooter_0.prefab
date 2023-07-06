@@ -20,7 +20,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4728287638042413879
 Transform:
@@ -123,25 +123,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 4728287638042413880}
-  rb: {fileID: 4728287638042413878}
-  tf: {fileID: 4728287638042413879}
+  sr: []
+  rb: {fileID: 0}
+  tf: {fileID: 0}
+  ExplosionName: 
+  ExplosionSound: 
   Target: {fileID: 0}
-  hurtColour: {r: 1, g: 0, b: 0, a: 1}
-  Ship: {fileID: 0}
+  hurtColour: {r: 0, g: 0, b: 0, a: 0}
   enemyscript: {fileID: 0}
-  anim: {fileID: 4728287638042413881}
+  anim: {fileID: 0}
   EnemyShootSound: 
   EnemyHurtSound: 
-  Health: 6
-  BulletName: EnemyBullet
+  Health: 0
+  BulletName: 
   RotationSpeed: 0
-  RegularAmount: 3
-  Charge: 1
-  Full: 0.5
+  RegularAmount: 0
+  Charge: 0
+  Full: 0
   ShootType: 0
-  RegularAngle: 120
-  AngleOffset: 90
+  RegularAngle: 0
+  AngleOffset: 0
   BaseSpeed: 0
   MinVel: 0
   MaxVel: 0
@@ -202,6 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  Points: 175
-  PointMultiplier: 1
+  Damage: 0
+  Points: 0
+  PointMultiplier: 0

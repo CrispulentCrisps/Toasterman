@@ -19,7 +19,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2086596857601216947
 Transform:
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2086596857601216958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -63.92822, y: 7.8589506, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7bb69959856f24c84a46f19a680eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 2086596857601216947}
+  Target: {fileID: 0}
+  cameraShake: {fileID: 0}
   tf: {fileID: 2086596857601216947}
   rb: {fileID: 2086596857601216959}
   sr: {fileID: 2086596857601216946}
@@ -132,7 +133,7 @@ MonoBehaviour:
   StartRot: 90
   MaxTime: 5
   IsEnemy: 1
-  Targeting: 0
+  Targeting: 1
   TargetTag: Player
 --- !u!114 &-3351131163760359543
 MonoBehaviour:
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 10
   Points: 0
   PointMultiplier: 0
 --- !u!58 &1858868599488438450

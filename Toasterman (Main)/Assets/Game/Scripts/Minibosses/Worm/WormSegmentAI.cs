@@ -7,6 +7,8 @@ public class WormSegmentAI : MonoBehaviour
 
     public Transform tf;
 
+    public string BloodType;
+
     ObjectPools objectPooler;
 
     public WormWholeAI wormwholeai;
@@ -22,14 +24,15 @@ public class WormSegmentAI : MonoBehaviour
 
     public void OnObjectSpawn()
     {
-
         XVel = 0f;
-     
     }
 
     void Start()
     {
-
+        if (BloodType == "")
+        {
+            BloodType = "Blood";
+        }
         objectPooler = ObjectPools.Instance;
 
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
@@ -57,7 +60,7 @@ public class WormSegmentAI : MonoBehaviour
         {
             AudioManager.instance.ChangePitch("WormDie", Random.Range(1f, 0.5f));
             AudioManager.instance.Play("WormDie");
-            objectPooler.SpawnFromPool("Blood", tf.position, Quaternion.identity);
+            objectPooler.SpawnFromPool(BloodType, tf.position, Quaternion.identity);
             RotSpeed = Random.Range(-3600f, 3600f);
             XVel = Random.Range(-25f, 25f);
             ShotOff = true;
@@ -66,7 +69,10 @@ public class WormSegmentAI : MonoBehaviour
         }
 
         tf.position += new Vector3(XVel,0f,0f) * Time.deltaTime;
-        XVel *= 0.98f;
+        if (wormwholeai.Alive == false)
+        {
+            XVel -= ParalaxStuff.BGSpeed * Time.deltaTime;
+        }
     }
 
 }

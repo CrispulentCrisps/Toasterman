@@ -33,9 +33,9 @@ public class RobotRunToPlayer : StateMachineBehaviour
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)//Start
     {
-        Self = GameObject.Find("ROBOT");
-        tf = Self.GetComponent<Transform>();
-        Target = GameObject.Find("Ship").GetComponent<Transform>();
+        //Self = GameObject.Find("ROBOT");
+        tf = Self.transform;
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         LaserPoint = GameObject.Find("LaserShootPoint").GetComponent<Transform>();
         LaserPoint2 = GameObject.Find("LaserPoint2").GetComponent<Transform>();
         LaserPoint3 = GameObject.Find("LaserPoint3").GetComponent<Transform>();
@@ -201,34 +201,4 @@ public class RobotRunToPlayer : StateMachineBehaviour
 
         tf.Translate(Movement * Time.deltaTime);
     }
-
-    // OnStateExit is called before OnStateExit is called on any state inside this state machine
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateMove is called before OnStateMove is called on any state inside this state machine
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateIK is called before OnStateIK is called on any state inside this state machine
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateMachineEnter is called when entering a state machine via its Entry Node
-    //override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
-    //{
-    //    
-    //}
-
-    // OnStateMachineExit is called when exiting a state machine via its Exit Node
-    //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
-    //{
-    //    
-    //}
 }

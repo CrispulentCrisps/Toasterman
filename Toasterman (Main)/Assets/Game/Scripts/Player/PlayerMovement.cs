@@ -17,24 +17,23 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     private float TargetHealth = 100f;
     public float RegenRate;
 
-    private float Velocity = 10;
+    private float Velocity = 14;
     public float Normalspeed;
 
     private float timer; // Wait before the regen starts
     private float Timer2;// Smoke timer
     private float TrailTimer;// Dash trail timer
 
-    private float DashTimer;
-    public float DashTimerSpeed;
-
-    public float DashLength;
-    public float DashLengthRet;
     public float DashSpeed;
 
     public bool Dashin = false;
     private bool Invincible = false;
     private bool Alive = true;
     public bool Inverse;
+    [Header("0 for Normal, 1 for left")]
+    public int ShipRot;
+    [Header("Only Use in last level")]
+    public bool Freeform;
 
     ObjectPools objectPooler;
 
@@ -55,7 +54,6 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         Movement = new Vector3(0,0,0);
         timer = 0f;
         Timer2 = 0.5f;
-        DashTimer = 0f;
         TrailTimer = 0;
         objectPooler = ObjectPools.Instance;
         DashAnim = DashSlider.GetComponent<Animator>();
@@ -67,8 +65,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         Movement = new Vector3(0, 0, 0);
         timer = 0f;
         Timer2 = 0.5f;
-        DashTimer = 0f;
         TrailTimer = 0;
+        StopDash();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -77,19 +75,41 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         {
             Health -= coll.gameObject.GetComponent<DamageScript>().Damage;
             HealthAnim.SetTrigger("HealthDown");
-            StartCoroutine(camerashake.Shake(0.1f, 0.1f));
-            StartCoroutine(camerashake.AbberationChange(1f, 1f));
+            if (camerashake)
+            {
+                StartCoroutine(camerashake.Shake(0.1f, 0.1f));
+                StartCoroutine(camerashake.AbberationChange(1f, 1f));
+            }
             Anim.SetTrigger("Hurt");
             timer = 5f;
             AudioManager.instance.Play("Hurt");
             AudioManager.instance.ChangePitch("Hurt",Random.Range(0.75f,1.25f));
         }
+        else if (coll.tag == "Wall")
+        {
+            tf.Translate(-Movement * Time.deltaTime);
+        }
 
     }
-
     // Update is called once per frame
     void Update()
     {
+        if (Freeform)
+        {
+            if (Movement.x < 0 && !shooting.Auto)
+            {
+                ShipRot = 1;
+            }
+            else if (Movement.x >= 0 && !shooting.Auto)
+            {
+                ShipRot = 0;
+            }
+        }
+        else if (!shooting.Auto)
+        {
+            ShipRot = 0;
+        }
+
         HealthSlider.value = Health / 100f;//health slider
         //Checks movement debuffs
         if (Inverse)
@@ -102,6 +122,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             Movement.x = Input.GetAxis("Horizontal") * Velocity;
             Movement.y = Input.GetAxis("Vertical") * Velocity;
         }
+
+        #region TiltSprites
 
         if (Movement.y < -0.01f * Velocity && Movement.y > -0.5f * Velocity)
         {
@@ -123,9 +145,11 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             sr.sprite = TiltSprites[0];
         }
 
+        #endregion
+        
         if (Alive == true)
         {
-            DashSlider.value += DashTimerSpeed * Time.deltaTime;//dash
+            DashSlider.value += 0.125f * Time.deltaTime;//dash
             timer -= 1f * Time.deltaTime;//shooting
             Timer2 -= 2f * Time.deltaTime;//smoke
             if (Alive && !Invincible)//This makes sure that player takes damage in hitbox
@@ -151,15 +175,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
             {
                 Dash();
             }
-            else if (DashLength > 0)
-            {
-                DashLength -= 1 * Time.deltaTime;
-            }
-            else if (DashLength <= 0f && Dashin == true)
-            {
-                Velocity = Normalspeed;
-                Dashin = false;
-            }
+
             //Smoke
             if (Health <= TargetHealth / 3)
             {
@@ -203,7 +219,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
         shooting.Score *= 0.5f;
         Alive = false;
         Anim.SetTrigger("Killed");
-        StartCoroutine(camerashake.Shake(1f, 1f));
+        StartCoroutine(camerashake.Shake(.25f, .25f));
         tf.position = new Vector3(0, 0, 0);
         for (int i = 0; i < Shooting.BulletType; i++)
         {
@@ -235,12 +251,16 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     public void Dash()
     {
         DashSlider.value = 0f;
-        DashLength = DashLengthRet;
-        DashTimer = DashLength;
-        Velocity = DashSpeed;
         Anim.SetTrigger("Dash");
         AudioManager.instance.Play("Dash");
+        Velocity = DashSpeed;
         Dashin = true;
+    }
+
+    public void StopDash()
+    {
+        Dashin = false;
+        Velocity = Normalspeed;
     }
 
     public void SmokeLight()

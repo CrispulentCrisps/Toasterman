@@ -37,7 +37,7 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-
+        EnemyScript.EnemyAmount++;
         Ship = GameObject.Find("Ship");//gets the game object
         Anim = gameObject.GetComponent<Animator>();
         Alive = true;
@@ -68,10 +68,8 @@ public class SporeBomb : MonoBehaviour, IPooledObject
     {
         if (coll.gameObject.CompareTag("Player") && Alive == true)
         {
-
             Anim.SetTrigger("Blow");
             Alive = false;
-
         }
 
     }
@@ -97,9 +95,8 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
     public void Alivent()
     {
-
+        EnemyScript.EnemyAmount--;
         gameObject.SetActive(false);
-
     }
 
 }

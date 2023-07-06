@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
 
     ObjectPools objectPooler;
 
+    PlayerMovement Pm;
+
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI ScoreDisplay;
 
@@ -40,6 +42,7 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
+        Pm = GetComponent<PlayerMovement>();
         objectPooler = ObjectPools.Instance;
         ProjectileNames = new string[] { "Bullet", "Acid", "Bouncer", "Pierce" };//Text cannot be greater than 7-8 characters
         BulletLevel = new int[] {0,0,0,0,0,0};
@@ -164,26 +167,30 @@ public class Shooting : MonoBehaviour
         switch (BulletType)
         {
             case 0:
+                //Spread Shot
                 Increment = 3f;
-                for (int i = 0; i < BulletLevel[BulletType] + 1; i++)// spread shot
+                for (int i = 0; i < BulletLevel[BulletType] + 1; i++)
                 {
                     //Spread
-                    BulletSpreadMult = BulletLevel[BulletType] + 1.5f;
-                    BulletRot = Quaternion.Euler(0, 0, (((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult)) % 360));
+                    BulletSpreadMult = BulletLevel[BulletType] + 2.5f;
+                    BulletRot = Quaternion.Euler(0, 0, (((BulletLevel[BulletType] + (i - (BulletLevel[BulletType]) * 0.5f) * BulletSpreadMult)) % 360)+ (180 * Pm.ShipRot));
                     objectPooler.SpawnFromPool(ProjectileNames[0], ShootPos.position, BulletRot);
                 }
                 break;
+                //Close Range Acid
             case 1:
-                Increment = 1.5f * (BulletLevel[BulletType]*0.5f);
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
+                Increment = 2f * ((BulletLevel[BulletType]*0.33f)+1);
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.EulerAngles(Quaternion.identity.x, Quaternion.identity.y, 135 * Pm.ShipRot));
                 break;
+                //Bouncer
             case 2:
                 Increment = 0.75f;
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
+                BulletPatternsModule.ShootArc(360f, (BulletLevel[BulletType]+1) * 2, ProjectileNames[BulletType], ShootPos, 0f);
                 break;
+                //Laser
             case 3:
                 Increment = 0.25f + (BulletLevel[BulletType] * 0.075f);
-                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.identity);
+                objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.EulerAngles(Quaternion.identity.x, Quaternion.identity.y, Quaternion.identity.z+(180*Pm.ShipRot)));
                 break;
         }
         FireRate = 0;// reset firerate

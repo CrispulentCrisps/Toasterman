@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class AncientAI : MonoBehaviour, IPooledObject
 {
     ObjectPools objectPooler;
+
+    public Slider HealthSlider;
+    private BossUIFunctions BossUi;
 
     public GameObject BG;
 
@@ -40,6 +44,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     private float TimingSpaceRock;
     
     private bool Shooting;
+    private bool HealthShown = false;
     public bool IntroDone = false;
 
     void Start()
@@ -82,6 +87,10 @@ public class AncientAI : MonoBehaviour, IPooledObject
     {
         var emmision = ps.emission;
         emmision.rateOverTime = Mathf.Clamp((200 / (Health * 0.05f)) - 1,0f,200f);
+        if (HealthShown)
+        {
+            HealthSlider.value = handscripts[0].Health + handscripts[1].Health + Health;
+        }
 
         if (IntroDone == true)
         {
@@ -101,6 +110,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             if (Health <= 0f)
             {
+                BossUi.Closing();
                 State = 0;
                 Anim.SetTrigger("Die");
             }
@@ -135,9 +145,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
             if (SineAmp < 7.5f)
             {
-
                 SineAmp += 2.5f * Time.deltaTime;
-
             }
 
             for (int i = 0; i < 2; i++)//Hands
@@ -254,6 +262,8 @@ public class AncientAI : MonoBehaviour, IPooledObject
 
     public void StartMusic()
     {
+        OpenHealthbar();
+        HealthSlider.maxValue = handscripts[0].Health + handscripts[1].Health + Health;
         AudioManager.instance.SetVolume("Corrupt deity", 1f);
         AudioManager.instance.Play("Corrupt deity");
         paralaxstuff.paraspeedGoal = 50f;
@@ -285,5 +295,14 @@ public class AncientAI : MonoBehaviour, IPooledObject
     public void KillShroom()
     {
         ShroomAnim.SetTrigger("Die");
+    }
+
+    void OpenHealthbar()
+    {
+        HealthSlider = GameObject.FindGameObjectWithTag("BossUI").GetComponent<Slider>();
+        BossUi = HealthSlider.GetComponent<BossUIFunctions>();
+        HealthSlider.maxValue = Health;
+        BossUi.Opening();
+        HealthShown = true;
     }
 }

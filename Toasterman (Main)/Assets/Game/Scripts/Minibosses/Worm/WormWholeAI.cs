@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WormWholeAI : MonoBehaviour, IPooledObject
 {
@@ -24,15 +22,20 @@ public class WormWholeAI : MonoBehaviour, IPooledObject
 
     public bool Alive;
     private bool RockShot;
+    private bool Decremented = false;
 
     public void OnObjectSpawn()
     {
 
+        EnemyScript.EnemyAmount++;
         WaveMaker = GameObject.Find("EnemyWaveMaker");//gets the game object
 
         Ship = GameObject.Find("Ship");//gets the game object
         Target = Ship.GetComponent<Transform>();// gets the Transform 
+        
+        Decremented = false;
 
+        tf.position = new Vector3(0f, -9f, 0f);
         TimerFull = Random.Range(1f, 3f);
     }
 
@@ -77,7 +80,16 @@ public class WormWholeAI : MonoBehaviour, IPooledObject
             RockShot = true;
 
         }
-
+        if (Alive == false && Decremented == false)
+        {
+            Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
+            Decremented = true;
+        }
+        if (tf.position.y < -30 && Alive == false)
+        {
+            EnemyScript.EnemyAmount--;
+            gameObject.SetActive(false);
+        }
     }
 
 

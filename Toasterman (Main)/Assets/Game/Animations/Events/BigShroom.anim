@@ -213,15 +213,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 9.5
         value: 0.1
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.1685393
+        outSlope: 0.1685393
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 10
-        value: 0.1
+        value: 0.25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -587,15 +587,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 9.5
         value: 0.1
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.1685393
+        outSlope: 0.1685393
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 10
-        value: 0.1
+        value: 0.25
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -621,7 +621,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: StartShake
+    functionName: SetEnemyState
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: SetWaveState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -768,7 +775,21 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 9.983334
+    functionName: SetWaveState
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 9.983334
     functionName: PlayThud
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 9.983334
+    functionName: SetEnemyState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

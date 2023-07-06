@@ -15,7 +15,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2087822495011194831
 Transform:
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3bd7178b0a45641b802cfae4f01aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Waves: []
+  DEBUGMODE: 0
   i: 0
+  Waves: []
   Space: 0
   TriPos: 0
+  RotSpace: 0
   start: 0
-  DoneUp: 0
-  tf: {fileID: 2087822495011194831}
+  tf: {fileID: 0}

@@ -29,6 +29,7 @@ public class TrainAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        EnemyScript.EnemyAmount++;
         Life = LifeTime;
         paralaxStuff = GameObject.FindGameObjectWithTag("BackGroundStuff").GetComponent<ParalaxStuff>();
         AudioManager.instance.Play("TrainEnter");
@@ -50,7 +51,7 @@ public class TrainAI : MonoBehaviour, IPooledObject
 
         if (Ended == true)
         {
-
+            EnemyScript.EnemyAmount--;
             gameObject.SetActive(false);
 
         }

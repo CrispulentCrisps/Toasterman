@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TrutleBossAI : MonoBehaviour, IPooledObject
 {
+    public Slider HealthSlider;
 
     public Transform tf;
     public Transform Target;
@@ -18,6 +18,8 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     public CameraShake camerashake;
 
     public ParalaxStuff paralaxStuff;
+
+    private BossUIFunctions BossUi;
 
     public Animator anim;
     public Animator CoreAnim;
@@ -68,6 +70,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
     }
     public void OnObjectSpawn()
     {
+        OpenHealthbar();
         tf.position = new Vector3(20, 0, -1);
         YSpeed = 0f;
         Timer = 0;
@@ -88,12 +91,15 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
-      Timer += Time.deltaTime;
+        HealthSlider.value = Health;
+     
+        Timer += Time.deltaTime;
 
         Speed.y = YSpeed;
         //Death
         if (Health <= 0f && State != -1)
         {
+            BossUi.Closing();
             anim.SetTrigger("Death");
             State = -2;
             Timer = -1;
@@ -127,14 +133,11 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
             }
         }
 
-        if (Timer >= 8)
+        if (Timer >= 5)
         {
             if (Health > 0f)
             {
-                State = UnityEngine.Random.Range(0, 4);
-            }
-            if (Health > 0f)
-            {
+                State = Random.Range(0, 4); 
                 switch (State) //Attacks
                 {
                     case 0:
@@ -142,15 +145,15 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
                         break;
                     case 1:
                         anim.SetTrigger("Missle");
-                        Timer = 0;
                         break;
                     case 2:
                         anim.SetTrigger("Tail");
-                        Timer = 0;
                         break;
                     case 3:
                         anim.SetTrigger("BigHurt");
-                        Timer = 0;
+                        break;
+                    case 4:
+                        anim.SetTrigger("BigHurt");
                         break;
                 }
                 Timer = 0;
@@ -252,7 +255,7 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
 
     public void DieShake()
     {
-        StartCoroutine(camerashake.Shake(5f, 1));
+        StartCoroutine(camerashake.Shake(5f, .025f));
         AudioManager.instance.Play("BossDeath");
         StartCoroutine(AudioManager.instance.FadeAudio("Here he is!", 0.25f));
         paralaxStuff.paraspeedGoal = 0f;
@@ -295,5 +298,13 @@ public class TrutleBossAI : MonoBehaviour, IPooledObject
         anim.ResetTrigger("Idle");
         anim.ResetTrigger("Tail");
         anim.ResetTrigger("BigHurt");
+    }
+
+    void OpenHealthbar()
+    {
+        HealthSlider = GameObject.FindGameObjectWithTag("BossUI").GetComponent<Slider>();
+        BossUi = HealthSlider.GetComponent<BossUIFunctions>();
+        HealthSlider.maxValue = Health;
+        BossUi.Opening();
     }
 }

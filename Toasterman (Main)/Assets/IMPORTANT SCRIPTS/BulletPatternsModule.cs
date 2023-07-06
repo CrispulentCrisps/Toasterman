@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletPatternsModule : MonoBehaviour
@@ -54,7 +53,7 @@ public class BulletPatternsModule : MonoBehaviour
     public static void ShootArcLine(float BaseSpeed, float MinVel, float MaxVel, int BulletAmount, string BulletName, Transform tf, float Offset, float ArcSize, int ArcRepeat)//All arcs are in angles, not radians
     {
         float Difference = (MaxVel - MinVel + 1) / BulletAmount;
-        float angle = Offset - (ArcSize / ArcRepeat) * 0.5f;//Offset is to the left
+        float angle = Offset - (ArcSize / ArcRepeat);// * 0.5f;//Offset is to the left
         float AngleStep = (ArcSize / ArcRepeat);
         for (int j = 0; j < ArcRepeat; j++)
         {
@@ -62,6 +61,20 @@ public class BulletPatternsModule : MonoBehaviour
             for (int i = 0; i < BulletAmount; i++)
             {
                 objectPooler.SpawnBulletFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle), new Vector2(BaseSpeed + Difference * i, 0f));//Shoots the bullet
+            }
+        }
+    }
+    //ArcsGap
+    public static void ShootArcGap(float ArcSize, float GapSize, float GapOffset, int BulletAmount, string BulletName, Transform tf, float Offset)//All arcs are in angles, not radians
+    {
+        float angle = Offset;//Offset is to the left
+        float AngleStep = ArcSize / BulletAmount;//Gets the step size for arc
+        for (int i = 0; i < BulletAmount; i++)
+        {
+            angle += AngleStep;
+            if (angle > GapOffset+GapSize*0.5f%360 || angle < GapOffset - GapSize * 0.5f % 360)//Check if the bullets lie outside the gap
+            {
+                objectPooler.SpawnFromPool(BulletName, tf.position, Quaternion.Euler(0, 0, angle));//Shoots the bullet
             }
         }
     }

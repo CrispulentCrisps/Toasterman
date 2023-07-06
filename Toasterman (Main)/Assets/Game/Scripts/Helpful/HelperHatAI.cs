@@ -10,6 +10,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     private float Yvel;
     private float Xvel;
+    private float t;
 
     private bool Thrown;
     public string[] HelpNames;
@@ -18,7 +19,6 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
         Yvel = 15.5f;
         Xvel = 9f;
@@ -29,6 +29,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        EnemyScript.EnemyAmount++;
         Yvel = 15.5f;
         Xvel = 9f;
         tf.position = new Vector3(-13f, -10f, 0f);
@@ -38,12 +39,24 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
+        t += Time.deltaTime;
+
+        if (t >= 0.1f)
+        {
+            objectPooler.SpawnFromPool("HelperHatTrail", tf.position, Quaternion.identity);
+        }
+
         Movement = new Vector2(Xvel, Yvel);
         Yvel -= 9.81f * Time.deltaTime;
         if (Thrown == false && tf.position.y > 0f)
         {
             anim.SetTrigger("PowerShoot");
             Thrown = true;
+        }
+        if (tf.position.y > -20f)
+        {
+            gameObject.active = false;
+            EnemyScript.EnemyAmount--;
         }
     }
 

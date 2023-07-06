@@ -20,7 +20,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2880811144993891057
 Transform:
@@ -103,17 +103,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 2880811144993891058}
+  sr:
+  - {fileID: 0}
   rb: {fileID: 2880811144993891060}
   tf: {fileID: 2880811144993891057}
+  ExplosionName: 
+  ExplosionSound: 
   Target: {fileID: 2880811144993891057}
   hurtColour: {r: 1, g: 0, b: 0, a: 1}
-  Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 1370103591936605960}
   EnemyShootSound: EnemyShoot
   EnemyHurtSound: 
-  Health: 10
+  Health: 7
   BulletName: SlowEnemyBullet
   RotationSpeed: 271
   RegularAmount: 3
@@ -252,12 +254,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
+  m_FalloffIntensity: 0.25
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000cd928ce4e9f48ca9e3f66e6b5b10a1eac3d305a45b36b8fa45363909837fe4cf53dab70db3a65696
+  m_ApplyToSortingLayers: 00000000cd928ce4e9f48ca9e3f66e6b5b10a1eac3d305a4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -310,8 +312,4 @@ MonoBehaviour:
   m_ShapeLightParametricRadius: 1
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  m_ShapePath: []

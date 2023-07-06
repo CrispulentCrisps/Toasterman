@@ -19,7 +19,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2871677583306838395
 Transform:
@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.484357, y: 0.33405358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,7 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 2871677583306838395}
   tr: {fileID: 0}
+  Bounds: {x: 0, y: 0}
   BulletParticle: 
+  BulletSoundOnImpact: 
   speedx: 0
   speedy: 0
   ChangeAcc: 0
@@ -112,6 +115,9 @@ MonoBehaviour:
   SineMove: 1
   SineAmp: 5
   SineFreq: 15
+  Rotate: 0
+  AngleTarget: 0
+  AngleTime: 0
   Explode: 0
   BulletShootName: 
   LifetimeSave: 0
@@ -171,9 +177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  Points: 0
+  PointMultiplier: 0
 --- !u!95 &4530107695883812224
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -186,6 +194,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

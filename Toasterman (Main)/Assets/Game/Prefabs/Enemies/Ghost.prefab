@@ -187,34 +187,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  sr: {fileID: 3517052536610459567}
+  sr:
+  - {fileID: 3517052536610459567}
+  - {fileID: 8396453032219168617}
   rb: {fileID: 3517052536610459561}
   tf: {fileID: 3517052536610459564}
-  Target: {fileID: 3517052536610459564}
+  ExplosionName: PurityDie
+  ExplosionSound: PurityDie
+  Target: {fileID: 0}
   hurtColour: {r: 1, g: 0, b: 0, a: 1}
-  Ship: {fileID: 0}
   enemyscript: {fileID: 0}
   anim: {fileID: 2186496103492702515}
-  EnemyShootSound: EnemyShoot
+  EnemyShootSound: 
   EnemyHurtSound: 
-  Health: 7
+  Health: 5
   BulletName: PurityBullet
   RotationSpeed: 0
-  RegularAmount: 3
+  RegularAmount: 2
   Charge: 1
-  Full: 2
+  Full: 3
   ShootType: 2
   RegularAngle: 30
   AngleOffset: 0
-  BaseSpeed: 10
-  MinVel: 0.25
-  MaxVel: 5
+  BaseSpeed: 5
+  MinVel: 1
+  MaxVel: 3
   ArcRepeat: 3
   RotateGun: 0
   GunRotateAmount: 0
   ShootNearPlayer: 0
-  DistanceToPlayer: 1
-  MinTime: 4
+  DistanceToPlayer: 0
+  MinTime: 3
   ShootAtPlayer: 1
   Move: 1
 --- !u!50 &3517052536610459561
@@ -266,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
-  Points: 375
+  Damage: 10
+  Points: 150
   PointMultiplier: 1
 --- !u!95 &2186496103492702515
 Animator:

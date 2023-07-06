@@ -59,6 +59,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
             {
                 objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
+                EnemyScript.EnemyAmount--;
             }
         }
     }

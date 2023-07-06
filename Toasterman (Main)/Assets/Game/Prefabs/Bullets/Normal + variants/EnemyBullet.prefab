@@ -19,7 +19,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9102476307835863062
 Transform:
@@ -102,7 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 9102476307835863062}
   tr: {fileID: 0}
+  Bounds: {x: 0, y: 0}
   BulletParticle: 
+  BulletSoundOnImpact: 
   speedx: 7
   speedy: 0
   ChangeAcc: 0
@@ -113,6 +115,9 @@ MonoBehaviour:
   SineMove: 0
   SineAmp: 0
   SineFreq: 0
+  Rotate: 0
+  AngleTarget: 0
+  AngleTime: 0
   Explode: 0
   BulletShootName: 
   LifetimeSave: 0
@@ -171,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 8
   Points: 0
   PointMultiplier: 0
 --- !u!50 &-1648162066589977527

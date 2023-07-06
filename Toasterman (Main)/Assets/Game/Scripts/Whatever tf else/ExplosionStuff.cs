@@ -31,7 +31,11 @@ public class ExplosionStuff : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        FindObjectOfType<AudioManager>().Play(SoundName);
+        if (SoundName != "")
+        {
+            AudioManager.instance.Play(SoundName);
+            AudioManager.instance.ChangePitch(SoundName, Random.Range(.75f, 1.25f));
+        }
         anim.SetTrigger("Boom");
         time = 0;
     }

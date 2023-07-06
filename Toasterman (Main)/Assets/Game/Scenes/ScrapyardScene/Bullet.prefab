@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5253340319278179843
 Transform:
@@ -118,8 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 5253340319278179843}
   tr: {fileID: 0}
+  Bounds: {x: 0, y: 0}
   BulletParticle: 
-  speedx: 0
+  BulletSoundOnImpact: BulletHit
+  speedx: 32
   speedy: 0
   ChangeAcc: 0
   AccX: 0
@@ -129,6 +131,9 @@ MonoBehaviour:
   SineMove: 0
   SineAmp: 15
   SineFreq: 15
+  Rotate: 0
+  AngleTarget: 0
+  AngleTime: 0
   Explode: 0
   BulletShootName: 
   LifetimeSave: 0
@@ -141,7 +146,7 @@ MonoBehaviour:
   MinSpeed: 0
   MaxSpeed: 0
   BulletHealth: 0
-  speedxMem: 21
+  speedxMem: 32
   speedyMem: 0
   Specifics: 1
   Killable: 1

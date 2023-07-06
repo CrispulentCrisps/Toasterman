@@ -7,7 +7,12 @@ public class PlanetSelect : MonoBehaviour
     public int IndexEnd;
     public int LevelIndex;
     public int TargetScore;
+
     public GameObject DialogManager;
+
+    public Transform StatsBox;
+    public Transform Particle;
+    public AnimationCurve StatSizeCurve;
 
     public SceneChange scenechange;
 
@@ -23,24 +28,33 @@ public class PlanetSelect : MonoBehaviour
     public GameObject PlanetBefore;
 
     public float ResetSize;
+    private float T;
 
     public static bool Selected = false;
     public bool Locked;
     public bool Completed;
+    private bool Hovered = false;
 
     void Start()
     {
+        StatsBox.localScale = new Vector2(0f, 1f);
         Selected = false;
         dialog = GameObject.Find("Dialogmanager").GetComponent<Dialog>();
-        if (PlanetTally.PlanetsDone[0] == true)
-        {
-            Completed = true;
-        }
-        
-        else if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
+        Completed = PlanetTally.PlanetsDone[0];
+
+        if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
         {
             Locked = false;
         }
+        else if (PlanetBefore == null)
+        {
+            Locked = false;
+        }
+        else if (Completed == false)
+        {
+            Locked = true;
+        }
+
         //Check if level is Locked
         if (Locks.Length != 0 && Locked == false)
         { 
@@ -56,6 +70,7 @@ public class PlanetSelect : MonoBehaviour
                 Locks[i].SetActive(true);
             }
         }
+
         //Check planets ailments
         if (Completed == true)
         {
@@ -84,5 +99,34 @@ public class PlanetSelect : MonoBehaviour
             Selected = true;
             PlanetSelectMouseUI.Selected = true;
         }
+    }
+
+    private void Update()
+    {
+        if (Hovered)
+        {
+            T += Time.deltaTime * 5f;
+        }
+        else
+        {
+            T -= Time.deltaTime * 5f;
+        }
+
+        T = Mathf.Clamp(T, 0f, 1f);
+
+        if (Locked == false)
+        {
+            StatsBox.localScale = new Vector2(StatSizeCurve.Evaluate(T), 1f);
+            Particle.localScale = new Vector2(StatSizeCurve.Evaluate(T), 1f);
+        }
+    }
+
+    private void OnMouseEnter()
+    {
+        Hovered = true;
+    }
+    private void OnMouseExit()
+    {
+        Hovered = false;
     }
 }

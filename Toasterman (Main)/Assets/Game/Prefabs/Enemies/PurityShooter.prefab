@@ -120,7 +120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8448298690196674887}
   - component: {fileID: 8448298690196674884}
-  - component: {fileID: 8448298690196674885}
   - component: {fileID: 4856183952843356151}
   - component: {fileID: 8448298690196674882}
   - component: {fileID: 8448298690196674886}
@@ -131,7 +130,7 @@ GameObject:
   m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8448298690196674887
 Transform:
@@ -201,49 +200,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8448298690196674885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8448298690196674880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6e9facfe2f8da43a0a0c5934580af5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0}
-  sr: {fileID: 8448298690196674884}
-  rb: {fileID: 8448298690196674882}
-  tf: {fileID: 8448298690196674887}
-  Target: {fileID: 8448298690196674887}
-  hurtColour: {r: 1, g: 0, b: 0, a: 1}
-  Ship: {fileID: 0}
-  enemyscript: {fileID: 0}
-  anim: {fileID: 4739833453813744830}
-  EnemyShootSound: EnemyShoot
-  EnemyHurtSound: PurityHit
-  Health: 15
-  BulletName: PurityBullet
-  RotationSpeed: 271
-  RegularAmount: 8
-  Charge: 1
-  Full: 0.5
-  ShootType: 0
-  RegularAngle: 360
-  AngleOffset: 0
-  BaseSpeed: 3
-  MinVel: 3
-  MaxVel: 8
-  ArcRepeat: 1
-  RotateGun: 1
-  GunRotateAmount: 0.6
-  ShootNearPlayer: 0
-  DistanceToPlayer: 0
-  MinTime: 0
-  ShootAtPlayer: 0
-  Move: 1
 --- !u!114 &4856183952843356151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,22 +219,22 @@ MonoBehaviour:
   Target: {fileID: 0}
   hurtColour: {r: 1, g: 0, b: 0, a: 1}
   Ship: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 4739833453813744830}
   EnemyShootSound: EnemyShoot
   EnemyHurtSound: PurityHit
-  Health: 0
-  BulletName: 
+  Health: 10
+  BulletName: PurityBullet
   RotationSpeed: 271
   RegularAmount: 8
-  Charge: 0
-  Full: 0.5
+  Charge: 1
+  Full: 2
   ShootType: 0
   RegularAngle: 360
   AngleOffset: 0
-  BaseSpeed: 0
-  MinVel: 0
-  MaxVel: 0
-  ArcRepeat: 0
+  BaseSpeed: 3
+  MinVel: 3
+  MaxVel: 8
+  ArcRepeat: 1
   RotateGun: 1
   GunRotateAmount: 0
   ShootNearPlayer: 0

@@ -55,7 +55,7 @@ public class UITrans : MonoBehaviour
         LanguageChoice = sd.Language;
     }
 
-    void Start()
+    void Awake()
     {
         gameObject.tag = "Text";
         InitLanguage();

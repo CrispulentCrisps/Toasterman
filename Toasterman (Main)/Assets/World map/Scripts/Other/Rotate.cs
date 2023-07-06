@@ -10,7 +10,7 @@ public class Rotate : MonoBehaviour
     void FixedUpdate()
     {
 
-        tf.Rotate(new Vector3(0, 0, speed));
+        tf.Rotate(new Vector3(0, 0, speed * Time.deltaTime));
 
     }
 }
