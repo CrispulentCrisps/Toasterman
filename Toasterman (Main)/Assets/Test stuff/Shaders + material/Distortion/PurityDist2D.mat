@@ -55,12 +55,14 @@ Material:
     - _EnableExternalAlpha: 0
     - _FreqX: 0
     - _FreqY: 100
+    - _GlowStrength: 4
     - _Speed: 0.1
     - _TimeX: 0
     - _TimeY: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColour: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

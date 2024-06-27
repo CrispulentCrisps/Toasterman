@@ -29,6 +29,7 @@ public class Wall : MonoBehaviour, IPooledObject
     {
         EnemyScript.EnemyAmount++;
         tf.position = new Vector3(13f, -14f);
+        Dead = false;
     }
 
     void Start()
@@ -108,7 +109,7 @@ public class Wall : MonoBehaviour, IPooledObject
             }
             Health -= coll.GetComponent<DamageScript>().Damage;
             Sr.color = hurtColour;
-            if (Health <= 0f)
+            if (Health <= 0f && !Dead)
             {
                 EnemyScript.EnemyAmount--;
                 Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;

@@ -22,6 +22,7 @@ public class JabAI : MonoBehaviour, IPooledObject
     private bool TargetLocked;
 
     private int I;
+    private int SelfCount;
 
     // Start is called before the first frame update
     void Start()
@@ -54,14 +55,6 @@ public class JabAI : MonoBehaviour, IPooledObject
         {
             Health -= coll.GetComponent<DamageScript>().Damage;
         }
-
-        if (Health <= 0)
-        {
-            EnemyScript.EnemyAmount--;
-            Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-            objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
-            gameObject.SetActive(false);
-        }
     }
     #endregion
 
@@ -80,6 +73,15 @@ public class JabAI : MonoBehaviour, IPooledObject
     void FixedUpdate()
     {
         tf.Translate(Movement * Time.deltaTime);
+
+
+        if (Health <= 0 && gameObject.active)
+        {
+            EnemyScript.EnemyAmount--;
+            Shooting.TargetScore += GetComponent<DamageScript>().Points * GetComponent<DamageScript>().PointMultiplier;
+            objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }
     }
 
     public void StopAndLook()

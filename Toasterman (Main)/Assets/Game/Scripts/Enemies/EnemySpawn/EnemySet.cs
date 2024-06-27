@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
-using UnityEditor;
 
 [System.Serializable]
 
 public class EnemySet
 {
+    public enum XorY
+    {
+        X = 0, Y = 1,
+    }
+
     public string EnemyName;
 
     [Range(1, 5)] // Wave 1 = straight, Wave 2 = Tri Wave, Wave 3 = Wall Wave, 4 = Circular Wave
     public int WaveType;
 
-    [Range(-6,6)]
+    [Range(-12,12)]
     public float StartYpos;
 
     [Range(0f, 30)]
@@ -43,4 +47,6 @@ public class EnemySet
     [Range(-1,1)]
     [Header("Reverses values of attributes and sets enemies to the left of the screen")]
     public int Inverse;
+    [Header("Determines if the enemy is going on the Y axis or the X")]
+    public XorY XY;
 }

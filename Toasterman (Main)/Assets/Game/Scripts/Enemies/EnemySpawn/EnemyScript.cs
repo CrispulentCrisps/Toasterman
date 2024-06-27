@@ -15,7 +15,7 @@ public class EnemyScript : MonoBehaviour
 
     public float Space = 0; // has spacing added on to spread enemies out
     public float TriPos;
-    private float WallSpace;
+    [HideInInspector] public float WallSpace;
     public float RotSpace; //Seperates enemies in a circle
     public static int PowerNum;
     public static int EnemyAmount;
@@ -31,6 +31,7 @@ public class EnemyScript : MonoBehaviour
     private void Start()
     {
         objectPooler = ObjectPools.Instance;
+        tf = transform;
     }
 
     void Update()
@@ -79,10 +80,21 @@ public class EnemyScript : MonoBehaviour
             switch (Waves[i].WaveType)
             {
                 case 1:
-                    for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
+                    if (Waves[i].XY == EnemySet.XorY.X)
                     {
-                        objectPooler.SpawnFromPool(Name, new Vector3((tf.position.x + Space) * Waves[i].Inverse, tf.position.y + Waves[i].StartYpos, tf.position.z), Quaternion.identity);
-                        Space += Waves[i].Spacing; // spaces the enemies out
+                        for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
+                        {
+                            objectPooler.SpawnFromPool(Name, new Vector3((16f + Space) * Waves[i].Inverse, Waves[i].StartYpos, tf.position.z), Quaternion.identity);
+                            Space += Waves[i].Spacing; // spaces the enemies out
+                        }
+                    }
+                    else
+                    {
+                        for (int A = 0; A < Waves[i].Amount; A++) // enemy spawning
+                        {
+                            objectPooler.SpawnFromPool(Name, new Vector3(Waves[i].StartYpos, (10f + Space) * Waves[i].Inverse, tf.position.z), Quaternion.identity);
+                            Space += Waves[i].Spacing; // spaces the enemies out
+                        }
                     }
                     break;
 

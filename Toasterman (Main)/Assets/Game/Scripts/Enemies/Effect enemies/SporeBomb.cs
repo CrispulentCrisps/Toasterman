@@ -28,11 +28,8 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
     void Start()
     {
-
         objectPooler = ObjectPools.Instance;
-
         tf.position = new Vector3(Random.Range(-12f,15f),12f,0f);
-
     }
 
     public void OnObjectSpawn()
@@ -44,24 +41,19 @@ public class SporeBomb : MonoBehaviour, IPooledObject
         XAmp = Random.Range(10f, 1f);
         YAmp = Random.Range(5f, 1f);
         SpeedMult = Random.Range(1f, 4f);
-        
     }
 
     void Update()
     {
-
         if (Alive == true)
         {
-
             YVel = YAmp * Mathf.Sin(SineMove.y) - YAmp * 0.5f;
             XVel = XAmp * Mathf.Cos(SineMove.x);
 
             SineMove += new Vector2(Time.deltaTime, Time.deltaTime) * SpeedMult;
 
             Movement = new Vector2(XVel, YVel);
-
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -76,9 +68,7 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-
         tf.Translate(Movement * Time.deltaTime);
-
     }
 
     public void ShootSpore(int Amount)
@@ -87,10 +77,7 @@ public class SporeBomb : MonoBehaviour, IPooledObject
         {
 
             objectPooler.SpawnFromPool(BulletName,tf.position,Quaternion.identity);
-
         }
-
-
     }
 
     public void Alivent()
@@ -98,5 +85,4 @@ public class SporeBomb : MonoBehaviour, IPooledObject
         EnemyScript.EnemyAmount--;
         gameObject.SetActive(false);
     }
-
 }

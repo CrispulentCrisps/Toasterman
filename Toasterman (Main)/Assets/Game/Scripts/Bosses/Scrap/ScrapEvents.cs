@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
     public GameObject[] Colliders;
 
     ObjectPools objectPooler;
+    Dialog dialog;
 
     public ParalaxStuff ps;
     public Transform LaserPoint;
@@ -23,6 +25,7 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
     public AnimationCurve BGCurve;
     public Animator GunAnim;
     public Animator GunAnim2;
+    public Animator LightAnim;
     
     public Transform TailTf;
     private Vector2 MovementTail;
@@ -64,12 +67,23 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
         State = 0;
         MovementTail = new Vector2(0, 0);
         objectPooler = ObjectPools.Instance;
+        LightAnim = GameObject.FindGameObjectWithTag("GlobalLight").GetComponent<Animator>();
+        HealthSlider = GameObject.FindGameObjectWithTag("BossUI").GetComponent<Slider>();
+        ps = GameObject.FindGameObjectWithTag("BackGroundStuff").GetComponent<ParalaxStuff>();
+        dialog = GameObject.FindGameObjectWithTag("dialog").GetComponent<Dialog>();
     }
 
     public void OnObjectSpawn()
     {
+        StartCoroutine(AudioManager.instance.FadeAudio("ScrapyardTheme", 1f));
+        transform.position = new Vector3(-13, -9f, 0f);
+        transform.Rotate(0, 180, 0);
         State = 0;
         MovementTail = new Vector2(0, 0);
+        LightAnim = GameObject.FindGameObjectWithTag("GlobalLight").GetComponent<Animator>();
+        HealthSlider = GameObject.FindGameObjectWithTag("BossUI").GetComponent<Slider>();
+        ps = GameObject.FindGameObjectWithTag("BackGroundStuff").GetComponent<ParalaxStuff>();
+        dialog = GameObject.FindGameObjectWithTag("dialog").GetComponent<Dialog>();
     }
 
     public void Update()
@@ -177,6 +191,12 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
         TailTf.Translate(MovementTail * Time.deltaTime);
     }
 
+    void StartMusic()
+    {
+        AudioManager.instance.Play("ScrapBossTheme");
+        AudioManager.instance.Stop("ScrapyardTheme");
+    }
+
     public void RemoveTailColliders()
     {
         for (int i = 0; i < Colliders.Length; i++)
@@ -185,20 +205,12 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
         }
     }
 
+    public void ChangeLighting()
+    {
+        LightAnim.SetTrigger("ChangeLight");
+    }
     public void Explode()
     {
-        //Part Order
-        /*
-        ExplodedPartsMovement = new [] {
-            new Vector2(-10f,0f),
-            new Vector2(-10f,0f),
-            new Vector2(-16f,0f),
-            new Vector2(-16f,0f),
-            new Vector2(-24f,0f),
-            new Vector2(-32f,0f)
-        };
-        */
-
         ExplodedPartsMovement = new[] {
             new Vector3(0f,-2f,-4f),
             new Vector3(0f,-2f,-4f),
@@ -328,11 +340,34 @@ public class ScrapEvents : MonoBehaviour, IPooledObject
         AudioManager.instance.Play("PurityRoar1");
     }
 
-    void OpenHealthbar()
+    public void OpenHealthbar()
     {
         HealthSlider = GameObject.FindGameObjectWithTag("BossUI").GetComponent<Slider>();
         BossUi = HealthSlider.GetComponent<BossUIFunctions>();
         HealthSlider.maxValue = ScrapBossAI.health;
         BossUi.Opening();
+    }
+
+    public void StopAndSlowDown() {
+
+        ps.paraspeedGoal = 5f;
+        StartCoroutine(AudioManager.instance.FadeAudio("ScrapBossTheme", .75f));
+    }
+
+    public void OpenDialog()
+    {
+        PlanetTally pt = GameObject.FindGameObjectWithTag("TallyCounter").GetComponent<PlanetTally>();
+
+        AudioManager.instance.Play("Victory2");
+        PlanetTally.PlanetsDone[2] = true;
+        PlanetTally.TimesCompleted[2]++;
+        if (Shooting.TargetScore > PlanetTally.PlanetScore[2])
+        {
+            PlanetTally.PlanetScore[2] = Shooting.TargetScore;
+        }
+        pt.SaveData();
+
+        AudioManager.instance.Stop("ScrapBossTheme");
+        StartCoroutine(dialog.BoxIn(1f));
     }
 }

@@ -6,6 +6,8 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     public TrailRenderer tr;
 
+    private GameObject MovingLevel;
+
     private Vector2 Movement;
     public Vector2 Bounds;
 
@@ -57,6 +59,9 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public float speedyMem;
     private float ST;
 
+    [Header("Enclosed level shit")]
+    public static Vector2 SpeedOffset;
+
     private int Length;
 
     public bool Specifics;
@@ -77,8 +82,8 @@ public class BulletAI : MonoBehaviour, IPooledObject
     {
         if (Bounds.x == 0 || Bounds.y == 0)
         {
-            Bounds.x = 30f;
-            Bounds.y = 20f;
+            Bounds.x = 40f;
+            Bounds.y = 30f;
         }
 
         if (tr != null)
@@ -219,7 +224,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
 
     void FixedUpdate()
     {
-        tf.Translate(Movement * Time.deltaTime);
+        tf.Translate((Movement + SpeedOffset) * Time.deltaTime);
     }
 
     public void SetSpeed(float XSpeed, float YSpeed)

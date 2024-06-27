@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b257e6b9592a8a459d166b2d1f0025c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: 0}
 --- !u!114 &4391624308565038227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,5 +58,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411c8b61f3e322479adb1feb8b5e12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetsCompleted: 0000
-  ScoreForPlanet: 0000000000000000
+  TEMP_PlanetsCompleted: 0000000000
+  TEMP_ScoreForPlanet:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  TEMP_TimesLost: 0000000000000000000000000000000000000000
+  TEMP_TimesPlayed: 0000000000000000000000000000000000000000
+  TEMP_DevScoreBeat: 0000000000

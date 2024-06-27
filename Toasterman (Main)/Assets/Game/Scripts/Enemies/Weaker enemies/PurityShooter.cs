@@ -162,7 +162,7 @@ public class PurityShooter : MonoBehaviour, IPooledObject
             if (Health <= 0f)
             {
                 Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
-                objectPooler.SpawnFromPool("Boom", tf.position, Quaternion.identity);
+                objectPooler.SpawnFromPool("PurityDie", tf.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
         }

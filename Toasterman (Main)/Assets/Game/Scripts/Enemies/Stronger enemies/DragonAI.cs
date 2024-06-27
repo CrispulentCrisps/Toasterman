@@ -98,15 +98,16 @@ public class DragonAI : MonoBehaviour, IPooledObject
                     objectPooler.SpawnFromPool("LavaSpurt", MovingPieces[i].position, Quaternion.identity);
                     Velocities[i] = new Vector2(Random.Range(-20, 20), Random.Range(1, 10));
                 }
-                ShootPieces = true;
                 EnemyScript.EnemyAmount--;
+                ShootPieces = true;
             }
 
             for (int i = 0; i < MovingPieces.Length; i++)
             {
                 Velocities[i] -= new Vector2(0f, 9.81f) * Time.deltaTime;
                 MovingPieces[i].position += (Vector3)Velocities[i] * Time.deltaTime;
-                MovingPieces[i].Rotate(new Vector3(Velocities[i].x * 360f, 0f, 0f));
+                float Rot = MovingPieces[i].rotation.z + (Velocities[i].x * 720f);
+                MovingPieces[i].Rotate(new Vector3(0f, 0f, Rot));
             }
         }
 

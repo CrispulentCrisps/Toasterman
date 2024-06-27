@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
 
         #endregion
         
-        if (Alive == true)
+        if (Alive)
         {
             DashSlider.value += 0.125f * Time.deltaTime;//dash
             timer -= 1f * Time.deltaTime;//shooting
@@ -216,7 +216,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
         AudioManager.instance.Play("BigExplosion");
-        shooting.Score *= 0.5f;
+        shooting.Score = Shooting.TargetScore;
+        Shooting.TargetScore *= 0.5f;
         Alive = false;
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(.25f, .25f));

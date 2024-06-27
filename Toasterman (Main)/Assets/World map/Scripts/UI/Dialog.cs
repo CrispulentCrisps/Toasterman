@@ -5,6 +5,16 @@ using TMPro;
 
 public class Dialog : MonoBehaviour
 {
+    public enum PlanetTextType
+    {
+        WorldSelect,
+        Planet1, 
+        Planet2, 
+        Planet3, 
+        Planet4, 
+        Planet5
+    };
+
     public TextMeshProUGUI textDisplay;
 
     public GameObject ContinueButton;
@@ -23,8 +33,11 @@ public class Dialog : MonoBehaviour
 
     public float TypingSpeed;
     [Header("This decides which JSON file to get when getting text")]
+    
     public int POS;
 
+    [Header("Use this for the individual planets, not the world select")]
+    public PlanetTextType PlanetSelect;
     public int index;
     public int indexDone;
 
@@ -68,6 +81,9 @@ public class Dialog : MonoBehaviour
             case 2:
                 path += "2.json";
                 break;
+            case 3:
+                path += "3.json";
+                break;
 	    }
 
         Debug.Log(path);
@@ -75,9 +91,30 @@ public class Dialog : MonoBehaviour
     }
 
 	public void Start()
-	{
-        GetLanguageFromJSON(ENGLISH, POS);
-
+    {
+        switch (PlanetSelect)
+        {
+            case PlanetTextType.WorldSelect:
+                GetLanguageFromJSON(ENGLISH, POS);
+                break;
+            case PlanetTextType.Planet1:
+                GetLanguageFromJSON(ENGLISH, 1);
+                break;
+            case PlanetTextType.Planet2:
+                GetLanguageFromJSON(ENGLISH, 2);
+                break;
+            case PlanetTextType.Planet3:
+                GetLanguageFromJSON(ENGLISH, 3);
+                break;
+            case PlanetTextType.Planet4:
+                GetLanguageFromJSON(ENGLISH, 4);
+                break;
+            case PlanetTextType.Planet5:
+                GetLanguageFromJSON(ENGLISH, 5);
+                break;
+            default:
+                break;
+        }
     }
 
 	void Update()

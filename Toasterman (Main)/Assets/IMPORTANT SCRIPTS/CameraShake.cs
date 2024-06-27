@@ -16,7 +16,7 @@ public class CameraShake : MonoBehaviour
     {
         while (strength > 0f)
         {
-            myChromaticAberration.intensity.Override(strength);
+            myChromaticAberration.intensity.Override(strength*0.5f);
             strength -= increment * Time.deltaTime;
             yield return null;
         }
@@ -35,7 +35,7 @@ public class CameraShake : MonoBehaviour
             float x = Random.Range(-1f,1f) * Magnitude;
             float y = Random.Range(-1f, 1f) + 1 * Magnitude;
             transform.localPosition = new Vector3(CenterPos.x + x, CenterPos.y + y, CenterPos.z);
-            Magnitude -= Mathf.SmoothStep(Magnitude,0f, Time.time);
+            Magnitude -= Mathf.SmoothStep(Magnitude,0f, 3 * Time.deltaTime);
             Elapsed += Time.deltaTime;
             yield return null;
         }

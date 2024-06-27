@@ -13,10 +13,14 @@ public class FlamethrowerBullet : MonoBehaviour, IPooledObject
     private float speedx = 0;
     private float speedy = 0;
 
+    [SerializeField] private float speedxRange;
+    [SerializeField] private float speedyRange;
+
+    [SerializeField] private float speeddiv;
     public void OnObjectSpawn()
     {
-        speedx = Random.Range(30f, 45f);
-        speedy = Random.Range(-15f, 15f);
+        speedx = Random.Range(speedxRange, speedxRange * 1.5f);
+        speedy = Random.Range(-speedyRange, speedyRange);
         tf.localScale = new Vector3(1f, 1f, 1f);
         Sr = gameObject.GetComponent<SpriteRenderer>();
         Sr.color = new Color(255f, 255f, 255f, 255f);
@@ -30,8 +34,8 @@ public class FlamethrowerBullet : MonoBehaviour, IPooledObject
     void Update()
     {
         Sr.color = new Color(255f, 255f, 255f, speedx * 255f - 25.5f) * Time.deltaTime;
-        speedx *= 0.92f;
-        speedy *= 0.92f;
+        speedx *= speeddiv;
+        speedy *= speeddiv;
         Movement = new Vector2(speedx, speedy);
         tf.localScale += new Vector3(1f, 1f, 0f) * Time.deltaTime;
         if (speedx <= 0.1f)

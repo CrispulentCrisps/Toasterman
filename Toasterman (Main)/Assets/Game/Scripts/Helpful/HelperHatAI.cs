@@ -53,7 +53,7 @@ public class HelperHatAI : MonoBehaviour, IPooledObject
             anim.SetTrigger("PowerShoot");
             Thrown = true;
         }
-        if (tf.position.y > -20f)
+        if (tf.position.y < -20f)
         {
             gameObject.active = false;
             EnemyScript.EnemyAmount--;

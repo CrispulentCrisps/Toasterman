@@ -73,14 +73,6 @@ public class ShieldMakerCore : MonoBehaviour
     public void Fanfare()
     {
         AudioManager.instance.Play("Victory2");
-        PlanetTally.PlanetsDone[0] = true;
-        PlanetTally.TimesCompleted[0] += 1;
-        if (Shooting.TargetScore > PlanetTally.PlanetScore[0])
-        {
-            PlanetTally.PlanetScore[0] = Shooting.TargetScore;
-        }
-        PlanetTally pt = GameObject.FindGameObjectWithTag("TallyCounter").GetComponent<PlanetTally>();
-        pt.SaveData();
     }
 
     public void BoomUp()

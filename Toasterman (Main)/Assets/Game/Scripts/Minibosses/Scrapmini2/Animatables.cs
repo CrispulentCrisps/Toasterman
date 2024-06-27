@@ -32,7 +32,6 @@ public class Animatables : MonoBehaviour
     {
         F += Time.deltaTime;
         P += Time.deltaTime;
-
         if (BodyType == 0)
         {
             transform.position = new Vector2(ParentTrans.position.x + Centerpos.x + Mathf.Sin(P + Centerpos.y / 4) * XDiv, ParentTrans.position.y + Centerpos.y + Mathf.Sin(P + Centerpos.y / 8) * 0.25f);

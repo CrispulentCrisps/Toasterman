@@ -36,15 +36,15 @@ public class ScrapGun : MonoBehaviour, IPooledObject
         if (dir == 0)
         {
             Points[0] = transform.position;
-            Points[1] = new Vector2(transform.position.x - 2, transform.position.y);
-            Points[2] = new Vector2(transform.position.x - 2, transform.position.y + Range);
+            Points[1] = new Vector2(transform.position.x - 1, transform.position.y);
+            Points[2] = new Vector2(transform.position.x - 1, transform.position.y + Range);
             Points[3] = new Vector2(transform.position.x, transform.position.y + Range);
         }
         else
         {
             Points[0] = transform.position;
-            Points[1] = new Vector2(transform.position.x + 2, transform.position.y);
-            Points[2] = new Vector2(transform.position.x + 2, transform.position.y + Range);
+            Points[1] = new Vector2(transform.position.x + 1, transform.position.y);
+            Points[2] = new Vector2(transform.position.x + 1, transform.position.y + Range);
             Points[3] = new Vector2(transform.position.x, transform.position.y + Range);
         }
         Speed = Random.RandomRange(3f, 8f);
@@ -64,15 +64,15 @@ public class ScrapGun : MonoBehaviour, IPooledObject
         if (dir == 0)
         {
             Points[0] = transform.position;
-            Points[1] = new Vector2(transform.position.x - 2, transform.position.y);
-            Points[2] = new Vector2(transform.position.x - 2, transform.position.y + Range);
+            Points[1] = new Vector2(transform.position.x - 1, transform.position.y);
+            Points[2] = new Vector2(transform.position.x - 1, transform.position.y + Range);
             Points[3] = new Vector2(transform.position.x, transform.position.y + Range);
         }
         else
         {
             Points[0] = transform.position;
-            Points[1] = new Vector2(transform.position.x + 2, transform.position.y);
-            Points[2] = new Vector2(transform.position.x + 2, transform.position.y + Range);
+            Points[1] = new Vector2(transform.position.x + 1, transform.position.y);
+            Points[2] = new Vector2(transform.position.x + 1, transform.position.y + Range);
             Points[3] = new Vector2(transform.position.x, transform.position.y + Range);
         }
         Speed = Random.RandomRange(3f, 8f);
@@ -84,8 +84,12 @@ public class ScrapGun : MonoBehaviour, IPooledObject
         {
             transform.position = Vector2.MoveTowards(transform.position, Points[Index], Speed * Time.deltaTime);
         }
+        else
+        {
+            gameObject.active = false;
+        }
 
-        if (Index > 0 && Index < 2)
+        if (Index > 1 && Index < 3 && !Fired)
         {
             if (dir == 0)
             {
@@ -98,38 +102,44 @@ public class ScrapGun : MonoBehaviour, IPooledObject
                 LaserRight.active = true;
             }
         }
+        else
+        {
+            LaserLeft.active = false;
+            LaserRight.active = false;
+        }
+        if ((Vector2)transform.position == Points[Index] && Index == 4)
+        {
+            gameObject.active = false;
+        }
+        else if ((Vector2)transform.position == Points[Index] && Index < Points.Length)
+        {
+            Index++;
+        }
 
         if (!Fired)
         {
             if (dir == 0)
             {
-                if (Target.position.y > transform.position.y + 1 && Target.position.y < transform.position.y - 1 && Target.position.x < transform.position.x)
+                if (Target.position.y < transform.position.y + 1 && Target.position.y > transform.position.y - 1 && Target.position.x < transform.position.x)
                 {
-                    BulletPatternsModule.ShootLine(BulletSpeed, MinVel, MaxVel, BulletAmount, BulletName, transform, 90f);
+                    BulletPatternsModule.ShootLine(BulletSpeed, MinVel, MaxVel, BulletAmount, BulletName, transform, 180f);
                     Fired = true;
                     LaserLeft.active = false;
                     LaserRight.active = false;
+                    AudioManager.instance.Play("EnemyShoot2");
                 }
             }
             else
             {
-                if (Target.position.y > transform.position.y + 1 && Target.position.y < transform.position.y - 1 && Target.position.x < transform.position.x)
+                if (Target.position.y < transform.position.y + 1 && Target.position.y > transform.position.y - 1 && Target.position.x > transform.position.x)
                 {
-                    BulletPatternsModule.ShootLine(BulletSpeed, MinVel, MaxVel, BulletAmount, BulletName, transform, 270f);
+                    BulletPatternsModule.ShootLine(BulletSpeed, MinVel, MaxVel, BulletAmount, BulletName, transform, 0f);
                     Fired = true;
                     LaserLeft.active = false;
                     LaserRight.active = false;
+                    AudioManager.instance.Play("EnemyShoot2");
                 }
             }
-        }
-
-        if ((Vector2)transform.position == Points[Index] && Index < Points.Length)
-        {
-            Index++;
-        }
-        else if ((Vector2)transform.position == Points[Index] && Index >= Points.Length-1)
-        {
-            gameObject.active = false;
         }
     }
 }

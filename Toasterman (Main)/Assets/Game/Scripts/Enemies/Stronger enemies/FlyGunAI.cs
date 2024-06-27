@@ -38,14 +38,15 @@ public class FlyGunAI : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
-        tf.position = new Vector3(-20f, 10f, 0f);
+        tf.position = new Vector3(20f, 10f, 0f);
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void OnObjectSpawn()
     {
         EnemyScript.EnemyAmount++;
-        tf.position = new Vector3(-20f,15f,0f);
+        tf.position = new Vector3(20f,15f,0f);
+        TimeToShoot = 8f;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -142,7 +143,6 @@ public class FlyGunAI : MonoBehaviour, IPooledObject
 
     public void Fire()
     {
-        EnemyScript.EnemyAmount--;
         HasFired = true;
         objectPooler.SpawnFromPool("FlyLaser", new Vector3(tf.position.x + 40f, tf.position.y - 3f, 0f), Quaternion.identity);
         Movement.x = 60f;

@@ -2,21 +2,25 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class Data 
+public class Data
 {
-    public bool[] PlanetsCompleted = { false, false, false };
-    public float[] ScoreForPlanet = { 0, 0, 0 };
-    public int[] TimesLost = { 0, 0, 0 };
-    public int[] TimesPlayed = { 0, 0, 0 };
-    public bool[] DevScoreBeat = { false, false, false };
+    public bool[] PlanetsCompleted =        { false, false, false, false, false };
+    public float[] ScoreForPlanet =         { 0, 0, 0, 0, 0 };
+    public float[] HighScore =              { 0, 0, 0, 0, 0 };
+    public int[] TimesLost =                { 0, 0, 0, 0, 0 };
+    public int[] TimesPlayed =              { 0, 0, 0, 0, 0 };
+    public int[] DevScore =                 { 0, 0, 0, 0, 0 };
+    public bool[] DevScoreBeat =            { false, false, false, false, false };
 }
 public class SaveScript : MonoBehaviour
 {
-    public bool[] TEMP_PlanetsCompleted = { false, false, false };
-    public float[] TEMP_ScoreForPlanet = { 0, 0, 0 };
-    public int[] TEMP_TimesLost = { 0, 0, 0 };
-    public int[] TEMP_TimesPlayed = { 0, 0, 0 };
-    public bool[] TEMP_DevScoreBeat = { false, false, false };
+    public bool[] TEMP_PlanetsCompleted =   { false, false, false, false, false };
+    public float[] TEMP_ScoreForPlanet =    { 0, 0, 0, 0, 0 };
+    public float[] TEMP_HighScore =         { 0, 0, 0, 0, 0 };
+    public int[] TEMP_TimesLost =           { 0, 0, 0, 0, 0 };
+    public int[] TEMP_TimesPlayed =         { 0, 0, 0, 0, 0 };
+    public int[] TEMP_DevScore =            { 0, 0, 0, 0, 0 };
+    public bool[] TEMP_DevScoreBeat =       { false, false, false, false, false };
     Data data;
     string path;
 
@@ -53,6 +57,7 @@ public class SaveScript : MonoBehaviour
         data = JsonUtility.FromJson<Data>(File.ReadAllText(path));
         TEMP_PlanetsCompleted = data.PlanetsCompleted;
         TEMP_ScoreForPlanet = data.ScoreForPlanet;
+        TEMP_HighScore = data.HighScore;
         TEMP_TimesLost = data.TimesLost;
         TEMP_TimesPlayed = data.TimesPlayed;
         TEMP_DevScoreBeat = data.DevScoreBeat;
@@ -82,5 +87,4 @@ public class SaveScript : MonoBehaviour
     {
         TEMP_PlanetsCompleted[index] = State;
     }
-
 }

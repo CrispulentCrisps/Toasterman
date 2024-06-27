@@ -341,7 +341,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0ce50db6b841df449aa0089547061f24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,11 +397,11 @@ MonoBehaviour:
   bounds: {fileID: 4437360254698354949}
   RegenRate: 0.05
   Normalspeed: 14
-  DashLength: 5
-  DashLengthRet: 0.75
   DashSpeed: 28
   Dashin: 0
   Inverse: 0
+  ShipRot: 0
+  Freeform: 0
   camerashake: {fileID: 0}
   HealthSlider: {fileID: 0}
   DashSlider: {fileID: 0}

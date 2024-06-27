@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1543121981
-  m_SortingLayer: 5
+  m_SortingLayerID: 154744389
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 1927484963, guid: 8c14e8cb11b42ee4c829240de08f6026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,8 +194,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1543121981
-  m_SortingLayer: 5
+  m_SortingLayerID: 154744389
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -993601476, guid: 8c14e8cb11b42ee4c829240de08f6026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,13 +315,13 @@ SpriteMask:
   m_SortingOrder: 0
   m_Sprite: {fileID: -993601476, guid: 8c14e8cb11b42ee4c829240de08f6026, type: 3}
   m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
+  m_FrontSortingLayerID: 154744389
+  m_BackSortingLayerID: 154744389
+  m_FrontSortingLayer: 7
+  m_BackSortingLayer: 7
+  m_FrontSortingOrder: 2
   m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!1 &9013501055184589989
 GameObject:
@@ -374,7 +374,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -395,8 +395,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1543121981
-  m_SortingLayer: 5
+  m_SortingLayerID: 154744389
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 864285495, guid: 8c14e8cb11b42ee4c829240de08f6026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -426,8 +426,10 @@ MonoBehaviour:
   rb: {fileID: 9013501055184589986}
   XAmp: 1
   YAmp: 0
+  ZAmp: 0
   XOff: 1.5
   YOff: 0
+  ZOff: 0
   Speed: 1
   PhaseOffset: 0
   PointFromCenter: 0

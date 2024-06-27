@@ -3,6 +3,9 @@
 //Actual enemy stuff
 public class EnemyShootScript : MonoBehaviour, IPooledObject
 {
+
+    protected ObjectPools objectPooler;
+
     public Vector2 speed;
 
     public SpriteRenderer[] sr;
@@ -27,11 +30,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public string BulletName;
 
-    public float RotationSpeed;
-
     public int RegularAmount;
-
-    ObjectPools objectPooler;
 
     private int I; // Wave number
     public int Charge;
@@ -47,14 +46,13 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
     public float BaseSpeed;
     public float MinVel;
     public float MaxVel;
-    
     public int ArcRepeat;
 
     public bool RotateGun;
 
     [Range(-5f,5f)]
     public float GunRotateAmount;
-    private float FireRate;
+    protected float FireRate;
 
     public bool ShootNearPlayer;
 
@@ -105,6 +103,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         {
             EnemyShootSound = "EnemyShoot";
         }
+        FireRate = 0;
     }
 
     void Awake()
@@ -122,7 +121,7 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         }
     }
 
-    public void ShootBullet()
+    public virtual void ShootBullet()
     {
         AudioManager.instance.ChangePitch(EnemyShootSound, Random.Range(0.5f,1.5f));
         AudioManager.instance.Play(EnemyShootSound);
@@ -157,11 +156,9 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         {
             sr[i].color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
         }
-        tf.Rotate(0f, 0f, RotationSpeed * Time.deltaTime);
 
         if (tf.position.x <= -30 || tf.position.x >= 30)
         {
-            //Debug.Assert(gameObject.active);
             EnemyScript.EnemyAmount--;
             gameObject.SetActive(false);
 
@@ -197,13 +194,10 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
                 AudioManager.instance.Play(EnemyHurtSound);
             }
             Health -= coll.GetComponent<DamageScript>().Damage;
-            for (int i = 0; i < sr.Length; i++)
+
+            if (Health <= 0f && gameObject.active)
             {
-                sr[i].color = hurtColour;
-            }
-            if (Health <= 0f)
-            {
-                Shooting.TargetScore += this.GetComponent<DamageScript>().Points * this.GetComponent<DamageScript>().PointMultiplier;
+                Shooting.TargetScore += GetComponent<DamageScript>().Points * GetComponent<DamageScript>().PointMultiplier;
                 objectPooler.SpawnFromPool(ExplosionName, tf.position, Quaternion.identity);
                 if (ExplosionSound != "")
                 {
@@ -211,6 +205,11 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
                 }
                 EnemyScript.EnemyAmount--;
                 gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < sr.Length; i++)
+            {
+                sr[i].color = hurtColour;
             }
         }
     }
@@ -227,6 +226,5 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         {
             rb.MovePosition(rb.position - speed * Time.deltaTime); //DO NOT CHANGE !!!!!!!
         }
-        
     }
 }

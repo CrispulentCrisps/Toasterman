@@ -21,28 +21,32 @@ public class WavyText : MonoBehaviour
 
     void FixedUpdate()
     {
-        text.ForceMeshUpdate();
-        mesh = text.mesh;
-        Vertices = mesh.vertices;
-
-        for (int i = 0; i < text.textInfo.characterCount; i++)
+        if (gameObject.activeSelf)
         {
-            if (characters[i] != ' ')
+            if (characters == null) characters = text.text.ToCharArray();
+            text.ForceMeshUpdate();
+            mesh = text.mesh;
+            Vertices = mesh.vertices;
+
+            for (int i = 0; i < text.textInfo.characterCount; i++)
             {
-                TMP_CharacterInfo c = text.textInfo.characterInfo[i];
-                int index = c.vertexIndex;
-
-                Vector3 offset = SineMove(amp1, amp2, freq1, freq2, Time.time + i + index);
-
-                for (int j = 0; j < 4; j++)
+                if (characters[i] != ' ')
                 {
-                    Vertices[index + j] += offset;
+                    TMP_CharacterInfo c = text.textInfo.characterInfo[i];
+                    int index = c.vertexIndex;
+
+                    Vector3 offset = SineMove(amp1, amp2, freq1, freq2, Time.time + i + index);
+
+                    for (int j = 0; j < 4; j++)
+                    {
+                        Vertices[index + j] += offset;
+                    }
                 }
             }
-        }
 
-        mesh.vertices = Vertices;
-        text.canvasRenderer.SetMesh(mesh);
+            mesh.vertices = Vertices;
+            text.canvasRenderer.SetMesh(mesh);
+        }
     }
 
     Vector2 SineMove(float A1, float A2, float F1, float F2, float t)

@@ -23,8 +23,8 @@ public class SceneChange : MonoBehaviour
 
         if (MusicName != "")
         {
-            FindObjectOfType<AudioManager>().Play(MusicName);
-            FindObjectOfType<AudioManager>().SetVolume(MusicName, 0f);
+            AudioManager.instance.Play(MusicName);
+            AudioManager.instance.SetVolume(MusicName, 0f);
             if (FadeInMusic == true)
             {
                 StartCoroutine(AudioManager.instance.FadeAudio(MusicName, -0.5f));

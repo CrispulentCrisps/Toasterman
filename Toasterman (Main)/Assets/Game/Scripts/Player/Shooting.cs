@@ -58,27 +58,27 @@ public class Shooting : MonoBehaviour
         ScoreDisplay.color += new Color(255f, 255f, 255f, 255f) * Time.deltaTime * 0.1f;
 
 		#region ScoreDisplay
-		if (TargetScore - Score <= 1000 && TargetScore - Score > 100)
+		if (TargetScore - Score <= 1000 && TargetScore - Score > 100 || TargetScore - Score >= -1000 && TargetScore - Score < -100)
         {
             if (Score < TargetScore)
             {
                 Score += 100;
                 ScoreDisplay.color = AddColour;
             }
-            else if (Score > TargetScore)
+            if (Score > TargetScore)
             {
                 Score -= 100;
                 ScoreDisplay.color = TakeColour;
             }
         }
-        else if (TargetScore - Score <= 100 && TargetScore - Score > 10)
+        else if (TargetScore - Score <= 100 && TargetScore - Score > 10 || TargetScore - Score >= -100 && TargetScore - Score < -10)
         {
             if (Score < TargetScore)
             {
                 Score += 10;
                 ScoreDisplay.color = AddColour;
             }
-            else if (Score > TargetScore)
+            if (Score > TargetScore)
             {
                 Score -= 10;
                 ScoreDisplay.color = TakeColour;
@@ -91,7 +91,7 @@ public class Shooting : MonoBehaviour
                 Score++;
                 ScoreDisplay.color = AddColour;
             }
-            else if (Score > TargetScore)
+            if (Score > TargetScore)
             {
                 Score--;
                 ScoreDisplay.color = TakeColour;

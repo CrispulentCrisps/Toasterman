@@ -3,7 +3,6 @@ using System.Collections;
 public class ScrapBossAI : StateMachineBehaviour
 {
     public ScrapEvents SE;
-    public Transform BodyTf;
     public Transform AnimTf;
     public Transform PlayerTf;
     public Transform SpawnPoint;
@@ -12,17 +11,18 @@ public class ScrapBossAI : StateMachineBehaviour
     float Amp = 0;
     public float T;
     public float T2;
-    public static float health = 3000f;
+    public static float health = 2500f;
     public static bool StartAmp = false;
-
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SE = GameObject.Find("ScrapBoss").GetComponent<ScrapEvents>();
-        PlayerTf = GameObject.Find("Ship").GetComponent<Transform>();
-        BodyTf = GameObject.Find("FollowPoint").GetComponent<Transform>();
-        AnimTf = GameObject.Find("P3ANIM").GetComponent<Transform>();
-        SpawnPoint = GameObject.Find("TentacleParent").GetComponent<Transform>();
-        EyeTf = GameObject.Find("Pupil").GetComponent<Transform>();
+        if (!animator.GetBool("IsDead"))
+        {
+            SE = GameObject.Find("ScrapBoss(Clone)").GetComponent<ScrapEvents>();
+            PlayerTf = GameObject.Find("Ship").GetComponent<Transform>();
+            AnimTf = GameObject.Find("P3ANIM").GetComponent<Transform>();
+            SpawnPoint = GameObject.Find("TentacleParent").GetComponent<Transform>();
+            EyeTf = GameObject.Find("Pupil").GetComponent<Transform>();
+        }
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -30,28 +30,28 @@ public class ScrapBossAI : StateMachineBehaviour
         Debug.Log("State = " + SE.State + ": Health = " + health);
         T += Time.deltaTime;
         T2 += Time.deltaTime;
-		if (health <= 2000 && health > 2000)//Second phase
+		if (health <= 2000 && health > 1500)//Second phase
         {
             SE.RemoveTailColliders();
             SE.State = 2;
             animator.SetTrigger("P1");
 		}
-        else if (health <= 2000 && health > 1500)//Third phase
+        else if (health <= 1500 && health > 1000)//Third phase
         {
             SE.State = 3;
             animator.SetTrigger("P2");
         }
-        else if (health <= 1500 && health > 1000)//Fourth phase
+        else if (health <= 1000 && health > 500)//Fourth phase
         {
             SE.State = 4;
             animator.SetTrigger("P3");
         }
-        else if (health <= 1000 && health > 500)//Fourth phase
+        else if (health <= 500 && health > 0)//Fourth phase
         {
             SE.State = 5;
             animator.SetTrigger("P4");
         }
-        else if (health <= 500 && health > 0)//Fifth phase
+        else if (health <= 0)//Fifth phase
         {
             SE.State = 6;
             animator.SetTrigger("P5");
@@ -143,6 +143,7 @@ public class ScrapBossAI : StateMachineBehaviour
             case 6:
                 T = -99f;
                 AnimTf.position = Vector3.MoveTowards(AnimTf.position, new Vector3(12f,-5f,0f), 4f * Time.deltaTime);
+                animator.SetBool("IsDead", true);
                 break;
         }
     }

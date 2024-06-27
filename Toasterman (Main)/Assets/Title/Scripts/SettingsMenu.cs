@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 [System.Serializable]
 public class SettingsData
@@ -42,14 +43,24 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
     {
         fpsdis = Camera.main.GetComponent<FPSDisplay>();
+        //profile = GameObject.FindGameObjectWithTag("Volume").GetComponent<UnityEngine.Rendering.VolumeProfile>();
     }
     void OnLevelWasLoaded()
     {
-        scanlines = GameObject.Find("Scanlines 1");
+        scanlines = GameObject.FindGameObjectWithTag("Scanlines");
 
         resolutions = Screen.resolutions;
 
         ResolutionDropdown.ClearOptions();
+        List<string> StringOptions = new List<string>();
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string a = resolutions[i].width + "x" + resolutions[i].height;
+            StringOptions.Add(a);
+        }
+
+        ResolutionDropdown.AddOptions(StringOptions);
 
         string path = Application.streamingAssetsPath + "/settings.json";
         settings = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
@@ -177,8 +188,14 @@ public class SettingsMenu : MonoBehaviour
     public void SetBloom(bool Set)
     {
         UnityEngine.Rendering.Universal.Bloom bloom;
-        profile.TryGet(out bloom);
-        bloom.active = Set;
+        if (profile.TryGet(out bloom))
+        {
+            bloom.active = Set;
+        }
+        else
+        {
+            Debug.LogError("ERROR: BLOOM NOT FOUND");
+        }
     }
 
     public void SetScanlines(float opaque)
@@ -189,7 +206,13 @@ public class SettingsMenu : MonoBehaviour
     public void SetLens(bool Set)
     {
         UnityEngine.Rendering.Universal.LensDistortion ld;
-        profile.TryGet(out ld);
-        ld.active = Set;
+        if(profile.TryGet(out ld))
+        {
+            ld.active = Set;
+        }
+        else
+        {
+            Debug.LogError("ERROR: LENS DISTORTION NOT FOUND");
+        }
     }
 }

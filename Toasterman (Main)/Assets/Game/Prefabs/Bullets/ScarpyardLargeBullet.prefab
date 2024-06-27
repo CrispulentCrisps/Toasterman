@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8609770414150326578}
   m_Layer: 0
   m_Name: ScarpyardLargeBullet
-  m_TagString: Bullet
+  m_TagString: NotSoGoodThing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4583417286241107767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50, y: 6, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   tr: {fileID: 0}
   Bounds: {x: 0, y: 0}
   BulletParticle: Explosion
-  BulletSoundOnImpact: Explosion
+  BulletSoundOnImpact: MidExplosion
   speedx: 1
   speedy: 0
   ChangeAcc: 0

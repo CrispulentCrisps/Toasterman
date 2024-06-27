@@ -40,34 +40,27 @@ public class PlanetSelect : MonoBehaviour
         StatsBox.localScale = new Vector2(0f, 1f);
         Selected = false;
         dialog = GameObject.Find("Dialogmanager").GetComponent<Dialog>();
-        Completed = PlanetTally.PlanetsDone[0];
-
-        if (PlanetBefore != null && PlanetBefore.GetComponent<PlanetSelect>().Completed == true)
+        Completed = PlanetTally.PlanetsDone[PlanetNum-1];
+        if (PlanetBefore != null)
         {
-            Locked = false;
+            Locked = !PlanetTally.PlanetsDone[PlanetBefore.GetComponent<PlanetSelect>().PlanetNum-1];
         }
-        else if (PlanetBefore == null)
-        {
-            Locked = false;
-        }
-        else if (Completed == false)
-        {
-            Locked = true;
-        }
-
         //Check if level is Locked
-        if (Locks.Length != 0 && Locked == false)
-        { 
-            for (int i = 0; i < Locks.Length; i++)
-            {
-                Locks[i].SetActive(false);
-            }
-        }
-        else
+        if (Locks.Length != 0)
         {
-            for (int i = 0; i < Locks.Length; i++)
+            if (!Locked)
             {
-                Locks[i].SetActive(true);
+                for (int i = 0; i < Locks.Length; i++)
+                {
+                    Locks[i].SetActive(false);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Locks.Length; i++)
+                {
+                    Locks[i].SetActive(true);
+                }
             }
         }
 

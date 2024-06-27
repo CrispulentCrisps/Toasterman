@@ -2,9 +2,9 @@
 
 public class PlanetTally : MonoBehaviour
 {
-    public static bool[] PlanetsDone = { false, false};
-    public static float[] PlanetScore = { 0, 0 };
-    public static int[] TimesCompleted = { 0, 0 };
+    public static bool[] PlanetsDone = { false, false, false, false, false };
+    public static float[] PlanetScore = { 0, 0, 0, 0, 0 };
+    public static int[] TimesCompleted = { 0, 0, 0, 0, 0 };
 
     public SaveScript save;
     void Start()

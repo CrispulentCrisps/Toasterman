@@ -4,9 +4,9 @@ using UnityEngine;
 public class ParalaxStuff : MonoBehaviour
 {
     public GameObject[] Layer;
-    Transform[] LayerTf;
+    public Transform[] LayerTf;
 
-    SpriteRenderer[] Sr;
+    public SpriteRenderer[] Sr;
 
     public float[] ParaDampen;
     public float[] YPos;
@@ -14,7 +14,7 @@ public class ParalaxStuff : MonoBehaviour
     public float paraspeedGoal;
     public float paraspeedIncrement;
     public static float BGSpeed;
-    float[] Length;
+    public float[] Length;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +47,10 @@ public class ParalaxStuff : MonoBehaviour
     // Update is called once per few frames
     void FixedUpdate()
     {
+        MoveBG();
+    }
+    public void MoveBG()
+    {
         for (int i = 0; i < Layer.Length; i++)
         {
             LayerTf[i].position -= new Vector3(paraspeed / ParaDampen[i] * Time.deltaTime, 0f, 0);
@@ -55,12 +59,10 @@ public class ParalaxStuff : MonoBehaviour
         {
             if (LayerTf[i].position.x < -Length[i] || LayerTf[i].position.x > Length[i])
             {
-                LayerTf[i].position += new Vector3(Length[i]*2, 0f);
+                LayerTf[i].position += new Vector3(Length[i] * 2, 0f);
             }
         }
-
     }
-
     public IEnumerator MoveYAToB(float seconds, float[] YPosB, AnimationCurve ACurve)
     {
         float t = 0f;  //time value for the ACurve.Evaluate

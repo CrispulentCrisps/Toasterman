@@ -2,7 +2,7 @@ using UnityEngine;
 [System.Serializable]
 
 public class SentencesRec
-{
+{   
     public string Words;
     public bool ToastIn;
     public bool AndrussIn;

@@ -23,6 +23,7 @@ public class TurretAI : MonoBehaviour, IPooledObject
     public float ShakeAmp;
     public float ShakeFreq;
     public float Health;
+    float Preamble;
     int HeightLevel;
     bool IsFlipped;
     bool Exploded;
@@ -37,7 +38,7 @@ public class TurretAI : MonoBehaviour, IPooledObject
         Angles = new float[] { 0f, 22.5f, 30f, 45f, 60f};
         //.position = new Vector3(Random.RandomRange(-9f, 9f), -10f, Tf.position.z);
         Tf.position = new Vector3(Random.RandomRange(-9f, 9f), -10f, Tf.position.z);
-        HeightLevel = Random.Range(-4, 0);
+        HeightLevel = Random.Range(-2, 2);
         Exploded = false;
     }
 
@@ -47,12 +48,14 @@ public class TurretAI : MonoBehaviour, IPooledObject
         EnemyScript.EnemyAmount++;
         Tf.position = new Vector3(Random.RandomRange(-9f, 9f), -10f, Tf.position.z);
         HeightLevel = Random.Range(4, 12);
+        Preamble = 0;
     }
      
     void Update()
     {
         if (!Exploded)
         {
+            Preamble += Time.deltaTime;
             T += Time.deltaTime;
             T2 += Time.deltaTime;
             int index = 0;
@@ -141,7 +144,7 @@ public class TurretAI : MonoBehaviour, IPooledObject
                 Segments[i].position = new Vector3(Tf.position.x + ShakeAmp * Mathf.Sin(T * ShakeFreq + 180 * (i % 2) + Segments[i].position.y), Segments[i].position.y, Segments[i].position.z);
             }
 
-            if (T2 >= 1f && !Exploded)
+            if (T2 >= 1f && !Exploded && Preamble > 5)
             {
                 Vector3 difference = Target.position - ShootPoint.position;
                 float AngleOffset = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg - (180f * .5f);

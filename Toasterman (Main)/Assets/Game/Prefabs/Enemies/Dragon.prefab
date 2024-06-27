@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -662,7 +662,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 45
+    angle: 75.15
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -985,20 +985,20 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.38078296
+          outSlope: 0.38078296
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 1
-          tangentMode: 34
+          value: 0.38078296
+          inSlope: -0
+          outSlope: -0
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.62191784
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -5046,8 +5046,8 @@ MonoBehaviour:
   Head: {fileID: 6397757591094736641}
   Anim: {fileID: 6397757591456826261}
   Speed: 7
-  RotSpeed: 135
-  Health: 40
+  RotSpeed: 180
+  Health: 60
   Firing: 0
 --- !u!1 &6397757590474099659
 GameObject:
