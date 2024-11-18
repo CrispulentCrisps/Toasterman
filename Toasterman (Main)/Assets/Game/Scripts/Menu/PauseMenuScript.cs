@@ -16,6 +16,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void Start()
     {
+        scenechange = FindObjectOfType<SceneChange>().GetComponent<SceneChange>();
         Pausable = true;
     }
 

@@ -50,7 +50,7 @@ public class AncientAI : MonoBehaviour, IPooledObject
     void Start()
     {
         objectPooler = ObjectPools.Instance;
-        SineFreq = 1f;
+        SineFreq = .33f;
         SineAmp = 1f;
         j = 0;
         handscripts[0] = Hands[0].GetComponent<HandScript>();

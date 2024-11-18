@@ -37,14 +37,15 @@ public class HomingSawAI : MonoBehaviour, IPooledObject
         EnemyScript.EnemyAmount++;
         if (enemyscript.Waves[enemyscript.i].XY == EnemySet.XorY.X)//Assume we are working on the X axis
         {
-            AimPos = new Vector3(14 * enemyscript.Waves[enemyscript.i].Inverse, (enemyscript.WallSpace / enemyscript.Waves[enemyscript.i].Amount) * 12 + enemyscript.Waves[enemyscript.i].StartYpos);
-            transform.position = new Vector3(AimPos.x - (2 * enemyscript.Waves[enemyscript.i].Inverse), AimPos.y);
+            AimPos = new Vector3(12 * enemyscript.Waves[enemyscript.i].Inverse, (enemyscript.WallSpace / enemyscript.Waves[enemyscript.i].Amount) * 12 + enemyscript.Waves[enemyscript.i].StartYpos);
+            transform.position = new Vector3(AimPos.x + (2 * enemyscript.Waves[enemyscript.i].Inverse), AimPos.y);
         }
         else//working on Y axis
         {
-            AimPos = new Vector3((enemyscript.WallSpace / enemyscript.Waves[enemyscript.i].Amount) * 14 + enemyscript.Waves[enemyscript.i].StartYpos, 12 * enemyscript.Waves[enemyscript.i].Inverse);
-            transform.position = new Vector3(AimPos.x, AimPos.y - (2 * enemyscript.Waves[enemyscript.i].Inverse));
+            //AimPos = new Vector3((enemyscript.WallSpace / enemyscript.Waves[enemyscript.i].Amount) * 12 + enemyscript.Waves[enemyscript.i].StartYpos, 12 * enemyscript.Waves[enemyscript.i].Inverse);
+            //transform.position = new Vector3(AimPos.x, AimPos.y - (2 * enemyscript.Waves[enemyscript.i].Inverse));
         }
+        Timer = 0f;
     }
     
     void Start()
@@ -57,6 +58,10 @@ public class HomingSawAI : MonoBehaviour, IPooledObject
 
     void Update()
     {
+        for (int i = 0; i < sr.Length; i++)
+        {
+            sr[i].color += new Color(5f, 5f, 5f, 255f) * Time.deltaTime;
+        }
         Timer += Time.deltaTime;
         if (!StartAiming)
         {
@@ -69,7 +74,7 @@ public class HomingSawAI : MonoBehaviour, IPooledObject
         }
         AngleSpeed = (Timer / TimeBeforeThrow) * 45f;
         EyeIndex = Mathf.RoundToInt((Timer / TimeBeforeThrow)*1.5f);
-        if (EyeIndex <= EyeSprites.Length)
+        if (EyeIndex < EyeSprites.Length)
         {
             sr[0].sprite = EyeSprites[EyeIndex];
         }

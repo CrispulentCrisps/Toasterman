@@ -865,13 +865,14 @@ MonoBehaviour:
   EnemyHurtSound: MetalHit
   Health: 10
   BulletName: SplitShot
-  RotationSpeed: 0
   RegularAmount: 1
   Charge: 1
   Full: 3
   ShootType: 0
   RegularAngle: 0
   AngleOffset: 0
+  GapSize: 0
+  GapOffset: 0
   BaseSpeed: 11
   MinVel: 0
   MaxVel: 0
@@ -952,9 +953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe159b982c6dff4ca0a5e3b7df5b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
-  Points: 0
-  PointMultiplier: 0
+  Damage: 25
+  Points: 250
+  PointMultiplier: 1
 --- !u!1 &5064122329400461494
 GameObject:
   m_ObjectHideFlags: 0

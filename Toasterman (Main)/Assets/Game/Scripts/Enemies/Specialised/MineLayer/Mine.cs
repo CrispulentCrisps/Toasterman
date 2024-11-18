@@ -7,6 +7,7 @@ public class Mine : MonoBehaviour, IPooledObject
     protected ObjectPools objectPooler;
     private float T = 0;
     [SerializeField] private int Health;
+    private int MaxHealth;
     [SerializeField] private float RotationAmount;
     [SerializeField] private float Max_t;
     [SerializeField] private int BulletAmount;
@@ -26,16 +27,19 @@ public class Mine : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         T = 0;
+        EnemyScript.EnemyAmount++;
     }
 
     void Update()
     {
-        sr.color += (Color)Vector4.one * Time.deltaTime;
+        sr.color += ((Color)Vector4.one * Time.deltaTime);
+        Mathf.Clamp(sr.color.r, 0, Health / (float)MaxHealth);
         T += Time.deltaTime;
 
         if (Health <= 0)
         {
             objectPooler.SpawnFromPool(BrokenName, transform.position, Quaternion.identity);
+            EnemyScript.EnemyAmount--;
             gameObject.active = false;
         }
 
@@ -43,6 +47,7 @@ public class Mine : MonoBehaviour, IPooledObject
         {
             BulletPatternsModule.ShootArc(BulletArcAngle, BulletAmount, BulletName, transform, 0f);
             objectPooler.SpawnFromPool(ExplosionName, transform.position, Quaternion.identity);
+            EnemyScript.EnemyAmount--;
             gameObject.active = false;
         }
     }

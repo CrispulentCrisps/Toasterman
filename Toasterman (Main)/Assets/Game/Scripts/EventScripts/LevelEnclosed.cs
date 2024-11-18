@@ -64,7 +64,7 @@ public class LevelEnclosed : MonoBehaviour, IPooledObject
                 RealSpeed = Mathf.Clamp(RealSpeed, 0, Points[Index].Speed);
                 PreviousPos = transform.position;
                 transform.position = Vector2.MoveTowards(transform.position, Points[Index].XY, RealSpeed * Time.deltaTime);
-                BulletAI.SpeedOffset = new Vector2((transform.position.x - PreviousPos.x) / Time.deltaTime, (transform.position.y - PreviousPos.y) / Time.deltaTime);
+                //BulletAI.SpeedOffset = new Vector2((transform.position.x - PreviousPos.x) / Time.deltaTime, (transform.position.y - PreviousPos.y) / Time.deltaTime);
             }
         }
         else

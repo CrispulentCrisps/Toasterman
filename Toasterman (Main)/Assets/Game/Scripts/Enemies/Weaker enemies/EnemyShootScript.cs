@@ -63,13 +63,12 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
 
     public bool Move;
 
-    public void OnObjectSpawn()
+    public virtual void OnObjectSpawn()
     {
         enemyscript = GameObject.Find("EnemyWaveMaker").GetComponent<EnemyScript>();// gets the scripts for the wave makers
         tf = transform;
         EnemyScript.EnemyAmount++;
         I = enemyscript.i;
-        speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);//This determines movement speed
 
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -88,7 +87,14 @@ public class EnemyShootScript : MonoBehaviour, IPooledObject
         {
             sr[0].flipX = true;
         }
-
+        if (enemyscript.Waves[I].XY == EnemySet.XorY.X)
+        {
+            speed = new Vector2(enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse, 0);//This determines movement speed
+        }
+        else
+        {
+            speed = new Vector2(0, enemyscript.Waves[I].EnemySpeed * enemyscript.Waves[I].Inverse);//This determines movement speed
+        }
         if (rb == null)
         {
             rb = gameObject.GetComponent<Rigidbody2D>();

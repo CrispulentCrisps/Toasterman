@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9213085718301433150
 Transform:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tf: {fileID: 7355937472312433442}
-  BulletName: Spore
+  BulletName: EnemyBullet
 --- !u!114 &7355937472312433445
 MonoBehaviour:
   m_ObjectHideFlags: 0

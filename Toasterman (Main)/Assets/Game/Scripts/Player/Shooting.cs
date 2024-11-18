@@ -179,7 +179,7 @@ public class Shooting : MonoBehaviour
                 break;
                 //Close Range Acid
             case 1:
-                Increment = 2f * ((BulletLevel[BulletType]*0.33f)+1);
+                Increment = 4f * ((BulletLevel[BulletType]*0.33f)+1);
                 objectPooler.SpawnFromPool(ProjectileNames[BulletType], ShootPos.position, Quaternion.EulerAngles(Quaternion.identity.x, Quaternion.identity.y, 135 * Pm.ShipRot));
                 break;
                 //Bouncer

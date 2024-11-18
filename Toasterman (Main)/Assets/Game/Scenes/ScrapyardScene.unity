@@ -7450,6 +7450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
         type: 3}
+      propertyPath: pools.Array.data[4].size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416080080228524153, guid: baa9d01b936971d4896629d0aec910c1,
+        type: 3}
       propertyPath: pools.Array.data[50].tag
       value: AcidAdd
       objectReference: {fileID: 0}
@@ -16812,7 +16817,7 @@ PrefabInstance:
     - target: {fileID: 3656163468234146367, guid: 941b6af08e2521548abf81b19fc50248,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8382819785414337618, guid: 941b6af08e2521548abf81b19fc50248,
         type: 3}
@@ -16887,6 +16892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scene changer
+      objectReference: {fileID: 0}
+    - target: {fileID: 450264641973510897, guid: 8903136cf2dbaa74ea390ce3b8984729,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 450264641973510899, guid: 8903136cf2dbaa74ea390ce3b8984729,
         type: 3}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletAI : MonoBehaviour, IPooledObject
 {
@@ -30,6 +31,7 @@ public class BulletAI : MonoBehaviour, IPooledObject
     public float SineFreq;
 
     [Header("Rotation")]
+    private bool DoRotate;
     public bool Rotate;
     public float AngleTarget;
     public float AngleTime;
@@ -80,6 +82,8 @@ public class BulletAI : MonoBehaviour, IPooledObject
     // Start is called before the first frame update
     public void OnObjectSpawn()
     {
+        DoRotate = Rotate;
+        tf = transform;
         if (Bounds.x == 0 || Bounds.y == 0)
         {
             Bounds.x = 40f;
@@ -102,6 +106,8 @@ public class BulletAI : MonoBehaviour, IPooledObject
             speedy = speedyMem;
         }
         Movement = new Vector2(speedx, speedy);
+        tf.rotation.Set(0f, 0f, 0f, 0f);
+        timer = 0;
         ST = 0f;//Sine phase
 
         Lifetime = LifetimeSave;
@@ -194,12 +200,12 @@ public class BulletAI : MonoBehaviour, IPooledObject
         }
 
         //Rotation
-        if (Rotate)
+        if (DoRotate)
         {
             timer += Time.deltaTime;
             if (timer >= AngleTime)
             {
-                Rotate = false;
+                DoRotate = false;
             }
 
             tf.Rotate(new Vector3(0f, 0f, AngleTarget * (AngleTime * Time.deltaTime)));
@@ -207,12 +213,12 @@ public class BulletAI : MonoBehaviour, IPooledObject
             if (AngleTarget > 0 && tf.rotation.z > AngleTarget)
             {
                 tf.rotation = Quaternion.Euler(0f, 0f, AngleTarget);
-                Rotate = false;
+                DoRotate = false;
             }
             else if (AngleTarget < 0 && tf.rotation.z < AngleTarget)
             {
                 tf.rotation = Quaternion.Euler(0f, 0f, AngleTarget);
-                Rotate = false;
+                DoRotate = false;
             }
         }
 

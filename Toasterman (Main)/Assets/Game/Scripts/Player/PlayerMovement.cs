@@ -216,8 +216,8 @@ public class PlayerMovement : MonoBehaviour, IPooledObject
     {
         objectPooler.SpawnFromPool("PlayerBlast", tf.position, Quaternion.identity);
         AudioManager.instance.Play("BigExplosion");
-        shooting.Score = Shooting.TargetScore;
         Shooting.TargetScore *= 0.5f;
+        shooting.Score = Shooting.TargetScore;
         Alive = false;
         Anim.SetTrigger("Killed");
         StartCoroutine(camerashake.Shake(.25f, .25f));

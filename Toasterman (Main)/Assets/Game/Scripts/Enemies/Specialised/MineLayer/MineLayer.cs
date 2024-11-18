@@ -38,7 +38,7 @@ public class MineLayer : MonoBehaviour, IPooledObject
         }
         else//working on Y axis
         {
-            Movement = new Vector2(0f,enemyscript.Waves[enemyscript.i].EnemySpeed * enemyscript.Waves[enemyscript.i].Inverse);
+            Movement = new Vector2(0f,-enemyscript.Waves[enemyscript.i].EnemySpeed * enemyscript.Waves[enemyscript.i].Inverse);
             Angleoff = 90;
         }
     }
@@ -91,7 +91,7 @@ public class MineLayer : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < 12 || transform.position.x > -12 || transform.position.y < 9 || transform.position.y > -9 ) Lay_t += Time.deltaTime;
+        if(transform.position.x < 12 && transform.position.x > -12 && transform.position.y < 8 && transform.position.y > -8 ) Lay_t += Time.deltaTime;
      
         if (Lay_t > LayTime)
         {

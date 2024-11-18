@@ -10,6 +10,8 @@ public class PowerUp : MonoBehaviour, IPooledObject
 
     private GameObject Target;
 
+    public bool StaticPower;
+
     private float YVel;
     private float XVel;
 
@@ -49,7 +51,7 @@ public class PowerUp : MonoBehaviour, IPooledObject
     {
         Movement = new Vector2(XVel, YVel);
         YVel -= FallSpeedMult * 9.81f * Time.deltaTime;
-        if (tf.position.y <= -10f)
+        if (tf.position.y <= -10f && !StaticPower)
         {
             gameObject.SetActive(false);
         }
