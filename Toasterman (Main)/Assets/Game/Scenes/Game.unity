@@ -763,96 +763,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &613943797
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 906740095}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3560554411322276637, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9d1db6803f282342a313f4d9bdddf96, type: 2}
-    - target: {fileID: 919132149155446097, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_Name
-      value: LizarmosV2 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567107424331199580, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9d1db6803f282342a313f4d9bdddf96, type: 2}
-    - target: {fileID: 2739910583821353735, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d9d1db6803f282342a313f4d9bdddf96, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23a31cdc59408c74aa45f9d3f1e2079a, type: 3}
---- !u!4 &613943798 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23a31cdc59408c74aa45f9d3f1e2079a,
-    type: 3}
-  m_PrefabInstance: {fileID: 613943797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &684316767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,38 +2157,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &906740094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 906740095}
-  m_Layer: 0
-  m_Name: LizarmosV2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &906740095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906740094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 613943798}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088393104
 GameObject:
   m_ObjectHideFlags: 0
@@ -6333,6 +6211,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0d13ae95d7ceb49ad654cc412297b9, type: 3}
+--- !u!1001 &1440770350996701557
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012042, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770350628012043, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_Name
+      value: LizarmosV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440770352214707992, guid: 95ec63f9632f86545a6314b4f7ffb3db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95ec63f9632f86545a6314b4f7ffb3db, type: 3}
 --- !u!114 &1453365525762916889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9048904338526046279, guid: 0f6abebcc55da8c4282e48dc9e2e0254,

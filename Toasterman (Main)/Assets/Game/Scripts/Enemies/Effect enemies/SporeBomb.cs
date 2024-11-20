@@ -38,8 +38,8 @@ public class SporeBomb : MonoBehaviour, IPooledObject
         Ship = GameObject.Find("Ship");//gets the game object
         Anim = gameObject.GetComponent<Animator>();
         Alive = true;
-        XAmp = Random.Range(10f, 1f);
-        YAmp = Random.Range(5f, 1f);
+        XAmp = Random.Range(3f, 1f);
+        YAmp = Random.Range(3f, 1f);
         SpeedMult = Random.Range(1f, 4f);
     }
 
@@ -73,11 +73,7 @@ public class SporeBomb : MonoBehaviour, IPooledObject
 
     public void ShootSpore(int Amount)
     {
-        for (int i = 0; i < Amount; i++)
-        {
-
-            objectPooler.SpawnFromPool(BulletName,tf.position,Quaternion.identity);
-        }
+        BulletPatternsModule.ShootArc(360, Amount, BulletName, transform, 45);
     }
 
     public void Alivent()
